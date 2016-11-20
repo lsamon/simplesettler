@@ -15,11 +15,15 @@
       <%= link_to "", root_path, :class => 'nav homeicon' %>
     </div>
     <div class="navRight">
+      <%= link_to 'How It Works', root_path, :class => "" %>
+      <%= link_to 'Jobs', root_path, :class => "" %>
+      <%= link_to 'Inspirations', root_path, :class => "" %>
+      <%= link_to 'Help & Advice', root_path, :class => " helpMenuItem" %>
       <% if @current_user.present? %>
-        <%= link_to "Logout #{ @current_user.name }", login_path, :method => 'delete', :class => "logoutButton" %>
+        <%= link_to "Logout #{ @current_user.name }", login_path, :method => 'delete', :class => "logoutButton " %>
       <% else %>
-        <%= link_to 'Sign in', login_path, :class => "signInOutButton" %>
-        <%= link_to 'Sign up', new_user_path, :class => "signInOutButton"  %>
+        <%= link_to 'Sign in', login_path, :class => "signInOutButton " %>
+        <%= link_to 'Sign up', new_user_path, :class => "signInOutButton "  %>
       <% end %>
     </div>
   </div>
