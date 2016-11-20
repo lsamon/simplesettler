@@ -2,12 +2,33 @@
 <html>
 <head>
   <title>EasySettler</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= javascript_include_tag Ckeditor.cdn_url %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<nav>
+  <div class="nav">
+    <div class="navLeft">
+      <%= link_to "", root_path, :class => 'nav homeicon' %>
+    </div>
+    <div class="navRight">
+      <% if @current_user.present? %>
+        <%= link_to "Logout #{ @current_user.name }", login_path, :method => 'delete', :class => "logoutButton" %>
+      <% else %>
+        <%= link_to 'Sign in', login_path, :class => "signInOutButton" %>
+        <%= link_to 'Sign up', new_user_path, :class => "signInOutButton"  %>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<div class="navSpacer"></div>
+
+<div class="logo"></div>
+
 
 <%= yield %>
 
