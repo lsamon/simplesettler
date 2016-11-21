@@ -1,0 +1,17 @@
+$('.articleSelect').remove();
+
+var $articleContainer = $('.articleSelectContainer');
+
+<% chosen_category = params[:category] %>
+
+<% @city.articles.each do |article| %>
+  <% if article.categories.pluck(:name).include? chosen_category %>
+    var $div = $('<div class="articleSelect">');
+    $div.text("<%= article.title %>");
+    $articleContainer.append($div);
+  <% elsif chosen_category == 'All' %>
+    var $div = $('<div class="articleSelect">');
+    $div.text("<%= article.title %>");
+    $articleContainer.append($div);
+  <% end %>
+<% end %>
