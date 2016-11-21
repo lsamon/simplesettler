@@ -9,7 +9,129 @@
 
 <div class="container">
 
-  <h1>Pages#index</h1>
-  <p>Find me in app/views/pages/index.html.erb</p>
+  <div class="recommendedBy">
+    <div class="logos one"></div>
+    <div class="logos two"></div>
+    <div class="logos three"></div>
+  </div>
 
+  <div class="explore">
+
+    <div class="header">
+      <h2>Explore your community</h2>
+      <p>See whats happening in your community, or find new citys to explore.</p>
+    </div>
+
+    <div class="cities">
+      <div class="rows">
+        <div class="adelaide">
+          <%=  link_to "ADELAIDE", city_show_path('Adelaide'), :class => "labelLong"%>
+        </div>
+        <div class="brisbane">
+          <%=  link_to "BRISBANE", city_show_path('Brisbane'), :class => "labelShort"%>
+        </div>
+      </div>
+      <div class="rows">
+        <div class="canberra">
+          <%=  link_to "CANBERRA", city_show_path('Canberra'), :class => "labelShort"%>
+        </div>
+        <div class="melbourne">
+          <%=  link_to "MELBOURNE", city_show_path('Melbourne'), :class => "labelLong"%>
+        </div>
+      </div>
+
+      <div class="rows">
+        <div class="sydney">
+          <%=  link_to "SYDNEY", city_show_path('Sydney'), :class => "labelLong"%>
+        </div>
+        <div class="perth">
+          <%=  link_to "PERTH", city_show_path('Perth'), :class => "labelShort"%>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<hr>
+<div class="container">
+  <div class="listings">
+    <div class="header">
+      <h2>Recent listings in your city</h2>
+      <p>Discover some of our best listings</p>
+    </div>
+    <div class="listingArticles">
+      <div class="rows">
+        <div class="articles"></div>
+        <div class="articles"></div>
+        <div class="articles"></div>
+      </div>
+      <div class="rows">
+        <div class="articles"></div>
+        <div class="articles"></div>
+        <div class="articles"></div>
+      </div>
+    </div>
+    <div class="allArticlesButton" >
+    <%= link_to "VIEW ALL", articles_path %>
+    </div>
+  </div>
+</div>
+
+<div class="getStarted">
+  <div class="container">
+    <h2>Not Enough? Speak to our experts.</h2>
+
+    <div class="content">
+      <p>Tell us about your needs and we’ll introduce you to several experienced professionals who can provide you with a step-by-step guide on helping you settle.</p>
+      <%= link_to "Get Started", articles_path %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div id="howItWorks" class="howItWorks">
+    <h2>How it works</h2>
+    <div class="content">
+      <ul>
+        <li>Search your city</li>
+        <li>Get connected with services and people to help you settle smoothly</li>
+        <li>Ask us any questions about your city and we will help you</li>
+        <li>Share success of your story and unlock rewards!</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="settlerLove">
+    <div class="header">
+      <h2>Why people love simple settler</h2>
+      <p>A one stop hub for everything in an unfamiliar city</p>
+    </div>
+    <div class="content">
+      <div class="rows">
+        <div class="love"></div>
+        <div class="love"></div>
+        <div class="love"></div>
+      </div>
+      <div class="rows">
+        <div class="love"></div>
+        <div class="love"></div>
+        <div class="love"></div>
+      </div>
+      <div class="rows">
+        <div class="love"></div>
+        <div class="love"></div>
+        <div class="love"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pageEnd">
+  <div class="container">
+    <div class="content">
+      <h1>YOUR STRESS ENDS HERE.LET US HELP YOU.</h1>
+      <%=  link_to "Search Your City", nil, :class => "searchCity button"%>
+      <%=  link_to "Visa Help", nil, :class => "VisaHelp button"%>
+    </div>
+  </div>
 </div>

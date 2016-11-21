@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get '/tos' => 'pages#tos'
   get '/privacy_policy' => 'pages#privacy_policy'
 
-  get '/cities/:name' => 'cities#show'
-  get '/cities/:name/:category' => 'cities#articles_category', :as => 'city_articles_category', :defaults => {:format => 'js'}
+  get '/cities/:name' => 'cities#show', :as => 'city_show'
+  get '/cities/:name/:category' => 'cities#articles_category', :as =>  'city_articles_category', :defaults => {:format => 'js'}
 
   resources :users
   resources :cities, :except => [:show]

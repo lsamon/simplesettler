@@ -1,12 +1,72 @@
+$buttonColor: #00b6ab;
+
+@mixin logoRec {
+  display: inline-block;
+  width: 32%;
+  height: 114px;
+  background-size: cover;
+  background-position: center;
+  filter: opacity(0.3) grayscale(100%);
+  transition: 0.3s;
+}
+
+@mixin longCityImg {
+  display: inline-block;
+  height: 205px;
+  width: 640px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+}
+
+@mixin shortCityImg {
+  display: inline-block;
+  height: 205px;
+  width: 300px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+}
+
+@mixin label {
+  color: white;
+  display: inline-block;
+  font-size: 20px;
+  position: absolute;
+  text-decoration: none;
+  user-select: none;
+  z-index: 5;
+  background: rgba(0,0,0,0.4);
+  transition: 0.3s;
+  vertical-align: bottom;
+  // filter: brightness(0.7);
+}
+
+@mixin button {
+    border: 1px solid $buttonColor;
+      border-radius: 30px;
+      background: $buttonColor;
+      line-height: 38px;
+      height: 38px;
+      transition: 0.3s;
+      text-decoration: none;
+      color: white;
+      display: inline-block;
+      text-align: center;
+      font-size: 12px;
+}
+
+
+/////////////////////////////////////////////////
+
 nav {
   height: 63px;
   width: 100%;
   display: flex;
   justify-content: center;
-  position: absolute;
+  position: fixed;
+  z-index: 50;
 }
-
-$buttonColor: #00b6ab;
 
 .nav {
   padding: 1% 0;
@@ -41,12 +101,7 @@ $buttonColor: #00b6ab;
     }
 
     .helpMenuItem {
-      border: 1px solid $buttonColor;
-      border-radius: 30px;
-      background: $buttonColor;
-      line-height: 38px;
-      height: 38px;
-      transition: 0.3s;
+      @include button;
     }
 
     .helpMenuItem:hover {
@@ -56,13 +111,18 @@ $buttonColor: #00b6ab;
   }
 }
 
+/////////////////////////////////////////////////
+
+
+
 .banner {
   background: linear-gradient( rgba(0, 0, 0, 0.9),  rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35) ), url('slider2.jpg');
   background-size: cover;
   background-position: center;
 
   width:100%;
-  height: 440px;
+  height: 90vh;
+  max-height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -93,5 +153,321 @@ $buttonColor: #00b6ab;
     padding-left: 20px;
     color: black;
     margin-bottom: 15px;
+  }
+}
+
+.recommendedBy {
+  display: flex;
+  padding: 50px 0;
+  justify-content: space-between;
+
+  .logos.one {
+    background: url('i-logo1.jpg');
+    @include logoRec;
+    background-position: top;
+  }
+  .logos.two {
+    background: url('i-logo2.jpg');
+    @include logoRec;
+  }
+  .logos.three {
+    background: url('i-logo3.jpg');
+    @include logoRec;
+  }
+  .logos:hover {
+    filter: opacity(1) grayscale(0%);
+  }
+}
+
+.explore {
+  padding-bottom: 100px;
+  .header {
+  text-align: center;
+  padding: 40px 0;
+
+    h2 {
+      color: gray;
+      padding-bottom: 20px;
+    }
+    p {
+      color: lightgray;
+      font-size: 12px;
+    }
+  }
+
+  .cities {
+    display: flex;
+    flex-direction: column;
+
+    .rows {
+      height: 205px;
+      max-width: 100%;
+      margin-bottom: 20px;
+      position: relative;
+
+      .labelLong {
+        @include label;
+        @include longCityImg;
+      }
+      .labelLong:hover {
+        background: rgba(0,0,0,0);
+
+      }
+
+      .labelShort{
+        @include label;
+        @include shortCityImg;
+      }
+      .labelShort:hover {
+        background: rgba(0,0,0,0);
+      }
+
+      .adelaide {
+        background: url('adelaide.jpg');
+        @include longCityImg;
+        margin-right: 10px;
+      }
+      .melbourne {
+        background: url('melbourne.jpg');
+        @include longCityImg;
+      }
+      .sydney {
+        background: url('sydney.jpg');
+        @include longCityImg;
+        margin-right: 10px;
+      }
+      .brisbane {
+        background: url('brisbane.jpg');
+        @include shortCityImg;
+      }
+      .canberra {
+        background: url('canberra.png');
+        @include shortCityImg;
+        margin-right: 10px;
+      }
+      .perth {
+        background: url('perth.jpg');
+        @include shortCityImg;
+      }
+    }
+  }
+}
+
+.listings {
+  .header {
+    text-align: center;
+    padding: 100px 0 40px 0;
+
+    h2 {
+      color: gray;
+      padding-bottom: 20px;
+    }
+    p {
+      color: lightgray;
+      font-size: 12px;
+    }
+  }
+  .listingArticles {
+    display: flex;
+    flex-direction: column;
+
+    .rows {
+      height: 200px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      margin-bottom: 15px;
+
+      .articles {
+        border: 1px solid red;
+        border-radius: 5px;
+        width: 32%;
+      }
+    }
+  }
+
+  .allArticlesButton {
+    text-align: center;
+    padding: 50px 0;
+
+    a {
+      @include button;
+      width: 100px;
+    }
+
+    a:hover {
+      background: rgba(0,0,0,0);
+      color: $buttonColor;
+    }
+  }
+}
+
+.getStarted {
+  height: 290px;
+  padding: 30px 0;
+  background: #f9ffff;
+  border-top: 1px solid #c0dddb;
+  border-bottom: 1px solid #c0dddb;
+  text-align: center;
+
+  h2 {
+    color: gray;
+    padding: 30px;
+  }
+
+  .content {
+    width: 450px;
+    margin: 0 auto;
+
+    p {
+      color: #aaa;
+      font-size: 16px;
+      line-height: 2;
+    }
+
+    a {
+      @include button;
+      width: 100px;
+      margin-top: 45px;
+    }
+    a:hover {
+      background: rgba(0,0,0,0);
+      color: $buttonColor;
+    }
+  }
+}
+
+.howItWorks {
+  height: 509px;
+  padding: 50px 0;
+  text-align: center;
+
+  h2 {
+    color: gray;
+    padding: 30px;
+  }
+
+  .content {
+
+  }
+}
+
+.settlerLove {
+  height: 900px;
+  text-align: center;
+
+  .header {
+    text-align: center;
+    padding: 100px 0 40px 0;
+
+    h2 {
+      color: gray;
+      padding-bottom: 20px;
+    }
+    p {
+      color: lightgray;
+      font-size: 12px;
+    }
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+
+    .rows {
+      height: 200px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      margin-bottom: 15px;
+
+      .love {
+        border: 1px solid red;
+        border-radius: 5px;
+        width: 32%;
+      }
+    }
+  }
+
+  .allArticlesButton {
+    text-align: center;
+    padding: 50px 0;
+
+    a {
+      @include button;
+      width: 100px;
+    }
+
+    a:hover {
+      background: rgba(0,0,0,0);
+      color: $buttonColor;
+    }
+  }
+}
+
+.pageEnd {
+  height: 400px;
+  background: url('adelaide.jpg');
+  text-align: center;
+
+  .container {
+
+
+    .content {
+      margin-top: 100px;
+      display: inline-block;
+      position: relative;
+
+      h1 {
+        color: white;
+        font-size: 25px;
+        letter-spacing: 5px;
+        padding: 30px;
+      }
+
+      a {
+        @include button;
+        width: 100px;
+        margin: 20px 10px;
+      }
+      a:hover {
+        background: rgba(0,0,0,0);
+        color: $buttonColor;
+      }
+    }
+  }
+}
+
+footer {
+  height: 197px;
+  padding: 30px 0;
+  background: #252525;
+  color: lightgray;
+
+  .footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .column {
+      // border: 1px solid white;
+      width: 32%;
+
+      h3 {
+        font-size: 15px;
+        color: white;
+        font-weight: 400;
+      }
+
+      ul {
+        list-style: none;
+
+        li {
+          line-height: 2.5;
+          font-size: 12px;
+        }
+      }
+    }
   }
 }

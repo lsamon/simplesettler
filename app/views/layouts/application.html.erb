@@ -15,7 +15,7 @@
       <%= link_to "", root_path, :class => 'nav homeicon' %>
     </div>
     <div class="navRight">
-      <%= link_to 'How It Works', root_path, :class => "" %>
+      <%= link_to 'How It Works', "#{"#howItWorks"}", :class => "" %>
       <%= link_to 'Jobs', root_path, :class => "" %>
       <%= link_to 'Inspirations', root_path, :class => "" %>
       <%= link_to 'Help & Advice', root_path, :class => " helpMenuItem" %>
@@ -33,6 +33,37 @@
 
 
 <%= yield %>
+
+<footer>
+  <div class="container">
+    <div class="footer">
+      <div class="Company column">
+        <ul>
+          <li><h3>Company</h3></li>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Jobs</li>
+          <li>Inspirations</li>
+          <li>Become A Partner</li>
+        </ul>
+      </div>
+      <div class="Support column">
+        <ul>
+          <li><h3>Support</h3></li>
+          <li>FAQ</li>
+          <li>Terms of services</li>
+          <li>Privacy policy</li>
+          <li>hello@simplesettler.com</li>
+        </ul>
+      </div>
+      <div class="Follow column">
+        <h3>Suscribe Newsletter</h3>
+        <h3>Follow us</h3>
+      </div>
+    </div>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>

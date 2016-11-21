@@ -13,7 +13,7 @@ $(document).ready(function(){
       $articleContainer.append($div);
     <% elsif chosen_category == 'All' %>
       var $div = $('<div class="articleSelect">');
-      $div.text("<%= article.title %>");
+      $div.text("<%= link_to article.title, article_path(article) %>");
       $articleContainer.append($div);
     <% end %>
   <% end %>
