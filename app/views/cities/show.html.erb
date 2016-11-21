@@ -24,7 +24,7 @@
   <div class="articleSelectContainer">
     <% @articles.each do |a| %>
     <div class='articleSelect'>
-      <%= a.title %>
+      <%= link_to a.title, article_path(a) %>
     </div>
     <% end %>
   </div>
