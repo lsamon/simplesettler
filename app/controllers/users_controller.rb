@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :check_for_user, only: [:show, :edit, :update]
+  before_action :check_for_admin, only: [:new, :destroy, :index]
+
   def index
     @users = User.all
   end
@@ -12,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = @current_user
+  @user = set_user
   end
 
   def update

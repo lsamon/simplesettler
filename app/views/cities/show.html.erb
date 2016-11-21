@@ -11,11 +11,11 @@
 
   <div>
     <div class="categorySelect">
-      <%= link_to 'All', city_articles_category_path(@city, 'All'), :remote => true  %>
+      <%= link_to 'All', city_articles_category_path(@city.name, 'All', :anchor => "all"), :remote => true  %>
     </div>
     <% @categories.each do |c| %>
       <div class="categorySelect">
-        <%= link_to c.name, city_articles_category_path(@city, c.name), :remote => true %>
+        <%= link_to c.name, city_articles_category_path(@city.name, c.name, :anchor => c.name.downcase), :remote => true %>
       </div>
     <% end %>
   </div>

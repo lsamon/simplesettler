@@ -1,17 +1,21 @@
-$('.articleSelect').remove();
+$(document).ready(function(){
+  $('.articleSelect').remove();
 
-var $articleContainer = $('.articleSelectContainer');
+  var $articleContainer = $('.articleSelectContainer');
 
-<% chosen_category = params[:category] %>
+  <% chosen_category = params[:category] %>
 
-<% @city.articles.each do |article| %>
-  <% if article.categories.pluck(:name).include? chosen_category %>
-    var $div = $('<div class="articleSelect">');
-    $div.text("<%= article.title %>");
-    $articleContainer.append($div);
-  <% elsif chosen_category == 'All' %>
-    var $div = $('<div class="articleSelect">');
-    $div.text("<%= article.title %>");
-    $articleContainer.append($div);
+  <% @city.articles.each do |article| %>
+    <% if article.categories.pluck(:name).include? chosen_category %>
+      window.location.hash = encodeURIComponent("<%= chosen_category.gsub!(" ","_") %>");
+      var $div = $('<div class="articleSelect">');
+      $div.text("<%= article.title %>");
+      $articleContainer.append($div);
+    <% elsif chosen_category == 'All' %>
+      var $div = $('<div class="articleSelect">');
+      $div.text("<%= article.title %>");
+      $articleContainer.append($div);
+    <% end %>
   <% end %>
-<% end %>
+
+});
