@@ -345,7 +345,7 @@ nav {
 
   h2 {
     color: gray;
-    padding: 30px;
+    padding: 30px 0 60px 0;
   }
 
   .content {
@@ -490,7 +490,7 @@ nav {
 
       a {
         @include button;
-        width: 100px;
+        width: 120px;
         margin: 20px 10px;
       }
       a:hover {
