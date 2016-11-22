@@ -14,7 +14,7 @@ $buttonColor: #00b6ab;
   display: inline-block;
   height: 205px;
   width: 640px;
-  background-size: cover;
+  // flex-grow: 2;
   background-position: center;
   border-radius: 5px;
 }
@@ -23,6 +23,7 @@ $buttonColor: #00b6ab;
   display: inline-block;
   height: 205px;
   width: 300px;
+  // flex-grow: 1;
   background-size: cover;
   background-position: center;
   border-radius: 5px;
@@ -32,14 +33,11 @@ $buttonColor: #00b6ab;
   color: white;
   display: inline-block;
   font-size: 20px;
-  position: absolute;
   text-decoration: none;
-  user-select: none;
   z-index: 5;
+  width: inherit;
   background: rgba(0,0,0,0.4);
   transition: 0.3s;
-  vertical-align: bottom;
-  // filter: brightness(0.7);
 }
 
 @mixin button {
@@ -200,10 +198,14 @@ nav {
     flex-direction: column;
 
     .rows {
-      height: 205px;
+      // height: 205px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
       max-width: 100%;
       margin-bottom: 20px;
       position: relative;
+
 
       .labelLong {
         @include label;
@@ -515,6 +517,25 @@ footer {
     .column {
       // border: 1px solid white;
       width: 32%;
+
+      .enterEmail {
+        border: 1px solid white;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        height: 30px;
+        width: 200px;
+        padding-left: 10px;
+        margin: 10px 0;
+      }
+
+      .submitEmail {
+        border: 1px solid lightgray;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        height: 32px;
+        width: 70px;
+        margin: 20px -4px;
+      }
 
       h3 {
         font-size: 15px;

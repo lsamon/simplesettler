@@ -57,9 +57,12 @@
         </ul>
       </div>
       <div class="Follow column">
-        <h3>Suscribe Newsletter</h3>
-        <%= text_field :search, nil, :class => 'enterEmail', :placeholder => 'Enter your email' %>
-        <h3>Follow us</h3>
+        <ul>
+          <li><h3>Suscribe Newsletter</h3></li>
+          <li><%= text_field :search, nil, :class => 'enterEmail', :placeholder => 'Enter your email' %>
+          <%= submit_tag "SUBMIT", :class => 'submitEmail' %></li>
+          <li><h3>Follow us</h3></li>
+        </ul>
       </div>
     </div>
     </div>
