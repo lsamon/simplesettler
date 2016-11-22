@@ -5,8 +5,7 @@
   <h2><%= @article.title %></h2>
   <p><%= raw(@article.content) %></p>
 
-  <% if @current_user.present? && @current_user.admin? %>
+  <% if user_signed_in? && current_user.admin? %>
     <%= button_to 'delete', @article, :method => 'delete'%>
   <% end %>
-
 </div>

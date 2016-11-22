@@ -1,3 +1,64 @@
-// Place all the styles related to the Cities controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.categorySelect {
+  display: inline-block;
+  width: 24%;
+  height: 50px;
+  border: 1px solid black;
+
+}
+
+.articleSelect {
+  display: inline-block;
+  width: 30%;
+  height: 100px;
+  border: 1px solid red;
+}
+
+///////////////////////////////////
+
+@mixin bannerHeight {
+  height: 90vh;
+  max-height: 600px;
+}
+
+.bannerCity {
+  background: linear-gradient( rgba(0, 0, 0, 0.9),  rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35) );
+  background-size: cover;
+  background-position: center;
+  @include bannerHeight;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+
+  img {
+    position: absolute;
+    @include bannerHeight;
+    width: 100%;
+    z-index: -1;
+  }
+
+  .bannerInfo {
+
+  }
+
+  h1 {
+    font-size: 35px;
+    letter-spacing: 8px;
+    margin-bottom: 15px;
+    z-index: 5;
+  }
+
+  h2 {
+    font-weight: 300;
+    font-size: 22.5px;
+    margin-bottom: 15px;
+    z-index: 5;
+  }
+
+  p {
+
+  }
+}

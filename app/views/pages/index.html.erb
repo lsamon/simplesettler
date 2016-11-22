@@ -24,32 +24,14 @@
 
     <div class="cities">
       <div class="rows">
-        <div class="adelaide">
-          <%=  link_to "ADELAIDE", city_show_path('Adelaide'), :class => "labelLong"%>
+      <% @cities.each do |c| %>
+        <div class="<%= c.name %>">
+          <%= link_to "#{(c.name).upcase}", city_show_path(c.name), :class => 'labelShort' %>
+          <%= image_tag "#{c.name.downcase}.jpg", :class => "cities" %>
         </div>
-        <div class="brisbane">
-          <%=  link_to "BRISBANE", city_show_path('Brisbane'), :class => "labelShort"%>
-        </div>
-      </div>
-      <div class="rows">
-        <div class="canberra">
-          <%=  link_to "CANBERRA", city_show_path('Canberra'), :class => "labelShort"%>
-        </div>
-        <div class="melbourne">
-          <%=  link_to "MELBOURNE", city_show_path('Melbourne'), :class => "labelLong"%>
-        </div>
-      </div>
-
-      <div class="rows">
-        <div class="sydney">
-          <%=  link_to "SYDNEY", city_show_path('Sydney'), :class => "labelLong"%>
-        </div>
-        <div class="perth">
-          <%=  link_to "PERTH", city_show_path('Perth'), :class => "labelShort"%>
-        </div>
+      <% end %>
       </div>
     </div>
-
   </div>
 </div>
 <hr>

@@ -10,20 +10,11 @@ $buttonColor: #00b6ab;
   transition: 0.3s;
 }
 
-@mixin longCityImg {
-  display: inline-block;
-  height: 205px;
-  width: 640px;
-  // flex-grow: 2;
-  background-position: center;
-  border-radius: 5px;
-}
-
 @mixin shortCityImg {
   display: inline-block;
-  height: 205px;
-  width: 300px;
-  // flex-grow: 1;
+  height: 200px;
+  width: 310px;
+  position: absolute;
   background-size: cover;
   background-position: center;
   border-radius: 5px;
@@ -41,17 +32,17 @@ $buttonColor: #00b6ab;
 }
 
 @mixin button {
-    border: 1px solid $buttonColor;
-      border-radius: 30px;
-      background: $buttonColor;
-      line-height: 38px;
-      height: 38px;
-      transition: 0.3s;
-      text-decoration: none;
-      color: white;
-      display: inline-block;
-      text-align: center;
-      font-size: 12px;
+  border: 1px solid $buttonColor;
+  border-radius: 30px;
+  background: $buttonColor;
+  line-height: 38px;
+  height: 38px;
+  transition: 0.3s;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  font-size: 12px;
 }
 
 
@@ -111,13 +102,10 @@ nav {
 
 /////////////////////////////////////////////////
 
-
-
 .banner {
   background: linear-gradient( rgba(0, 0, 0, 0.9),  rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35) ), url('slider2.jpg');
   background-size: cover;
   background-position: center;
-
   width:100%;
   height: 90vh;
   max-height: 600px;
@@ -201,19 +189,17 @@ nav {
       // height: 205px;
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-between;
       align-items: stretch;
       max-width: 100%;
       margin-bottom: 20px;
       position: relative;
 
-
-      .labelLong {
-        @include label;
-        @include longCityImg;
-      }
-      .labelLong:hover {
-        background: rgba(0,0,0,0);
-
+      img {
+        height: 200px;
+        width: 310px;
+        margin-bottom: 14px;
+        border-radius: 5px;
       }
 
       .labelShort{
@@ -222,34 +208,6 @@ nav {
       }
       .labelShort:hover {
         background: rgba(0,0,0,0);
-      }
-
-      .adelaide {
-        background: url('adelaide.jpg');
-        @include longCityImg;
-        margin-right: 10px;
-      }
-      .melbourne {
-        background: url('melbourne.jpg');
-        @include longCityImg;
-      }
-      .sydney {
-        background: url('sydney.jpg');
-        @include longCityImg;
-        margin-right: 10px;
-      }
-      .brisbane {
-        background: url('brisbane.jpg');
-        @include shortCityImg;
-      }
-      .canberra {
-        background: url('canberra.png');
-        @include shortCityImg;
-        margin-right: 10px;
-      }
-      .perth {
-        background: url('perth.jpg');
-        @include shortCityImg;
       }
     }
   }

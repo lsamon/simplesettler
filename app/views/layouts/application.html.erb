@@ -19,11 +19,13 @@
       <%= link_to 'Jobs', root_path, :class => "" %>
       <%= link_to 'Inspirations', root_path, :class => "" %>
       <%= link_to 'Help & Advice', root_path, :class => " helpMenuItem" %>
-      <% if @current_user.present? %>
-        <%= link_to "Logout #{ @current_user.name }", login_path, :method => 'delete', :class => "logoutButton " %>
-      <% else %>
-        <%= link_to 'Sign in', login_path, :class => "signInOutButton " %>
-        <%= link_to 'Sign up', new_user_path, :class => "signInOutButton "  %>
+
+      <% unless user_signed_in? %>
+        <%= link_to 'Sign in', new_user_session_path, :class => "signInOutButton " %>
+        <%= link_to 'Sign up', new_user_registration_path, :class => "signInOutButton "  %>
+      <% end %>
+      <% if user_signed_in? %>
+          <%= link_to "Logout #{ current_user.username }", destroy_user_session_path, :method => 'delete', :class => "logoutButton " %>
       <% end %>
     </div>
   </div>
