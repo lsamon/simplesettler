@@ -41,17 +41,21 @@
       <h2>Recent listings in your city</h2>
       <p>Discover some of our best listings</p>
     </div>
+
     <div class="listingArticles">
       <div class="rows">
-        <div class="articles"></div>
-        <div class="articles"></div>
-        <div class="articles"></div>
+        <% @articles.each do |a| %>
+          <div class="articles">
+            <%= link_to "#{a.title}", article_path(a) %>
+          </div>
+        <% end %>
+        <% @articles.each do |a| %>
+          <div class="articles">
+            <%= a.title %>
+          </div>
+        <% end %>
       </div>
-      <div class="rows">
-        <div class="articles"></div>
-        <div class="articles"></div>
-        <div class="articles"></div>
-      </div>
+
     </div>
     <div class="allArticlesButton" >
     <%= link_to "VIEW ALL", articles_path %>
@@ -101,20 +105,53 @@
     </div>
     <div class="content">
       <div class="rows">
-        <div class="love"></div>
-        <div class="love"></div>
-        <div class="love"></div>
+        <div class="love">
+          <%= image_tag "icon1.jpg"%>
+          <h3>Places To Eat</h3>
+          <p>Find places to eat</p>
+        </div>
+        <div class="love">
+          <%= image_tag "icon2.jpg"%>
+          <h3>Job Assistance</h3>
+          <p>Get help with finding a job</p>
+        </div>
+        <div class="love">
+          <%= image_tag "icon3.jpg"%>
+          <h3>Help With Visa</h3>
+          <p>Extending visa or help staying permanently ? We can help</p>
+        </div>
+        <div class="love">
+          <%= image_tag "icon4.jpg"%>
+          <h3>Connect With Friendly Locals</h3>
+          <p>Get integrated</p>
+        </div>
+        <div class="love">
+          <%= image_tag "icon5.jpg"%>
+          <h3>Live On A Budget</h3>
+          <p>Get tips on best places to shop and save money!</p>
+        </div>
+        <div class="love">
+          <%= image_tag "icon6.jpg"%>
+          <h3>Tips In Getting Around</h3>
+          <p>Access city hacks and tricks</p>
+        </div>
+        <div class="love">
+          <%= image_tag "icon7.jpg"%>
+          <h3>Activities</h3>
+          <p>Things to do</p>
+        </div>
+        <div class="love">
+          <%= image_tag "icon8.jpg"%>
+          <h3>Accomodation Help</h3>
+          <p>Find friendly suburbs or places to stay according to your budget</p>
+        </div>
+        <div class="love">
+          <%= image_tag "icon9.jpg"%>
+          <h3>Be Stress-Free</h3>
+          <p>Ask us a question and we’ll take care of it!</p>
+        </div>
       </div>
-      <div class="rows">
-        <div class="love"></div>
-        <div class="love"></div>
-        <div class="love"></div>
-      </div>
-      <div class="rows">
-        <div class="love"></div>
-        <div class="love"></div>
-        <div class="love"></div>
-      </div>
+      <%=  link_to "Settle Somewhere", nil, :class => "searchCity button"%>
     </div>
   </div>
 </div>

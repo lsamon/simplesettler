@@ -42,7 +42,7 @@ $buttonColor: #00b6ab;
   color: white;
   display: inline-block;
   text-align: center;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 
@@ -176,8 +176,8 @@ nav {
       padding-bottom: 20px;
     }
     p {
-      color: lightgray;
-      font-size: 12px;
+      color: #adacac;
+      font-size: 14px;
     }
   }
 
@@ -189,7 +189,7 @@ nav {
       // height: 205px;
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: space-around;
       align-items: stretch;
       max-width: 100%;
       margin-bottom: 20px;
@@ -198,7 +198,7 @@ nav {
       img {
         height: 200px;
         width: 310px;
-        margin-bottom: 14px;
+        margin-bottom: 10px;
         border-radius: 5px;
       }
 
@@ -223,8 +223,8 @@ nav {
       padding-bottom: 20px;
     }
     p {
-      color: lightgray;
-      font-size: 12px;
+      color: #adacac;
+      font-size: 14px;
     }
   }
   .listingArticles {
@@ -232,17 +232,25 @@ nav {
     flex-direction: column;
 
     .rows {
-      height: 200px;
-      width: 100%;
       display: flex;
-      justify-content: space-between;
-      flex-direction: row;
-      margin-bottom: 15px;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: stretch;
+      max-width: 100%;
+      position: relative;
+      margin-bottom: 40px;
 
       .articles {
-        border: 1px solid red;
         border-radius: 5px;
-        width: 32%;
+        width: 305px;
+        // padding: 20px;
+        line-height: 2;
+        margin-bottom: 14px;
+
+        height: 200px;
+        border: 1px solid red;
+        // border-radius: 5px;
+        // width: 32%;
       }
     }
   }
@@ -376,7 +384,7 @@ nav {
 }
 
 .settlerLove {
-  height: 900px;
+  // height: 900px;
   text-align: center;
 
   .header {
@@ -388,26 +396,52 @@ nav {
       padding-bottom: 20px;
     }
     p {
-      color: lightgray;
-      font-size: 12px;
+      color: #adacac;
+      font-size: 14px;
     }
   }
   .content {
     display: flex;
     flex-direction: column;
 
+      a {
+        @include button;
+        width: 150px;
+        margin: 20px auto;
+        margin-bottom: 60px;
+      }
+      a:hover {
+        background: rgba(0,0,0,0);
+        color: $buttonColor;
+      }
+
     .rows {
-      height: 200px;
-      width: 100%;
       display: flex;
-      justify-content: space-between;
-      flex-direction: row;
-      margin-bottom: 15px;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: stretch;
+      max-width: 100%;
+      position: relative;
+      // margin-bottom: 40px;
 
       .love {
-        border: 1px solid red;
+        // border: 1px solid red;
         border-radius: 5px;
-        width: 32%;
+        width: 250px;
+        padding: 20px;
+        line-height: 2;
+        margin-bottom: 20px;
+
+
+        h3 {
+          font-size: 16px;
+          font-weight: 400;
+          color: gray;
+        }
+        p {
+          font-size: 14px;
+          color: #adacac;
+        }
       }
     }
   }
@@ -493,6 +527,10 @@ footer {
         height: 32px;
         width: 70px;
         margin: 20px -4px;
+      }
+
+      i {
+        font-size: 30px;
       }
 
       h3 {
