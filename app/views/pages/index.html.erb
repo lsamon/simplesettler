@@ -45,9 +45,9 @@
     <div class="listingArticles">
       <div class="rows">
         <% @articles.each do |a| %>
-          <div class="">
+          <div>
             <%= link_to "#{a.title}", article_path(a), :class => "articles" %>
-            <%= image_tag a.featured_image%>
+            <%= image_tag a.featured_image %>
           </div>
         <% end %>
         <!-- <% @articles.each do |a| %>

@@ -454,3 +454,30 @@ $buttonColor: #00b6ab;
     }
   }
 }
+
+
+/// TOS ///////////////////////////////////////////////////////////////////////////////
+/// TOS ///////////////////////////////////////////////////////////////////////////////
+
+.tos {
+  margin-bottom: 80px;
+
+  h1 {
+    color: gray;
+    font-size: 22.5px;
+    margin: 60px 0;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  h3 {
+    color: $buttonColor;
+    margin: 40px 0;
+  }
+
+  p {
+    color: gray;
+    line-height: 2;
+    margin-bottom: 20px;
+  }
+}

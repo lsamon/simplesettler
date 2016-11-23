@@ -32,8 +32,9 @@
   <div class="articleSelectContainer">
     <div class="rows">
       <% @articles.each do |a| %>
-      <div class='articleSelect'>
-        <%= link_to a.title, article_path(a) %>
+      <div class='articleCont'>
+        <%= link_to a.title, article_path(a), :class => 'articleSelect' %>
+        <%= image_tag a.featured_image, :class => "articleImg" %>
       </div>
       <% end %>
     </div>
