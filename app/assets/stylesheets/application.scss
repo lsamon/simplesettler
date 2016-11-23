@@ -11,6 +11,7 @@
 
 
 $buttonColor: #00b6ab;
+
 @mixin button {
   border: 1px solid $buttonColor;
   border-radius: 30px;
@@ -58,7 +59,7 @@ body {
 
 
 nav {
-  height: 63px;
+  height: 67px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -69,7 +70,7 @@ nav {
 .nav {
   padding: 1% 0;
   height: 45px;
-  width: 960px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 
@@ -86,8 +87,11 @@ nav {
   }
 
   .navRight {
-    width: 45%;
-    line-height: 47px;
+    width: 450px;
+    line-height: 39px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 1%;
 
     a {
       display: inline-block;

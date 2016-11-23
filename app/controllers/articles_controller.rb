@@ -9,9 +9,28 @@ class ArticlesController < ApplicationController
     @article = set_article
   end
 
+  def check_helpful
+    @helpful = params[:helpful]
+    # @article = set_article
+
+    user_id = user_signed_in? ? current_user.id : nil
+
+    if @helpful == "Yes"
+      Helpful.create :helped => true, :user_id => user_id, :article_id => params[:id]
+    else
+      Helpful.create :helped => false, :user_id => user_id, :article_id => @article
+    end
+
+    respond_to do |format|
+      format.html { redirect_to '#'}
+      format.js
+    end
+
+  end
+
   def new
     @article = Article.new
-end
+  end
 
   def edit
     @article = set_article

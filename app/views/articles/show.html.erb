@@ -41,8 +41,8 @@
 
           <div class="helpful">
             <h3>Was this article helpful?</h3>
-            <%= link_to 'Yes', nil, :class => 'yes' %>
-            <%= link_to 'No', nil, :class => 'no' %>
+            <%= link_to 'Yes', check_helpful_path(@article, 'Yes'), :class => 'yes', :remote => true %>
+            <%= link_to 'No', check_helpful_path(@article, 'No'), :class => 'no', :remote => true %>
           </div>
         </div>
       </div>

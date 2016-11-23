@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/privacy_policy' => 'pages#privacy_policy'
 
   get '/cities/:name/:category' => 'cities#articles_category', :as =>  'city_articles_category'
+  get '/articles/:id/:helpful' => 'articles#check_helpful', :as => 'check_helpful'
 
   resources :cities, :except => [:show]
   resources :articles
