@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   mount Ckeditor::Engine => '/ckeditor'
-  
+
   root :to => 'pages#index'
   get '/about' => 'pages#about'
   get '/contact' => 'pages#contact'
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/tos' => 'pages#tos'
   get '/privacy_policy' => 'pages#privacy_policy'
 
-  get '/cities/:name/:category' => 'cities#articles_category', :as =>  'city_articles_category', :defaults => {:format => 'js'}
+  get '/cities/:name/:category' => 'cities#articles_category', :as =>  'city_articles_category'
 
   resources :cities, :except => [:show]
   resources :articles

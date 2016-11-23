@@ -1,21 +1,14 @@
 $(document).ready(function(){
   $('.articleSelect').remove();
 
-  var $articleContainer = $('.articleSelectContainer');
+  var $articleContainer = $('.articleSelectContainer .rows');
 
-  <% chosen_category = params[:category] %>
+  console.log('hotdogs');
 
-  <% @city.articles.each do |article| %>
-    <% if article.categories.pluck(:name).include? chosen_category %>
-      window.location.hash = encodeURIComponent("<%= chosen_category.gsub!(" ","_") %>");
-      var $div = $('<div class="articleSelect">');
-      $div.text("<%= article.title %>");
-      $articleContainer.append($div);
-    <% elsif chosen_category == 'All' %>
-      var $div = $('<div class="articleSelect">');
-      $div.text("<%= link_to article.title, article_path(article) %>");
-      $articleContainer.append($div);
-    <% end %>
+  <% @all_articles.each do |article| %>
+    var $div = $('<div class="articleSelect">');
+    $div.text("<%= article.title %>");
+    $articleContainer.append($div);
   <% end %>
 
 });

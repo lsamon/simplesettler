@@ -1,11 +1,64 @@
-<div class="navSpacer"></div>
+<div class="bannerArticle">
+  <%= image_tag "articleHeader.jpg", :class => "imageArticle"%>
+  <div class="bannerInfo">
+    <h1><%= @article.title %></h1>
+    <!-- <h2>Discover and connect with services in your city.</h2>
+    <p>Currently available in Australia</p> -->
+  </div>
+</div>
+<div class="bg">
 
-<div class="container">
+  <div class="container">
 
-  <h2><%= @article.title %></h2>
-  <p><%= raw(@article.content) %></p>
+    <div class="articles">
+      <div class="content">
+        <%= image_tag 'articleBlurbHeader.jpg' %>
+        <div class="articleContent">
+          <h2><%= @article.title %></h2>
+          <div class="share">
+            <a href=""><i class="fa fa-facebook" aria-hidden="true"> Facebook</i></a>
 
-  <% if user_signed_in? && current_user.admin? %>
-    <%= button_to 'delete', @article, :method => 'delete'%>
-  <% end %>
+            <a href=""><i class="fa fa-twitter" aria-hidden="true"> Twitter</i></a>
+
+            <a href=""><i class="fa fa-google-plus" aria-hidden="true"> Google+</i></a>
+
+            <a href=""><i class="fa fa-pinterest-p" aria-hidden="true"> Pinterest</i></a>
+          </div>
+          <hr>
+          <p><%= raw(@article.content) %></p>
+
+          <hr>
+
+          <div class="share">
+            <a href=""><i class="fa fa-facebook" aria-hidden="true"> Facebook</i></a>
+
+            <a href=""><i class="fa fa-twitter" aria-hidden="true"> Twitter</i></a>
+
+            <a href=""><i class="fa fa-google-plus" aria-hidden="true"> Google+</i></a>
+
+            <a href=""><i class="fa fa-pinterest-p" aria-hidden="true"> Pinterest</i></a>
+          </div>
+
+          <div class="helpful">
+            <h3>Was this article helpful?</h3>
+            <%= link_to 'Yes', nil, :class => 'yes' %>
+            <%= link_to 'No', nil, :class => 'no' %>
+          </div>
+        </div>
+      </div>
+      <div class="aside">
+        <% @articles.each do |a| %>
+          <div class="articlesAll">
+            <%= link_to "#{a.title}", article_path(a) %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+
+    <% if user_signed_in? && current_user.admin? %>
+      <%= button_to 'delete', @article, :method => 'delete'%>
+    <% end %>
+  </div>
+
 </div>

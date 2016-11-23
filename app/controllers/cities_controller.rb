@@ -11,8 +11,20 @@ class CitiesController < ApplicationController
 
   def articles_category
     @city = set_city
-    @articles = @city.articles
+    @all_articles = @city.articles
+
+    chosen_category = params[:category]
+
+    if chosen_category == 'All'
+      @all_articles = @city.articles
+    else
+      category = Category.find_by :name => chosen_category
+      category_articles = category.articles
+      @all_articles = category_articles
+    end
+
     respond_to do |format|
+      format.html { redirect_to "#" }
       format.js
     end
 

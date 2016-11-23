@@ -4,6 +4,8 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @articles = Article.all
+    
     @article = set_article
   end
 

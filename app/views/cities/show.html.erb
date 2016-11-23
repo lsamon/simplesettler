@@ -1,40 +1,48 @@
-<div class="home">
-  <div class="bannerCity">
-    <%= image_tag "#{@city.name.downcase}.jpg", :class => "imageCity"%>
-    <div class="bannerInfo">
-      <h1><%= @city.name %></h1>
-      <h2>Discover and connect with services in your city.</h2>
-      <p>Currently available in Australia</p>
-    </div>
+<div class="bannerCity">
+  <%= image_tag "#{@city.name.downcase}.jpg", :class => "imageCity"%>
+  <div class="bannerInfo">
+    <h1><%= @city.name %></h1>
+    <h2>Discover and connect with services in your city.</h2>
+    <p>Currently available in Australia</p>
   </div>
 </div>
 
-<div class="container">
-  <h2><%= @city.name %></h2>
-  <p><%= @city.description %></p>
+<div class="categorySelectBg">
+  <div class="container">
+    <!-- <div class="icons">
+      <i class="fa fa-heartbeat" aria-hidden="true"></i>
+      <i class="fa fa-heartbeat" aria-hidden="true"></i>
+      <i class="fa fa-heartbeat" aria-hidden="true"></i>
+      <i class="fa fa-heartbeat" aria-hidden="true"></i>
+    </div> -->
 
-  <% if user_signed_in? && current_user.admin? %>
-    <%= button_to 'delete', @city, :method => 'delete'%>
-  <% end %>
-
-  <div>
     <div class="categorySelect">
-      <%= link_to 'All', city_articles_category_path(@city.name, 'All', :anchor => "all"), :remote => true  %>
+      <%= link_to 'All', city_articles_category_path(@city.name, 'All'), :remote => true  %>
     </div>
     <% @categories.each do |c| %>
+
       <div class="categorySelect">
         <%= link_to c.name, city_articles_category_path(@city.name, c.name, :anchor => c.name.downcase), :remote => true %>
       </div>
     <% end %>
   </div>
+</div>
 
-  <hr>
+<div class="container">
   <div class="articleSelectContainer">
-    <% @articles.each do |a| %>
-    <div class='articleSelect'>
-      <%= link_to a.title, article_path(a) %>
+    <div class="rows">
+      <% @articles.each do |a| %>
+      <div class='articleSelect'>
+        <%= link_to a.title, article_path(a) %>
+      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
 
+  <!-- <h2><%= @city.name %></h2> -->
+  <!-- <p><%= @city.description %></p> -->
+
+  <!-- <% if user_signed_in? && current_user.admin? %>
+    <%= button_to 'delete', @city, :method => 'delete'%>
+  <% end %> -->
 </div>

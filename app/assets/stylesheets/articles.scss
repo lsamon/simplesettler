@@ -1,3 +1,192 @@
-// Place all the styles related to the Articles controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@mixin bannerHeight {
+  height: 90vh;
+  max-height: 600px;
+}
+
+.bannerArticle {
+  background: linear-gradient( rgba(0, 0, 0, 0.9),  rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35) );
+  background-size: cover;
+  background-position: center;
+  @include bannerHeight;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+
+  img {
+    position: absolute;
+    @include bannerHeight;
+    width: 100%;
+    z-index: -1;
+  }
+
+  .bannerInfo {
+    h1 {
+      font-size: 35px;
+      letter-spacing: 8px;
+      margin-bottom: 15px;
+      z-index: 5;
+    }
+
+    h2 {
+      font-weight: 300;
+      font-size: 22.5px;
+      margin-bottom: 15px;
+      z-index: 5;
+    }
+  }
+}
+
+.bg {
+  background: #eee;
+}
+
+.articles {
+  display: flex;
+  padding: 30px 0;
+
+  // border: 1px solid green;
+
+  .content {
+    flex: 2;
+    // border: 1px solid red;
+    border-radius: 5px;
+    margin-right: 5%;
+    margin-left: 5%;
+    background: white;
+
+    img {
+      height: 300px;
+      width: 100%;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    .share {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px;
+
+      a {
+        font-size: 18px;
+        text-align: center;
+        flex: 1;
+        margin: 2px;
+        height: 30px;
+        text-decoration: none;
+        color: white;
+        overflow: hidden;
+
+        i {
+          width: 100%;
+          height: inherit;
+          line-height: 30px;
+          transition: .3s;
+        }
+
+        .fa-facebook {
+          background: #334d87;
+        }
+        .fa-facebook:hover {
+          background: #365db5;
+        }
+        .fa-twitter {
+          background: #00abf0;
+        }
+        .fa-twitter:hover {
+          background: #32c4ff
+        }
+        .fa-google-plus {
+          background: #df4a32;
+        }
+        .fa-google-plus:hover {
+          background: #ff553a
+        }
+        .fa-pinterest-p {
+          background: #c92228;
+        }
+        .fa-pinterest-p:hover {
+          background: #f0282f;
+        }
+      }
+    }
+
+    .articleContent {
+      padding: 50px;
+      line-height: 1.5;
+
+      img {
+        // max-width: 508px;
+      }
+
+      ul {
+        list-style-position: inside;
+      }
+    }
+
+    .helpful {
+      text-align: center;
+
+      h3 {
+        color: gray;
+        margin: 40px 0 10px 0;
+      }
+
+      a {
+        display: inline-block;
+        line-height: 30px;
+        height: 30px;
+        width: 50px;
+        color: white;
+        text-decoration: none;
+        border-radius: 2px;
+        transition: .3s;
+      }
+      a.yes:hover {
+        color: #00b6ab;
+        background: white;
+      }
+      a.no:hover {
+        color: gray;
+        background: white;
+      }
+      .yes {
+        border: 1px solid #00b6ab;
+        background: #00b6ab;
+        margin-right: 10px;
+      }
+      .no {
+        border: 1px solid gray;
+        background: gray;
+      }
+    }
+  }
+
+  .aside {
+    flex: 1;
+    // border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+
+    .articlesAll {
+      display: flex;
+      border-radius: 5px;
+      margin-right: 10%;
+
+      // border: 1px solid pink;
+
+      height: 200px;
+      margin-bottom: 20px;
+      background: linear-gradient( rgba(0, 0, 0, 0.6),  rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35) ), url('articleHeader.jpg');
+      background-size: cover;
+
+      a {
+        text-decoration: none;
+        color: white;
+      }
+    }
+  }
+}

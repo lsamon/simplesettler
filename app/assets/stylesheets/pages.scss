@@ -47,60 +47,8 @@ $buttonColor: #00b6ab;
 
 
 /////////////////////////////////////////////////
-
-nav {
-  height: 63px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  z-index: 50;
-}
-
-.nav {
-  padding: 1% 0;
-  height: 45px;
-  width: 960px;
-  display: flex;
-  justify-content: space-between;
-
-  .navLeft {
-
-    .homeicon {
-      display: inline-block;
-      margin-left: 5%;
-      height: 39px;
-      width: 140px;
-      background-image: url('logo.png');
-      background-size: contain;
-    }
-  }
-
-  .navRight {
-    width: 45%;
-    line-height: 47px;
-
-    a {
-      display: inline-block;
-      color: white;
-      text-decoration: none;
-      font-weight: 100;
-      font-size: 10pt;
-      padding: 0 1%;
-    }
-
-    .helpMenuItem {
-      @include button;
-    }
-
-    .helpMenuItem:hover {
-      background: rgba(0,0,0,0);
-      color: $buttonColor;
-    }
-  }
-}
-
 /////////////////////////////////////////////////
+
 
 .banner {
   background: linear-gradient( rgba(0, 0, 0, 0.9),  rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35) ), url('slider2.jpg');
@@ -490,62 +438,6 @@ nav {
       a:hover {
         background: rgba(0,0,0,0);
         color: $buttonColor;
-      }
-    }
-  }
-}
-
-footer {
-  height: 197px;
-  padding: 30px 0;
-  background: #252525;
-  color: lightgray;
-
-  .footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    .column {
-      // border: 1px solid white;
-      width: 32%;
-
-      .enterEmail {
-        border: 1px solid white;
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 20px;
-        height: 30px;
-        width: 200px;
-        padding-left: 10px;
-        margin: 10px 0;
-      }
-
-      .submitEmail {
-        border: 1px solid lightgray;
-        border-top-right-radius: 20px;
-        border-bottom-right-radius: 20px;
-        height: 32px;
-        width: 70px;
-        margin: 20px -4px;
-      }
-
-      i {
-        font-size: 30px;
-      }
-
-      h3 {
-        font-size: 15px;
-        color: white;
-        font-weight: 400;
-      }
-
-      ul {
-        list-style: none;
-
-        li {
-          line-height: 2.5;
-          font-size: 12px;
-        }
       }
     }
   }
