@@ -459,7 +459,7 @@ $buttonColor: #00b6ab;
 /// TOS ///////////////////////////////////////////////////////////////////////////////
 /// TOS ///////////////////////////////////////////////////////////////////////////////
 
-.tos {
+.tos, .privacyPolicy, .faq  {
   margin-bottom: 80px;
 
   h1 {
@@ -479,5 +479,9 @@ $buttonColor: #00b6ab;
     color: gray;
     line-height: 2;
     margin-bottom: 20px;
+  }
+  ul {
+    list-style-position: inside;
+    color: gray;
   }
 }

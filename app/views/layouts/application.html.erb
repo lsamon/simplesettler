@@ -42,7 +42,7 @@
       <div class="Company column">
         <ul>
           <li><h3>Company</h3></li>
-          <li>Home</li>
+          <li><li><%= link_to 'Home', root_path %></li></li>
           <li>About Us</li>
           <li>Jobs</li>
           <li>Inspirations</li>
@@ -52,9 +52,9 @@
       <div class="Support column">
         <ul>
           <li><h3>Support</h3></li>
-          <li>FAQ</li>
+          <li><%= link_to 'FAQ', faq_path %></li>
           <li><%= link_to 'Terms of services', tos_path %></li>
-          <li>Privacy policy</li>
+          <li><%= link_to 'Privacy policy', privacy_policy_path %></li>
           <li>hello@simplesettler.com</li>
         </ul>
       </div>
