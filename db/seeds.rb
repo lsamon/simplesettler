@@ -59,9 +59,14 @@ u1.articles << a1
 u1.articles << a2
 u1.articles << a3
 
+u1.save
+
 c1.articles << a1
 c1.articles << a2
 c2.articles << a3
+
+c1.save
+c2.save
 
 h1.user = u1
 h2.user = u1
@@ -77,6 +82,14 @@ h4.article = a3
 h5.article = a1
 h6.article = a2
 
+h1.save
+h2.save
+h3.save
+h4.save
+h5.save
+h6.save
+
+
 f1.user = u1
 f2.user = u1
 f3.user = u2
@@ -87,6 +100,15 @@ f2.city = c2
 f3.city = c1
 f4.city = c3
 
+f1.save
+f2.save
+f3.save
+f4.save
+
 a1.categories << ca1
 a2.categories << ca2
 a3.categories << ca3
+
+a1.save
+a2.save
+a3.save
