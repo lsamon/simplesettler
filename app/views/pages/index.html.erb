@@ -27,7 +27,7 @@
       <% @cities.each do |c| %>
         <div class="<%= c.name %>">
           <%= link_to "#{(c.name).upcase}", city_show_path(c.name), :class => 'labelShort' %>
-          <%= image_tag "#{c.name.downcase}.jpg", :class => "cities" %>
+          <%= image_tag "#{c.name.downcase}.jpg", :class => "" %>
         </div>
       <% end %>
       </div>
@@ -45,8 +45,9 @@
     <div class="listingArticles">
       <div class="rows">
         <% @articles.each do |a| %>
-          <div class="articles">
-            <%= link_to "#{a.title}", article_path(a) %>
+          <div class="">
+            <%= link_to "#{a.title}", article_path(a), :class => "articles" %>
+            <%= image_tag a.featured_image%>
           </div>
         <% end %>
         <!-- <% @articles.each do |a| %>

@@ -185,20 +185,32 @@ $buttonColor: #00b6ab;
       justify-content: space-around;
       align-items: stretch;
       max-width: 100%;
+      margin-bottom: 20px;
       position: relative;
-      margin-bottom: 40px;
 
       .articles {
+        text-decoration: none;
+        color: white;
+        display: inline-block;
+        padding: 10px;
+        height: 180px;
+        width: 290px;
+        position: absolute;
         border-radius: 5px;
-        width: 305px;
-        // padding: 20px;
-        line-height: 2;
-        margin-bottom: 14px;
+        font-size: 20px;
+        z-index: 5;
+        background: rgba(0,0,0,0.4);
+        transition: 0.3s;
+      }
+      .articles:hover {
+        background: rgba(0,0,0,0);
+      }
 
+      img {
         height: 200px;
-        border: 1px solid red;
-        // border-radius: 5px;
-        // width: 32%;
+        width: 310px;
+        margin-bottom: 10px;
+        border-radius: 5px;
       }
     }
   }

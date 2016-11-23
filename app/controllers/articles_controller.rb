@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
 
   def show
     @articles = Article.all
-    
+
     @article = set_article
   end
 
@@ -50,6 +50,6 @@ end
   end
 
   def article_params
-    params.require(:article).permit(:title, :content, :city_id, :user_id)
+    params.require(:article).permit(:title, :content, :city_id, :user_id, :featured_image)
   end
 end

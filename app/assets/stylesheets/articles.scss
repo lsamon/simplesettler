@@ -24,6 +24,8 @@
   }
 
   .bannerInfo {
+    padding: 0 50px;
+
     h1 {
       font-size: 35px;
       letter-spacing: 8px;
@@ -180,12 +182,30 @@
 
       height: 200px;
       margin-bottom: 20px;
-      background: linear-gradient( rgba(0, 0, 0, 0.6),  rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35) ), url('articleHeader.jpg');
+      // background: linear-gradient( rgba(0, 0, 0, 0.6),  rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35) );
       background-size: cover;
 
       a {
         text-decoration: none;
         color: white;
+        display: inline-block;
+        padding: 10px;
+        height: 180px;
+        width: 240px;
+        position: absolute;
+        border-radius: 5px;
+        font-size: 20px;
+        z-index: 5;
+        background: rgba(0,0,0,0.4);
+        transition: 0.3s;
+      }
+      a:hover {
+        background: rgba(0,0,0,0.1);
+      }
+      img {
+        width: 260px;
+        height: 200px;
+        border-radius: 5px;
       }
     }
   }
