@@ -44,6 +44,21 @@
             <%= link_to 'Yes', check_helpful_path(@article, 'Yes'), :class => 'yes', :remote => true %>
             <%= link_to 'No', check_helpful_path(@article, 'No'), :class => 'no', :remote => true %>
           </div>
+
+          <div id="disqus_thread"></div>
+<script>
+
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//easysettler.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
         </div>
       </div>
       <div class="aside">

@@ -9,15 +9,11 @@
 
 <div class="categorySelectBg">
   <div class="container">
-    <!-- <div class="icons">
-      <i class="fa fa-heartbeat" aria-hidden="true"></i>
-      <i class="fa fa-heartbeat" aria-hidden="true"></i>
-      <i class="fa fa-heartbeat" aria-hidden="true"></i>
-      <i class="fa fa-heartbeat" aria-hidden="true"></i>
-    </div> -->
+
+    <!-- <%= link_to city_articles_category_path(@city.name, 'All'), :remote => true do %><i class="fa fa-heartbeat" aria-hidden="true"></i><% end %> -->
 
     <div class="categorySelect">
-      <%= link_to 'All', city_articles_category_path(@city.name, 'All'), :remote => true  %>
+      <%= link_to 'All', city_articles_category_path(@city.name, 'All'), :remote => true, :class => "catAll"  %>
     </div>
     <% @categories.each do |c| %>
 
