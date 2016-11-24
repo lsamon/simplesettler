@@ -51,7 +51,7 @@ $buttonColor: #00b6ab;
 
 
 .banner {
-  background: linear-gradient( rgba(0, 0, 0, 0.9),  rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35) ), url(http://simplesettler.com/demo/wp-content/uploads/2016/11/slider2.jpg);
+  background: linear-gradient( rgba(0, 0, 0, 0.9),  rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35) ), image-url('slider2.jpg');
   background-size: cover;
   background-position: center;
   width:100%;
@@ -83,7 +83,7 @@ $buttonColor: #00b6ab;
     border: 1px solid white;
     border-radius: 50%;
     cursor: pointer;
-    background: url(http://simplesettler.com/demo/wp-content/themes/simple-setller/images/flag.jpg)
+    background: image-url('flag.jpg')
   }
   .flagAvail {
     display: inline-block;
