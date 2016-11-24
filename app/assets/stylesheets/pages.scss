@@ -138,16 +138,16 @@ $buttonColor: #00b6ab;
   justify-content: space-between;
 
   .logos.one {
-    background: url('i-logo1.jpg');
+    background: image-url('i-logo1.jpg');
     @include logoRec;
     background-position: top;
   }
   .logos.two {
-    background: url('i-logo2.jpg');
+    background: image-url('i-logo2.jpg');
     @include logoRec;
   }
   .logos.three {
-    background: url('i-logo3.jpg');
+    background: image-url('i-logo3.jpg');
     @include logoRec;
   }
   .logos:hover {
