@@ -13,19 +13,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.text_field :name, :class => '', :placeholder => 'name' %>
+    <%= f.text_field :name, :placeholder => 'name', :class => "signinInput"  %>
   </div>
   <div class="field">
-    <%= f.text_field :country, :class => '', :placeholder => 'country' %>
+    <%= f.text_field :country, :placeholder => 'country', :class => "signinInput"  %>
   </div>
   <div class="field">
-    <%= f.text_area :description, :class => '', :placeholder => 'description' %>
+    <%= f.text_area :description, :rows => 10, :placeholder => 'description', :class => "signinInputArea"  %>
   </div>
   <div class="field">
-    <%= f.text_field :population, :class => '', :placeholder => 'population' %>
+    <%= f.text_field :population, :placeholder => 'population', :class => "signinInput"  %>
   </div>
 
   <div class="actions">
-    <%= f.submit :class => '' %>
+    <%= f.submit :class => "signinButton" %>
   </div>
 <% end %>

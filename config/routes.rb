@@ -11,14 +11,15 @@ Rails.application.routes.draw do
   get '/tos' => 'pages#tos'
   get '/privacy_policy' => 'pages#privacy_policy'
 
+
   resources :cities, :except => [:show]
   resources :articles
   resources :categories
 
-  get '/cities/:name/:category' => 'cities#articles_category', :as =>  'city_articles_category'
+  get '/cities/:id/:category' => 'cities#articles_category', :as =>  'city_articles_category'
   get '/articles/:id/:helpful' => 'articles#check_helpful', :as => 'check_helpful'
 
-  get '/cities/:name' => 'cities#show', :as => 'city_show'
+  get '/cities/:id' => 'cities#show', :as => 'city_show'
 
 
 end

@@ -13,12 +13,11 @@
     <!-- <%= link_to city_articles_category_path(@city.name, 'All'), :remote => true do %><i class="fa fa-heartbeat" aria-hidden="true"></i><% end %> -->
 
     <div class="categorySelect">
-      <%= link_to 'All', city_articles_category_path(@city.name, 'All'), :remote => true, :class => "catAll"  %>
+      <%= link_to 'All', city_articles_category_path(@city, 'All'), :remote => true, :class => "catAll"  %>
     </div>
     <% @categories.each do |c| %>
-
       <div class="categorySelect">
-        <%= link_to c.name, city_articles_category_path(@city.name, c.name, :anchor => c.name.downcase), :remote => true %>
+        <%= link_to c.name, city_articles_category_path(@city, c.name, :anchor => c.name.downcase), :remote => true %>
       </div>
     <% end %>
   </div>

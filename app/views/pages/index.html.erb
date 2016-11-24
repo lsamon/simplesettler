@@ -26,7 +26,7 @@
       <div class="rows">
       <% @cities.each do |c| %>
         <div class="<%= c.name %>">
-          <%= link_to "#{(c.name).upcase}", city_show_path(c.name), :class => 'labelShort' %>
+          <%= link_to "#{(c.name).upcase}", city_path(c), :class => 'labelShort' %>
           <%= image_tag "#{c.name.downcase}.jpg", :class => "" %>
         </div>
       <% end %>

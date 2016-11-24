@@ -23,6 +23,8 @@ class CitiesController < ApplicationController
       @all_articles = category_articles
     end
 
+    # raise params
+
     respond_to do |format|
       format.html { redirect_to "#" }
       format.js
@@ -35,11 +37,17 @@ class CitiesController < ApplicationController
   end
 
   def edit
-    @city = City.find_by :name => params[:id]
+    @city = set_city
   end
 
   def update
     @city = set_city
+    puts "START"
+    puts
+    puts
+    puts @city
+    puts
+    puts "END"
     if @city.update(city_params)
       redirect_to @city
     else
@@ -66,7 +74,7 @@ class CitiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
   def set_city
-    @city = City.find_by :name => params[:name]
+    @city = City.find params[:id]
   end
 
   def city_params
