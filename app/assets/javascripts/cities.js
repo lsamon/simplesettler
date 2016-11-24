@@ -7,7 +7,6 @@ $(document).ready(function(){
     $('.rateCity').fadeToggle();
   });
 
-
   $('.catAll').addClass('active');
 
   $('.categorySelect a').click(function() {
