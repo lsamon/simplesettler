@@ -25,6 +25,7 @@ _"Simple Settler_" is a functional MVP site built in rails by Loui Amon & Ron Ta
 * Make the AJAX tab bar dynamically change the url
 * Add modal popups for various forms and information
 * Add more functionality for admin users, such as charts and graphs.
+* Use websockets to implement a live chat feature.
 
 
 ### Link to our site:
