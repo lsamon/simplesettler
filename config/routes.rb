@@ -12,7 +12,12 @@ Rails.application.routes.draw do
   get '/privacy_policy' => 'pages#privacy_policy'
 
 
-  resources :cities, :except => [:show]
+  authenticate :user do
+    # if user_signed_in? && current_user.admin?
+      resources :cities, only: [:new, :create, :edit, :update, :destroy]
+    # end
+  end
+  # resources :cities, :except => [:show]
   resources :articles
   resources :categories
 

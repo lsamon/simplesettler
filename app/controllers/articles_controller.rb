@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :check_for_admin, :only => [:edit, :create, :new, :destroy, :update]
+
   def index
     @articles = Article.all
   end
@@ -33,7 +35,11 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = set_article
+    # if current_user.admin?
+      @article = set_article
+    # else
+    #   redirect_to root_path
+    # end
   end
 
   def update

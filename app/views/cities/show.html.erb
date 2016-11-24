@@ -29,8 +29,11 @@
 <script>
   $(function () {
     $(".rateYo.weather").rateYo({
-      rating: <%= @feedbacks['weather'] %>,
+      rating: <%= user_signed_in? ? @feedbacks['weather'] : 0 %>,
       precision: 1,
+      <% unless user_signed_in? %>
+        readOnly: true,
+      <% end %>
 
       onSet: function (rating, rateYoInstance) {
         console.log("Rating is set to: " + rating);
@@ -45,8 +48,11 @@
       }
     });
     $(".rateYo.liveability").rateYo({
-      rating: <%= @feedbacks['liveability'] %>,
+      rating: <%= user_signed_in? ? @feedbacks['liveability'] : 0 %>,
       precision: 1,
+      <% unless user_signed_in? %>
+        readOnly: true,
+      <% end %>
 
       onSet: function (rating, rateYoInstance) {
         console.log("Rating is set to: " + rating);
@@ -61,8 +67,11 @@
       }
     });
     $(".rateYo.movability").rateYo({
-      rating: <%= @feedbacks['movability'] %>,
+      rating: <%= user_signed_in? ? @feedbacks['movability'] : 0 %>,
       precision: 1,
+      <% unless user_signed_in? %>
+        readOnly: true,
+      <% end %>
 
       onSet: function (rating, rateYoInstance) {
         console.log("Rating is set to: " + rating);

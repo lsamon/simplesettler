@@ -1,4 +1,6 @@
 class CitiesController < ApplicationController
+  before_action :check_for_admin, :only => [:edit, :create, :new, :destroy, :update]
+  
   def index
     @cities = City.all
 
@@ -21,7 +23,7 @@ class CitiesController < ApplicationController
     @articles = @city.articles
     @categories = Category.all
 
-    @feedbacks = Feedback.per_user_city(current_user.id, @city.id)
+    @feedbacks = Feedback.per_user_city(current_user.id, @city.id) if user_signed_in?
   end
 
   def articles_category
