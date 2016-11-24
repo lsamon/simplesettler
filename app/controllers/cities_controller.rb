@@ -1,5 +1,6 @@
 class CitiesController < ApplicationController
   before_action :check_for_admin, :only => [:edit, :create, :new, :destroy, :update]
+  autocomplete :city, :name
 
   def index
     @cities = City.all

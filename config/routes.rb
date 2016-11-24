@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   resources :articles
   resources :categories
 
+  resources :cities do
+    get :autocomplete_city_name, :on => :collection
+  end
+
   post '/cities/:id/rate/:feedback' => 'cities#submit_rating', :as => 'submit_rating'
 
   get '/cities/:id/:category' => 'cities#articles_category', :as =>  'city_articles_category'

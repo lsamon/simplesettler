@@ -111,6 +111,11 @@ $buttonColor: #00b6ab;
     // margin-left: -20px;
     // transform: translateY(.15px);
 
+    .ui-widget {
+      transform: translateX(20px);
+      border: 1px solid white;
+    }
+
     button {
       background: white;
       border: 0 solid white;
