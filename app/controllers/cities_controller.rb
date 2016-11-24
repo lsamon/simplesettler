@@ -20,6 +20,8 @@ class CitiesController < ApplicationController
     @city = set_city
     @articles = @city.articles
     @categories = Category.all
+
+    @feedbacks = Feedback.per_user_city(current_user.id, @city.id)
   end
 
   def articles_category
@@ -82,6 +84,27 @@ class CitiesController < ApplicationController
     city = set_city
     city.destroy
     redirect_to root_path
+  end
+
+  def submit_rating
+    city_id = params[:id]
+    feedback = params[:feedback]
+    rating = params[:rating]
+
+    city_feedback = Feedback.check_exists(current_user.id, feedback, city_id)
+
+    # binding.pry
+
+    if city_feedback.present?
+      feedback_id = city_feedback.first.id
+      update_data = { feedback => rating.to_f }
+      city_feedback.update(feedback_id, update_data)
+      redirect_to '#'
+    else
+      city_feedback = Feedback.new :city_id => city_id, feedback => rating, :user_id => current_user.id
+      city_feedback.save
+      redirect_to '#'
+    end
   end
 
   private

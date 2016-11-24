@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :articles
   resources :categories
 
+  post '/cities/:id/rate/:feedback' => 'cities#submit_rating', :as => 'submit_rating'
+
   get '/cities/:id/:category' => 'cities#articles_category', :as =>  'city_articles_category'
   get '/articles/:id/:helpful' => 'articles#check_helpful', :as => 'check_helpful'
 

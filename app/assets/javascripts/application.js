@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require rateyo
 //= require underscore
 //= require ckeditor/init
 //= require_tree .
