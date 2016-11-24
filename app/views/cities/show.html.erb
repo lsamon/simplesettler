@@ -2,15 +2,13 @@
   <%= image_tag "#{@city.name.downcase}.jpg", :class => "imageCity"%>
   <div class="bannerInfo">
     <h1><%= @city.name %></h1>
-    <h2>Discover and connect with services in your city.</h2>
+    <h2><em><%= @city.slogan %></em></h2>
     <p>Population: <%= @city.population %></p>
   </div>
 </div>
 
 <div class="categorySelectBg">
   <div class="container">
-
-    <!-- <%= link_to city_articles_category_path(@city.name, 'All'), :remote => true do %><i class="fa fa-heartbeat" aria-hidden="true"></i><% end %> -->
 
     <div class="categorySelect">
       <%= link_to 'All', city_articles_category_path(@city, 'All'), :remote => true, :class => "catAll"  %>
@@ -34,9 +32,6 @@
       <% end %>
     </div>
   </div>
-
-  <!-- <h2><%= @city.name %></h2> -->
-  <!-- <p><%= @city.description %></p> -->
 
   <% if user_signed_in? && current_user.admin? %>
     <%= button_to 'delete', @city, :method => 'delete'%>
