@@ -1,3 +1,89 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.signin {
+  padding: 20px 0;
+  min-height: 66vh;
+  text-align: center;
+  background: #eee;
+
+  .signinCont {
+    margin: 0 auto;
+    border-radius: 10px;
+    width: 400px;
+    background: white;
+    overflow: hidden;
+
+    .header {
+      height: 45px;
+      background: #252525;
+      margin-bottom: 10px;
+
+      h2 {
+        color: #00b6ab;
+        padding: 7px;
+        font-weight: 200;
+      }
+    }
+
+    .signinInput {
+      margin: 10px 0;
+      height: 30px;
+      width: 190px;
+      padding-left: 10px;
+      border: 1px solid #00b6ab;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    .signinButton {
+      width: 200px;
+      height: 32px;
+      border: 1px solid #00b6ab;
+      border-radius: 10px;
+      background: #00b6ab;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    .links {
+      margin: 10px 0;
+
+      div {
+        margin: 10px;
+      }
+      a {
+        font-size: 18px;
+        text-align: center;
+        flex: 1;
+        margin: 2px;
+        height: 30px;
+        text-decoration: none;
+        overflow: hidden;
+
+        i {
+          width: 150px;
+          height: inherit;
+          line-height: 30px;
+          transition: .3s;
+          border-radius: 5px;
+          margin-bottom: 15px;
+        }
+
+        .fa-facebook {
+          background: #334d87;
+          color: white;
+        }
+        .fa-facebook:hover {
+          background: #365db5;
+        }
+        .fa-google-plus {
+          background: #df4a32;
+          color: white;
+        }
+        .fa-google-plus:hover {
+          background: #ff553a
+        }
+      }
+    }
+  }
+}

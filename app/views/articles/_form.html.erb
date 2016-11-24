@@ -1,9 +1,11 @@
 <div class="container">
-  <%= form_for @article do |f| %>
-    <%= f.text_field :title, :placeholder => 'Title', :class => 'articleEditTitle' %>
-    <%= f.cktext_area :content, :class => '' %>
-    <%= f.file_field :featured_image %>
-    <%= f.select :city_id, City.pluck(:name, :id), :class => 'articleEditCity' %>
-    <%= f.submit :class => '' %>
-  <% end %>
+  <div class="articleForm">
+    <%= form_for @article do |f| %>
+      <%= f.text_field :title, :placeholder => 'Title', :class => 'articleEditTitle' %>
+      <%= f.cktext_area :content, :class => 'content' %>
+      <%= f.file_field :featured_image %>
+      <%= f.select :city_id, City.pluck(:name, :id), :class => 'articleEditCity' %>
+      <%= f.submit :class => '' %>
+    <% end %>
+  </div>
 </div>

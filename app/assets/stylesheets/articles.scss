@@ -120,10 +120,6 @@
       padding: 50px;
       line-height: 1.5;
 
-      img {
-        // max-width: 508px;
-      }
-
       ul {
         list-style-position: inside;
       }
@@ -170,7 +166,6 @@
 
   .aside {
     flex: 1;
-    // border: 1px solid blue;
     display: flex;
     flex-direction: column;
 
@@ -178,9 +173,6 @@
       display: flex;
       border-radius: 5px;
       margin-right: 10%;
-
-      // border: 1px solid pink;
-
       height: 200px;
       margin-bottom: 20px;
       // background: linear-gradient( rgba(0, 0, 0, 0.6),  rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35) );
@@ -210,4 +202,24 @@
       }
     }
   }
+}
+
+
+/// FORMS /////////////////////////////////////////////////
+/// FORMS /////////////////////////////////////////////////
+
+
+
+
+.articleForm {
+  margin: 30px;
+
+  .articleEditTitle {
+    height: 30px;
+    width: 200px;
+    padding-left: 10px;
+    border-radius: 5px;
+    margin: 20px 0;
+  }
+
 }

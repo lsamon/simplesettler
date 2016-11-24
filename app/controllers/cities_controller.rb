@@ -35,7 +35,7 @@ class CitiesController < ApplicationController
   end
 
   def edit
-    @city = set_city
+    @city = City.find_by :name => params[:id]
   end
 
   def update

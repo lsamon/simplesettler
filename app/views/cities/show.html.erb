@@ -39,7 +39,8 @@
   <!-- <h2><%= @city.name %></h2> -->
   <!-- <p><%= @city.description %></p> -->
 
-  <!-- <% if user_signed_in? && current_user.admin? %>
+  <% if user_signed_in? && current_user.admin? %>
     <%= button_to 'delete', @city, :method => 'delete'%>
-  <% end %> -->
+    <!-- <%= link_to 'edit', edit_city_path(@city) %> -->
+  <% end %>
 </div>
