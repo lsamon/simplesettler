@@ -51,7 +51,7 @@ $buttonColor: #00b6ab;
 
 
 .banner {
-  background: linear-gradient( rgba(0, 0, 0, 0.9),  rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35) ), url('slider2.jpg');
+  background: linear-gradient( rgba(0, 0, 0, 0.9),  rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35) ), url(http://simplesettler.com/demo/wp-content/uploads/2016/11/slider2.jpg);
   background-size: cover;
   background-position: center;
   width:100%;
@@ -75,6 +75,20 @@ $buttonColor: #00b6ab;
     font-weight: 300;
     font-size: 22.5px;
     margin-bottom: 15px;
+  }
+  .ausFlag {
+    display: inline-block;
+    height: 42px;
+    width: 42px;
+    border: 1px solid white;
+    border-radius: 50%;
+    background: url(http://simplesettler.com/demo/wp-content/themes/simple-setller/images/flag.jpg)
+  }
+  .flagAvail {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 13px;
+    margin-left: 10px;
   }
 
   .searchCity {

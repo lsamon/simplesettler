@@ -209,17 +209,64 @@
 /// FORMS /////////////////////////////////////////////////
 
 
+.articleEdit {
+  padding: 20px 0;
+  min-height: 66vh;
+  text-align: center;
+  background: #eee;
 
+  .articleEditContainer {
+    border-radius: 10px;
+    background: white;
+    overflow: hidden;
 
-.articleForm {
-  margin: 30px;
+    .header {
+    height: 45px;
+    background: #252525;
+    margin-bottom: 10px;
 
-  .articleEditTitle {
-    height: 30px;
-    width: 200px;
-    padding-left: 10px;
-    border-radius: 5px;
-    margin: 20px 0;
+      h2 {
+        color: #00b6ab;
+        padding: 7px;
+        font-weight: 200;
+      }
+    }
+    .articleForm {
+      margin: 30px;
+
+      .articleEditTitle {
+        margin: 10px 0;
+        width: 550px;
+        height: 30px;
+        padding-left: 10px;
+        border: 1px solid #00b6ab;
+        border-radius: 10px;
+        font-size: 16px;
+      }
+      .articleEditCity {
+        margin: 10px 0;
+        border: 1px solid #00b6ab;
+        background: white;
+        height: 30px;
+        width: 150px;
+        border-radius: 10px;
+      }
+
+      .selectCity {
+        padding: 10px 0;
+      }
+
+      .submitFormButton {
+        width: 200px;
+        height: 32px;
+        border: 1px solid #00b6ab;
+        border-radius: 10px;
+        background: #00b6ab;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 10px;
+      }
+    }
   }
-
 }
