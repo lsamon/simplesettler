@@ -41,6 +41,8 @@
   }
 }
 
+
+
 .categorySelectBg{
   height: 120px;
   background: #ddd;
@@ -49,6 +51,54 @@
     max-width: 960px;
     display: flex;
     justify-content: space-between;
+
+    .starButton {
+      position: absolute;
+      height: 40px;
+      width: 40px;
+      font-size: 35px;
+      color: #ffc107;
+      transform: translateY(-43px) translateX(-50px);
+      cursor: pointer;
+    }
+    .fa-star {
+      transition: 1.5s;
+      animation: blink 2s infinite;
+    }
+    @keyframes blink{
+      0% { text-shadow: 0 0 0 white; }
+      25% { text-shadow: 0 0 10px white; }
+      50% { text-shadow: 0 0 20px white; }
+      75% { text-shadow: 0 0 10px white; }
+      100% { text-shadow: 0 0 0 white; }
+    }
+    .fa-star:hover {
+      transform-origin: center;
+      transform: rotate(360deg);
+    }
+
+    .rateCity {
+      position: absolute;
+      font-size: 20px;
+      height: 40px;
+      color: #ffc107;
+      transform: translateY(-33px) translateX(-5px);
+      cursor: pointer;
+    }
+
+    .ratingsYo {
+      position: absolute;
+      color: white;
+      height: 40px;
+      
+      transform: translateY(-60px);
+      margin: 0 auto;
+      display: none;
+
+      p, div {
+        height: 40px;
+      }
+    }
 
     div {
       height: 120px;

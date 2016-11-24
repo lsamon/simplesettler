@@ -7,69 +7,79 @@
   </div>
 </div>
 
+<div class="categorySelectBg">
+  <div class="container">
 
-<div id="Ratings" data-city-id="<%= @city.id %>">
-  <p>Weather: <span class="rateYo weather" data-feedback="weather"></span><p>
-  <p>Liveability: <span class="rateYo liveability" data-feedback="liveability"></span></p>
-  <p>Movability: <span class="rateYo movability" data-feedback="movability"></span></p>
+<div class="starButton">
+  <i class="fa fa-star" aria-hidden="true"></i>
+</div>
+
+<div class="rateCity">
+  <p>Rate this City!</p>
+</div>
+
+<div id="Ratings" class="ratingsYo" data-city-id="<%= @city.id %>">
+  <div class="container">
+    <p>Weather: <span class="rateYo weather" data-feedback="weather"></span><p>
+    <p>Liveability: <span class="rateYo liveability" data-feedback="liveability"></span></p>
+    <p>Movability: <span class="rateYo movability" data-feedback="movability"></span></p>
+  </div>
 </div>
 
 <script>
-    $(function () {
-      $(".rateYo.weather").rateYo({
-        rating: <%= @feedbacks['weather'] %>,
-        precision: 0,
+  $(function () {
+    $(".rateYo.weather").rateYo({
+      rating: <%= @feedbacks['weather'] %>,
+      precision: 1,
 
-        onSet: function (rating, rateYoInstance) {
-          console.log("Rating is set to: " + rating);
-          var feedback = $(this).data('feedback');
-          var id = $(this).closest('#Ratings').data('city-id');
+      onSet: function (rating, rateYoInstance) {
+        console.log("Rating is set to: " + rating);
+        var feedback = $(this).data('feedback');
+        var id = $(this).closest('#Ratings').data('city-id');
 
-          $.post("/cities/"+id+"/rate/"+feedback,
-            { rating: rating},
-            function(data, status){
-              console.log(status);
-            });
-        }
-      });
-      $(".rateYo.liveability").rateYo({
-        rating: <%= @feedbacks['liveability'] %>,
-        precision: 0,
-
-        onSet: function (rating, rateYoInstance) {
-          console.log("Rating is set to: " + rating);
-          var feedback = $(this).data('feedback');
-          var id = $(this).closest('#Ratings').data('city-id');
-
-          $.post("/cities/"+id+"/rate/"+feedback,
-            { rating: rating},
-            function(data, status){
-              console.log(status);
-            });
-        }
-      });
-      $(".rateYo.movability").rateYo({
-        rating: <%= @feedbacks['movability'] %>,
-        precision: 0,
-
-        onSet: function (rating, rateYoInstance) {
-          console.log("Rating is set to: " + rating);
-          var feedback = $(this).data('feedback');
-          var id = $(this).closest('#Ratings').data('city-id');
-
-          $.post("/cities/"+id+"/rate/"+feedback,
-            { rating: rating},
-            function(data, status){
-              console.log(status);
-            });
-        }
-      });
-
+        $.post("/cities/"+id+"/rate/"+feedback,
+          { rating: rating},
+          function(data, status){
+            console.log(status);
+          });
+      }
     });
-  </script>
+    $(".rateYo.liveability").rateYo({
+      rating: <%= @feedbacks['liveability'] %>,
+      precision: 1,
 
-<div class="categorySelectBg">
-  <div class="container">
+      onSet: function (rating, rateYoInstance) {
+        console.log("Rating is set to: " + rating);
+        var feedback = $(this).data('feedback');
+        var id = $(this).closest('#Ratings').data('city-id');
+
+        $.post("/cities/"+id+"/rate/"+feedback,
+          { rating: rating},
+          function(data, status){
+            console.log(status);
+          });
+      }
+    });
+    $(".rateYo.movability").rateYo({
+      rating: <%= @feedbacks['movability'] %>,
+      precision: 1,
+
+      onSet: function (rating, rateYoInstance) {
+        console.log("Rating is set to: " + rating);
+        var feedback = $(this).data('feedback');
+        var id = $(this).closest('#Ratings').data('city-id');
+
+        $.post("/cities/"+id+"/rate/"+feedback,
+          { rating: rating},
+          function(data, status){
+            console.log(status);
+          });
+      }
+    });
+  });
+</script>
+
+
 
     <div class="categorySelect">
       <%= link_to 'All', city_articles_category_path(@city, 'All'), :remote => true, :class => "catAll"  %>
