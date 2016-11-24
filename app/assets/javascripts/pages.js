@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
   $(document).scroll(function(){
+
     if ($(document).scrollTop() > 200) {
       $('nav').css({
         background: 'rgba(0,0,0,0.8)',

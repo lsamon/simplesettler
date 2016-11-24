@@ -1,6 +1,19 @@
 class CitiesController < ApplicationController
   def index
     @cities = City.all
+
+    if params[:search]
+      @cities = City.search(params[:search]).order("created_at DESC")
+      @city = City.find_by :name => params[:search]
+    else
+      @cities = City.all.order('created_at DESC')
+    end
+
+    if @cities.length == 1
+      redirect_to @cities.first
+    else
+      render :index
+    end
   end
 
   def show

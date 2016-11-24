@@ -14,4 +14,9 @@
 class City < ActiveRecord::Base
   has_many :articles
   has_many :feedbacks
+
+
+  def self.search(search)
+    where("name ILIKE ?", "%#{search}%")
+  end
 end

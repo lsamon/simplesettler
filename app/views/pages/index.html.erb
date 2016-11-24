@@ -2,8 +2,14 @@
   <div>
     <h1>SETTLE ANYWHERE.</h1>
     <h2>Discover and connect with services in your city.</h2>
-    <%= text_field :search, nil, :class => 'searchCity', :placeholder => 'Search your city' %>
-    <%= button_to nil, :class => 'searchCitySubmit' do %><i class="fa fa-search" aria-hidden="true"></i><% end %><br />
+    <!-- <%= text_field :search, nil, :class => 'searchCity', :placeholder => 'Search your city' %>
+    <%= button_to nil, :class => 'searchCitySubmit' do %><i class="fa fa-search" aria-hidden="true"></i><% end %><br /> -->
+
+    <%= form_tag(cities_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Cities", :class => 'searchCity' %>
+      <%= button_to nil, :class => 'searchCitySubmit' do %><i class="fa fa-search" aria-hidden="true"></i><% end %><br />
+    <% end %>
+
     <div class="ausFlag"></div>
     <div class="flagAvail"><em><p>Currently available in Australia</p></em></div>
   </div>

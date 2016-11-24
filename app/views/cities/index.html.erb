@@ -1,2 +1,11 @@
+<div class="navSpacer"></div>
+
 <h1>Cities#index</h1>
 <p>Find me in app/views/cities/index.html.erb</p>
+
+
+<% if @cities.blank? %>
+  <h4>There are no cities containing the term <%= params[:search] %>.</h4>
+<% else %>
+  <%= link_to @city.name, city_show_path(@cities.ids) %>
+<% end %>

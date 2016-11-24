@@ -108,7 +108,7 @@ $buttonColor: #00b6ab;
 
   form {
     display: inline-block;
-    margin-left: -10px;
+    // margin-left: -20px;
     // transform: translateY(.15px);
 
     button {
@@ -117,6 +117,7 @@ $buttonColor: #00b6ab;
       border-top-right-radius: 35px;
       border-bottom-right-radius: 35px;
       overflow: hidden;
+      margin-left: -10px;
 
       i {
         font-size: 20px;
