@@ -35,9 +35,7 @@ class CitiesController < ApplicationController
     if chosen_category == 'All'
       @all_articles = @city.articles
     else
-      category = Category.find_by :name => chosen_category
-      category_articles = category.articles
-      @all_articles = category_articles
+      @all_articles = Article.per_city_and_category(@city.id, chosen_category)
     end
 
     respond_to do |format|
