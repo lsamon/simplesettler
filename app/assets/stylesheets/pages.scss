@@ -467,6 +467,7 @@ $buttonColor: #00b6ab;
 .pageEnd {
   height: 400px;
   background: image-url('adelaide.jpg');
+  background-size: cover;
   text-align: center;
 
   .container {
@@ -501,7 +502,7 @@ $buttonColor: #00b6ab;
 /// TOS ///////////////////////////////////////////////////////////////////////////////
 /// TOS ///////////////////////////////////////////////////////////////////////////////
 
-.tos, .privacyPolicy, .faq  {
+.tos, .privacyPolicy, .faq, .about, .contact  {
   margin-bottom: 80px;
 
   h1 {

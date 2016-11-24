@@ -1,6 +1,6 @@
 class CitiesController < ApplicationController
   before_action :check_for_admin, :only => [:edit, :create, :new, :destroy, :update]
-  
+
   def index
     @cities = City.all
 
@@ -40,8 +40,6 @@ class CitiesController < ApplicationController
       @all_articles = category_articles
     end
 
-    # raise params
-
     respond_to do |format|
       format.html { redirect_to "#" }
       format.js
@@ -59,12 +57,6 @@ class CitiesController < ApplicationController
 
   def update
     @city = set_city
-    puts "START"
-    puts
-    puts
-    puts @city
-    puts
-    puts "END"
     if @city.update(city_params)
       redirect_to @city
     else
@@ -94,8 +86,6 @@ class CitiesController < ApplicationController
     rating = params[:rating]
 
     city_feedback = Feedback.check_exists(current_user.id, feedback, city_id)
-
-    # binding.pry
 
     if city_feedback.present?
       feedback_id = city_feedback.first.id
