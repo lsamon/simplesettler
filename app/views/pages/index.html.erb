@@ -6,7 +6,7 @@
     <%= button_to nil, :class => 'searchCitySubmit' do %><i class="fa fa-search" aria-hidden="true"></i><% end %><br /> -->
 
     <%= form_tag(cities_path, :method => "get", id: "search-form") do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search Cities", :class => 'searchCity' %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Cities", :class => 'searchCity', :pattern => ".{2,20}", :title => 'Enter more than 1 character' %>
       <%= button_to nil, :class => 'searchCitySubmit' do %><i class="fa fa-search" aria-hidden="true"></i><% end %><br />
     <% end %>
 
