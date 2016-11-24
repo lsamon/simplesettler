@@ -31,4 +31,8 @@ class Feedback < ActiveRecord::Base
     end
     ratings
   end
+
+  def self.average(cid, category)
+   where("city_id = ?", cid).average(category).to_f
+  end
 end

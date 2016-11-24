@@ -88,7 +88,40 @@
   });
 </script>
 
+<div class="chart">
+  <div class="ct-chart ct-golden-section" id="chart2"></div>
+</div>
 
+<script>
+  // Initialize a Line chart in the container with the ID chart2
+
+  var move = <%= Feedback.average(@city.id, 'movability') %>;
+  var live = <%= Feedback.average(@city.id, 'liveability') %>;
+  var weather = <%= Feedback.average(@city.id, 'weather') %>;
+
+
+  new Chartist.Bar('#chart2', {
+    labels: ["Movability", "Liveability", "Weather"],
+    series: [move, live, weather],
+    colors:["black", "#222", "#111"]},
+     {
+      reverseData: true,
+      horizontalBars: true,
+      distributeSeries: true,
+      low: 0,
+      high: 5,
+      width: "400px",
+      height: "200px",
+      axisX: {
+        showGrid: false,
+        showLabel: false
+      },
+      axisY: {
+        offset: 70,
+        showGrid: false
+      }
+  });
+</script>
 
     <div class="categorySelect">
       <%= link_to 'All', city_articles_category_path(@city, 'All'), :remote => true, :class => "catAll"  %>

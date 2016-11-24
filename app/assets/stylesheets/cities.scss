@@ -9,7 +9,7 @@
   background-size: cover;
   background-position: center;
   @include bannerHeight;
-  width:100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -97,6 +97,24 @@
 
       p, div {
         height: 40px;
+      }
+    }
+
+    .chart {
+      position: absolute;
+      transform: translateY(-250px) translateX(-82px);
+      filter: opacity(0.7);
+      padding: 0;
+
+      .ct-horizontal-bars {
+        height: 50px;
+      }
+      .ct-start {
+        color: white;
+      }
+      .ct-series line {
+        stroke: #00b6ab;
+        stroke-width: 15px;
       }
     }
 
