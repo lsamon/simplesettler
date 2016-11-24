@@ -1,4 +1,4 @@
-## Simple Settler - Project 2##
+## Simple Settler##
 _"Simple Settler_" is a functional MVP site built in rails by Loui Amon & Ron Tan in November 2016.
 
 ### Technologies used:
