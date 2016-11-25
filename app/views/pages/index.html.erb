@@ -52,7 +52,7 @@
         <% @articles.each do |a| %>
           <div>
             <%= link_to "#{a.title}", article_path(a), :class => "articles" %>
-            <%= image_tag a.featured_image %>
+            <%= image_tag a.image %>
           </div>
         <% end %>
         <!-- <% @articles.each do |a| %>

@@ -64,7 +64,7 @@
         <% @articles.each do |a| %>
           <div class="articlesAll">
             <%= link_to "#{a.title}", article_path(a), :class => "aLink"%>
-            <%= image_tag a.featured_image %>
+            <%= image_tag a.image %>
           </div>
         <% end %>
       </div>

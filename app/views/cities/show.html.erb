@@ -139,7 +139,7 @@
       <% @articles.each do |a| %>
       <div class='articleCont'>
         <%= link_to a.title, article_path(a), :class => 'articleSelect' %>
-        <%= image_tag a.featured_image, :class => "articleImg" %>
+        <%= image_tag a.image, :class => "articleImg" %>
       </div>
       <% end %>
     </div>

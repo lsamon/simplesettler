@@ -15,7 +15,7 @@ $(document).ready(function(){
   <% if @all_articles.present? %>
     <% @all_articles.each do |article| %>
       var $div = $('<%= link_to article.title, article_path(article), :class => "articleSelect" %>');
-      var $img = $('<%= image_tag article.featured_image, :class => "articleImg" %>')
+      var $img = $('<%= image_tag article.image, :class => "articleImg" %>')
       var $articleCont = $('<div class="articleCont">');
       $articleCont.append($div);
       $articleCont.append($img);
