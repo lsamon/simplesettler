@@ -26,7 +26,43 @@
   </div>
 </div>
 
+<div class="chart">
+  <div class="ct-chart ct-golden-section" id="chart2"></div>
+</div>
+
 <script>
+  var drawChart = function(m, l, w) {
+    return new Chartist.Bar('#chart2', {
+      labels: ["Movability", "Liveability", "Weather"],
+      series: [m, l, w]},
+       {
+        reverseData: true,
+        horizontalBars: true,
+        distributeSeries: true,
+        low: 0,
+        high: 5,
+        width: "400px",
+        height: "200px",
+        axisX: {
+          showGrid: false,
+          showLabel: false
+        },
+        axisY: {
+          offset: 70,
+          showGrid: false
+        }
+    });
+  }
+
+  var move = <%= Feedback.average(@city.id, 'movability') %>;
+  var live = <%= Feedback.average(@city.id, 'liveability') %>;
+  var weather = <%= Feedback.average(@city.id, 'weather') %>;
+
+  var labels = {labels: ["Movability", "Liveability", "Weather"]};
+
+  var chart = drawChart(move, live, weather);
+  chart;
+
   $(function () {
     $(".rateYo.weather").rateYo({
       rating: <%= user_signed_in? ? @feedbacks['weather'] : 0 %>,
@@ -44,6 +80,11 @@
           { rating: rating},
           function(data, status){
             console.log(status);
+            var newData = {
+              labels: ["Movability", "Liveability", "Weather"],
+              series: [move, live, rating]
+            }
+            chart.update(newData);
           });
       }
     });
@@ -63,6 +104,11 @@
           { rating: rating},
           function(data, status){
             console.log(status);
+            var newData = {
+              labels: ["Movability", "Liveability", "Weather"],
+              series: [move, rating, weather]
+            }
+            chart.update(newData);
           });
       }
     });
@@ -82,43 +128,14 @@
           { rating: rating},
           function(data, status){
             console.log(status);
+            var newData = {
+              labels: ["Movability", "Liveability", "Weather"],
+              series: [rating, live, weather]
+            }
+            chart.update(newData);
           });
       }
     });
-  });
-</script>
-
-<div class="chart">
-  <div class="ct-chart ct-golden-section" id="chart2"></div>
-</div>
-
-<script>
-  // Initialize a Line chart in the container with the ID chart2
-
-  var move = <%= Feedback.average(@city.id, 'movability') %>;
-  var live = <%= Feedback.average(@city.id, 'liveability') %>;
-  var weather = <%= Feedback.average(@city.id, 'weather') %>;
-
-
-  new Chartist.Bar('#chart2', {
-    labels: ["Movability", "Liveability", "Weather"],
-    series: [move, live, weather]},
-     {
-      reverseData: true,
-      horizontalBars: true,
-      distributeSeries: true,
-      low: 0,
-      high: 5,
-      width: "400px",
-      height: "200px",
-      axisX: {
-        showGrid: false,
-        showLabel: false
-      },
-      axisY: {
-        offset: 70,
-        showGrid: false
-      }
   });
 </script>
 
