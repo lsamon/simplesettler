@@ -3,6 +3,7 @@
     <%= f.text_field :title, :placeholder => 'Title', :class => 'articleEditTitle' %>
     <%= f.cktext_area :content, :class => 'content' %>
     <%= f.file_field :featured_image, :class => "selectCity"%><br />
+    <%= f.text_field :image, :class => "articleEditCity", :placeholder => "Image URL"%><br />
     <%= f.select :city_id, City.pluck(:name, :id), {}, :class => 'articleEditCity' %><br/>
     <%= f.select :category_ids, Category.pluck(:name, :id), {}, :class => 'articleEditCity' %><br/>
     <%= f.submit :class => 'submitFormButton' %>
