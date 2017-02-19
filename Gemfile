@@ -26,6 +26,11 @@ gem 'font-awesome-sass'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+
+# SEO gems
+gem 'meta-tags'
+
+gem 'friendly_id'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -45,6 +50,7 @@ group :development, :test do
   gem 'byebug'
   gem 'annotate'
   gem 'pry-rails'
+  gem 'better_errors'
 end
 
 group :development do

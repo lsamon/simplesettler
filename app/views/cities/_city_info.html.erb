@@ -1,0 +1,6 @@
+<% articles.each do |a| %>
+<div class='articleCont'>
+  <%= link_to a.title, article_path(1, a), :class => 'articleSelect' %>
+  <%= image_tag a.image, :class => "articleImg" %>
+</div>
+<% end %>

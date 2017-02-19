@@ -1,6 +1,5 @@
 class CitiesController < ApplicationController
   before_action :check_for_admin, :only => [:edit, :create, :new, :destroy, :update]
-  before_action :find_or_initialize_city, :except => [:index]
   autocomplete :city, :name
 
   def index
@@ -21,12 +20,15 @@ class CitiesController < ApplicationController
   end
 
   def show
-    @articles = current_city.articles
-    @default_articles = @articles.where(category_id: 1)
+    @city = set_city
+    @articles = @city.articles
     @categories = Category.all
+
+    @feedbacks = Feedback.per_user_city(current_user.id, @city.id) if user_signed_in?
   end
 
   def articles_category
+    @city = set_city
     @all_articles = @city.articles
 
     chosen_category = params[:category]
@@ -45,6 +47,20 @@ class CitiesController < ApplicationController
   end
 
   def new
+    @city = City.new
+  end
+
+  def edit
+    @city = set_city
+  end
+
+  def update
+    @city = set_city
+    if @city.update(city_params)
+      redirect_to @city
+    else
+      render :edit
+    end
   end
 
   def create
@@ -57,19 +73,9 @@ class CitiesController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-    if @city.update(city_params)
-      redirect_to @city
-    else
-      render :edit
-    end
-  end
-
   def destroy
-    @city.destroy
+    city = set_city
+    city.destroy
     redirect_to root_path
   end
 
@@ -94,11 +100,11 @@ class CitiesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-  def find_or_initialize_city
-    @city = params[:id] ? City.where(:id => params[:id]).first : City.new
+  def set_city
+    @city = City.find params[:id]
   end
 
   def city_params
-    params.fetch(:city, {}).permit(:name, :country, :description, :population, :slogan)
+    params.require(:city).permit(:name, :country, :description, :population, :slogan)
   end
 end

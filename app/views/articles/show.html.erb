@@ -1,5 +1,5 @@
 <div class="bannerArticle">
-  <%= image_tag "articleHeader.jpg", :class => "imageArticle"%>
+  <!-- <%= image_tag "articleHeader.jpg", :class => "imageArticle"%> -->
   <div class="bannerInfo">
     <h1><%= @article.title %></h1>
     <!-- <h2>Discover and connect with services in your city.</h2>
@@ -8,35 +8,39 @@
 </div>
 <div class="bg">
 
-  <div class="container">
-
-    <div class="articles">
-      <div class="content">
-        <%= image_tag @article.image %>
+    <div class="row articles">
+      <div class="col-md-9 content">
+        <%= image_tag @article.image, :class => "articleImage" %>
         <div class="articleContent">
           <h2><%= @article.title %></h2>
-          <div class="share">
-            <a href=""><i class="fa fa-facebook" aria-hidden="true"> Facebook</i></a>
+<!-- I think it's too much to have two sets of social media icons, I've hidden this one but you can re-enable it later by removing this comment.
+                     <div class="share">
+            <a href="" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
 
-            <a href=""><i class="fa fa-twitter" aria-hidden="true"> Twitter</i></a>
+            <a href="" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
 
-            <a href=""><i class="fa fa-google-plus" aria-hidden="true"> Google+</i></a>
+            <a href="" class="google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i> Google+</a>
 
-            <a href=""><i class="fa fa-pinterest-p" aria-hidden="true"> Pinterest</i></a>
+            <a href="" class="pinterest"><i class="fa fa-pinterest-p" aria-hidden="true"></i> Pinterest</a>
           </div>
           <hr>
+          
+          --> 
+          
+          
+          
           <p><%= raw(@article.content) %></p>
 
           <hr>
 
           <div class="share">
-            <a href=""><i class="fa fa-facebook" aria-hidden="true"> Facebook</i></a>
+            <a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
 
-            <a href=""><i class="fa fa-twitter" aria-hidden="true"> Twitter</i></a>
+            <a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
 
-            <a href=""><i class="fa fa-google-plus" aria-hidden="true"> Google+</i></a>
+            <a href="#" class="google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i> Google+</a>
 
-            <a href=""><i class="fa fa-pinterest-p" aria-hidden="true"> Pinterest</i></a>
+            <a href="#" class="pinterest"><i class="fa fa-pinterest-p" aria-hidden="true"></i> Pinterest</a>
           </div>
 
           <div class="helpful">
@@ -60,7 +64,7 @@
 
         </div>
       </div>
-      <div class="aside">
+      <div class="aside col-md-3">
         <% @articles.each do |a| %>
           <div class="articlesAll">
             <%= link_to "#{a.title}", article_path(a), :class => "aLink"%>
@@ -74,6 +78,5 @@
     <% if user_signed_in? && current_user.admin? %>
       <%= button_to 'delete', @article, :method => 'delete'%>
     <% end %>
-  </div>
 
 </div>

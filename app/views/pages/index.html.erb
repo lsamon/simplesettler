@@ -1,24 +1,55 @@
-<div class="banner">
+<div id="countryModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Sign up for future updates</h4>
+      </div>
+      <div class="modal-body">
+        <p>Unfortunately your country is not available yet, register to be notified of any future changes.</p>
+        <form>
+          <div class="form-group">
+           <label for="full_name">Full name:</label>
+            <input type="text" id="full_name" class="form-control">
+            </div>
+            <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" id="email" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- end modal code -->
+<!-- NOTE:  $('#myModal').modal('toggle') can be used to trigger modal-->
+
+
+<!-- Modal button for testing purposes
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#countryModal">Open Modal</button>
+ -->
+
+
+ <div class="banner">
   <div>
     <h1>SETTLE ANYWHERE.</h1>
     <h2>Discover and connect with services in your city.</h2>
+    <div>
     <%= form_tag(cities_path, :method => "get", id: "search-form") do %>
       <%= text_field_tag :search, params[:search], placeholder: "Search Cities", :class => 'searchCity', :pattern => ".{2,20}", :title => 'Enter more than 1 character', data: { autocomplete: autocomplete_city_name_cities_path } %>
       <%= button_to nil, :class => 'searchCitySubmit' do %><i class="fa fa-search" aria-hidden="true"></i><% end %><br />
     <% end %>
+  </div>
 
     <div class="ausFlag"></div>
     <div class="flagAvail"><em><p>Currently available in Australia</p></em></div>
   </div>
 </div>
 
-<div class="container">
 
-  <div class="recommendedBy">
-    <div class="logos one"></div>
-    <div class="logos two"></div>
-    <div class="logos three"></div>
-  </div>
+<div class="container">
 
   <div class="explore">
 
@@ -27,16 +58,30 @@
       <p>See whats happening in your community, or find new citys to explore.</p>
     </div>
 
-    <div class="cities">
-      <div class="rows">
-      <% @cities.each do |c| %>
-        <div class="<%= c.name %>">
-          <%= link_to "#{(c.name).upcase}", city_path(c), :class => 'labelShort' %>
-          <%= image_tag "#{c.name.downcase}.jpg", :class => "" %>
-        </div>
-      <% end %>
+
+  <div class="cities">
+     <% @cities.in_groups_of(3)  do |c1, c2, c3| %>
+      <div class="row">
+          <div class="col-sm-4 <%= c1.name %>">
+              <%= link_to "#{(c1.name).upcase}", city_path(c1), :class => 'labelShort' %>
+              <%= image_tag "#{c1.name.downcase}.jpg", :class => "" %>
+          </div>
+          <% if c2 %>
+          <div class="col-sm-4 <%= c2.name %>">
+              <%= link_to "#{(c2.name).upcase}", city_path(c2), :class => 'labelShort' %>
+              <%= image_tag "#{c2.name.downcase}.jpg", :class => "" %>
+          </div>
+          <% end %>
+          <% if c3 %>
+          <div class="col-sm-4 <%= c3.name %>">
+              <%= link_to "#{(c3.name).upcase}", city_path(c3), :class => 'labelShort' %>
+              <%= image_tag "#{c3.name.downcase}.jpg", :class => "" %>
+          </div>
+          <% end %>
       </div>
-    </div>
+      <% end %>
+  </div>
+
   </div>
 </div>
 <hr>
@@ -47,22 +92,37 @@
       <p>Discover some of our best listings</p>
     </div>
 
-    <div class="listingArticles">
-      <div class="rows">
-        <% @articles.each do |a| %>
-          <div>
-            <%= link_to "#{a.title}", article_path(a), :class => "articles" %>
-            <%= image_tag a.image %>
-          </div>
-        <% end %>
-        <!-- <% @articles.each do |a| %>
-          <div class="articles">
-            <%= link_to "#{a.title}", article_path(a) %>
-          </div>
-        <% end %> -->
-      </div>
 
-    </div>
+<!-- .listingArticles images are broken due to a backend issue, but the styling is good to go! -->
+<div class="listingArticles">
+     <% @articles.in_groups_of(3)  do |a1, a2, a3| %>
+         <div class="row">
+           <%= link_to(city_article_path(a1.cities.first, a1), :class => "articles") do %>
+             <div class="col-sm-4">
+                <%= a1.title %>
+                <%= image_tag a1.image %>
+             </div>
+           <% end %>
+             <% if a2 %>
+               <%= link_to(city_article_path(a2.cities.first, a2), :class => "articles") do %>
+                 <div class="col-sm-4">
+                    <%= a2.title %>
+                    <%= image_tag a2.image %>          
+                 </div>
+               <% end %>
+             <% end %>
+             <% if a3 %>
+               <%= link_to(city_article_path(a3.cities.first, a3), :class => "articles") do %>
+                 <div class="col-sm-4">
+                    <%= a3.title %>
+                    <%= image_tag a3.image %>
+                 </div>
+               <% end %>
+             <% end %>
+         </div>
+     <% end %>
+</div>
+
     <div class="allArticlesButton" >
     <%= link_to "View All", root_path %>
     </div>
@@ -160,7 +220,17 @@
       <%=  link_to "Settle Somewhere", nil, :class => "searchCity button"%>
     </div>
   </div>
+
 </div>
+
+
+
+    <div class="recommendedBy">
+    <div class="logos one"></div>
+    <div class="logos two"></div>
+    <div class="logos three"></div>
+  </div>
+
 
 <div class="pageEnd">
   <div class="container">

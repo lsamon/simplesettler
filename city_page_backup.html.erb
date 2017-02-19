@@ -1,64 +1,35 @@
 <div class="bannerCity">
- <%= image_tag "#{@city.name.downcase}.jpg", :class => "imageCity" %>
+  <%= image_tag "#{@city.name.downcase}.jpg", :class => "imageCity"%>
   <div class="bannerInfo">
     <h1><%= @city.name %></h1>
     <h2><em><%= @city.slogan %></em></h2>
     <p>Population: <%= @city.population %></p>
-    <!-- City Ratings -->
-    <div class="rateCity">
-  <p><i class="fa fa-star" aria-hidden="true"></i> Rate this City!</p>
+  </div>
 </div>
- <div id="Ratings" class="ratingsYo" data-city-id="<%= @city.id %>">
+
+<div class="categorySelectBg">
+  <div class="container">
+
+<div class="starButton">
+  <i class="fa fa-star" aria-hidden="true"></i>
+</div>
+
+<div class="rateCity">
+  <p>Rate this City!</p>
+</div>
+
+<div id="Ratings" class="ratingsYo" data-city-id="<%= @city.id %>">
   <div class="container">
     <p>Weather: <span class="rateYo weather" data-feedback="weather"></span><p>
     <p>Liveability: <span class="rateYo liveability" data-feedback="liveability"></span></p>
     <p>Movability: <span class="rateYo movability" data-feedback="movability"></span></p>
   </div>
 </div>
-     <!-- END City Ratings -->
-     <div class="chart">
+
+<div class="chart">
   <div class="ct-chart ct-golden-section" id="chart2"></div>
 </div>
 
-  </div>
-</div>
-
-<div class="categorySelectBg">
-
-
-
-
-    <div class="categorySelect">
-      <%= link_to 'All', city_articles_category_path(@city, 'All'), :remote => true, :class => "catAll"  %>
-    </div>
-    <% @categories.each do |c| %>
-      <div class="categorySelect">
-        <%= link_to c.name, city_articles_category_path(@city, c.name, :anchor => c.name.downcase), :remote => true %>
-      </div>
-    <% end %>
-</div>
-
-<div class="container">
-  <div class="articleSelectContainer">
-    <div class="rows">
-      <% @articles.each do |a| %>
-      <div class='articleCont'>
-        <%= link_to a.title, article_path(a), :class => 'articleSelect' %>
-        <%= image_tag a.image, :class => "articleImg" %>
-      </div>
-      <% end %>
-    </div>
-  </div>
-
-  <% if user_signed_in? && current_user.admin? %>
-    <%= button_to 'delete', @city, :method => 'delete'%>
-    <!-- <%= link_to 'edit', edit_city_path(@city) %> -->
-  <% end %>
-</div>
-
-
-
-<!-- City Rating Script -->
 <script>
   var drawChart = function(m, l, w) {
     return new Chartist.Bar('#chart2', {
@@ -167,3 +138,32 @@
     });
   });
 </script>
+
+    <div class="categorySelect">
+      <%= link_to 'All', city_articles_category_path(@city, 'All'), :remote => true, :class => "catAll"  %>
+    </div>
+    <% @categories.each do |c| %>
+      <div class="categorySelect">
+        <%= link_to c.name, city_articles_category_path(@city, c.name, :anchor => c.name.downcase), :remote => true %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="articleSelectContainer">
+    <div class="rows">
+      <% @articles.each do |a| %>
+      <div class='articleCont'>
+        <%= link_to a.title, article_path(a), :class => 'articleSelect' %>
+        <%= image_tag a.image, :class => "articleImg" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+  <% if user_signed_in? && current_user.admin? %>
+    <%= button_to 'delete', @city, :method => 'delete'%>
+    <!-- <%= link_to 'edit', edit_city_path(@city) %> -->
+  <% end %>
+</div>

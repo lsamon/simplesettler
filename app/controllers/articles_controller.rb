@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :check_for_admin, :only => [:edit, :create, :new, :destroy, :update]
+  before_action :find_or_initialize_article
 
   def index
     @articles = Article.all
@@ -7,8 +8,6 @@ class ArticlesController < ApplicationController
 
   def show
     @articles = Article.all
-
-    @article = set_article
   end
 
   def check_helpful
@@ -31,26 +30,6 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @article = Article.new
-  end
-
-  def edit
-    # if current_user.admin?
-      @article = set_article
-    # else
-    #   redirect_to root_path
-    # end
-  end
-
-  def update
-    @article = set_article
-
-    if @article.update(article_params)
-      # @article.categories << params[:]
-      redirect_to @article
-    else
-      render :edit
-    end
   end
 
   def create
@@ -64,16 +43,27 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @article.update(article_params)
+      # @article.categories << params[:]
+      redirect_to @article
+    else
+      render :edit
+    end
+  end
+
   def destroy
-    article = set_article
-    article.destroy
+    @article.destroy
     redirect_to root_path
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-  def set_article
-    @article = Article.find(params[:id])
+  def find_or_initialize_article
+    @article = params[:id] ? Article.where(id: params[:id]).first : Article.new
   end
 
   def article_params

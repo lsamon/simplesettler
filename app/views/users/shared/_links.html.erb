@@ -26,9 +26,12 @@
   <div class="signlink">
     <p>OR</p>
   </div>
-  <%= link_to user_facebook_omniauth_authorize_path do %><i class="fa fa-facebook" aria-hidden="true"> Facebook</i><% end %>
-  <%= link_to user_google_oauth2_omniauth_authorize_path do %><i class="fa fa-google-plus" aria-hidden="true"> Google+</i><% end %>
-
+    <div class="social-login fb-login">
+      <%= link_to user_facebook_omniauth_authorize_path do %><i class="fa fa-facebook" aria-hidden="true"></i> Facebook<% end %>
+    </div>
+    <div class="social-login gplus-login">
+      <%= link_to user_google_oauth2_omniauth_authorize_path do %><i class="fa fa-google-plus" aria-hidden="true"></i>Google+<% end %>
+    </div>
 
   <!-- <%- resource_class.omniauth_providers.each do |provider| %>
     <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
