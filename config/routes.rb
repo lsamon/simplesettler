@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :users
+    resources :articles
+    resources :categories
+    resources :cities
+    resources :city_articles
+    resources :feedbacks
+    resources :helpfuls
+
+    root to: "users#index"
+  end
+
    devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
   mount Ckeditor::Engine => '/ckeditor'

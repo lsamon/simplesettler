@@ -1,4 +1,6 @@
 class Article < ActiveRecord::Base
+  mount_uploader :featured_image, ::ArticleUploader
+
   belongs_to :user
   has_many :city_articles
   has_many :cities, through: :city_articles

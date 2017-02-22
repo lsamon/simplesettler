@@ -14,6 +14,11 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# rails dashboard
+gem 'administrate'
+gem 'administrate-field-password'
+gem 'bourbon'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'rails-jquery-autocomplete'
@@ -26,6 +31,10 @@ gem 'font-awesome-sass'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+
+gem 'carrierwave'
+gem 'cloudinary'
+gem 'mini_magick'
 
 # SEO gems
 gem 'meta-tags'

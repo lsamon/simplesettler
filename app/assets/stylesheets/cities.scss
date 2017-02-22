@@ -42,6 +42,22 @@
 }
 
 
+.ui-menu .ui-menu-item-wrapper {
+  background: #fff;
+  max-width: 385px;
+  border: 0px;
+  color: #00b6ab;
+
+  transition: all ease 0.1s;
+}
+
+.ui-menu .ui-menu-item-wrapper:hover {
+  background: #00b6ab;
+  border: #00b6ab;
+  color: #fff;
+}
+
+
 /* Rate City Start */
 //   .rateCity {
 //       font-size: 20px;
