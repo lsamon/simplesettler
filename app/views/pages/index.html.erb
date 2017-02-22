@@ -62,22 +62,30 @@
   <div class="cities">
      <% @cities.in_groups_of(3)  do |c1, c2, c3| %>
       <div class="row">
-          <div class="col-sm-4 <%= c1.name %>">
-              <%= link_to "#{(c1.name).upcase}", city_path(c1), class: 'labelShort' %>
-              <%= image_tag "#{c1.name.downcase}.jpg", class: "" %>
-          </div>
-          <% if c2 %>
-          <div class="col-sm-4 <%= c2.name %>">
-              <%= link_to "#{(c2.name).upcase}", city_path(c2), class: 'labelShort' %>
-              <%= image_tag "#{c2.name.downcase}.jpg", class: "" %>
-          </div>
+        <%= link_to(city_path(c1)) do %>
+          <%= content_tag(:div, class: "col-sm-4 #{c1.name}") do %>
+            <span class="labelShort"><%= c1.name.upcase %></span>
+            <%= image_tag "#{c1.name.downcase}.jpg"%>
           <% end %>
-          <% if c3 %>
-          <div class="col-sm-4 <%= c3.name %>">
-              <%= link_to "#{(c3.name).upcase}", city_path(c3), class: 'labelShort' %>
-              <%= image_tag "#{c3.name.downcase}.jpg", class: "" %>
-          </div>
+        <% end %>
+
+        <% if c2 %>
+          <%= link_to(city_path(c2)) do %>
+            <%= content_tag(:div, class: "col-sm-4 #{c2.name}") do %>
+              <span class="labelShort"><%= c2.name.upcase %></span>
+              <%= image_tag "#{c2.name.downcase}.jpg"%>
+            <% end %>
           <% end %>
+        <% end %>
+
+        <% if c3 %>
+          <%= link_to(city_path(c3)) do %>
+            <%= content_tag(:div, class: "col-sm-4 #{c3.name}") do %>
+              <span class="labelShort"><%= c3.name.upcase %></span>
+              <%= image_tag "#{c3.name.downcase}.jpg"%>
+            <% end %>
+          <% end %>
+        <% end %>
       </div>
       <% end %>
   </div>

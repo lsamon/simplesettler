@@ -36,10 +36,9 @@ class ArticleDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :user,
-    :city_articles,
+    :title,
     :cities,
-    :category,
+    :category
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -54,13 +53,13 @@ class ArticleDashboard < Administrate::BaseDashboard
     :city_id,
     :title,
     :content,
-    :created_at,
-    :updated_at,
+    # :created_at,
+    # :updated_at,
     :image,
     :featured_image_file_name,
-    :featured_image_content_type,
-    :featured_image_file_size,
-    :featured_image_updated_at,
+    # :featured_image_content_type,
+    # :featured_image_file_size,
+    # :featured_image_updated_at,
     :slug,
     :meta_title,
     :meta_description,
