@@ -7,4 +7,10 @@ class City < ActiveRecord::Base
   def self.search(search)
     where("name ILIKE ?", "%#{search}%")
   end
+
+  def self.articles_by_category(cid, cat_name)
+    cat_id = Category.where(:name => cat_name).first.id
+    where(:id => cid).first.articles.where(:category_id => cat_id)
+  end
+
 end

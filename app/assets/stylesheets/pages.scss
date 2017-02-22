@@ -43,11 +43,11 @@ $buttonColor: #00b6ab;
         left: 0;
         right: 0;
     }
-    
+
     button[type="submit"]:hover {
         background: lighten($buttonColor, 2%);
     }
-    
+
     button[type="submit"]:active {
         background: darken($buttonColor, 2%);
     }
@@ -269,6 +269,7 @@ $buttonColor: #00b6ab;
             text-align: center;
             max-width: 400px;
             margin: 0 auto;
+            cursor: pointer;
             a {
                 position: absolute;
                 left: 5px;

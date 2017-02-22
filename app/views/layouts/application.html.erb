@@ -18,24 +18,24 @@
 
 <nav>
   <div class="nav">
-    <div class="navLeft"><h1>Simple Settler</h1></div>
+    <%= link_to raw("<div class='navLeft'><h1>Simple Settler</h1></div>"), root_path %>
     <div class="navRight">
       <ul>
-      <li><%= link_to 'How It Works', "#howItWorks", :class => "" %></li>
-      <li><%= link_to 'Jobs', root_path, :class => "" %></li>
-      <li><%= link_to 'Inspirations', root_path, :class => "" %></li>
-      <li><%= link_to 'Help & Advice', root_path, :class => " helpMenuItem" %></li>
+      <li><%= link_to 'How It Works', "#howItWorks", class: "" %></li>
+      <li><%= link_to 'Jobs', root_path, class: "" %></li>
+      <li><%= link_to 'Inspirations', root_path, class: "" %></li>
+      <li><%= link_to 'Help & Advice', root_path, class: " helpMenuItem" %></li>
 
       <% unless user_signed_in? %>
-        <li><%= link_to 'Sign in', new_user_session_path, :class => "signInOutButton " %></li>
-        <li><%= link_to 'Sign up', new_user_registration_path, :class => "signInOutButton "  %></li>
+        <li><%= link_to 'Sign in', new_user_session_path, class: "signInOutButton " %></li>
+        <li><%= link_to 'Sign up', new_user_registration_path, class: "signInOutButton "  %></li>
       <% end %>
       <% if user_signed_in? %>
-          <li><%= link_to "Logout #{ current_user.username }", destroy_user_session_path, :method => 'delete', :class => "logoutButton " %></li>
+          <li><%= link_to "Logout #{ current_user.username }", destroy_user_session_path, :method => 'delete', class: "logoutButton " %></li>
       <% end %>
       </ul>
     </div>
-    <%= link_to '☰', 'javascript:void(0);', :class => "hamburger", :id => "hamburger", :style => "font-size: 24px;"%>
+    <%= link_to '☰', 'javascript:void(0);', class: "hamburger", :id => "hamburger", :style => "font-size: 24px;"%>
   </div>
 </nav>
 
@@ -68,7 +68,7 @@
       <div class="col-sm-4">
         <ul>
           <li><h3>Subscribe Newsletter</h3></li>
-          <li><%= text_field :search, nil, :class => 'enterEmail', :placeholder => 'Enter your email' %>
+          <li><%= text_field :search, nil, class: 'enterEmail', :placeholder => 'Enter your email' %>
             <%= button_tag(type: 'submit', class: "submitEmail") do %>
               <i class="fa fa-paper-plane"></i>
             <% end %>

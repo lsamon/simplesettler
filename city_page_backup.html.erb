@@ -1,5 +1,5 @@
 <div class="bannerCity">
-  <%= image_tag "#{@city.name.downcase}.jpg", :class => "imageCity"%>
+  <%= image_tag "#{@city.name.downcase}.jpg", class: "imageCity"%>
   <div class="bannerInfo">
     <h1><%= @city.name %></h1>
     <h2><em><%= @city.slogan %></em></h2>
@@ -140,7 +140,7 @@
 </script>
 
     <div class="categorySelect">
-      <%= link_to 'All', city_articles_category_path(@city, 'All'), :remote => true, :class => "catAll"  %>
+      <%= link_to 'All', city_articles_category_path(@city, 'All'), :remote => true, class: "catAll"  %>
     </div>
     <% @categories.each do |c| %>
       <div class="categorySelect">
@@ -155,8 +155,8 @@
     <div class="rows">
       <% @articles.each do |a| %>
       <div class='articleCont'>
-        <%= link_to a.title, article_path(a), :class => 'articleSelect' %>
-        <%= image_tag a.image, :class => "articleImg" %>
+        <%= link_to a.title, article_path(a), class: 'articleSelect' %>
+        <%= image_tag a.image, class: "articleImg" %>
       </div>
       <% end %>
     </div>

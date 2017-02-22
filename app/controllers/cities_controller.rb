@@ -21,24 +21,22 @@ class CitiesController < ApplicationController
   end
 
   def show
-    @articles = current_city.articles
-    @default_articles = @articles.where(category_id: 1)
+    @articles = @city.articles
     @categories = Category.all
   end
 
   def articles_category
-    @all_articles = @city.articles
+    @articles = @city.articles
 
     chosen_category = params[:category]
 
     if chosen_category == 'All'
-      @all_articles = @city.articles
+      @articles
     else
-      @all_articles = Article.per_city_and_category(@city.id, chosen_category)
+      @articles = City.articles_by_category(@city, chosen_category)
     end
 
     respond_to do |format|
-      format.html { redirect_to "#" }
       format.js
     end
 
@@ -71,25 +69,6 @@ class CitiesController < ApplicationController
   def destroy
     @city.destroy
     redirect_to root_path
-  end
-
-  def submit_rating
-    city_id = params[:id]
-    feedback = params[:feedback]
-    rating = params[:rating]
-
-    city_feedback = Feedback.check_exists(current_user.id, feedback, city_id)
-
-    if city_feedback.present?
-      feedback_id = city_feedback.first.id
-      update_data = { feedback => rating.to_f }
-      city_feedback.update(feedback_id, update_data)
-      redirect_to '#'
-    else
-      city_feedback = Feedback.new :city_id => city_id, feedback => rating, :user_id => current_user.id
-      city_feedback.save
-      redirect_to '#'
-    end
   end
 
   private

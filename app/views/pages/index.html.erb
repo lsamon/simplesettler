@@ -38,8 +38,8 @@
     <h2>Discover and connect with services in your city.</h2>
     <div>
     <%= form_tag(cities_path, :method => "get", id: "search-form") do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search Cities", :class => 'searchCity', :pattern => ".{2,20}", :title => 'Enter more than 1 character', data: { autocomplete: autocomplete_city_name_cities_path } %>
-      <%= button_to nil, :class => 'searchCitySubmit' do %><i class="fa fa-search" aria-hidden="true"></i><% end %><br />
+      <%= text_field_tag :search, params[:search], placeholder: "Search Cities", class: 'searchCity', :pattern => ".{2,20}", :title => 'Enter more than 1 character', data: { autocomplete: autocomplete_city_name_cities_path } %>
+      <%= button_to nil, class: 'searchCitySubmit' do %><i class="fa fa-search" aria-hidden="true"></i><% end %><br />
     <% end %>
   </div>
 
@@ -63,19 +63,19 @@
      <% @cities.in_groups_of(3)  do |c1, c2, c3| %>
       <div class="row">
           <div class="col-sm-4 <%= c1.name %>">
-              <%= link_to "#{(c1.name).upcase}", city_path(c1), :class => 'labelShort' %>
-              <%= image_tag "#{c1.name.downcase}.jpg", :class => "" %>
+              <%= link_to "#{(c1.name).upcase}", city_path(c1), class: 'labelShort' %>
+              <%= image_tag "#{c1.name.downcase}.jpg", class: "" %>
           </div>
           <% if c2 %>
           <div class="col-sm-4 <%= c2.name %>">
-              <%= link_to "#{(c2.name).upcase}", city_path(c2), :class => 'labelShort' %>
-              <%= image_tag "#{c2.name.downcase}.jpg", :class => "" %>
+              <%= link_to "#{(c2.name).upcase}", city_path(c2), class: 'labelShort' %>
+              <%= image_tag "#{c2.name.downcase}.jpg", class: "" %>
           </div>
           <% end %>
           <% if c3 %>
           <div class="col-sm-4 <%= c3.name %>">
-              <%= link_to "#{(c3.name).upcase}", city_path(c3), :class => 'labelShort' %>
-              <%= image_tag "#{c3.name.downcase}.jpg", :class => "" %>
+              <%= link_to "#{(c3.name).upcase}", city_path(c3), class: 'labelShort' %>
+              <%= image_tag "#{c3.name.downcase}.jpg", class: "" %>
           </div>
           <% end %>
       </div>
@@ -97,27 +97,21 @@
 <div class="listingArticles">
      <% @articles.in_groups_of(3)  do |a1, a2, a3| %>
          <div class="row">
-           <%= link_to(city_article_path(a1.cities.first, a1), :class => "articles") do %>
              <div class="col-sm-4">
-                <%= a1.title %>
+                <%= link_to "#{a1.title}", city_article_path(a1.cities.first, a1), class: "articles"%>
                 <%= image_tag a1.image %>
              </div>
-           <% end %>
              <% if a2 %>
-               <%= link_to(city_article_path(a2.cities.first, a2), :class => "articles") do %>
-                 <div class="col-sm-4">
-                    <%= a2.title %>
-                    <%= image_tag a2.image %>          
-                 </div>
-               <% end %>
+             <div class="col-sm-4">
+                <%= link_to "#{a2.title}", city_article_path(a2.cities.first, a2), class: "articles" %>
+                <%= image_tag a2.image %>
+             </div>
              <% end %>
              <% if a3 %>
-               <%= link_to(city_article_path(a3.cities.first, a3), :class => "articles") do %>
-                 <div class="col-sm-4">
-                    <%= a3.title %>
-                    <%= image_tag a3.image %>
-                 </div>
-               <% end %>
+             <div class="col-sm-4">
+                <%= link_to "#{a2.title}", city_article_path(a3.cities.first, a3), class: "articles" %>
+                <%= image_tag a2.image %>
+             </div>
              <% end %>
          </div>
      <% end %>
@@ -217,7 +211,7 @@
           <p>Ask us a question and we’ll take care of it!</p>
         </div>
       </div>
-      <%=  link_to "Settle Somewhere", nil, :class => "searchCity button"%>
+      <%=  link_to "Settle Somewhere", nil, class: "searchCity button"%>
     </div>
   </div>
 
@@ -236,8 +230,8 @@
   <div class="container">
     <div class="content">
       <h1>YOUR STRESS ENDS HERE. LET US HELP YOU.</h1>
-      <%=  link_to "Search Your City", nil, :class => "searchCity button"%>
-      <%=  link_to "Visa Help", nil, :class => "VisaHelp button"%>
+      <%=  link_to "Search Your City", nil, class: "searchCity button"%>
+      <%=  link_to "Visa Help", nil, class: "VisaHelp button"%>
     </div>
   </div>
 </div>
