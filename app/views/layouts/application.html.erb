@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>EasySettler</title>
+  <title>Simple Settler</title>
+  <%= favicon_link_tag 'favicon.png', rel: 'shortcut icon', type: 'image/png' %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= javascript_include_tag Ckeditor.cdn_url %>
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <nav>
   <div class="nav">
-    <div class="navLeft">
-      <%= link_to "", root_path, :class => 'nav homeicon' %>
-    </div>
+    <%= link_to raw("<div class='navLeft'><h1>Simple Settler</h1></div>"), root_path %>
     <div class="navRight">
-      <%= link_to 'How It Works', "#{"#howItWorks"}", :class => "" %>
-      <%= link_to 'Jobs', root_path, :class => "" %>
-      <%= link_to 'Inspirations', root_path, :class => "" %>
-      <%= link_to 'Help & Advice', root_path, :class => " helpMenuItem" %>
+      <ul>
+      <li><%= link_to 'How It Works', "#howItWorks", class: "" %></li>
+      <li><%= link_to 'Jobs', root_path, class: "" %></li>
+      <li><%= link_to 'Inspirations', root_path, class: "" %></li>
+      <li><%= link_to 'Help & Advice', root_path, class: " helpMenuItem" %></li>
 
       <% unless user_signed_in? %>
-        <%= link_to 'Sign in', new_user_session_path, :class => "signInOutButton " %>
-        <%= link_to 'Sign up', new_user_registration_path, :class => "signInOutButton "  %>
+        <li><%= link_to 'Sign in', new_user_session_path, class: "signInOutButton " %></li>
+        <li><%= link_to 'Sign up', new_user_registration_path, class: "signInOutButton "  %></li>
       <% end %>
       <% if user_signed_in? %>
-          <%= link_to "Logout #{ current_user.username }", destroy_user_session_path, :method => 'delete', :class => "logoutButton " %>
+          <li><%= link_to "Logout #{ current_user.username }", destroy_user_session_path, :method => 'delete', class: "logoutButton " %></li>
       <% end %>
+      </ul>
     </div>
+    <%= link_to '☰', 'javascript:void(0);', class: "hamburger", :id => "hamburger", :style => "font-size: 24px;"%>
   </div>
 </nav>
 
@@ -37,9 +45,9 @@
 <%= yield %>
 
 <footer>
-  <div class="container">
-    <div class="footer">
-      <div class="Company column">
+  <div class="container-fluid">
+    <div class="row footer">
+      <div class="col-sm-4">
         <ul>
           <li><h3>Company</h3></li>
           <li><li><%= link_to 'Home', root_path %></li></li>
@@ -49,20 +57,22 @@
           <li>Become A Partner</li>
         </ul>
       </div>
-      <div class="Support column">
+      <div class="col-sm-4">
         <ul>
           <li><h3>Support</h3></li>
-          <li><%= link_to 'FAQ', faq_path %></li>
           <li><%= link_to 'Terms of services', tos_path %></li>
-          <li><%= link_to 'Privacy policy', privacy_policy_path %></li>
+          <li><%= link_to 'Privacy policy', privacy_path %></li>
           <li>hello@simplesettler.com</li>
         </ul>
       </div>
-      <div class="Follow column">
+      <div class="col-sm-4">
         <ul>
           <li><h3>Subscribe Newsletter</h3></li>
-          <li><%= text_field :search, nil, :class => 'enterEmail', :placeholder => 'Enter your email' %>
-          <%= submit_tag "SUBMIT", :class => 'submitEmail' %></li>
+          <li><%= text_field :search, nil, class: 'enterEmail', :placeholder => 'Enter your email' %>
+            <%= button_tag(type: 'submit', class: "submitEmail") do %>
+              <i class="fa fa-paper-plane"></i>
+            <% end %>
+          </li>
           <li><h3>Follow us</h3></li>
           <li>
             <i class="fa fa-facebook-square" aria-hidden="true"></i>
@@ -74,6 +84,16 @@
     </div>
   </div>
 </footer>
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+        $('#hamburger').click(function() {
+            $('.navRight ul').toggleClass('responsiveNavShow');
+        });
+        $('.navRight ul li a').click(function() {
+            $('.navRight ul').toggleClass('responsiveNavShow');
+        });
+    });
+</script>
 </body>
 </html>

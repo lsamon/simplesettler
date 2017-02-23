@@ -1,30 +1,30 @@
-
 @mixin bannerHeight {
   height: 90vh;
   max-height: 600px;
 }
 
 .bannerCity {
-  background: linear-gradient( rgba(0, 0, 0, 0.9),  rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35) );
-  background-size: cover;
-  background-position: center;
   @include bannerHeight;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   text-align: center;
   color: white;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-
   img {
     position: absolute;
-    @include bannerHeight;
     width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: auto;
     z-index: -1;
+    top: 0;
+    left:0;
   }
 
   .bannerInfo {
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      top: 20%;
     h1 {
       font-size: 35px;
       letter-spacing: 8px;
@@ -42,115 +42,117 @@
 }
 
 
+.ui-menu .ui-menu-item-wrapper {
+  background: #fff;
+  max-width: 385px;
+  border: 0px;
+  color: #00b6ab;
+
+  transition: all ease 0.1s;
+}
+
+.ui-menu .ui-menu-item-wrapper:hover {
+  background: #00b6ab;
+  border: #00b6ab;
+  color: #fff;
+}
+
+
+/* Rate City Start */
+//   .rateCity {
+//       font-size: 20px;
+//       height: 40px;
+//       color: #ffc107;
+//       cursor: pointer;
+//         margin-top: 40px;
+//     }
+//     .fa-star {
+//       transition: 1.5s;
+//       animation: blink 2s infinite;
+//     }
+//     @keyframes blink{
+//       0% { text-shadow: 0 0 0 white; }
+//       25% { text-shadow: 0 0 10px white; }
+//       50% { text-shadow: 0 0 20px white; }
+//       75% { text-shadow: 0 0 10px white; }
+//       100% { text-shadow: 0 0 0 white; }
+//     }
+//     .fa-star:hover {
+//       transform-origin: center;
+//       transform: rotate(360deg);
+//     }
+//     .ratingsYo {
+//       color: white;
+//       height: 40px;
+//       margin: 0 auto;
+//       display: none;
+//
+//       p, div {
+//         height: 40px;
+//       }
+//     }
+// /* Rate City End */
+//
+//
+// /* Chart Start*/
+//     .chart {
+//       filter: opacity(0.7);
+//       padding: 0;
+//       height: 200px;
+//         max-width: 300px;
+//       border-radius: 10px;
+//         margin: 0 auto;
+//
+//       .ct-horizontal-bars {
+//         height: 50px;
+//       }
+//       .ct-start {
+//         color: white;
+//       }
+//       .ct-series line {
+//         stroke: #00b6ab;
+//         stroke-width: 15px;
+//       }
+//         .ct-label {
+//           font-size: 16px;
+//         }
+//     }
+// /* Chart End */
 
 .categorySelectBg{
   height: 120px;
   background: #ddd;
-
-  .container {
-    max-width: 960px;
-    display: flex;
-    justify-content: space-between;
-
-    .starButton {
-      position: absolute;
-      height: 40px;
-      width: 40px;
-      font-size: 35px;
-      color: #ffc107;
-      transform: translateY(-43px) translateX(-50px);
-      cursor: pointer;
-    }
-    .fa-star {
-      transition: 1.5s;
-      animation: blink 2s infinite;
-    }
-    @keyframes blink{
-      0% { text-shadow: 0 0 0 white; }
-      25% { text-shadow: 0 0 10px white; }
-      50% { text-shadow: 0 0 20px white; }
-      75% { text-shadow: 0 0 10px white; }
-      100% { text-shadow: 0 0 0 white; }
-    }
-    .fa-star:hover {
-      transform-origin: center;
-      transform: rotate(360deg);
-    }
-
-    .rateCity {
-      position: absolute;
-      font-size: 20px;
-      height: 40px;
-      color: #ffc107;
-      transform: translateY(-33px) translateX(-5px);
-      cursor: pointer;
-    }
-
-    .ratingsYo {
-      position: absolute;
-      color: white;
-      height: 40px;
-
-      transform: translateY(-60px);
-      margin: 0 auto;
-      display: none;
-
-      p, div {
-        height: 40px;
-      }
-    }
-
-    .chart {
-      position: absolute;
-      transform: translateY(-250px) translateX(-82px);
-      filter: opacity(0.7);
-      padding: 0;
-      height: 200px;
-      width: 400px;
-      border-radius: 10px;
-
-      .ct-horizontal-bars {
-        height: 50px;
-      }
-      .ct-start {
-        color: white;
-      }
-      .ct-series line {
-        stroke: #00b6ab;
-        stroke-width: 15px;
-      }
-    }
-
+    margin: 0 auto;
+    text-align: center;
     div {
       height: 120px;
-      width: 230px;
+      max-width: 230px;
 
       .active {
         background: white;
         color: #00b6ab;
         border-bottom: 7px solid #00b6ab;
-        height: 63px;
+        height: 100%;
       }
 
       a {
         width: 100%;
-        height: 70px;
         color: gray;
-        font-size: 22.5px;
+        font-size: 20px;
         text-decoration: none;
         display: inline-block;
+          padding: 50px 0;
         text-align: center;
-        padding-top: 50px;
         transition: background .3s, border-bottom .3s, height .5s, color .3s;
+          vertical-align: top;
       }
       a:hover {
         background: white;
         color: #00b6ab;
         border-bottom: 7px solid #00b6ab;
-        height: 63px;
+        height: 100%;
       }
     }
-  }
 }
 
 .categorySelect {
@@ -178,8 +180,8 @@
       color: white;
       display: inline-block;
       padding: 10px;
-      height: 180px;
-      width: 290px;
+      height: 200px;
+      width: 310px;
       position: absolute;
       border-radius: 5px;
       font-size: 20px;

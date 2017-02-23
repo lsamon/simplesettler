@@ -14,16 +14,13 @@ $buttonColor: #00b6ab;
 
 @mixin button {
   border: 1px solid $buttonColor;
-  border-radius: 30px;
   background: $buttonColor;
-  line-height: 38px;
-  height: 38px;
+  padding: 6px 8px;
   transition: 0.3s;
   text-decoration: none;
   color: white;
   display: inline-block;
   text-align: center;
-  font-size: 13px;
 }
 
 button:focus, input:focus {outline:0;}
@@ -61,47 +58,39 @@ body {
 
 
 nav {
-  height: 67px;
   width: 100%;
-  display: flex;
-  justify-content: center;
+  height: 80px;
   position: fixed;
   z-index: 50;
 }
 
 .nav {
-  padding: 1% 0;
-  height: 45px;
+  box-sizing: border-box;
+  padding: 14px 30px;
   width: 100%;
-  display: flex;
   justify-content: space-between;
 
-  .navLeft {
 
-    .homeicon {
-      display: inline-block;
-      margin-left: 5%;
-      height: 39px;
-      width: 140px;
-      background-image: image-url('logo.png');
-      background-size: contain;
-    }
+  .navLeft {
+    float: left;
+    height: 42px !important;
+    width: 160px;
+    background: image-url('logo.png') no-repeat;
+    text-indent: -9999px;
+    margin-top: 5px;
+    height: 100%;
   }
 
   .navRight {
-    width: 450px;
-    line-height: 39px;
-    display: flex;
-    justify-content: space-between;
-    margin-right: 1%;
-
+    float: right;
+    text-align: right;
+    margin-top: 10px;
     a {
       display: inline-block;
       color: white;
       text-decoration: none;
       font-weight: 100;
-      font-size: 10pt;
-      padding: 0 1%;
+      padding: 6px 10px;
     }
 
     .helpMenuItem {
@@ -115,43 +104,116 @@ nav {
   }
 }
 
+nav li {
+  display: inline-block;
+}
+
+
+
+.navRight a:after {
+  display:block;
+  content: '';
+  padding-bottom: 4px;
+  border-bottom: solid 3px $buttonColor;
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+
+.navRight a:hover:after {
+  transform: scaleX(1);
+}
+
+.navRight .helpMenuItem:after {
+  border-bottom: 0;
+  padding-bottom: 0;
+  transform: none;
+}
+
+.nav .hamburger {
+  margin-top: 6px;
+  color: white;
+  text-decoration: none;
+  float:right;
+  display: none;
+}
+
+
+.navRight ul {
+    display: block;
+}
+
+// RESPONSIVE NAV
+
+@media screen and (max-width: 800px) {
+  .nav .hamburger {
+    display: inline !important;
+  }
+  .navRight ul {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 80px;
+    bottom: 0;
+  }
+  nav ul li {
+    box-sizing: border-box;
+    display: block;
+    padding: 8px;
+    text-align: center;
+    background: rgba(0,0,0,0.8);
+  }
+    
+    .responsiveNavShow {
+        visibility: visible !important;
+        opacity: 1 !important;
+        -webkit-transition: opacity 0.5s;
+        transition: opacity 0.5s;
+    }
+}
+
 
 /// FOOTER //////////////////////////////////////////////
 /// FOOTER //////////////////////////////////////////////
 
 
 footer {
-  height: 197px;
   padding: 30px 0;
   background: #252525;
   color: lightgray;
 
   .footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    .column {
-      // border: 1px solid white;
-      width: 32%;
-
+      text-align: center;
       .enterEmail {
         border: 1px solid white;
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
         height: 30px;
-        width: 200px;
+        width: 80%;
+        max-width: 200px;
         padding-left: 10px;
         margin: 10px 0;
+        vertical-align: middle;
+        color: #252525;
       }
 
       .submitEmail {
-        border: 1px solid lightgray;
+        border: 0;
         border-top-right-radius: 20px;
         border-bottom-right-radius: 20px;
-        height: 32px;
-        width: 70px;
-        margin: 20px -4px;
+        height: 30px;
+        width: 20%;
+        max-width: 40px;
+        margin-left: -4px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        color: #252525;
+        padding: 2px 4px 0 0;
+
+        i {
+          font-size: 16px;
+        }
       }
 
       i {
@@ -165,11 +227,11 @@ footer {
       }
 
       ul {
-        list-style: none;
 
         li {
           line-height: 2.5;
           font-size: 12px;
+          list-style-type: none
         }
       }
       a{
@@ -178,4 +240,3 @@ footer {
       }
     }
   }
-}

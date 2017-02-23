@@ -1,30 +1,36 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :users
+    resources :articles
+    resources :categories
+    resources :cities
+    resources :city_articles
+    resources :feedbacks
+    resources :helpfuls
+
+    root to: "users#index"
+  end
+
    devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
   mount Ckeditor::Engine => '/ckeditor'
 
   root :to => 'pages#index'
-  get '/about' => 'pages#about'
-  get '/contact' => 'pages#contact'
-  get '/faq' => 'pages#faq'
+  get '/about' => 'pages#how_it_works'
+  get '/inspiration' => 'pages#inspiration'
+  get '/help' => 'pages#help'
   get '/tos' => 'pages#tos'
-  get '/privacy_policy' => 'pages#privacy_policy'
-
-  resources :cities, :except => [:show]
-  resources :articles
-  resources :categories
+  get '/privacy' => 'pages#privacy'
 
   resources :cities do
-    get :autocomplete_city_name, :on => :collection
+    collection do
+      get :autocomplete_city_name
+    end
+    resources :articles
   end
-
-  post '/cities/:id/rate/:feedback' => 'cities#submit_rating', :as => 'submit_rating'
 
   get '/cities/:id/:category' => 'cities#articles_category', :as =>  'city_articles_category'
   get '/articles/:id/:helpful' => 'articles#check_helpful', :as => 'check_helpful'
-
-  get '/cities/:id' => 'cities#show', :as => 'city_show'
-
 
 end

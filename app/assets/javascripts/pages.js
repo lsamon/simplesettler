@@ -1,4 +1,14 @@
 $(document).ready(function(){
+  $(window).resize(function() {
+    console.log("resize");
+    $( ".ui-autocomplete-input" ).autocomplete( "search" );
+  });
+
+  $(".ui-autocomplete-input").autocomplete({
+    focus: function(e,ui) {
+      e.preventDefault();
+    }
+  });
 
   $(document).scroll(function(){
 

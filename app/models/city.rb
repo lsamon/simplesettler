@@ -1,22 +1,16 @@
-# == Schema Information
-#
-# Table name: cities
-#
-#  id          :integer          not null, primary key
-#  name        :string
-#  country     :string
-#  description :text
-#  population  :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#
-
 class City < ActiveRecord::Base
-  has_many :articles
+  has_many :city_articles
+  has_many :articles, through: :city_articles
   has_many :feedbacks
 
 
   def self.search(search)
     where("name ILIKE ?", "%#{search}%")
   end
+
+  def self.articles_by_category(cid, cat_name)
+    cat_id = Category.where(:name => cat_name).first.id
+    where(:id => cid).first.articles.where(:category_id => cat_id)
+  end
+
 end

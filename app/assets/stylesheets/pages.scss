@@ -1,53 +1,58 @@
 $buttonColor: #00b6ab;
 
-@mixin logoRec {
-  display: inline-block;
-  width: 32%;
-  height: 114px;
-  background-size: cover;
-  background-position: center;
-  filter: opacity(0.3) grayscale(100%);
-  transition: 0.3s;
-}
-
-@mixin shortCityImg {
-  display: inline-block;
-  height: 200px;
-  width: 310px;
-  position: absolute;
-  background-size: cover;
-  background-position: center;
-  border-radius: 5px;
-}
-
-@mixin label {
-  color: white;
-  display: inline-block;
-  font-size: 20px;
-  text-decoration: none;
-  z-index: 5;
-  width: inherit;
-  background: rgba(0,0,0,0.4);
-  transition: 0.3s;
-}
-
 @mixin button {
   border: 1px solid $buttonColor;
-  border-radius: 30px;
   background: $buttonColor;
-  line-height: 38px;
-  height: 38px;
+  line-height: 42px;
+  height: 42px;
   transition: 0.3s;
   text-decoration: none;
   color: white;
   display: inline-block;
   text-align: center;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
+
+
+#countryModal {
+    .modal-content {
+        border-radius: 0;
+        border: 0;
+        position: relative;
+    }
+    form {
+        margin-bottom: 70px;
+    }
+    form input {
+        border-radius: 0;
+    }
+    button[type="submit"] {
+        width: 100%;
+        color: white;
+        border: 0;
+        border-radius: 0;
+        background: $buttonColor;
+        font-size: 16px;
+        padding: 14px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    button[type="submit"]:hover {
+        background: lighten($buttonColor, 2%);
+    }
+
+    button[type="submit"]:active {
+        background: darken($buttonColor, 2%);
+    }
+}
+
 
 
 .banner {
@@ -55,19 +60,17 @@ $buttonColor: #00b6ab;
   background-size: cover;
   background-position: center;
   width:100%;
-  height: 90vh;
-  max-height: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  height: 100vh;
   text-align: center;
   color: white;
-
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   h1 {
     font-size: 35px;
-    letter-spacing: 8px;
+    letter-spacing: 4px;
     margin-bottom: 15px;
   }
 
@@ -93,16 +96,14 @@ $buttonColor: #00b6ab;
   }
 
   .searchCity {
+    max-width: 60vw;
     width: 335px;
     height: 56px;
     border: 0 solid white;
-    border-top-left-radius: 35px;
-    border-bottom-left-radius: 35px;
     font-size: 17px;
     font-weight: 100;
     padding-left: 20px;
     color: black;
-    margin-bottom: 15px;
     display: inline-block;
   }
 
@@ -118,17 +119,16 @@ $buttonColor: #00b6ab;
 
     button {
       background: white;
-      border: 0 solid white;
-      border-top-right-radius: 35px;
-      border-bottom-right-radius: 35px;
-      overflow: hidden;
+      border: 0;
+      height: 56px;
+      border: 0;
+      vertical-align: bottom;
+      cursor: pointer;
       margin-left: -10px;
-
       i {
         font-size: 20px;
         color: gray;
         line-height: 54px;
-        height: 56px;
         width: 60px;
         background: white;
         display: inline-block;
@@ -137,27 +137,42 @@ $buttonColor: #00b6ab;
   }
 }
 
-.recommendedBy {
-  display: flex;
-  padding: 50px 0;
-  justify-content: space-between;
+#search-form { margin-bottom: 20px;}
 
-  .logos.one {
+.recommendedBy { margin: 0 auto; text-align: center; }
+.logos {
+    height: 120px;
+    margin-bottom: 20px;
+    width: 300px;
+    max-width: 25%;
+    display: inline-block;
+    filter: opacity(0.3) grayscale(100%);
+    transition: 0.3s;
+}
+
+.logos.one {
     background: image-url('i-logo1.jpg');
-    @include logoRec;
-    background-position: top;
-  }
-  .logos.two {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.logos.two {
     background: image-url('i-logo2.jpg');
-    @include logoRec;
-  }
-  .logos.three {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.logos.three {
     background: image-url('i-logo3.jpg');
-    @include logoRec;
-  }
-  .logos:hover {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.logos:hover {
     filter: opacity(1) grayscale(0%);
-  }
 }
 
 .explore {
@@ -175,37 +190,42 @@ $buttonColor: #00b6ab;
       font-size: 14px;
     }
   }
+}
 
-  .cities {
-    display: flex;
-    flex-direction: column;
 
-    .rows {
-      // height: 205px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      align-items: stretch;
-      max-width: 100%;
-      margin-bottom: 20px;
-      position: relative;
-
-      img {
-        height: 200px;
-        width: 310px;
-        margin-bottom: 10px;
-        border-radius: 5px;
-      }
-
-      .labelShort{
-        @include label;
-        @include shortCityImg;
-      }
-      .labelShort:hover {
-        background: rgba(0,0,0,0);
-      }
+.cities {
+    .row {
+        .col-sm-4 {
+            position: relative;
+            padding: 5px;
+            text-align: center;
+            max-width: 400px;
+            margin: 0 auto;
+            a, span {
+                position: absolute;
+                left: 5px;
+                right: 5px;
+                bottom: 5px;
+                font-size: 18px;
+                padding: 10px 0;
+                background: rgba(60,60,60,0.4);
+                border-radius: 4px;
+                color: white;
+                text-decoration: none;
+            }
+            img {
+                display: block;
+                width: 100%;
+                height: 200px;
+                max-height: 100%;
+                border-radius: 4px;
+            }
+        }
+        .col-sm-4:hover {
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
     }
-  }
 }
 
 .listings {
@@ -222,46 +242,6 @@ $buttonColor: #00b6ab;
       font-size: 14px;
     }
   }
-  .listingArticles {
-    display: flex;
-    flex-direction: column;
-
-    .rows {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      align-items: stretch;
-      max-width: 100%;
-      margin-bottom: 20px;
-      position: relative;
-
-      .articles {
-        text-decoration: none;
-        color: white;
-        display: inline-block;
-        padding: 10px;
-        height: 180px;
-        width: 290px;
-        position: absolute;
-        border-radius: 5px;
-        font-size: 20px;
-        z-index: 5;
-        background: rgba(0,0,0,0.4);
-        transition: 0.3s;
-      }
-      .articles:hover {
-        background: rgba(0,0,0,0);
-      }
-
-      img {
-        height: 200px;
-        width: 310px;
-        margin-bottom: 10px;
-        border-radius: 5px;
-      }
-    }
-  }
-
   .allArticlesButton {
     text-align: center;
     padding: 50px 0;
@@ -278,8 +258,50 @@ $buttonColor: #00b6ab;
   }
 }
 
+
+
+
+.listingArticles {
+    .row {
+        .col-sm-4 {
+            position: relative;
+            padding: 5px;
+            text-align: center;
+            max-width: 400px;
+            margin: 0 auto;
+            cursor: pointer;
+            a {
+                position: absolute;
+                left: 5px;
+                right: 5px;
+                bottom: 5px;
+                font-size: 18px;
+                background: rgba(60,60,60,0.4);
+                border-radius: 4px;
+                color: white;
+                text-decoration: none;
+                padding: 10px 0;
+            }
+            img {
+                display: block;
+                width: 100%;
+                max-width: 100%;
+                height: 200px;
+                max-height: 100%;
+                border-radius: 4px;
+            }
+        }
+        .col-sm-4:hover {
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+    }
+}
+
+
+
 .getStarted {
-  height: 290px;
+  min-height: 290px;
   padding: 30px 0;
   background: #f9ffff;
   border-top: 1px solid #c0dddb;
@@ -292,7 +314,7 @@ $buttonColor: #00b6ab;
   }
 
   .content {
-    width: 450px;
+    max-width: 450px;
     margin: 0 auto;
 
     p {
@@ -317,6 +339,7 @@ $buttonColor: #00b6ab;
   height: 509px;
   padding: 50px 0;
   text-align: center;
+    margin-bottom: 100px;
 
   h2 {
     color: gray;
@@ -532,4 +555,11 @@ $buttonColor: #00b6ab;
     list-style-position: inside;
     color: gray;
   }
+}
+
+// end of page buttons made bigger
+.pageEnd .content a.button {
+    width: 140px;
+    height: 50px;
+    line-height: 50px;
 }

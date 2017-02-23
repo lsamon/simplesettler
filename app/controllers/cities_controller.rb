@@ -1,5 +1,6 @@
 class CitiesController < ApplicationController
   before_action :check_for_admin, :only => [:edit, :create, :new, :destroy, :update]
+  before_action :find_or_initialize_city, :except => [:index]
   autocomplete :city, :name
 
   def index
@@ -20,47 +21,28 @@ class CitiesController < ApplicationController
   end
 
   def show
-    @city = set_city
     @articles = @city.articles
     @categories = Category.all
-
-    @feedbacks = Feedback.per_user_city(current_user.id, @city.id) if user_signed_in?
   end
 
   def articles_category
-    @city = set_city
-    @all_articles = @city.articles
+    @articles = @city.articles
 
     chosen_category = params[:category]
 
     if chosen_category == 'All'
-      @all_articles = @city.articles
+      @articles
     else
-      @all_articles = Article.per_city_and_category(@city.id, chosen_category)
+      @articles = City.articles_by_category(@city, chosen_category)
     end
 
     respond_to do |format|
-      format.html { redirect_to "#" }
       format.js
     end
 
   end
 
   def new
-    @city = City.new
-  end
-
-  def edit
-    @city = set_city
-  end
-
-  def update
-    @city = set_city
-    if @city.update(city_params)
-      redirect_to @city
-    else
-      render :edit
-    end
   end
 
   def create
@@ -73,38 +55,29 @@ class CitiesController < ApplicationController
     end
   end
 
-  def destroy
-    city = set_city
-    city.destroy
-    redirect_to root_path
+  def edit
   end
 
-  def submit_rating
-    city_id = params[:id]
-    feedback = params[:feedback]
-    rating = params[:rating]
-
-    city_feedback = Feedback.check_exists(current_user.id, feedback, city_id)
-
-    if city_feedback.present?
-      feedback_id = city_feedback.first.id
-      update_data = { feedback => rating.to_f }
-      city_feedback.update(feedback_id, update_data)
-      redirect_to '#'
+  def update
+    if @city.update(city_params)
+      redirect_to @city
     else
-      city_feedback = Feedback.new :city_id => city_id, feedback => rating, :user_id => current_user.id
-      city_feedback.save
-      redirect_to '#'
+      render :edit
     end
+  end
+
+  def destroy
+    @city.destroy
+    redirect_to root_path
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-  def set_city
-    @city = City.find params[:id]
+  def find_or_initialize_city
+    @city = params[:id] ? City.where(:id => params[:id]).first : City.new
   end
 
   def city_params
-    params.require(:city).permit(:name, :country, :description, :population, :slogan)
+    params.fetch(:city, {}).permit(:name, :country, :description, :population, :slogan)
   end
 end
