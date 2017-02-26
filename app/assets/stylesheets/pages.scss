@@ -43,11 +43,11 @@ $buttonColor: #00b6ab;
         left: 0;
         right: 0;
     }
-    
+
     button[type="submit"]:hover {
         background: lighten($buttonColor, 2%);
     }
-    
+
     button[type="submit"]:active {
         background: darken($buttonColor, 2%);
     }
@@ -137,7 +137,30 @@ $buttonColor: #00b6ab;
   }
 }
 
-#search-form { margin-bottom: 20px;}
+#search-form { margin-bottom: 20px; }
+
+.primary-btn {
+  border: 1px solid $buttonColor;
+  background: $buttonColor;
+  line-height: 42px;
+  height: 42px;
+  transition: 0.3s;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  font-size: 14px;
+  width: 150px;
+  margin: 20px auto;
+  margin-bottom: 60px;
+}
+
+.primary-btn:hover {
+  border: 1px solid $buttonColor;
+  text-decoration: none;
+  background: rgba(255,255,255,0);
+  color: $buttonColor;
+}
 
 .recommendedBy { margin: 0 auto; text-align: center; }
 .logos {
@@ -565,6 +588,29 @@ $buttonColor: #00b6ab;
   }
 }
 
+// Experts
+
+.experts {
+  background: #fff;
+  border-bottom: 1px solid #c0dddb;
+  border-top: 1px solid #c0dddb;
+  padding: 30px;
+  text-align: center;
+
+  h2 {
+    color: gray;
+    margin-bottom: 20px;
+  }
+
+  .row {
+    padding: 10px;
+    margin: 10px auto;
+    max-width: 350px;
+    color: #aaa;
+    font-size: 16px;
+    line-height: 2;
+  }
+}
 // end of page buttons made bigger
 .pageEnd .content a.button {
     max-width: 140px;
