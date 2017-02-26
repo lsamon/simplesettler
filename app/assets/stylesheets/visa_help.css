@@ -1,0 +1,110 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,900');
+
+/* global */
+* { box-sizing: border-box; }
+/* form general styling */
+
+.form-group {
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgb(240,240,240);
+}
+
+.form-group:last-child {
+  padding: 0;
+  border: 0;
+}
+
+
+/* form select boxes */
+
+select.form-control {
+  background: #f8f8f8;
+  border: 0;
+  box-shadow: none;
+  font-size: 16px;
+  height: 50px;
+}
+
+/* form fieldset */
+
+fieldset {
+  background: rgb(255,255,255);
+  margin: 0;
+  border: 0;
+  padding: 22px 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px -2px rgba(0,0,0,.6)
+}
+
+fieldset p {
+  color: rgb(57,204,185);
+  font-size: 18px;
+}
+
+input[name="been_to_aus"] { display: none; }
+label.form_button {
+  font-weight: 300;
+  width: 48%;
+  background: green;
+  text-align: center;
+  background: #f8f8f8;
+  box-shadow: 0 2px 6px -2px rgba(0,0,0,0.5);
+  font-size: 14px;
+  line-height: 36px;
+  height: 40px;
+}
+input[type="radio"]:checked+label.form_button {
+  box-shadow: none;
+  background: rgb(57,204,185);
+  color: white;
+}
+
+/* pretty radio buttons */
+div.radio-styling {
+  background: #f8f8f8;
+  box-shadow: 0 2px 6px -2px rgba(0,0,0,0.5);
+  height: 50px;
+  line-height: 32px;
+  margin: 10px 0;
+  position: relative;
+}
+
+div.radio-styling label {
+  display: block;
+  float: left;
+  font-size: 14px;
+  line-height: 46px;
+  font-weight: 300;
+  width: 100%;
+  cursor: pointer;
+  padding: 0px 16px;
+}
+
+div.radio-styling input {
+  position: absolute;
+  right: 14px;
+  margin-top: 16px;
+}
+
+/* Preferred date section */
+.datetime h4 {
+  color: rgb(57,204,185);
+  font-weight: 300;
+}
+
+/* Text inputs */
+.input-minimal-design {
+  color: rgb(57,204,185);
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid rgb(57,204,185);
+  padding: 0;
+  box-shadow: none;
+  font-size: 18px;
+}
+
+.input-minimal-design:focus {
+  box-shadow: none;
+  border-color: rgb(57,204,185);
+}

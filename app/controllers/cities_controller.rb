@@ -8,7 +8,7 @@ class CitiesController < ApplicationController
 
     if params[:search]
       @cities = City.search(params[:search]).order("created_at DESC")
-      @city = City.find_by :name => params[:search]
+      @city = City.find_by name: params[:search]
     else
       @cities = City.all.order('created_at DESC')
     end
@@ -39,7 +39,6 @@ class CitiesController < ApplicationController
     respond_to do |format|
       format.js
     end
-
   end
 
   def new
@@ -74,7 +73,7 @@ class CitiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
   def find_or_initialize_city
-    @city = params[:id] ? City.where(:id => params[:id]).first : City.new
+    @city = params[:id] ? City.find(params[:id]) : City.new
   end
 
   def city_params

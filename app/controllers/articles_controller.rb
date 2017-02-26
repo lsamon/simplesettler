@@ -12,7 +12,6 @@ class ArticlesController < ApplicationController
 
   def check_helpful
     @helpful = params[:helpful]
-    # @article = set_article
 
     user_id = user_signed_in? ? current_user.id : nil
 
@@ -47,8 +46,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    if @article.update(article_params)
-      # @article.categories << params[:]
+    if @article.update_attributes(article_params)
       redirect_to @article
     else
       render :edit
@@ -67,6 +65,6 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :content, :city_id, :user_id, :featured_image, :image, :category_ids)
+    params.fetch(:article, {}).permit(:title, :content, :cities, :user_id, :image, :category_id)
   end
 end

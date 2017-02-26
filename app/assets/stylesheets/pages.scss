@@ -43,11 +43,11 @@ $buttonColor: #00b6ab;
         left: 0;
         right: 0;
     }
-
+    
     button[type="submit"]:hover {
         background: lighten($buttonColor, 2%);
     }
-
+    
     button[type="submit"]:active {
         background: darken($buttonColor, 2%);
     }
@@ -201,17 +201,22 @@ $buttonColor: #00b6ab;
             text-align: center;
             max-width: 400px;
             margin: 0 auto;
-            a, span {
+            a {
+                font-size: 18px;
+                border-radius: 4px;
+                color: white;
+                text-decoration: none;
+                padding: 10px 0;
+            }
+            span {
+                display: block;
                 position: absolute;
                 left: 5px;
                 right: 5px;
                 bottom: 5px;
-                font-size: 18px;
-                padding: 10px 0;
                 background: rgba(60,60,60,0.4);
                 border-radius: 4px;
-                color: white;
-                text-decoration: none;
+                padding: 6px;
             }
             img {
                 display: block;
@@ -269,18 +274,22 @@ $buttonColor: #00b6ab;
             text-align: center;
             max-width: 400px;
             margin: 0 auto;
-            cursor: pointer;
             a {
-                position: absolute;
-                left: 5px;
-                right: 5px;
-                bottom: 5px;
                 font-size: 18px;
-                background: rgba(60,60,60,0.4);
                 border-radius: 4px;
                 color: white;
                 text-decoration: none;
                 padding: 10px 0;
+            }
+            span {
+                display: block;
+                position: absolute;
+                left: 5px;
+                right: 5px;
+                bottom: 5px;
+                background: rgba(60,60,60,0.4);
+                border-radius: 4px;
+                padding: 6px;
             }
             img {
                 display: block;
@@ -516,10 +525,9 @@ $buttonColor: #00b6ab;
       a {
         @include button;
         width: 120px;
-        margin: 20px 10px;
       }
       a:hover {
-        background: rgba(255,255,255,0);
+        background: rgba(0,0,0,0);
         color: $buttonColor;
       }
     }
@@ -559,7 +567,8 @@ $buttonColor: #00b6ab;
 
 // end of page buttons made bigger
 .pageEnd .content a.button {
-    width: 140px;
+    max-width: 140px;
     height: 50px;
     line-height: 50px;
+    margin: 0 10px;
 }

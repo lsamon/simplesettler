@@ -10,27 +10,10 @@
 
     <div class="row articles">
       <div class="col-md-9 content">
-        <%= image_tag @article.image, class: "articleImage" %>
+        <%= image_tag @article.image.detail.url %>
         <div class="articleContent">
           <h2><%= @article.title %></h2>
-<!-- I think it's too much to have two sets of social media icons, I've hidden this one but you can re-enable it later by removing this comment.
-                     <div class="share">
-            <a href="" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
-
-            <a href="" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
-
-            <a href="" class="google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i> Google+</a>
-
-            <a href="" class="pinterest"><i class="fa fa-pinterest-p" aria-hidden="true"></i> Pinterest</a>
-          </div>
-          <hr>
-
-          -->
-
-
-
           <p><%= raw(@article.content) %></p>
-
           <hr>
 
           <div class="share">
@@ -67,8 +50,8 @@
       <div class="aside col-md-3">
         <% @articles.each do |a| %>
           <div class="articlesAll">
-            <%= link_to "#{a.title}", city_article_path(a.cities.first, a), class: "aLink"%>
-            <%= image_tag a.image %>
+            <%= link_to "#{a.title}", article_path(a), class: "aLink"%>
+            <%= image_tag a.image_url %>
           </div>
         <% end %>
       </div>

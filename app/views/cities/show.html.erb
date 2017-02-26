@@ -9,12 +9,12 @@
 
 <div class="categorySelectBg">
     <div class="categorySelect">
-      <%= link_to 'All', city_articles_category_path(@city, "All"), :remote => true, class: "catAll"  %>
+      <%= link_to 'All', city_category_path(@city, "All"), remote: true, class: "catAll"  %>
     </div>
 
-    <% @categories.each do |c| %>
+    <% @categories.each do |category| %>
       <div class="categorySelect">
-        <%= link_to c.name, city_articles_category_path(@city, c.name), :remote => true %>
+        <%= link_to category.name, city_category_path(@city, category), remote: true %>
       </div>
     <% end %>
 </div>

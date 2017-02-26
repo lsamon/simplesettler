@@ -27,10 +27,11 @@ Rails.application.routes.draw do
     collection do
       get :autocomplete_city_name
     end
-    resources :articles
+    resources :categories
   end
 
-  get '/cities/:id/:category' => 'cities#articles_category', :as =>  'city_articles_category'
+  resources :articles
+
   get '/articles/:id/:helpful' => 'articles#check_helpful', :as => 'check_helpful'
 
 end

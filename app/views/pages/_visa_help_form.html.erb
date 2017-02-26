@@ -1,0 +1,145 @@
+<form>
+  <fieldset>
+    <div class="form-group">
+      <p>Where are you from?</p>
+      <select name="country_from" id="country_from" class="form-control" required>
+        <option>Country list...</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <p>Where do you want to move?</p>
+      <select name="country_to" id="country_to" class="form-control" required>
+        <option>Australia</option>
+      </select>
+    </div>
+  </fieldset>
+  <h3>Visa Details</h3>
+  <fieldset>
+    <div class="form-group">
+      <p>What visa do you require help with?</p>
+      <div class="radio-styling">
+        <label for="help_work_visa">Work Visa</label>
+        <input type="radio" name="help_visa" id="help_work_visa">
+      </div>
+      <div class="radio-styling">
+        <label for="help_student_visa">Student Visa</label>
+        <input type="radio" name="help_visa" id="help_student_visa">
+      </div>
+      <div class="radio-styling">
+        <label for="help_extend_visa">Extend Visa</label>
+        <input type="radio" name="help_visa" id="help_extend_visa">
+      </div>
+      <div class="radio-styling">
+        <label for="help_temporary_residency">Temporary Residency</label>
+        <input type="radio" name="help_visa" id="help_temporary_residency">
+      </div>
+      <div class="radio-styling">
+        <label for="help_permanent_residency">Permanent Residency</label>
+        <input type="radio" name="help_visa" id="help_permanent_residency">
+      </div>
+      <div class="radio-styling">
+        <label for="help_citizenship">Citizenship</label>
+        <input type="radio" name="help_visa" id="help_citizenship">
+      </div>
+      <div class="radio-styling">
+        <label for="help_other">Other</label>
+        <input type="radio" name="help_visa" id="help_other">
+      </div>
+    </div>
+    <div class="form-group">
+      <p>What visa are you currently on?</p>
+      <div class="radio-styling">
+        <label for="current_permanent_visa">Permanent Visa</label>
+        <input type="radio" name="current_visa" id="current_permanent_visa">
+      </div>
+      <div class="radio-styling">
+        <label for="current_student_visa">Student Visa</label>
+        <input type="radio" name="current_visa" id="current_student_visa">
+      </div>
+      <div class="radio-styling">
+        <label for="current_tourist_visa">Tourist Visa</label>
+        <input type="radio" name="current_visa" id="current_tourist_visa">
+      </div>
+      <div class="radio-styling">
+        <label for="current_work_visa">Work Visa</label>
+        <input type="radio" name="current_visa" id="current_work_visa">
+      </div>
+      <div class="radio-styling">
+        <label for="current_no_visa">I don't have a visa</label>
+        <input type="radio" name="current_visa" id="current_no_visa">
+      </div>
+      <div class="radio-styling">
+        <label for="current_other">Other</label>
+        <input type="radio" name="current_visa" id="current_other">
+      </div>
+    </div>
+    <div class="form-group">
+      <p>Have you been to Australia before?</p>
+      <input type="radio" name="been_to_aus" id="aus_yes">
+      <label for="aus_yes" class="form_button">YES</label>
+      <input type="radio" name="been_to_aus" id="aus_no">
+      <label for="aus_no" class="form_button">NO</label>
+    </div>
+  </fieldset>
+  <h3>Your details</h3>
+  <fieldset>
+    <div class="form-group">
+      <p>How would you like to be contacted?</p>
+      <div class="radio-styling">
+        <label for="contact_phone">Phone</label>
+        <input type="radio" name="contact_method" id="contact_phone">
+      </div>
+      <div class="radio-styling">
+        <label for="contact_email">Email</label>
+        <input type="radio" name="contact_method" id="contact_email">
+      </div>
+      <div class="radio-styling">
+        <label for="contact_other">Other</label>
+        <input type="radio" name="contact_method" id="contact_other">
+      </div>
+    </div>
+    <div class="form-group">
+      <p>Do you prefer any language or require a translator?</p>
+      <div class="radio-styling">
+        <label for="english_translator">English</label>
+        <input type="radio" name="translator_language" id="english_translator">
+      </div>
+      <div class="radio-styling">
+        <label for="other_translator">Other</label>
+        <input type="radio" name="translator_language" id="other_translator">
+      </div>
+    </div>
+    <div class="form-group">
+      <p>What time suits you best?</p>
+      <div class="row datetime">
+        <div class="col-md-4">
+          <h4>Day</h4>
+        </div>
+        <div class="col-md-4">
+          <h4>Month</h4>
+        </div>
+        <div class="col-md-4">
+          <h4>Year</h4>
+        </div>
+      </div>
+    </div>
+    <div class="form-group" class="resume-upload">
+      <p>Upload your resume.</p>
+      <p><small>Fast-track your chance of securing a visa by uploading a resume!</small></p>
+    </div>
+    <div class="form-group">
+      <p>Full name:</p>
+      <input type="text" name="full_name" class="form-control input-minimal-design">
+    </div>
+    <div class="form-group">
+      <p>Phone:</p>
+      <input type="text" name="phone_number" class="form-control input-minimal-design">
+    </div>
+    <div class="form-group">
+      <p>Email:</p>
+      <input type="email" name="email_address" class="form-control input-minimal-design">
+    </div>
+  </fieldset>
+  <h3>Payment</h3>
+  <p><strong>Add Stripe...</strong></p>
+</form>

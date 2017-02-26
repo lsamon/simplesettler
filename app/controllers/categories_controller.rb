@@ -1,24 +1,31 @@
 class CategoriesController < ApplicationController
-  before_action :check_for_admin, :only => [:edit, :create, :new, :destroy, :update]
+  before_action :find_or_initialize_category, except: [:show]
+  before_action :check_for_admin, only: [:edit, :create, :new, :destroy, :update]
 
   def index
     @categories = Category.all
   end
 
   def show
-    @category = set_category
+    if params[:id] && params[:id] == "All"
+      @articles = current_city.articles
+    else
+      @category = Category.find(params[:id]) if params[:id]
+      @articles = @category.articles.includes(:cities)
+      @articles = @articles.joins(:cities).where('cities.name iLIKE ?', current_city.name)
+    end
+    respond_to do |format|
+      format.js
+    end
   end
 
   def new
-    @category = Category.new
   end
 
   def edit
-    @category = set_category
   end
 
   def update
-    @category = set_category
     if @category.update(category_params)
       redirect_to @category
     else
@@ -44,8 +51,8 @@ class CategoriesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-  def set_category
-    @category = Category.find(params[:id])
+  def find_or_initialize_category
+    @category = params[:id] ? Category.find(params[:id]) : Category.new
   end
 
   def category_params

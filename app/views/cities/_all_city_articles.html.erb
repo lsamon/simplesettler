@@ -1,5 +1,5 @@
 <%#= shown_article.count %>
 <div class='articleCont'>
-  <%= link_to article.title, city_article_path(@city, article), class: 'articleSelect' %>
+  <%= link_to article.title, article_path(article), class: 'articleSelect' %>
   <%= image_tag article.image, class: "articleImg" %>
 </div>

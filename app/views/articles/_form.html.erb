@@ -1,11 +1,10 @@
 <div class="articleForm">
-  <%= form_for @article do |f| %>
+  <%= form_for(@article, html: {:multipart => true}) do |f| %>
     <%= f.text_field :title, :placeholder => 'Title', class: 'articleEditTitle' %>
     <%= f.cktext_area :content, class: 'content' %>
-    <%= f.file_field :featured_image, class: "selectCity"%><br />
-    <%= f.text_field :image, class: "articleEditCity", :placeholder => "Image URL"%><br />
-    <%= f.select :city_id, City.pluck(:name, :id), {}, class: 'articleEditCity' %><br/>
-    <%= f.select :category_ids, Category.pluck(:name, :id), {}, class: 'articleEditCity' %><br/>
+    <%= f.file_field :image %><br />
+    <%= f.hidden_field :image_cache %>
+    <%= f.select :category_id, Category.pluck(:name, :id), {}%><br/>
     <%= f.submit class: 'submitFormButton' %>
   <% end %>
 </div>

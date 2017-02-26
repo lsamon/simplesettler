@@ -38,8 +38,8 @@
     <h2>Discover and connect with services in your city.</h2>
     <div>
     <%= form_tag(cities_path, :method => "get", id: "search-form") do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search Cities", class: 'searchCity', :pattern => ".{2,20}", :title => 'Enter more than 1 character', data: { autocomplete: autocomplete_city_name_cities_path } %>
-      <%= button_to nil, class: 'searchCitySubmit' do %><i class="fa fa-search" aria-hidden="true"></i><% end %><br />
+      <%= text_field_tag :search, params[:search], placeholder: "Search Cities", :class => 'searchCity', :pattern => ".{2,20}", :title => 'Enter more than 1 character', data: { autocomplete: autocomplete_city_name_cities_path } %>
+      <%= button_to nil, :class => 'searchCitySubmit' do %><i class="fa fa-search" aria-hidden="true"></i><% end %><br />
     <% end %>
   </div>
 
@@ -62,30 +62,28 @@
   <div class="cities">
      <% @cities.in_groups_of(3)  do |c1, c2, c3| %>
       <div class="row">
-        <%= link_to(city_path(c1)) do %>
-          <%= content_tag(:div, class: "col-sm-4 #{c1.name}") do %>
-            <span class="labelShort"><%= c1.name.upcase %></span>
-            <%= image_tag "#{c1.name.downcase}.jpg"%>
+          <div class="col-sm-4 <%= c1.name %>">
+              <%= link_to city_path(c1), :class => 'labelShort' do %>
+              <span><%= "#{(c1.name).upcase}" %></span>
+              <%= image_tag "#{c1.name.downcase}.jpg", :class => "" %>
+              <% end %>
+          </div>
+          <% if c2 %>
+          <div class="col-sm-4 <%= c2.name %>">
+              <%= link_to city_path(c2), :class => 'labelShort' do %>
+              <span><%= "#{(c2.name).upcase}" %></span>
+              <%= image_tag "#{c2.name.downcase}.jpg", :class => "" %>
+              <% end %>
+          </div>
           <% end %>
-        <% end %>
-
-        <% if c2 %>
-          <%= link_to(city_path(c2)) do %>
-            <%= content_tag(:div, class: "col-sm-4 #{c2.name}") do %>
-              <span class="labelShort"><%= c2.name.upcase %></span>
-              <%= image_tag "#{c2.name.downcase}.jpg"%>
-            <% end %>
+          <% if c3 %>
+          <div class="col-sm-4 <%= c3.name %>">
+              <%= link_to city_path(c3), :class => 'labelShort' do %>
+              <span><%= "#{(c3.name).upcase}" %></span>
+              <%= image_tag "#{c3.name.downcase}.jpg", :class => "" %>
+              <% end %>
+          </div>
           <% end %>
-        <% end %>
-
-        <% if c3 %>
-          <%= link_to(city_path(c3)) do %>
-            <%= content_tag(:div, class: "col-sm-4 #{c3.name}") do %>
-              <span class="labelShort"><%= c3.name.upcase %></span>
-              <%= image_tag "#{c3.name.downcase}.jpg"%>
-            <% end %>
-          <% end %>
-        <% end %>
       </div>
       <% end %>
   </div>
@@ -94,152 +92,41 @@
 </div>
 <hr>
 <div class="container">
-  <div class="listings">
-    <div class="header">
-      <h2>Recent listings</h2>
-      <p>Discover some of our best listings</p>
-    </div>
-
-
-<!-- .listingArticles images are broken due to a backend issue, but the styling is good to go! -->
-<div class="listingArticles">
-     <% @articles.in_groups_of(3)  do |a1, a2, a3| %>
-         <div class="row">
-             <div class="col-sm-4">
-                <%= link_to "#{a1.title}", city_article_path(a1.cities.first, a1), class: "articles"%>
-                <%= image_tag a1.image %>
-             </div>
-             <% if a2 %>
-             <div class="col-sm-4">
-                <%= link_to "#{a2.title}", city_article_path(a2.cities.first, a2), class: "articles" %>
-                <%= image_tag a2.image %>
-             </div>
-             <% end %>
-             <% if a3 %>
-             <div class="col-sm-4">
-                <%= link_to "#{a2.title}", city_article_path(a3.cities.first, a3), class: "articles" %>
-                <%= image_tag a2.image %>
-             </div>
-             <% end %>
-         </div>
-     <% end %>
-</div>
-
-    <div class="allArticlesButton" >
-    <%= link_to "View All", root_path %>
-    </div>
+  <!-- show categories as a carousel -->
+  <div class="categories">
+    <%#= render categories %>
+    <h1>Add Categories Carousel</h1>
   </div>
 </div>
 
 <div class="getStarted">
-  <div class="container">
-    <h2>Not Enough? Speak to our experts.</h2>
-
-    <div class="content">
-      <p>Tell us about your needs and we’ll introduce you to several experienced professionals who can provide you with a step-by-step guide on helping you settle.</p>
-      <%= link_to "Get Started", root_path %>
-    </div>
-  </div>
+  <%= render 'getstarted' %>
 </div>
 
 <div class="container">
   <div id="howItWorks" class="howItWorks">
-    <h2>How it works</h2>
-    <div class="content">
-      <div class="numbers">
-        <div class="spacer">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-        </div>
-        <div class="line"></div>
-      </div>
-      <div class="info">
-        <div class="spacer">
-          <div>Search your city</div>
-          <div>Get connected with services and people to help you settle smoothly</div>
-          <div>Ask us any questions about your city and we will help you</div>
-          <div>Share success of your story and unlock rewards!</div>
-        </div>
-      </div>
-    </div>
+    <%= render 'how_it_works' %>
   </div>
 
   <div class="settlerLove">
-    <div class="header">
-      <h2>Why people love simple settler</h2>
-      <p>A one stop hub for everything in an unfamiliar city</p>
-    </div>
-    <div class="content">
-      <div class="rows">
-        <div class="love">
-          <%= image_tag "icon1.jpg"%>
-          <h3>Places To Eat</h3>
-          <p>Find places to eat</p>
-        </div>
-        <div class="love">
-          <%= image_tag "icon2.jpg"%>
-          <h3>Job Assistance</h3>
-          <p>Get help with finding a job</p>
-        </div>
-        <div class="love">
-          <%= image_tag "icon3.jpg"%>
-          <h3>Help With Visa</h3>
-          <p>Extending visa or help staying permanently ? We can help</p>
-        </div>
-        <div class="love">
-          <%= image_tag "icon4.jpg"%>
-          <h3>Connect With Friendly Locals</h3>
-          <p>Get integrated</p>
-        </div>
-        <div class="love">
-          <%= image_tag "icon5.jpg"%>
-          <h3>Live On A Budget</h3>
-          <p>Get tips on best places to shop and save money!</p>
-        </div>
-        <div class="love">
-          <%= image_tag "icon6.jpg"%>
-          <h3>Tips In Getting Around</h3>
-          <p>Access city hacks and tricks</p>
-        </div>
-        <div class="love">
-          <%= image_tag "icon7.jpg"%>
-          <h3>Activities</h3>
-          <p>Things to do</p>
-        </div>
-        <div class="love">
-          <%= image_tag "icon8.jpg"%>
-          <h3>Accomodation Help</h3>
-          <p>Find friendly suburbs or places to stay according to your budget</p>
-        </div>
-        <div class="love">
-          <%= image_tag "icon9.jpg"%>
-          <h3>Be Stress-Free</h3>
-          <p>Ask us a question and we’ll take care of it!</p>
-        </div>
-      </div>
-      <%=  link_to "Settle Somewhere", nil, class: "searchCity button"%>
-    </div>
+    <%= render 'love_simplesettler' %>
   </div>
 
 </div>
 
 
 
-    <div class="recommendedBy">
-    <div class="logos one"></div>
-    <div class="logos two"></div>
-    <div class="logos three"></div>
-  </div>
+<div class="recommendedBy">
+  <%= render 'media' %>
+</div>
 
 
 <div class="pageEnd">
   <div class="container">
     <div class="content">
       <h1>YOUR STRESS ENDS HERE. LET US HELP YOU.</h1>
-      <%=  link_to "Search Your City", nil, class: "searchCity button"%>
-      <%=  link_to "Visa Help", nil, class: "VisaHelp button"%>
+      <%=  link_to "Search Your City", nil, :class => "searchCity button"%>
+      <%=  link_to "Visa Help", nil, :class => "VisaHelp button"%>
     </div>
   </div>
 </div>

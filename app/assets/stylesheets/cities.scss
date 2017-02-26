@@ -42,82 +42,66 @@
 }
 
 
-.ui-menu .ui-menu-item-wrapper {
-  background: #fff;
-  max-width: 385px;
-  border: 0px;
-  color: #00b6ab;
-
-  transition: all ease 0.1s;
-}
-
-.ui-menu .ui-menu-item-wrapper:hover {
-  background: #00b6ab;
-  border: #00b6ab;
-  color: #fff;
-}
-
-
 /* Rate City Start */
-//   .rateCity {
-//       font-size: 20px;
-//       height: 40px;
-//       color: #ffc107;
-//       cursor: pointer;
-//         margin-top: 40px;
-//     }
-//     .fa-star {
-//       transition: 1.5s;
-//       animation: blink 2s infinite;
-//     }
-//     @keyframes blink{
-//       0% { text-shadow: 0 0 0 white; }
-//       25% { text-shadow: 0 0 10px white; }
-//       50% { text-shadow: 0 0 20px white; }
-//       75% { text-shadow: 0 0 10px white; }
-//       100% { text-shadow: 0 0 0 white; }
-//     }
-//     .fa-star:hover {
-//       transform-origin: center;
-//       transform: rotate(360deg);
-//     }
-//     .ratingsYo {
-//       color: white;
-//       height: 40px;
-//       margin: 0 auto;
-//       display: none;
-//
-//       p, div {
-//         height: 40px;
-//       }
-//     }
-// /* Rate City End */
-//
-//
-// /* Chart Start*/
-//     .chart {
-//       filter: opacity(0.7);
-//       padding: 0;
-//       height: 200px;
-//         max-width: 300px;
-//       border-radius: 10px;
-//         margin: 0 auto;
-//
-//       .ct-horizontal-bars {
-//         height: 50px;
-//       }
-//       .ct-start {
-//         color: white;
-//       }
-//       .ct-series line {
-//         stroke: #00b6ab;
-//         stroke-width: 15px;
-//       }
-//         .ct-label {
-//           font-size: 16px;
-//         }
-//     }
-// /* Chart End */
+    .rateCity {
+      font-size: 20px;
+      height: 40px;
+      color: #ffc107;
+      cursor: pointer;
+        margin-top: 40px;
+    }
+    .fa-star {
+      transition: 1.5s;
+      animation: blink 2s infinite;
+    }
+    @keyframes blink{
+      0% { text-shadow: 0 0 0 white; }
+      25% { text-shadow: 0 0 10px white; }
+      50% { text-shadow: 0 0 20px white; }
+      75% { text-shadow: 0 0 10px white; }
+      100% { text-shadow: 0 0 0 white; }
+    }
+    .fa-star:hover {
+      transform-origin: center;
+      transform: rotate(360deg);
+    }
+    .ratingsYo {
+      color: white;
+      height: 40px;
+      margin: 0 auto;
+      display: none;
+
+      p, div {
+        height: 40px;
+      }
+    }
+/* Rate City End */
+
+
+/* Chart Start*/
+    .chart {
+      filter: opacity(0.7);
+      padding: 0;
+      height: 200px;
+        max-width: 300px;
+      border-radius: 10px;
+        margin: 0 auto;
+
+      .ct-horizontal-bars {
+        height: 50px;
+      }
+      .ct-start {
+        color: white;
+      }
+      .ct-series line {
+        stroke: #00b6ab;
+        stroke-width: 15px;
+      }
+        .ct-label {
+          font-size: 16px;
+        }
+    }
+/* Chart End */
 
 .categorySelectBg{
   height: 120px;

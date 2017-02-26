@@ -64,6 +64,7 @@
     background: white;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       margin-bottom: 40px;
+      font-size: 1.5rem;
     img {
       height: 300px;
       width: 100%;
@@ -74,20 +75,20 @@
     .share {
       margin: 20px;
         font-family: 'Open Sans', sans-serif;
+        text-align: center;
 
       a {
-        font-size: 18px;
+        font-size: 14px;
         text-align: center;
-        margin: 2px;
+        margin: 1px;
         height: 30px;
         text-decoration: none;
         color: white;
         overflow: hidden;
-        width: 100%;
-        height: inherit;
+          width: 100%;
         line-height: 30px;
         transition: .3s;
-          display: block;
+          display: inline-block;
         }
         .facebook {
           background: #334d87;
@@ -177,6 +178,7 @@
       height: 200px;
       background-size: cover;
       margin-bottom: 14px;
+          width: 100%;
 
       a {
         text-align: left;
@@ -185,7 +187,7 @@
         display: inline-block;
         padding: 10px;
         height: 200px;
-        width: 260px;
+          width: 260px;
         position: absolute;
         border-radius: 5px;
         font-size: 20px;
@@ -199,6 +201,8 @@
       img {
         width: 260px;
         height: 200px;
+          margin: 0;
+          padding: 0;
         border-radius: 5px;
       }
     }

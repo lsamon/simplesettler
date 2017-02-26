@@ -1,4 +1,7 @@
 class City < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :finders]
+
   has_many :city_articles
   has_many :articles, through: :city_articles
   has_many :feedbacks

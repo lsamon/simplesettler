@@ -11,23 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170218132409) do
+ActiveRecord::Schema.define(version: 20170224041953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "city_id"
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "image"
-    t.string   "featured_image_file_name"
-    t.string   "featured_image_content_type"
-    t.integer  "featured_image_file_size"
-    t.datetime "featured_image_updated_at"
     t.string   "slug"
     t.string   "meta_title"
     t.text     "meta_description"
