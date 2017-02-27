@@ -49,7 +49,7 @@
 </div>
 
 
-<div class="container">
+<section class="container">
 
   <div class="explore">
 
@@ -89,49 +89,34 @@
   </div>
 
   </div>
-</div>
-<hr>
-<div class="container">
+</section>
+<!-- <div class="container"> -->
   <!-- show categories as a carousel -->
-  <div class="categories">
-    <%#= render categories %>
-    <h1>Add Categories Carousel</h1>
+  <!-- <div class="categories"> -->
+    <%#= render 'categories' %>
+    <!-- <h1>Add Categories Carousel</h1>
   </div>
-</div>
+</div> -->
 
-<div class="getStarted">
+<section class="getStarted colored">
   <%= render 'getstarted' %>
-</div>
+</section>
 
-<div class="experts">
-  <h2>Speak to our awesome experts</h2>
+<section class="experts">
   <%= render 'speak_to_experts' %>
-</div>
+</section>
 
-<div class="container">
-  <div id="howItWorks" class="howItWorks">
-    <%= render 'how_it_works' %>
-  </div>
+<section id="howItWorks" class="howItWorks colored">
+  <%= render 'how_it_works' %>
+  <!-- <div class="settlerLove"> -->
+    <%#= render 'love_simplesettler' %>
+  <!-- </div> -->
+</section>
 
-  <div class="settlerLove">
-    <%= render 'love_simplesettler' %>
-  </div>
-
-</div>
-
-
-
-<div class="recommendedBy">
+<section class="recommendedBy">
   <%= render 'media' %>
-</div>
+</section>
 
-
-<div class="pageEnd">
-  <div class="container">
-    <div class="content">
-      <h1>YOUR STRESS ENDS HERE. LET US HELP YOU.</h1>
-      <%=  link_to "Search Your City", nil, :class => "searchCity button"%>
-      <%=  link_to "Visa Help", nil, :class => "VisaHelp button"%>
-    </div>
-  </div>
-</div>
+<section class="pageEnd">
+  <%= render 'page_end' %>
+</section>

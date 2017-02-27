@@ -330,14 +330,14 @@ $buttonColor: #00b6ab;
     }
 }
 
-
-
-.getStarted {
-  min-height: 290px;
-  padding: 30px 0;
+section.colored {
   background: #f9ffff;
   border-top: 1px solid #c0dddb;
   border-bottom: 1px solid #c0dddb;
+}
+
+.getStarted {
+  min-height: 290px;
   text-align: center;
 
   h2 {
@@ -369,13 +369,12 @@ $buttonColor: #00b6ab;
 
 .howItWorks {
   height: 509px;
-  padding: 50px 0;
   text-align: center;
-    margin-bottom: 100px;
+  margin-bottom: 50px;
 
   h2 {
     color: gray;
-    padding: 30px 0 60px 0;
+    padding: 20px 0 35px 0;
   }
 
   .content {
@@ -393,7 +392,7 @@ $buttonColor: #00b6ab;
       vertical-align: top;
 
       .spacer {
-        height: 377px;
+        height: 310px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -414,9 +413,9 @@ $buttonColor: #00b6ab;
       }
       .line {
         position: absolute;
-        height: 370px;
+        height: 310px;
         border-right: 1px solid $buttonColor;
-        transform: translateY(-375px) translateX(21px);
+        transform: translateY(-310px) translateX(21px);
       }
     }
 
@@ -430,7 +429,7 @@ $buttonColor: #00b6ab;
       font-size: 14px;
 
       .spacer {
-        height: 377px;
+        height: 310px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -617,4 +616,11 @@ $buttonColor: #00b6ab;
     height: 50px;
     line-height: 50px;
     margin: 0 10px;
+}
+
+// help page
+.banner.help {
+  height: 100px;
+  background: #c0dddb;
+  margin-bottom: 50px;
 }
