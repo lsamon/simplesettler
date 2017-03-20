@@ -8,11 +8,9 @@ class CategoriesController < ApplicationController
 
   def show
     if params[:id] && params[:id] == "All"
-      @articles = current_city.articles
+      @articles = current_city.articles.published
     else
-      @category = Category.find(params[:id]) if params[:id]
-      @articles = @category.articles.includes(:cities)
-      @articles = @articles.joins(:cities).where('cities.name iLIKE ?', current_city.name)
+      @articles = current_city.articles.published.includes(:category).joins(:category).where('categories.slug = ?', params[:id])
     end
     respond_to do |format|
       format.js

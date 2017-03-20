@@ -1,0 +1,73 @@
+// variables
+@import "shared/variables";
+
+.fa-trash {
+  color: $delete;
+}
+
+// Admin menus left and top
+.admin {
+  .menu-top {
+    text-align: center;
+    border-bottom: 2px solid #ccc;
+  }
+
+  .content {
+    background: #fff;
+    ul {
+      list-style: none;
+    }
+    .btn-primary {
+      @include button;
+    }
+
+    .btn-primary:hover {
+      border-color: $logoColor * 1.5;
+      background: $logoColor * 1.2;
+
+    }
+
+    .pagination {
+      margin: 0 25%;
+      max-width: 200px;
+      height: 40px;
+    }
+  }
+}
+
+  .sidebar {
+    background: $logoColor;
+    padding: 10px;
+    color: #fff;
+    height: 100vh;
+    h2 {
+      margin-bottom: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+    .menu-left {
+      text-align: center;
+      ul {
+        list-style: none;
+        li {
+          padding: 15px 0;
+          a {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  .admin-right {
+    height: 100vh;
+
+    .admin-container {
+      height: 100vh;
+      padding: 30px;
+
+      .admin-content {
+        background: #fff;
+        padding: 10px;
+      }
+    }
+  }

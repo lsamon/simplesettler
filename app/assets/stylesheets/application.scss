@@ -1,50 +1,27 @@
-/*
-  *= require_self
-  *= require_tree .
-*/
-
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,900');
+@import "shared/variables";
+@import "shared/typography";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
-/// MIXIN VAR ///////////////////////////////////////////
-/// MIXIN VAR ///////////////////////////////////////////
-
-
-$buttonColor: #00b6ab;
-
-@mixin button {
-  border: 1px solid $buttonColor;
-  background: $buttonColor;
-  padding: 6px 8px;
-  transition: 0.3s;
-  text-decoration: none;
-  color: white;
-  display: inline-block;
-  text-align: center;
-}
-
-button:focus, input:focus {outline:0;}
-
-
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-
+@import "pages";
+@import "articles";
+@import "cities";
+@import "jquery-ui";
+@import "rateyo";
+@import "users";
+@import "visa_help";
 
 * {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  /*background: lightgray;*/
-  /*border: 1px solid green;*/
-}
-body {
-  /*background: lightgray;*/
 }
 
 .navSpacer {
   height: 66px;
   display: block;
-  background: #252525
+  background: #252525;
 }
 
 .container {
@@ -99,7 +76,7 @@ nav {
 
     .helpMenuItem:hover {
       background: rgba(0,0,0,0);
-      color: $buttonColor;
+      color: $logoColor;
     }
   }
 }
@@ -114,7 +91,7 @@ nav li {
   display:block;
   content: '';
   padding-bottom: 4px;
-  border-bottom: solid 3px $buttonColor;
+  border-bottom: solid 3px $logoColor;
   transform: scaleX(0);
   transition: transform 250ms ease-in-out;
 }
@@ -164,7 +141,7 @@ nav li {
     text-align: center;
     background: rgba(0,0,0,0.8);
   }
-    
+
     .responsiveNavShow {
         visibility: visible !important;
         opacity: 1 !important;
@@ -231,7 +208,7 @@ footer {
         li {
           line-height: 2.5;
           font-size: 12px;
-          list-style-type: none
+          list-style-type: none;
         }
       }
       a{

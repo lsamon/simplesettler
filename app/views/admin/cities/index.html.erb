@@ -1,0 +1,22 @@
+<div class="articles">
+  <h2><%= @cities.model_name %></h2>
+  <%= link_to "Add City", new_admin_city_path, class: "btn btn-primary" %>
+  <table class="table">
+    <thead>
+      <tr>
+      <%= sort_header :name, 'Name' %>
+      <th>Country</th>
+      <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cities.each do | city | %>
+      <tr>
+        <td><%= city.name %></td>
+        <td><%= city.country %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @cities %>
+</div>

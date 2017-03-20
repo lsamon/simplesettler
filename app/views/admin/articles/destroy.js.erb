@@ -1,0 +1,2 @@
+<% var = @article || instance_variable_get("@#{controller_name.singularize.downcase}") %>
+$('#<%= dom_id(var) %>').fadeOut(500, function() { $(this).remove(); });

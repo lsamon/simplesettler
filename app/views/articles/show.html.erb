@@ -28,8 +28,8 @@
 
           <div class="helpful">
             <h3>Was this article helpful?</h3>
-            <%= link_to 'Yes', check_helpful_path(@article, 'Yes'), class: 'yes', :remote => true %>
-            <%= link_to 'No', check_helpful_path(@article, 'No'), class: 'no', :remote => true %>
+            <%= link_to 'Yes', article_feedback_path(@article, 'Yes'), { class: 'yes', :remote => true, method: :post }  %>
+            <%= link_to 'No', article_feedback_path(@article, 'No'), { class: 'no', :remote => true, method: :post } %>
           </div>
 
           <div id="disqus_thread"></div>
@@ -50,7 +50,7 @@
       <div class="aside col-md-3">
         <% @articles.each do |a| %>
           <div class="articlesAll">
-            <%= link_to "#{a.title}", article_path(a), class: "aLink"%>
+            <%= link_to "#{a.title}", city_article_path(current_city, a), class: "aLink"%>
             <%= image_tag a.image_url %>
           </div>
         <% end %>

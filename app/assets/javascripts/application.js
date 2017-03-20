@@ -15,7 +15,6 @@
 //= require jquery-ui
 //= require autocomplete-rails
 //= require rateyo
-//= require chartist
 //= require underscore
 //= require ckeditor/init
 //= require_tree .

@@ -2,11 +2,15 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-  helper_method :current_city
+  helper_method :current_city, :check_for_admin
 
   def current_city
-    session[:city_id] = params[:city_id] if params[:city_id]
+    session[:city_id] = params[:city_id] ? params[:city_id] : params[:id]
     @city = City.where(slug: session[:city_id]).first
+  end
+
+  def check_for_admin
+    redirect_to root_path unless (current_user.present? && current_user.admin?)
   end
 
   private
@@ -14,10 +18,6 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:sign_in) do |user_params|
         user_params.permit(:username, :email)
       end
-    end
-
-    def check_for_admin
-      redirect_to root_path unless (current_user.present? && current_user.admin?)
     end
 
 end

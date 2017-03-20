@@ -1,8 +1,3 @@
-@mixin bannerHeight {
-  height: 90vh;
-  max-height: 600px;
-}
-
 .bannerCity {
   @include bannerHeight;
   width: 100%;

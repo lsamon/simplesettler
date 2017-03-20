@@ -5,14 +5,11 @@ Rails.application.routes.draw do
     resources :articles
     resources :categories
     resources :cities
-    resources :city_articles
-    resources :feedbacks
-    resources :helpfuls
-
-    root to: "users#index"
+    root to: "articles#index"
   end
 
-   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  post '/articles/:id/:response' => 'helpfuls#create', as: :article_feedback
 
   mount Ckeditor::Engine => '/ckeditor'
 
@@ -27,11 +24,7 @@ Rails.application.routes.draw do
     collection do
       get :autocomplete_city_name
     end
-    resources :categories
+    resources :categories, only: [:index, :show]
+    resources :articles, only: [:show]
   end
-
-  resources :articles
-
-  get '/articles/:id/:helpful' => 'articles#check_helpful', :as => 'check_helpful'
-
 end

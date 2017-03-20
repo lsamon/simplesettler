@@ -37,9 +37,9 @@
     <h1>SETTLE ANYWHERE.</h1>
     <h2>Discover and connect with services in your city.</h2>
     <div>
-    <%= form_tag(cities_path, :method => "get", id: "search-form") do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search Cities", :class => 'searchCity', :pattern => ".{2,20}", :title => 'Enter more than 1 character', data: { autocomplete: autocomplete_city_name_cities_path } %>
-      <%= button_to nil, :class => 'searchCitySubmit' do %><i class="fa fa-search" aria-hidden="true"></i><% end %><br />
+    <%= form_tag(cities_path, method: "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Cities", class: 'searchCity', pattern: ".{2,20}", title: 'Enter more than 1 character', data: { autocomplete: autocomplete_city_name_cities_path } %>
+      <%= button_to nil, class: 'searchCitySubmit' do %><i class="fa fa-search" aria-hidden="true"></i><% end %><br />
     <% end %>
   </div>
 
@@ -60,34 +60,18 @@
 
 
   <div class="cities">
-     <% @cities.in_groups_of(3)  do |c1, c2, c3| %>
+     <% @cities.in_groups_of(3)  do |cities| %>
       <div class="row">
-          <div class="col-sm-4 <%= c1.name %>">
-              <%= link_to city_path(c1), :class => 'labelShort' do %>
-              <span><%= "#{(c1.name).upcase}" %></span>
-              <%= image_tag "#{c1.name.downcase}.jpg", :class => "" %>
+        <% cities.each do |city| %>
+          <div class="col-sm-4 <%= city.name %>">
+              <%= link_to city_path(city) do %>
+                <span><%= city.name.upcase %></span>
+                <%= image_tag "#{city.name.downcase}.jpg" %>
               <% end %>
           </div>
-          <% if c2 %>
-          <div class="col-sm-4 <%= c2.name %>">
-              <%= link_to city_path(c2), :class => 'labelShort' do %>
-              <span><%= "#{(c2.name).upcase}" %></span>
-              <%= image_tag "#{c2.name.downcase}.jpg", :class => "" %>
-              <% end %>
-          </div>
-          <% end %>
-          <% if c3 %>
-          <div class="col-sm-4 <%= c3.name %>">
-              <%= link_to city_path(c3), :class => 'labelShort' do %>
-              <span><%= "#{(c3.name).upcase}" %></span>
-              <%= image_tag "#{c3.name.downcase}.jpg", :class => "" %>
-              <% end %>
-          </div>
-          <% end %>
+        <% end %>
       </div>
-      <% end %>
-  </div>
-
+    <% end %>
   </div>
 </section>
 <!-- <div class="container"> -->
@@ -108,9 +92,6 @@
 
 <section id="howItWorks" class="howItWorks colored">
   <%= render 'how_it_works' %>
-  <!-- <div class="settlerLove"> -->
-    <%#= render 'love_simplesettler' %>
-  <!-- </div> -->
 </section>
 
 <section class="recommendedBy">

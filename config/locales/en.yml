@@ -19,5 +19,177 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
+---
 en:
-  hello: "Hello world"
+  date:
+    formats:
+      default: "%d %b %Y"
+      day_month: "%a, %d %b"
+      day_year: "%a, %d %b %Y"
+      month_year: "%b %Y"
+  time:
+    am: AM
+    pm: PM
+    formats:
+      default: "%d %b %Y, %H:%M"
+      short: "%d %b %Y"
+      long: "%d %b %Y, %H:%M:%S"
+      time_short: "%-l:%M %P"
+      time_tiny: "%a, %l%P"
+      time_tiny_min: "%a, %l:%M%P"
+      day_time: "%a: %-l:%M %p"
+  languages:
+    languages: Languages
+    eng: English
+    smo: Samoan
+    fij: Fijian
+    tog: Tongan
+    fra: French
+    yue: Cantonese
+    pol: Polish
+    bur: Burmese
+    ron: Romanian
+    cez: Czech
+    tpi: Pidgin
+    fil: Filipino
+    ind: Indonesian
+    wuu: Wu
+    jav: Javanese
+    ger: German
+    pan: Punjabi
+    jpn: Japanese
+    rus: Russian
+    ben: Bengali
+    por: Portuguese
+    ara: Arabic
+    hii: Hindi
+    spa: Spanish
+    cmn: Mandarin
+    kor: Korean
+    rar: Rarotongan
+    tvl: Tuvaluan
+    hrv: Croatian
+    srp: Serbian
+    nus: Nuer
+    hmo: Hiri Motu
+    nld: Dutch
+    ita: Italian
+    mkd: Macedonian
+    mri: Maori
+    tha: Thai
+    zou: Zomi
+    rtm: Rotuman
+  site:
+    how_it_works:
+      header: GET TO KNOW US
+      subtitle: We love
+      content_html: <p>Adventists believe life is more than just the accumulation
+        of "stuff".  It’s about more than just surviving. It means more than simply
+        maximising pleasure and minimising pain. We believe every life is of infinite
+        value. Why? Because every human is miraculously crafted by God who wants us
+        to live life to the full. What's more, He sent His Son to demonstrate true
+        love, forgiveness and grace.</p>
+      video_image_alt: About Adventists
+      culture:
+        european:
+          phrase0: Jesus
+          phrase1: Camping
+          phrase2: Music
+          phrase3: Haystacks
+          phrase4: Worship
+          phrase5: Community
+          phrase6: Gardening
+          phrase7: Scripture
+        island:
+          phrase0: Jesus
+          phrase1: Sharing
+          phrase2: Music
+          phrase3: Sport
+          phrase4: Worship
+          phrase5: Health
+          phrase6: Family
+          phrase7: Storytelling
+    banner:
+      place_type:
+        church: Seventh-day Adventist Church
+    contact:
+      header: COME AND VISIT US
+      subtitle: Say Hello! Don't be shy.
+      location: Our Location
+      phone: 'Phone: %{number}'
+      times: Times
+      nearby: Explore
+      nearby_summary: Find churches, schools and more.
+      view_places: View Nearby Places
+      languages: Languages
+      places_same_language: Find other %{language} speaking places
+    events:
+      header: EVENTS
+      subtitle: Join us at one of our upcoming events.
+      events: 'Events'
+      upcoming_events: 'Upcoming Events'
+      local_events: 'Local Events'
+      learn_register: 'Learn more & Register'
+      all_events: 'All Events'
+    posts:
+      header: News
+      subtitle: Our latest posts from facebook & twitter.
+    mailing_list:
+      header: Subscribe to our mailing list for the latest news
+      form:
+        placeholder:
+          email: Email address
+        submit: Sign Up
+        message:
+          success: Thanks for signing up!
+          error: Please provide a valid email address.
+    photos:
+      header: Explore photos from our recent adventures
+    videos:
+      header: Watch our latest videos
+    youth:
+      adventurers:
+        title: Adventurers for Kids
+        summary: Children will discover the wonders of nature through their local
+          Adventurers club. Designed for kids aged 4-9, Adventurers offers a variety
+          of activities in a fun and creative atmosphere. The activities range from
+          games and crafts to nature exploration and family camping. They will learn
+          about their God-given abilities and how to use them to help others. The
+          activities take place in a nurturing environment where children and parents
+          can participate in building life-long memories.
+      pathfinders:
+        title: Pathfinders for Teens
+        summary: Have you ever tried rock climbing? How about mountain biking, canoeing
+          or snorkelling? Perhaps candle making, photography or cooking are more your
+          thing? Whatever your passion, you’ll find a huge range of awesome activities
+          at our Pathfinder club. Pathfinders is for those aged 10-15, and
+          is all about hanging out with your friends, learning some really cool skills
+          and promoting respect for God and His creation.
+    nav:
+      home: Home
+      all_listings: All Listings
+      map: Map
+      explore: Explore
+      events: Events
+      visit: Visit
+      youth: Youth
+    footer:
+      rights_reserved: All Rights Reserved
+      privacy: Privacy
+      suggest_an_edit: Suggest an edit
+  error:
+    summary: Why don't you try one of these pages instead?
+    nav:
+      home: Home
+      search: Search
+    page_not_found:
+      title: Page Not Found
+    server_error:
+      title: Server Error
+  js:
+    all_locations: All Locations
+  sessions:
+    login_failed: Unable to login with that account.
+
+  users:
+    connect_myadventist: Connect to myAdventist

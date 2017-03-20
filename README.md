@@ -31,3 +31,12 @@ _"Simple Settler_" is a functional MVP site built in rails by Loui Amon & Ron Ta
 ### Link to our site:
 
 [Simple Settler](http://easysettler.herokuapp.com/)
+
+### run bundle rake db:migrate
+### run bundle
+
+# Set articles to published
+Article.each do |article|
+  article.status = 1
+  article.save
+end
