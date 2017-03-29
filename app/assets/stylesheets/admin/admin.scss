@@ -1,5 +1,5 @@
 // variables
-@import "shared/variables";
+@import "../shared/_variables";
 
 .fa-trash {
   color: $delete;
@@ -39,7 +39,7 @@
     background: $logoColor;
     padding: 10px;
     color: #fff;
-    height: 100vh;
+    min-height: 100vh;
     h2 {
       margin-bottom: 10px;
       border-bottom: 1px solid #ccc;
@@ -59,15 +59,14 @@
   }
 
   .admin-right {
-    height: 100vh;
-
     .admin-container {
-      height: 100vh;
-      padding: 30px;
+      // padding: 30px;
 
       .admin-content {
-        background: #fff;
-        padding: 10px;
+        .row {
+          // background: #fff;
+          padding: 10px;
+        }
       }
     }
   }

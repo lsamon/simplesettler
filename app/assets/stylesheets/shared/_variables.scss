@@ -2,6 +2,8 @@ $logoColor: #00b6ab;
 $menuBGColor: #ccc;
 $delete: #f00;
 
+$bannerHeight: 60vh;
+
 @mixin button {
   border: 1px solid $logoColor;
   background: $logoColor;
@@ -16,6 +18,5 @@ $delete: #f00;
 }
 
 @mixin bannerHeight {
-  height: 90vh;
-  max-height: 400px;
+  height: 300px;
 }

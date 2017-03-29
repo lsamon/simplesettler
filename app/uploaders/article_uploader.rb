@@ -22,6 +22,10 @@ class ArticleUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
+
+  version :thumb do
+      process resize_to_fill: [50, 50]
+  end
   # Crop to 275px, 206px
   version :thumbnail do
       process resize_to_fill: [275, 206]

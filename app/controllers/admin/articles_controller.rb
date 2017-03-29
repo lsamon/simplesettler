@@ -17,6 +17,7 @@ class Admin::ArticlesController < Admin::BaseController
       @article.user = @current_user
 
       if @article.save
+        add_cities
         redirect_to admin_articles_path
       else
         render :new
@@ -28,6 +29,7 @@ class Admin::ArticlesController < Admin::BaseController
 
     def update
       if @article.update_attributes(article_params)
+        add_cities
         redirect_to admin_articles_path
       else
         render :edit
@@ -46,6 +48,14 @@ class Admin::ArticlesController < Admin::BaseController
 
     def article_params
       params.fetch(:article, {}).permit(:title, :content, :city_ids, :user_id, :image, :category_id, :status)
+    end
+
+    def add_cities
+      cities = params[:article][:city_ids].reject{ |n| n == "" }.map do | city_id |
+        City.find(city_id.to_i)
+      end
+      @article.cities = cities
+      @article.save
     end
 
     def sort_options
