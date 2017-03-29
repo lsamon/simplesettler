@@ -1,35 +1,40 @@
-<div class="navSpacer"></div>
-
-<div class="signin">
-  <div class="container">
-    <div class="signinCont">
-      <div class="header">
-        <h2>Sign in</h2>
-      </div>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, class: "signinInput" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "off", class: "signinInput" %>
-        </div>
-
-        <% if devise_mapping.rememberable? -%>
-          <div class="field">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
+<div class="row no-gutters signin">
+  <div class="col-sm-4 offset-sm-4 signinCont">
+    <div class="header">
+      <h2>Sign in</h2>
+    </div>
+    <div class="row content">
+      <div class="col-sm-12">
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="row">
+            <div class="col-sm-12">
+              <%= f.input :email, autofocus: true, input_html: { class: "form-control" }  %>
+            </div>
           </div>
-        <% end -%>
 
-        <div class="actions">
-          <%= f.submit "Log in", class: "signinButton" %>
+          <div class="row">
+            <div class="col-sm-12">
+              <%= f.input :password, autocomplete: "off", input_html: { class: "form-control" } %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <%= f.input :remember_me, as: :boolean, input_html: { class: "form-check-input form-check-inline form-check-label" }  if devise_mapping.rememberable?%>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <%= f.submit "Log in", class: "btn btn-primary signinButton" %>
+            </div>
+          </div>
+        <% end %>
+        <div class="links row no-gutters">
+          <div class="col-sm-12">
+            <%= render "users/shared/links" %>
+          </div>
         </div>
-      <% end %>
-      <div class="links">
-        <%= render "users/shared/links" %>
       </div>
     </div>
   </div>

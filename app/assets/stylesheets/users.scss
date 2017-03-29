@@ -1,12 +1,26 @@
+.container-fluid {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+//fix bootstrap checkbox alignment
+.checkbox input[type="checkbox"] {
+  margin-left: 0;
+}
+
 .signin {
-  padding: 20px 0;
-  min-height: 66vh;
-  text-align: center;
+  padding: 10px 0;
+  min-height: 100vh;
   background: #eee;
+
+  .content {
+    padding: 20px;
+  }
 
   .signinCont {
     margin: 0 auto;
     max-width: 500px;
+    max-height: 500px;
     background: white;
     overflow: hidden;
 
@@ -55,22 +69,22 @@
       .links {
           div { margin: 10px; }
           div.social-login {
-              display: inline-block;
-              width: 150px;
-              height: 30px;
-              line-height: 30px;
-              a {
-                  color: white;
-                  text-decoration: none;
-                  font-size: 18px;
-                  text-align: center;
-                  transition: .3s;
-
-              }
-              i {
-                  color: white;
-                  margin-right: 8px;
-              }
+            display: inline-block;
+            width: 160px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            a {
+              color: white;
+              text-decoration: none;
+              font-size: 18px;
+              text-align: center;
+              transition: .3s;
+            }
+            i {
+                color: white;
+                margin-right: 8px;
+            }
           }
           div.fb-login { background: #334d87; }
           div.fb-login:hover { background: #365db5; }

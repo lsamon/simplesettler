@@ -2,7 +2,11 @@
   <div class="col-sm-8 col-sm-offset-2">
     <h2><%= @article.new_record? ? 'New Article' : 'Edit Article' %></h2>
     <%= simple_form_for [:admin, @article], html: {:multipart => true} do |f| %>
-      <%= f.input :title, input_html: { placeholder: 'Title', class: 'form-control' } %>
+      <div class="row">
+        <div class="col-sm-12">
+          <%= f.input :title, input_html: { placeholder: 'Title', class: 'form-control' } %>
+        </div>
+      </div>
       <%= f.cktext_area :content, input_html: { class: 'form-control' } %>
       <%= f.input :status, collection: Article.statuses.keys, input_html: { class: 'form-control' } %>
       <%= f.association :cities, collection: City.all, prompt: 'Select Cities', input_html: { class: 'form-control' } %>
