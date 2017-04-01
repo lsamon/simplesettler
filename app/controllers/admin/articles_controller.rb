@@ -15,6 +15,7 @@ class Admin::ArticlesController < Admin::BaseController
     def create
       @article = Article.new(article_params)
       @article.user = @current_user
+      @article.cities = cities
 
       if @article.save
         redirect_to admin_articles_path
@@ -27,6 +28,7 @@ class Admin::ArticlesController < Admin::BaseController
     end
 
     def update
+      @article.cities = cities
       if @article.update_attributes(article_params)
         redirect_to admin_articles_path
       else
@@ -35,7 +37,8 @@ class Admin::ArticlesController < Admin::BaseController
     end
 
     def destroy
-      @article.destroy
+      @item_to_delete = @article
+      # @article.destroy
     end
 
     private
@@ -46,6 +49,12 @@ class Admin::ArticlesController < Admin::BaseController
 
     def article_params
       params.fetch(:article, {}).permit(:title, :content, :city_ids, :user_id, :image, :category_id, :status)
+    end
+
+    def cities
+      params[:article][:city_ids].select{|n| n.present?}.map do | city_id |
+        City.find(city_id.to_i)
+      end
     end
 
     def sort_options

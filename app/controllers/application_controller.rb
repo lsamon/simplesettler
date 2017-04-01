@@ -2,7 +2,10 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :store_current_location, :unless => :devise_controller?
+
   helper_method :current_city, :check_for_admin
+
   layout :layout_by_resource
 
   def current_city
@@ -23,6 +26,14 @@ class ApplicationController < ActionController::Base
 
     def layout_by_resource
       "user" if devise_controller?
+    end
+
+    def store_current_location
+      store_location_for(:user, request.url)
+    end
+
+    def after_sign_out_path_for(resource)
+      request.referrer || root_path
     end
 
 end

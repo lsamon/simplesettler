@@ -1,19 +1,49 @@
-<div class="row admin form-group m-t-2">
-  <div class="col-sm-8 col-sm-offset-2">
-    <h2><%= @article.new_record? ? 'New Article' : 'Edit Article' %></h2>
-    <%= simple_form_for [:admin, @article], html: {:multipart => true} do |f| %>
-      <div class="row">
+<%= simple_form_for [:admin, @article], html: {:multipart => true} do |f| %>
+  <div class="row admin m-t-2">
+    <div class="col-sm-8">
+      <h2><%= @article.new_record? ? 'New Article' : 'Edit Article' %></h2>
+      <div class="form-group row">
         <div class="col-sm-12">
-          <%= f.input :title, input_html: { placeholder: 'Title', class: 'form-control' } %>
+          <%= f.input :title, label: false, input_html: { placeholder: 'Title', class: 'form-control' } %>
         </div>
       </div>
-      <%= f.cktext_area :content, input_html: { class: 'form-control' } %>
-      <%= f.input :status, collection: Article.statuses.keys, input_html: { class: 'form-control' } %>
-      <%= f.association :cities, collection: City.all, prompt: 'Select Cities', input_html: { class: 'form-control' } %>
-      <%= f.file_field :image, class: 'form-control' %>
-      <%= f.hidden_field :image_cache %>
-      <%= f.association :category, collection: Category.all, prompt: 'Select category', label: false, input_html: { class: 'form-control' } %><br/>
-      <%= f.submit class: 'btn btn-primary' %>
-    <% end %>
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <%= f.cktext_area :content, input_html: { class: 'form-control' } %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-1">
+          <%= image_tag @article.image.thumb.url if @article.image.present? %>
+        </div>
+        <div class="col-sm-11">
+          <%= f.file_field :image, class: 'form-control' %>
+          <%= f.hidden_field :image_cache %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <%= f.submit class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <%= f.input :status, collection: Article.statuses.keys, input_html: { class: 'form-control' } %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <%= f.association :cities, collection: City.all, input_html: { class: 'form-control' } %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <%= f.association :category, collection: Category.all, input_html: { class: 'form-control' } %><br/>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+<% end %>
