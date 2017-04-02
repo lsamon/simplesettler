@@ -1,19 +1,15 @@
 <div class="bannerArticle">
-  <!-- <%= image_tag "articleHeader.jpg", class: "imageArticle"%> -->
+  <%= image_tag @article.image.large.url %>
   <div class="bannerInfo">
     <h1><%= @article.title %></h1>
-    <!-- <h2>Discover and connect with services in your city.</h2>
-    <p>Currently available in Australia</p> -->
   </div>
 </div>
 <div class="bg">
     <div class="row articles">
-      <div class="col-sm-8 col-sm-offset-2 content">
+      <div class="col-sm-10 col-sm-offset-1 content">
         <div class="row">
           <div class="col-sm-12">
-          <%= image_tag @article.image.detail.url %>
             <div class="articleContent">
-              <h2><%= @article.title %></h2>
               <%= raw(@article.content) %>
             </div>
         </div>
@@ -50,7 +46,7 @@
             <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
           </div>
         </div>
-      <div class="row">
+      <div class="row aside">
         <% @articles.each do |a| %>
           <div class="col-sm-3 articlesAll">
             <%= link_to "#{a.title}", city_article_path(current_city, a), class: "aLink"%>

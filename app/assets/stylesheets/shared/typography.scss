@@ -1,6 +1,7 @@
 body {
   -webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+  font-family: 'Open Sans', sans-serif;
 }
 
 button:focus, input:focus {
@@ -12,11 +13,11 @@ button:focus, input:focus {
   border-color: $logoColor !important;
 }
 
-h2 {
+h1, h2 {
   font-family: 'Open Sans', sans-serif;
 }
 
-p {
+p, a {
   font-family: 'Open Sans', sans-serif;
   font-size: 0.95em;
   letter-spacing: 0.0525em

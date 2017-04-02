@@ -1,5 +1,4 @@
 class ArticleUploader < CarrierWave::Uploader::Base
-  # include Ckeditor::Backend::CarrierWave
   include Cloudinary::CarrierWave
   include CarrierWave::MiniMagick
 
@@ -43,6 +42,10 @@ class ArticleUploader < CarrierWave::Uploader::Base
 
   version :medium do
     process resize_to_limit: [600, 300]
+  end
+
+  version :large do
+    process resize_to_limit: [1440, 900]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

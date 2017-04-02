@@ -12,8 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require autocomplete-rails
 //= require cloudinary
-//= require rateyo
-//= require underscore
+//= require ckeditor/init
+//= require ./admin/admin
+//= require ./content/pages
+//= require ./content/cities
 //= require_tree .

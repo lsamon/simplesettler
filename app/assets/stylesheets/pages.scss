@@ -596,7 +596,7 @@ section.colored {
 }
 // end of page buttons made bigger
 .pageEnd .content a.button {
-    max-width: 140px;
+    min-width: 150px;
     height: 50px;
     line-height: 50px;
     margin: 0 10px;
