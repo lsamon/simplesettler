@@ -7,16 +7,19 @@
   </div>
 </div>
 <div class="bg">
-
     <div class="row articles">
-      <div class="col-md-9 content">
-        <%= image_tag @article.image.detail.url %>
-        <div class="articleContent">
-          <h2><%= @article.title %></h2>
-          <p><%= raw(@article.content) %></p>
-          <hr>
-
-          <div class="share">
+      <div class="col-sm-8 col-sm-offset-2 content">
+        <div class="row">
+          <div class="col-sm-12">
+          <%= image_tag @article.image.detail.url %>
+            <div class="articleContent">
+              <h2><%= @article.title %></h2>
+              <%= raw(@article.content) %>
+            </div>
+        </div>
+      </div>
+        <div class="row">
+          <div class="col-sm-12 share">
             <a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
 
             <a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
@@ -25,35 +28,36 @@
 
             <a href="#" class="pinterest"><i class="fa fa-pinterest-p" aria-hidden="true"></i> Pinterest</a>
           </div>
-
-          <div class="helpful">
+        </div>
+        <div class="row">
+          <div class="col-sm-12 helpful">
             <h3>Was this article helpful?</h3>
             <%= link_to 'Yes', article_feedback_path(@article, 'Yes'), { class: 'yes', :remote => true, method: :post }  %>
             <%= link_to 'No', article_feedback_path(@article, 'No'), { class: 'no', :remote => true, method: :post } %>
           </div>
-
-          <div id="disqus_thread"></div>
-
-          <script>
-            (function() { // Disqus
-            var d = document, s = d.createElement('script');
-            s.src = '//easysettler.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-            })();
-          </script>
-          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
         </div>
-      </div>
-      <div class="aside col-md-3">
+        <div class="row">
+          <div class="col-sm-12 share">
+            <div id="disqus_thread"></div>
+            <script>
+              (function() { // Disqus
+              var d = document, s = d.createElement('script');
+              s.src = '//easysettler.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+              })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          </div>
+        </div>
+      <div class="row">
         <% @articles.each do |a| %>
-          <div class="articlesAll">
+          <div class="col-sm-3 articlesAll">
             <%= link_to "#{a.title}", city_article_path(current_city, a), class: "aLink"%>
             <%= image_tag a.image_url %>
           </div>
         <% end %>
       </div>
     </div>
+  </div>
 </div>

@@ -53,18 +53,19 @@
     padding: 0 40px;
     margin: 0 auto;
   .content {
-    border-radius: 5px;
     background: white;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      margin-bottom: 40px;
-      font-size: 1.5rem;
+    margin-bottom: 40px;
+    font-size: 1.5rem;
+    top: -80px;
     img {
       height: 300px;
-      width: 100%;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
+      margin-top: 80px;
     }
 
+    #disqus_thread {
+      width: 90%;
+    }
     .share {
       margin: 20px;
       font-family: 'Open Sans', sans-serif;
@@ -78,7 +79,7 @@
         text-decoration: none;
         color: white;
         overflow: hidden;
-        width: 100%;
+        width: 170px;
         line-height: 30px;
         transition: .3s;
         display: inline-block;
@@ -112,10 +113,8 @@
     .articleContent {
       padding: 50px;
       line-height: 1.5;
-
         h2 {
-            text-align: center;
-            margin-bottom: 20px;
+          margin-bottom: 20px;
         }
 
       ul {
@@ -138,7 +137,6 @@
         width: 50px;
         color: white;
         text-decoration: none;
-        border-radius: 2px;
         transition: .3s;
         margin-bottom: 40px;
       }
@@ -167,7 +165,6 @@
       text-align: center;
 
       .articlesAll {
-      border-radius: 5px;
       height: 200px;
       background-size: cover;
       margin-bottom: 14px;
@@ -182,7 +179,6 @@
         height: 200px;
         width: 260px;
         position: absolute;
-        border-radius: 5px;
         font-size: 20px;
         z-index: 5;
         background: rgba(0,0,0,0.4);
@@ -196,7 +192,6 @@
         height: 200px;
         margin: 0;
         padding: 0;
-        border-radius: 5px;
       }
     }
   }

@@ -38,7 +38,11 @@ class ArticleUploader < CarrierWave::Uploader::Base
 
   # crop to 870px, 261px
   version :detail do
-      process resize_to_limit: [870, 261]
+    process resize_to_limit: [870, 261]
+  end
+
+  version :medium do
+    process resize_to_limit: [600, 300]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
