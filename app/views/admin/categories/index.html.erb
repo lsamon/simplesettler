@@ -1,0 +1,19 @@
+<% breadcrumb :admin_root, @articles, style: :bootstrap %>
+<div class="categories">
+  <h2><%= @categories.model_name %></h2>
+  <%= link_to "Add Category", new_admin_category_path, class: "btn btn-primary" %>
+  <table class="table">
+    <thead>
+      <tr>
+      <%= sort_header :title, 'Title' %>
+      <%= sort_header :created_at, 'Created', class: 'hidden-sm-down' %>
+      <th></th>
+      <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @categories %>
+    </tbody>
+  </table>
+  <%= paginate @categories %>
+</div>
