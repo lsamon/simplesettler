@@ -1,0 +1,7 @@
+<%= content_tag_for(:tr, article) do %>
+  <td><%= article.title %></td>
+  <td><%= article.cities.pluck(:name).join(", ") %></td>
+  <td><%= article.status %></td>
+  <td><%= link_to(raw("<i class='fa fa-pencil-square-o'></i>"), edit_admin_article_path(article)) %></td>
+  <td><%= link_to(raw("<i class='fa fa-trash'></i>"), admin_article_path(article), method: 'delete', remote: true) %></td>
+<% end %>

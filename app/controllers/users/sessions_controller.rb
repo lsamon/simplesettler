@@ -8,9 +8,7 @@ before_action :configure_sign_in_params, only: [:create]
 
   # POST /resource/sign_in
   def create
-    self.resource = warden.authenticate!(auth_options)
     byebug
-    redirect_to admin_root_path if current_user.present? && current_user.admin?
   end
 
   # DELETE /resource/sign_out

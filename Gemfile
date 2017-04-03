@@ -39,6 +39,7 @@ gem 'mini_magick'
 # SEO gems
 gem 'meta-tags'
 gem 'friendly_id'
+gem 'gretel'
 
 gem 'kaminari'
 gem 'country_select'

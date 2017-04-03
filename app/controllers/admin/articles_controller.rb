@@ -37,8 +37,7 @@ class Admin::ArticlesController < Admin::BaseController
     end
 
     def destroy
-      @item_to_delete = @article
-      # @article.destroy
+      @article.destroy
     end
 
     private

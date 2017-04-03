@@ -1,6 +1,7 @@
 // variables
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,900');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 @import "shared/_variables";
 @import "shared/typography";
 
@@ -23,6 +24,13 @@ body {
   body {
     padding-top: 56px;
     padding-left: 250px;
+  }
+}
+
+.container-fluid .breadcrumb {
+  border-radius: 0;
+  li {
+    display: inline-block;
   }
 }
 
@@ -69,6 +77,10 @@ body {
 
 .navbar-inverse input.form-control {
   border-color: #eeeeee;
+}
+
+#mainNav {
+  height: 56px;
 }
 
 #mainNav .navbar-collapse {
