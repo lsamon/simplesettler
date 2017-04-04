@@ -13,10 +13,8 @@ class Admin::CitiesController < Admin::BaseController
 
     def create
       @city = City.new(city_params)
-      @city.user = @current_user
-
       if @city.save
-        redirect_to root_path
+        redirect_to admin_cities_path
       else
         render :new
       end

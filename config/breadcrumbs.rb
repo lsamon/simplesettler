@@ -29,6 +29,15 @@ crumb :admin_category do |category|
   parent :admin_categories
 end
 
+crumb :admin_users do
+  link "Users", admin_users_path
+end
+
+crumb :admin_user do |user|
+  link user.new_record? ? "New" : "Edit"
+  parent :admin_users
+end
+
 # crumb :project_issues do |project|
 #   link "Issues", project_issues_path(project)
 #   parent :project, project

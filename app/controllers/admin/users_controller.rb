@@ -1,24 +1,52 @@
-# module Admin
-#   class UsersController < Admin::ApplicationController
-#     # To customize the behavior of this controller,
-#     # simply overwrite any of the RESTful actions. For example:
-#     #
-#     # def index
-#     #   super
-#     #   @resources = User.all.paginate(10, params[:page])
-#     # end
-#
-#     # Define a custom finder by overriding the `find_resource` method:
-#     # def find_resource(param)
-#     #   User.find_by!(slug: param)
-#     # end
-#
-#     def update
-#       params[:user].delete(:password) if params[:user][:password].blank?
-#       super
-#     end
-#
-#     # See https://administrate-docs.herokuapp.com/customizing_controller_actions
-#     # for more information
-#   end
-# end
+class Admin::UsersController < Admin::BaseController
+    before_action :find_or_initialize_user, except: [:index]
+
+    def show
+    end
+
+    def index
+      @users = User.page(params[:page]).reorder(sort_order)
+    end
+
+    def new
+    end
+
+    def create
+      @user = User.new(user_params)
+      if @user.save
+        redirect_to admin_users_path
+      else
+        render :new
+      end
+    end
+
+    def edit
+    end
+
+    def update
+      if @user.update_attributes(user_params)
+        redirect_to @user
+      else
+        render :edit
+      end
+    end
+
+    def destroy
+      @user.destroy
+      redirect_to admin_users_path
+    end
+
+    private
+      # Use callbacks to share common setup or constraints between actions.
+    def find_or_initialize_user
+      @user = params[:id] ? User.find(params[:id]) : User.new
+    end
+
+    def user_params
+      params.fetch(:user, {}).permit(:username, :email, :password, :password_confirmation, :admin)
+    end
+
+    def sort_options
+      {'username' => 'username', 'created_at' => 'created_at'}
+    end
+end

@@ -1,0 +1,20 @@
+<% breadcrumb :admin_root, @users, style: :bootstrap %>
+<div class="articles">
+  <h2><%= @users.model_name %></h2>
+  <%= link_to "Add User", new_admin_user_path, class: "btn btn-primary" %>
+  <table class="table">
+    <thead>
+      <tr>
+      <%= sort_header :username, 'Username' %>
+      <th>Email</th>
+      <%= sort_header :created_at, 'Created' %>
+      <th></th>
+      <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @users %>
+    </tbody>
+  </table>
+  <%= paginate @users %>
+</div>
