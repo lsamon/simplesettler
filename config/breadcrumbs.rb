@@ -20,6 +20,15 @@ crumb :admin_city do |city|
   parent :admin_cities
 end
 
+crumb :admin_categories do
+  link "Categories", admin_categories_path
+end
+
+crumb :admin_category do |category|
+  link category.new_record? ? "New" : "Edit"
+  parent :admin_categories
+end
+
 # crumb :project_issues do |project|
 #   link "Issues", project_issues_path(project)
 #   parent :project, project

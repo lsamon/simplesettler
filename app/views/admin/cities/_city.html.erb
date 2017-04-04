@@ -1,0 +1,6 @@
+<%= content_tag_for(:tr, city) do %>
+  <td><%= city.name %></td>
+  <td><%= city.country %></td>
+  <td><%= link_to(raw("<i class='fa fa-pencil-square-o'></i>"), edit_admin_city_path(city)) %></td>
+  <td><%= link_to(raw("<i class='fa fa-trash'></i>"), admin_city_path(city), method: 'delete', remote: true) %></td>
+<% end %>
