@@ -27,10 +27,16 @@ body {
   }
 }
 
-.container-fluid .breadcrumb {
-  border-radius: 0;
-  li {
-    display: inline-block;
+body .container-fluid {
+  padding: 0 !important;
+  .breadcrumb {
+    border-radius: 0;
+    li {
+      display: inline-block;
+    }
+  }
+  .articles {
+    padding: 0 15px;
   }
 }
 
