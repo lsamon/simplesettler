@@ -1,10 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :find_or_initialize_category, except: [:show]
-  before_action :check_for_admin, only: [:edit, :create, :new, :destroy, :update]
-
-  def index
-    @categories = Category.all
-  end
+  before_action :find_category, except: [:index]
 
   def show
     if params[:id] && params[:id] == "All"
@@ -17,40 +12,10 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def new
-  end
-
-  def edit
-  end
-
-  def update
-    if @category.update(category_params)
-      redirect_to @category
-    else
-      render :edit
-    end
-  end
-
-  def create
-    @category = Category.new(category_params)
-
-    if @category.save
-      redirect_to root_path
-    else
-      render :new
-    end
-  end
-
-  def destroy
-    category = set_category
-    category.destroy
-    redirect_to root_path
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
-  def find_or_initialize_category
-    @category = params[:id] ? Category.find(params[:id]) : Category.new
+  def find_category
+    @category = Category.where(id: params[:id]).first
   end
 
   def category_params

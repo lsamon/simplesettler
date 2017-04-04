@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     root to: "articles#index"
   end
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks", sessions: 'users/sessions' }
   post '/articles/:id/:response' => 'helpfuls#create', as: :article_feedback
 
   mount Ckeditor::Engine => '/ckeditor'
