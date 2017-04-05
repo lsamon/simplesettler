@@ -1,7 +1,11 @@
 <% breadcrumb :admin_root, @articles, style: :bootstrap %>
 <div class="articles">
   <h2><%= @articles.model_name %></h2>
-  <%= link_to "Add Article", new_admin_article_path, class: "btn btn-primary" %>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= link_to "Add Article", new_admin_article_path, class: "btn btn-primary" %>
+    </div>
+  </div>
   <table class="table">
     <thead>
       <tr>
