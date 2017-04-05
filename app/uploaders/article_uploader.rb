@@ -1,5 +1,4 @@
 class ArticleUploader < CarrierWave::Uploader::Base
-  include Ckeditor::Backend::CarrierWave
   include Cloudinary::CarrierWave
   include CarrierWave::MiniMagick
 
