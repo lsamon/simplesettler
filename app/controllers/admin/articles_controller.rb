@@ -14,6 +14,8 @@ class Admin::ArticlesController < Admin::BaseController
     def create
       @article = Article.new(article_params)
       @article.user = @current_user
+
+      byebug
       @article.cities = cities
 
       if @article.save
