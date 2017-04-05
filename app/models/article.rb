@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  mount_uploader :image, ::ArticleUploader
+  mount_uploader :image, ArticleUploader
 
   belongs_to :user
   has_many :city_articles

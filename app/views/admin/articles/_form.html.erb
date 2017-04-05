@@ -21,8 +21,8 @@
             </div>
           <% end %>
           <div class="col-sm-11">
-            <%= f.cl_image_upload(:image) %>
             <%= f.hidden_field :image_cache %>
+            <%= f.file_field(:image) %>
           </div>
         </div>
         <div class="form-group row">
