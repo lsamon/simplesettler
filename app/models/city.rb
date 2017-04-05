@@ -6,6 +6,8 @@ class City < ActiveRecord::Base
   has_many :articles, through: :city_articles
   has_many :feedbacks
 
+  validates :name, presence: true, uniqueness: true, length: { maximum: 60 }
+
 
   def self.search(search)
     where("name ILIKE ?", "%#{search}%")
