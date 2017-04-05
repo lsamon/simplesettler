@@ -17,7 +17,6 @@ class Admin::ArticlesController < Admin::BaseController
       @article.cities = cities
 
       if @article.save
-        byebug
         redirect_to admin_articles_path
       else
         render :new
@@ -30,7 +29,6 @@ class Admin::ArticlesController < Admin::BaseController
     def update
       @article.cities = cities
       if @article.update_attributes(article_params)
-        byebug
         redirect_to admin_articles_path
       else
         render :edit
