@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
   namespace :admin do
     resources :users
     resources :articles
@@ -10,8 +11,6 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks", sessions: 'users/sessions' }
   post '/articles/:id/:response' => 'helpfuls#create', as: :article_feedback
-
-  mount Ckeditor::Engine => '/ckeditor'
 
   root :to => 'pages#index'
   get '/about' => 'pages#how_it_works'
