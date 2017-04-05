@@ -4,7 +4,7 @@
   <title>Simple Settler</title>
   <%= favicon_link_tag 'favicon.png', rel: 'shortcut icon', type: 'image/png' %>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <%= javascript_include_tag :application %>
+  <%= javascript_include_tag :admin %>
   <%= javascript_include_tag Ckeditor.cdn_url %>
   <%= cloudinary_js_config %>
 
@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="  https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 
-  <%= stylesheet_link_tag 'admin/admin', media: 'all' %>
+  <%= stylesheet_link_tag 'admin', media: 'all' %>
 
   <%= csrf_meta_tags %>
 </head>

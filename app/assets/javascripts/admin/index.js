@@ -15,6 +15,6 @@
 //= require autocomplete-rails
 //= require cloudinary
 //= require ckeditor/init
-//= require ./content/pages
-//= require ./content/cities
+//= require content/pages
+//= require content/cities
 //= require_tree .
