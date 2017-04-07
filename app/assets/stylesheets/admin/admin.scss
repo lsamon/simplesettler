@@ -109,6 +109,8 @@ body .container-fluid {
 #mainNav .navbar-collapse .navbar-nav.sidebar-nav .sidebar-third-level {
   padding-left: 0;
 }
+
+
 #mainNav .navbar-collapse .navbar-nav.sidebar-nav .sidebar-second-level > li > a,
 #mainNav .navbar-collapse .navbar-nav.sidebar-nav .sidebar-third-level > li > a {
   color: #777777;
@@ -226,4 +228,14 @@ body .container-fluid {
   #mainNav .navbar-collapse .navbar-nav > .nav-item.dropdown .dropdown-menu > .dropdown-item > .dropdown-message {
     max-width: 300px;
   }
+}
+
+#mainNav .navbar-collapse .navbar-nav.sidebar-nav li:hover {
+  color: white;
+  background-color: #555555;
+}
+
+#mainNav .navbar-collapse .navbar-nav.sidebar-nav li > a:active {
+  color: white;
+  background-color: #555555;
 }

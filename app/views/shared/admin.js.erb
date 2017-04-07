@@ -1,0 +1,3 @@
+$('.articles tbody').html('<%= j render instance_variable_get("@#{controller_name.downcase}") %>');
+$(this).siblings().removeClass("active");
+$(this).addClass("active");

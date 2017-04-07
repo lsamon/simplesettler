@@ -6,6 +6,10 @@ class Admin::CitiesController < Admin::BaseController
 
     def index
       @cities = City.page(params[:page]).reorder(sort_order)
+      respond_to do |format|
+        format.html
+        format.js { render :file => "/shared/admin.js.erb" }
+      end
     end
 
     def new

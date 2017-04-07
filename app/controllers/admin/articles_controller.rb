@@ -6,6 +6,10 @@ class Admin::ArticlesController < Admin::BaseController
 
     def index
       @articles = Article.page(params[:page]).reorder(sort_order)
+      respond_to do |format|
+        format.html
+        format.js { render :file => "/shared/admin.js.erb" }
+      end
     end
 
     def new
