@@ -13,7 +13,7 @@ class Article < ActiveRecord::Base
   validates :content, :city_ids, presence: true
 
   def keywords
-    meta_keywords.split(/[\s\,]/).select{ |p| p.present? }.join(",")
+    meta_keywords.split(/[\s\,]/).select{ |p| p.present? }.join(",") if meta_keywords.present?
   end
 
 end
