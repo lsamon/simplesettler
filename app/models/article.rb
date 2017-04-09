@@ -12,4 +12,8 @@ class Article < ActiveRecord::Base
   validates :title, presence: true, uniqueness: true, length: { maximum: 60 }
   validates :content, :city_ids, presence: true
 
+  def keywords
+    meta_keywords.split(/[\s\,]/).select{ |p| p.present? }.join(",")
+  end
+
 end
