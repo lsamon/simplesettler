@@ -27,5 +27,4 @@ Rails.application.routes.draw do
     resources :articles, only: [:show]
   end
 
-  # get 'sitemap.xml', :to => 'sitemap#index', defaults: { format: 'xml' }
 end
