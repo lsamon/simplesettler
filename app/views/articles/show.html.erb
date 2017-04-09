@@ -1,3 +1,4 @@
+<% title @article.meta_title.present? ? @article.meta_title : @article.title %>
 <% meta_tag :description, @article.meta_description %>
 <% meta_tag :keywords, @article.keywords %>
 <div class="bannerArticle">

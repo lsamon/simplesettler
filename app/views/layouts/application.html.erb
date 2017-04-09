@@ -2,7 +2,11 @@
 <html>
 <head>
   <title>
-    <%= content_for?(:title) ? yield(:title) + ' | ' : "" %> SimpleSettler
+      <% if yield(:title).present? %>
+        <%= "#{yield(:title)} | " %> SimpleSettler 
+      <% else %>
+        SimpleSettler
+      <% end %>
   </title>
   <meta name='description'
       content='<%= yield_meta_tag(:description, 'SimpleSettler, one stop hub for your people looking to migrate.') %>' />

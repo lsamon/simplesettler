@@ -31,6 +31,10 @@ body {
   margin-bottom: 10px;
   background: #ccc;
 }
+label > i {
+  -webkit-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+}
 .meta-info {
   border: 1px solid #ccc;
   border-radius: 3px;
