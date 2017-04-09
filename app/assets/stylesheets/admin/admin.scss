@@ -27,6 +27,17 @@ body {
   }
 }
 
+.meta-btn {
+  margin-bottom: 10px;
+  background: #ccc;
+}
+.meta-info {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
 body .container-fluid {
   padding: 0 !important;
   .breadcrumb {

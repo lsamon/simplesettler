@@ -4,6 +4,32 @@
     <div class="row admin m-t-2">
       <div class="col-sm-8">
         <h2><%= @article.new_record? ? 'New Article' : 'Edit Article' %></h2>
+        <%#= link_to "Meta Information", "#", class: 'btn btn-primary meta-btn', data: {boolean_toggle: '.meta-info'}, remote: true%>
+        <%= label_tag "meta-show", class: 'meta-check',  data: {boolean_toggle: '.meta-info'} do %>
+          <i class="fa fa-plus meta-check" aria-hidden="true"></i>
+          Show meta settings
+        <% end %>
+        <div class="meta-info m-t-1" style="display:none">
+          <h3>Meta Settings</h3>
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <%= f.input :meta_title, label: false, input_html: { placeholder: 'Meta title', class: 'form-control' } %>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <%= f.input :meta_description, input_html: { class: 'form-control' } %>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <%= f.input :meta_keywords, as: :string, label: false, input_html: { placeholder: 'Keywords', class: 'form-control' } %>
+            </div>
+          </div>
+        </div>
+
         <div class="form-group row">
           <div class="col-sm-12">
             <%= f.input :title, label: false, input_html: { placeholder: 'Title', class: 'form-control' } %>

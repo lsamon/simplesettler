@@ -1,3 +1,5 @@
+<% meta_tag :description, @article.meta_description %>
+<% meta_tag :keywords, @article.meta_keywords&.join(',') %>
 <div class="bannerArticle">
   <%= image_tag @article.image.large.url %>
   <div class="bannerInfo">

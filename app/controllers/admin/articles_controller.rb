@@ -50,7 +50,8 @@ class Admin::ArticlesController < Admin::BaseController
     end
 
     def article_params
-      params.fetch(:article, {}).permit(:title, :content, :city_ids, :image, :category_id, :status)
+      params.fetch(:article, {}).permit(:title, :content, :city_ids, :image, :category_id, :status,
+      :meta_title, :meta_description, :meta_keywords)
     end
 
     def cities
