@@ -9,7 +9,7 @@ class Article < ActiveRecord::Base
 
   enum status: { draft: 0, published: 1, unpublished: 2 }
 
-  validates :title, presence: true, uniqueness: true, length: { maximum: 60 }
+  validates :title, presence: true, uniqueness: true
   validates :content, :city_ids, presence: true
 
   def keywords
