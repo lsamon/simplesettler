@@ -3,7 +3,7 @@
 <head>
   <title>
       <% if yield(:title).present? %>
-        <%= "#{yield(:title)} | " %> SimpleSettler 
+        <%= "#{yield(:title)} | " %> SimpleSettler
       <% else %>
         SimpleSettler
       <% end %>
@@ -57,10 +57,10 @@
     <div class="row footer">
       <div class="col-sm-4">
         <ul>
-          <li><h3>Company</h3></li>
-          <li><li><%= link_to 'Home', root_path %></li></li>
-          <li>About Us</li>
-          <li>Become A Partner</li>
+          <li><h3><%= t('site.footer.company.title') %></h3></li>
+          <li><li><%= link_to t('site.footer.company.home'), root_path %></li></li>
+          <li><%= t('site.footer.company.about') %></li>
+          <li><%= t('site.footer.company.partner') %></li>
         </ul>
       </div>
       <div class="col-sm-4">

@@ -34,17 +34,17 @@
 
  <div class="banner">
   <div>
-    <h1>SETTLE ANYWHERE.</h1>
-    <h2>Discover and connect with services in your city.</h2>
+    <h1><%= t('site.header.title') %></h1>
+    <h2><%= t('site.header.subtitle') %></h2>
     <div>
     <%= form_tag(cities_path, method: "get", id: "search-form") do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search Cities", class: 'searchCity', pattern: ".{2,20}", title: 'Enter more than 1 character', data: { autocomplete: autocomplete_city_name_cities_path } %>
+      <%= text_field_tag :search, params[:search], placeholder: t('site.header.search.placeholder'), class: 'searchCity', pattern: ".{2,20}", title: 'Enter more than 1 character', data: { autocomplete: autocomplete_city_name_cities_path } %>
       <%= button_to nil, class: 'searchCitySubmit' do %><i class="fa fa-search" aria-hidden="true"></i><% end %><br />
     <% end %>
   </div>
 
     <div class="ausFlag"></div>
-    <div class="flagAvail"><em><p>Currently available in Australia</p></em></div>
+    <div class="flagAvail"><em><p><%= t('site.header.currently_available') %></p></em></div>
   </div>
 </div>
 
@@ -54,8 +54,8 @@
   <div class="explore">
 
     <div class="header">
-      <h2>Explore your community</h2>
-      <p>See whats happening in your community, or find new citys to explore.</p>
+      <h2><%= t('site.cities.title') %></h2>
+      <p><%= t('site.cities.subtitle') %></p>
     </div>
 
 
@@ -74,13 +74,6 @@
     <% end %>
   </div>
 </section>
-<!-- <div class="container"> -->
-  <!-- show categories as a carousel -->
-  <!-- <div class="categories"> -->
-    <%#= render 'categories' %>
-    <!-- <h1>Add Categories Carousel</h1>
-  </div>
-</div> -->
 
 <section class="getStarted colored">
   <%= render 'getstarted' %>
