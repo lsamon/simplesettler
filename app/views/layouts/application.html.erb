@@ -31,15 +31,15 @@
     <%= link_to raw("<div class='navLeft'><h1>Simple Settler</h1></div>"), root_path %>
     <div class="navRight">
       <ul>
-      <li><%= link_to 'How It Works', "#howItWorks", class: "" %></li>
-      <li><%= link_to 'Help & Advice', '/help', class: " helpMenuItem" %></li>
+      <li><%= link_to t('site.nav.how_it_works'), "#howItWorks", class: "" %></li>
+      <li><%= link_to t('site.nav.help'), '/help', class: " helpMenuItem" %></li>
 
       <% unless user_signed_in? %>
-        <li><%= link_to 'Sign in', new_user_session_path, class: "signInOutButton " %></li>
-        <li><%= link_to 'Sign up', new_user_registration_path, class: "signInOutButton "  %></li>
+        <li><%= link_to t('site.nav.sign_in'), new_user_session_path, class: "signInOutButton " %></li>
+        <li><%= link_to t('site.nav.sign_up'), new_user_registration_path, class: "signInOutButton "  %></li>
       <% end %>
       <% if user_signed_in? %>
-          <li><%= link_to "Logout #{ current_user.username }", destroy_user_session_path, :method => 'delete', class: "logoutButton " %></li>
+          <li><%= link_to "#{t('site.nav.logout')} #{ current_user.username }", destroy_user_session_path, :method => 'delete', class: "logoutButton " %></li>
       <% end %>
       </ul>
     </div>
@@ -65,21 +65,21 @@
       </div>
       <div class="col-sm-4">
         <ul>
-          <li><h3>Support</h3></li>
-          <li><%= link_to 'Terms of services', tos_path %></li>
-          <li><%= link_to 'Privacy policy', privacy_path %></li>
+          <li><h3><%= t('site.footer.support.title') %></h3></li>
+          <li><%= link_to t('site.footer.support.tos'), tos_path %></li>
+          <li><%= link_to t('site.footer.support.privacy'), privacy_path %></li>
           <li>hello@simplesettler.com</li>
         </ul>
       </div>
       <div class="col-sm-4">
         <ul>
-          <li><h3>Subscribe Newsletter</h3></li>
-          <li><%= text_field :search, nil, class: 'enterEmail', :placeholder => 'Enter your email' %>
+          <li><h3><%= t('site.footer.subscribe.label') %></h3></li>
+          <li><%= text_field :search, nil, class: 'enterEmail', :placeholder => t('site.footer.subscribe.placeholder') %>
             <%= button_tag(type: 'submit', class: "submitEmail") do %>
               <i class="fa fa-paper-plane"></i>
             <% end %>
           </li>
-          <li><h3>Follow us</h3></li>
+          <li><h3><%= t('site.footer.subscribe.follow') %></h3></li>
           <li>
             <i class="fa fa-facebook-square" aria-hidden="true"></i>
             <i class="fa fa-twitter-square" aria-hidden="true"></i>
