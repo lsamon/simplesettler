@@ -145,38 +145,19 @@
   padding: 50px 0;
   min-height: 200px;
   // border: 1px solid black;
-
-  .rows {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: stretch;
-    max-width: 100%;
-    position: relative;
-    margin-bottom: 40px;
-
-    .articleSelect {
-      text-decoration: none;
-      color: white;
-      display: inline-block;
-      padding: 10px;
-      height: 200px;
-      width: 310px;
+  .articleCont {
+    span {
+      max-width: 90%;
       position: absolute;
-      border-radius: 5px;
-      font-size: 20px;
-      z-index: 5;
-      background: rgba(0,0,0,0.4);
-      transition: 0.3s;
-    }
-    .articleSelect:hover {
-      background: rgba(0,0,0,0);
+      z-index: 99;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      padding:5px;
+      color: #fff;
     }
     img {
-      height: 200px;
-      width: 310px;
-      margin-bottom: 10px;
-      border-radius: 5px;
+      position: relative;
+      max-width: 100%;
     }
   }
 }

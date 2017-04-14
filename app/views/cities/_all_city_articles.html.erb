@@ -1,4 +1,6 @@
-<div class='articleCont'>
-  <%= link_to article.title, city_article_path(current_city, article), class: 'articleSelect' %>
-  <%= image_tag article.image.detail.url, class: "articleImg" %>
-</div>
+<%= content_tag(:div, article, class: 'articleCont col-sm-12 col-m-6 col-lg-4') do %>
+  <%= link_to(city_article_path(current_city, article), class: 'articleSelect') do %>
+    <span><%= article.title %></span>
+    <%= image_tag article.image.detail.url, class: "articleImg img-effect" %>
+  <% end %>
+<% end %>

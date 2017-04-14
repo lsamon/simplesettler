@@ -13,7 +13,7 @@ class Article < ActiveRecord::Base
   enum status: { draft: 0, published: 1, unpublished: 2 }
 
   validates :title, presence: true, uniqueness: true
-  validates :content, :city_ids, presence: true
+  validates :content, :city_ids, :image, presence: true
 
   def keywords
     meta_keywords.split(/[\s\,]/).select{ |p| p.present? }.join(",") if meta_keywords.present?
