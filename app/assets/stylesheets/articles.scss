@@ -53,9 +53,6 @@
     margin-bottom: 40px;
     font-size: 1.5rem;
     top: -80px;
-    img {
-      height: 300px;
-    }
 
     #disqus_thread {
       width: 90%;
@@ -154,36 +151,10 @@
   }
 
   .aside {
-      margin: 0 auto;
-      text-align: center;
-
       .articlesAll {
       height: 200px;
       background-size: cover;
       margin-bottom: 14px;
-      a {
-        text-align: left;
-        text-decoration: none;
-        color: white;
-        display: inline-block;
-        padding: 10px;
-        height: 200px;
-        width: 260px;
-        position: absolute;
-        font-size: 20px;
-        z-index: 5;
-        background: rgba(0,0,0,0.4);
-        transition: 0.3s;
-      }
-      a:hover {
-        background: rgba(0,0,0,0.1);
-      }
-      img {
-        width: 260px;
-        height: 200px;
-        margin: 0;
-        padding: 0;
-      }
     }
   }
 }

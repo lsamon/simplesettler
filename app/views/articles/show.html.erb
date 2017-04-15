@@ -51,9 +51,11 @@
         </div>
       <div class="row aside">
         <% @articles.each do |a| %>
-          <div class="col-sm-6 col-xs-12 col-md-6 col-lg-4 articlesAll">
-            <%= link_to "#{a.title}", city_article_path(current_city, a), class: "aLink"%>
-            <%= image_tag a.image_url %>
+          <div class="img-container col-sm-12 col-m-6 col-lg-4">
+            <%= link_to(city_article_path(current_city, a), class: "articleSelect") do %>
+              <%= image_tag a.image_url, class: "img-effect" %>
+              <p><span><%= a.title %></span><p>
+            <% end %>
           </div>
         <% end %>
       </div>
