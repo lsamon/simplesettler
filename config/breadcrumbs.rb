@@ -38,6 +38,20 @@ crumb :admin_user do |user|
   parent :admin_users
 end
 
+# frontend breadcrumbs
+
+crumb :site_root do
+  link "Home", root_path
+end
+
+crumb :site_city do |city|
+  link "City Articles", city_path(city)
+end
+
+crumb :site_article do
+  link "Article"
+end
+
 # crumb :project_issues do |project|
 #   link "Issues", project_issues_path(project)
 #   parent :project, project
