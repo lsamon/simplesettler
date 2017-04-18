@@ -14,4 +14,16 @@ class HelpfulsController < ApplicationController
     end
   end
 
+
+    def ajax_steps
+      user_detail = UserDetail.new(filter_params)
+      current_user.user_detail = user_detail
+      render json: ({user_object: user_detail, "status":true}), status: 201
+    end
+
+  private
+  def filter_params
+    params.except(:controller, :action).permit(:visa_help_type,:visa_status,:f_name,:l_name,:dob,:country_of_passport,:currently_in_aus,:passport_expiry)
+  end
+
 end
