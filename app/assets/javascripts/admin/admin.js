@@ -6,8 +6,12 @@ $(document).on('click', '.nav-item', function(e){
   }
 });
 
-$(document).on('click', '[data-boolean-toggle]', function(){
-   $( $(this).data('booleanToggle') ).fadeToggle();
+$(document).on('change', '[data-boolean-toggle]', function(){
+   $( $(this).data('booleanToggle') ).toggle();
+});
+
+$(document).on('click', '[data-toggle]', function(){
+   $( $(this).data('toggle') ).toggle();
    var $icon = $(this).children().first();
 
   $icon.toggleClass('fa fa-minus fa fa-plus', 'slow', "easeOutSine");

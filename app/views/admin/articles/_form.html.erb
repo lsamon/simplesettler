@@ -4,8 +4,7 @@
     <div class="row admin m-t-2">
       <div class="col-sm-8">
         <h2><%= @article.new_record? ? 'New Article' : 'Edit Article' %></h2>
-        <%#= link_to "Meta Information", "#", class: 'btn btn-primary meta-btn', data: {boolean_toggle: '.meta-info'}, remote: true%>
-        <%= label_tag "meta-show", class: 'meta-check',  data: {boolean_toggle: '.meta-info'} do %>
+        <%= label_tag "meta-show", class: 'meta-check',  data: {toggle: '.meta-info'} do %>
           <i class="fa fa-plus meta-check" aria-hidden="true"></i>
           Show meta settings
         <% end %>
@@ -27,6 +26,18 @@
             <div class="col-sm-12">
               <%= f.input :meta_keywords, as: :string, label: false, input_html: { placeholder: 'Keywords', class: 'form-control' } %>
             </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-12">
+            <%= f.input :featured_article, label: false, inline_label: "Featured Article?", input_html: { class: 'checkbox article-check', data: { boolean_toggle: '.article-url' } } %>
+          </div>
+        </div>
+
+        <div class="form-group row article-url" style="display:none">
+          <div class="col-sm-12">
+            <%= f.input :external_url, label: false, input_html: { placeholder: "External URL", class: 'form-control' } %>
           </div>
         </div>
 
@@ -64,7 +75,7 @@
             <%= f.input :status, collection: Article.statuses.keys, include_blank: false, input_html: { class: 'form-control' } %>
           </div>
         </div>
-        
+
         <div class="form-group row">
           <div class="col-sm-12">
             <%= f.association :cities, collection: City.all, include_blank: false, input_html: { class: 'form-control' } %>
