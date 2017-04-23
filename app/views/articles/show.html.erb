@@ -53,7 +53,7 @@
         </div>
       <div class="row aside">
         <% @articles.limit(3).each do |a| %>
-          <div class="img-container col-sm-12 col-m-6 col-lg-4">
+          <div class="img-container col-xs-12 col-sm-6 col-m-4 col-lg-4">
             <%= link_to(city_article_path(current_city, a), class: "articleSelect") do %>
               <%= image_tag a.image_url, class: "img-effect" %>
               <span><%= a.title %></span>

@@ -11,11 +11,10 @@ class Article < ActiveRecord::Base
   has_many :helpfuls
 
   enum status: { draft: 0, published: 1, unpublished: 2 }
-  enum article_source: { internal: 0, external: 1 }
 
   validates :title, presence: true, uniqueness: true
-  validates :content, :city_ids, :image, presence: true, unless: :featured_article?
-  validates :external_url, url: true, allow_blank: true, if: :featured_article?
+  validates :content, :city_ids, :image, presence: true, unless: :featured?
+  validates :external_url, url: true, if: :featured?
 
   def keywords
     meta_keywords.split(/[\s\,]/).select{ |p| p.present? }.join(",") if meta_keywords.present?

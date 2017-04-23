@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170423024557) do
+ActiveRecord::Schema.define(version: 20170423124235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,8 +30,7 @@ ActiveRecord::Schema.define(version: 20170423024557) do
     t.integer  "category_id"
     t.integer  "status",           default: 0
     t.string   "external_url"
-    t.integer  "article_source",   default: 0
-    t.boolean  "featured_article", default: false
+    t.boolean  "featured",         default: false
   end
 
   create_table "articles_categories", force: :cascade do |t|
