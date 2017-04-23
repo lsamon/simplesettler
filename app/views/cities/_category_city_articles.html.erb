@@ -1,8 +1,0 @@
-<div class="row">
-<% articles.each do | article | %>
-  <%= content_tag(:div, article, class: 'img-container col-xs-12 col-sm-4') do %>
-    <%= link_to article.title, city_article_path(@city, article), class: 'articleSelect' %>
-    <%= image_tag article.image, class: "articleImg" %>
-  <% end %>
-<% end %>
-</div>
