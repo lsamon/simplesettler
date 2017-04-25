@@ -81,8 +81,12 @@
           </li>
           <li><h3><%= t('site.footer.subscribe.follow') %></h3></li>
           <li>
-            <i class="fa fa-facebook-square" aria-hidden="true"></i>
-            <i class="fa fa-twitter-square" aria-hidden="true"></i>
+            <%= link_to("https://www.facebook.com/simplesettler", target: '_blank') do %>
+              <i class="fa fa-facebook-square" aria-hidden="true"></i>
+            <% end %>
+            <%= link_to("https://twitter.com/simplesettler", target: '_blank') do %>
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            <% end %>
           </li>
         </ul>
       </div>

@@ -30,12 +30,14 @@ ol, ul {
 
 .img-container {
   margin-bottom: 10px;
-  p {
+  position: relative;
+  span {
     position: absolute;
     z-index: 99;
     bottom: 0;
     padding: 5px;
-    // background: rgba(0,0,0,0.5);
+    width: 100%;
+    background: rgba(0,0,0,0.5);
     color: #fff;
   }
 }
@@ -57,3 +59,7 @@ ol, ul {
 .label-style {
   margin-left: 3px;
 }
+
+a:hover i.fa-facebook-square  { color: #3B5998; }
+a:hover i.fa-pinterest        { color: #C92228; }
+a:hover i.fa-twitter          { color: #4099FF; }

@@ -1,8 +1,10 @@
 <% articles.each do | article | %>
-  <%= content_tag(:div, article, class: 'img-container col-xs-12 col-sm-4') do %>
-    <%= link_to(article.featured? ? article.external_url : city_article_path(current_city, article), title: article.title, class: 'articleSelect') do %>
-      <p><%= article.title %></p>
-      <%= image_tag article.image.detail.url, class: "img-effect" %>
+  <%= content_tag(:div, article, class: 'col-xs-12 col-sm-6 col-md-4') do %>
+    <%= link_to(article.featured? ? article.external_url : city_article_path(current_city, article), title: article.title, target: article.featured? ? '_blank' : '', class: 'articleSelect') do %>
+      <div class="img-container">
+        <span><%= article.title %></span>
+        <%= image_tag article.image.detail.url, class: "img-effect" %>
+      </div>
     <% end %>
   <% end %>
 <% end %>

@@ -21,7 +21,7 @@ class CitiesController < ApplicationController
 
   def show
     @articles = @city.articles.published
-    @categories = Category.all
+    @categories = Category.order(created_at: :asc)
   end
 
 
