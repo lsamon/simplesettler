@@ -31,7 +31,7 @@
 
         <div class="form-group row">
           <div class="col-sm-12">
-            <%= f.input :featured, label: false, inline_label: "Featured Article?", input_html: { class: 'checkbox article-check', data: { boolean_toggle: '.article-url' } } %>
+            <%= f.input :featured, as: :boolean, label: false, inline_label: "Featured Article?", input_html: { class: 'checkbox article-check', data: { boolean_toggle: '.article-url' } } %>
           </div>
         </div>
 
