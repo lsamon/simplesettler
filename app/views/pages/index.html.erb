@@ -63,7 +63,7 @@
      <% @cities.in_groups_of(3)  do |cities| %>
       <div class="row">
         <% cities.each do |city| %>
-          <div class="col-sm-4 <%= city.name %>">
+          <div class="col-sm-4">
               <%= link_to city_path(city) do %>
                 <span><%= city.name.upcase %></span>
                 <%= image_tag "#{city.name.downcase}.jpg" %>

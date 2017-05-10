@@ -26,74 +26,81 @@
 </head>
 <body>
 
-<nav>
-  <div class="nav">
-    <%= link_to raw("<div class='navLeft'><h1>Simple Settler</h1></div>"), root_path %>
-    <div class="navRight">
-      <ul>
-      <li><%= link_to t('site.nav.how_it_works'), "#howItWorks", class: "" %></li>
-      <li><%= link_to t('site.nav.help'), '/help', class: " helpMenuItem" %></li>
-
-      <% unless user_signed_in? %>
-        <li><%= link_to t('site.nav.sign_in'), new_user_session_path, class: "signInOutButton " %></li>
-        <li><%= link_to t('site.nav.sign_up'), new_user_registration_path, class: "signInOutButton "  %></li>
-      <% end %>
-      <% if user_signed_in? %>
-          <li><%= link_to "#{t('site.nav.logout')} #{ current_user.username }", destroy_user_session_path, :method => 'delete', class: "logoutButton " %></li>
-      <% end %>
-      </ul>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="logo"></div>
     </div>
-    <%= link_to '☰', 'javascript:void(0);', class: "hamburger", :id => "hamburger", :style => "font-size: 24px;"%>
+    <!-- <div class="col-sm-8"> -->
+      <nav>
+        <div class="nav">
+          <%= link_to raw("<div class='navLeft'><h1>Simple Settler</h1></div>"), root_path %>
+          <div class="navRight">
+            <ul>
+            <li><%= link_to t('site.nav.how_it_works'), "#howItWorks", class: "" %></li>
+            <li><%= link_to t('site.nav.help'), '/help', class: " helpMenuItem" %></li>
+
+            <% unless user_signed_in? %>
+              <li><%= link_to t('site.nav.sign_in'), new_user_session_path, class: "signInOutButton " %></li>
+              <li><%= link_to t('site.nav.sign_up'), new_user_registration_path, class: "signInOutButton "  %></li>
+            <% end %>
+            <% if user_signed_in? %>
+                <li><%= link_to "#{t('site.nav.logout')} #{ current_user.username }", destroy_user_session_path, :method => 'delete', class: "logoutButton " %></li>
+            <% end %>
+            </ul>
+          </div>
+          <%= link_to '☰', 'javascript:void(0);', class: "hamburger", :id => "hamburger", :style => "font-size: 24px;"%>
+        </div>
+      </nav>
+    <!-- </div> -->
   </div>
-</nav>
-
-<div class="logo"></div>
 
 
-<%= yield %>
+  <%= yield %>
 
-<footer>
-  <div class="container-fluid">
-    <div class="row footer">
-      <div class="col-sm-4">
-        <ul>
-          <li><h3><%= t('site.footer.company.title') %></h3></li>
-          <li><li><%= link_to t('site.footer.company.home'), root_path %></li></li>
-          <li><%= t('site.footer.company.about') %></li>
-          <li><%= t('site.footer.company.partner') %></li>
-        </ul>
+  <footer>
+    <div class="container-fluid">
+      <div class="row footer">
+        <div class="col-sm-4">
+          <ul>
+            <li><h3><%= t('site.footer.company.title') %></h3></li>
+            <li><li><%= link_to t('site.footer.company.home'), root_path %></li></li>
+            <li><%= t('site.footer.company.about') %></li>
+            <li><%= t('site.footer.company.partner') %></li>
+          </ul>
+        </div>
+        <div class="col-sm-4">
+          <ul>
+            <li><h3><%= t('site.footer.support.title') %></h3></li>
+            <li><%= link_to t('site.footer.support.tos'), tos_path %></li>
+            <li><%= link_to t('site.footer.support.privacy'), privacy_path %></li>
+            <li>hello@simplesettler.com</li>
+          </ul>
+        </div>
+        <div class="col-sm-4">
+          <ul>
+            <li><h3><%= t('site.footer.subscribe.label') %></h3></li>
+            <li><%= text_field :search, nil, class: 'enterEmail', :placeholder => t('site.footer.subscribe.placeholder') %>
+              <%= button_tag(type: 'submit', class: "submitEmail") do %>
+                <i class="fa fa-paper-plane"></i>
+              <% end %>
+            </li>
+            <li><h3><%= t('site.footer.subscribe.follow') %></h3></li>
+            <li>
+              <%= link_to("https://www.facebook.com/simplesettler", target: '_blank') do %>
+                <i class="fa fa-facebook-square" aria-hidden="true"></i>
+              <% end %>
+              <%= link_to("https://twitter.com/simplesettler", target: '_blank') do %>
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              <% end %>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="col-sm-4">
-        <ul>
-          <li><h3><%= t('site.footer.support.title') %></h3></li>
-          <li><%= link_to t('site.footer.support.tos'), tos_path %></li>
-          <li><%= link_to t('site.footer.support.privacy'), privacy_path %></li>
-          <li>hello@simplesettler.com</li>
-        </ul>
-      </div>
-      <div class="col-sm-4">
-        <ul>
-          <li><h3><%= t('site.footer.subscribe.label') %></h3></li>
-          <li><%= text_field :search, nil, class: 'enterEmail', :placeholder => t('site.footer.subscribe.placeholder') %>
-            <%= button_tag(type: 'submit', class: "submitEmail") do %>
-              <i class="fa fa-paper-plane"></i>
-            <% end %>
-          </li>
-          <li><h3><%= t('site.footer.subscribe.follow') %></h3></li>
-          <li>
-            <%= link_to("https://www.facebook.com/simplesettler", target: '_blank') do %>
-              <i class="fa fa-facebook-square" aria-hidden="true"></i>
-            <% end %>
-            <%= link_to("https://twitter.com/simplesettler", target: '_blank') do %>
-              <i class="fa fa-twitter" aria-hidden="true"></i>
-            <% end %>
-          </li>
-        </ul>
       </div>
     </div>
-    </div>
-  </div>
-</footer>
+  </footer>
+</div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function() {
