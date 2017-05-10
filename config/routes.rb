@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     resources :articles
     resources :categories
     resources :cities
+    resources :visa_types do
+      resources :visa_requirements
+    end
+
     root to: "articles#index"
   end
 
@@ -13,6 +17,7 @@ Rails.application.routes.draw do
   post '/articles/:id/:response' => 'helpfuls#create', as: :article_feedback
 
   post 'help_steps' => 'helpfuls#ajax_steps'
+  post 'select_visa_type' => 'helpfuls#select_visa_type'
 
   root :to => 'pages#index'
   get '/about' => 'pages#how_it_works'
@@ -27,6 +32,10 @@ Rails.application.routes.draw do
     end
     resources :categories, only: [:index, :show]
     resources :articles, only: [:show]
+  end
+
+  resources :visa_types do
+    resources :visa_requirements
   end
 
 end

@@ -1,0 +1,8 @@
+<%= content_tag_for(:tr, visa_type) do %>
+  <td><%= visa_type.name %></td>
+  <td><%= visa_type.description %></td>
+  <td><%= l visa_type.created_at %></td>
+  <td><%= link_to(raw("<i class='fa fa-pencil-square-o'></i>"), edit_admin_visa_type_path(visa_type)) %></td>
+  <td><%= link_to(raw("<i class='fa fa-trash'></i>"), admin_visa_type_path(visa_type), method: 'delete', remote: true) %></td>
+  <td><%= link_to(raw("<i class='fa fa-plus-square'></i>"), new_admin_visa_type_visa_requirement_path(visa_type)) %></td>
+<% end %>

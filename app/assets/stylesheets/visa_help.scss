@@ -114,6 +114,9 @@ div.select-radio-styling label:after {
 .select-radio-styling label.active{
   background: #39ccb9;
   color:#fff;
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  border-radius:5px;
 }
 
 /* Preferred date section */
@@ -343,4 +346,8 @@ div.select-radio-styling label:after {
 
 .green-text{
   color: #39ccb9;
+}
+
+.visa-requirements{
+  list-style: none;
 }

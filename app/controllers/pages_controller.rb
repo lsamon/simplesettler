@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def help
+    @visa_types = VisaType.all
   end
 
   def inspiration

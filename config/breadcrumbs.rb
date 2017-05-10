@@ -38,6 +38,17 @@ crumb :admin_user do |user|
   parent :admin_users
 end
 
+crumb :admin_visa_types do
+  link "Visa Types", admin_visa_types_path
+end
+
+crumb :admin_visa_type do |visa|
+  link visa.new_record? ? "New" : "Edit"
+  parent :admin_visa_types
+end
+
+
+
 # crumb :project_issues do |project|
 #   link "Issues", project_issues_path(project)
 #   parent :project, project

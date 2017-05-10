@@ -15,8 +15,9 @@ $(document).ready(function(){
     $(".select-radio-styling input").change(function () {
         $(".select-radio-styling").children("label").removeClass("active");
         $(this).prev().addClass("active");
-        var data=({visa_help_type: $(this).val() });
-        ajax_visa_process(data);
+        var data=({visa_help_type: $(this).val(), step_number: $("#step_number").val() });
+        // ajax_visa_process(data);
+        $("#select_step_1").submit();
     })
 
 
@@ -27,6 +28,7 @@ $(document).ready(function(){
             data: data,
             dataType: JSON,
             success: function(response){
+                next_view(response.step+1);
 
             },
             error: function (response) {
@@ -35,3 +37,8 @@ $(document).ready(function(){
         });
     }
 });
+
+
+function next_view(step){
+
+}

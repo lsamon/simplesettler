@@ -1,0 +1,23 @@
+<% breadcrumb :admin_visa_types, @visa_types, style: :bootstrap %>
+<div class="articles">
+  <h2><%= @visa_types.model_name %></h2>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= link_to "Add Visa Type", new_admin_visa_type_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+    <tr>
+      <%= sort_header :name, 'Name' %>
+      <th>Description</th>
+      <%= sort_header :created_at, 'Created' %>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <%= render @visa_types %>
+    </tbody>
+  </table>
+</div>

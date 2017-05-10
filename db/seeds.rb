@@ -36,6 +36,25 @@ a2 = Article.create :title => 'Three ways investors and entrepreneurs cna move t
 a3 = Article.create :title => 'Which city is right for you?', :category_id => ca3.id, :content => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
 
 
+VisaType.destroy_all
+v1 = VisaType.create :name=>'Work Visa', :description=>''
+v2 = VisaType.create :name=>'Student Visa', :description=>''
+v3 = VisaType.create :name=>'Extend Visa', :description=>''
+v4 = VisaType.create :name=>'Temporary Residency', :description=>''
+v5 = VisaType.create :name=>'Permanent Residency', :description=>''
+v6 = VisaType.create :name=>'Citizenship', :description=>''
+v7 = VisaType.create :name=>'Other', :description=>''
+
+VisaRequirement.destroy_all
+r1 = VisaRequirement.create :description=>'Be atleast 18+ years old'
+r2 = VisaRequirement.create :description=>'Lived in sydney for 2 years'
+r3 = VisaRequirement.create :description=>'Completed tertiary education'
+r4 = VisaRequirement.create :description=>'Occupation in the SOL list'
+
+v1.visa_requirements << r1
+v1.visa_requirements << r2
+v1.visa_requirements << r3
+v1.visa_requirements << r4
 
 Helpful.destroy_all
 
