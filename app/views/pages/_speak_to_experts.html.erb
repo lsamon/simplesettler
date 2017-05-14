@@ -1,21 +1,23 @@
-<div class="container">
-  <h2><%= t('site.speak_to_experts.title') %></h2>
-  <div class="row study">
-    <p><%= image_tag '/experts/study_icon.png'%></p>
-    <h2><%= t('site.speak_to_experts.study.title') %></h2>
-    <p><%= t('site.speak_to_experts.study.content') %></p>
-  </div>
-  <div class="row work">
-    <p><%= image_tag '/experts/work_icon.png'%></p>
-    <h2><%= t('site.speak_to_experts.work.title') %></h2>
-    <p><%= t('site.speak_to_experts.work.content') %></p>
-  </div>
-  <div class="row live">
-    <p><%= image_tag '/experts/live_icon.png'%></p>
-    <h2><%= t('site.speak_to_experts.live.title') %></h2>
-    <p><%= t('site.speak_to_experts.live.content') %></p>
-  </div>
-  <div class='call_to_action'>
-    <p><%= link_to t('site.more.get_started'), '/help', class: 'primary-btn' %></p>
+<div class="row experts colored">
+  <div class="col-sm-12">
+    <h2><%= t('site.speak_to_experts.title') %></h2>
+    <div class="row study">
+      <p><%= image_tag '/experts/study_icon.png'%></p>
+      <h2><%= t('site.speak_to_experts.study.title') %></h2>
+      <p><%= t('site.speak_to_experts.study.content') %></p>
+    </div>
+    <div class="row work">
+      <p><%= image_tag '/experts/work_icon.png'%></p>
+      <h2><%= t('site.speak_to_experts.work.title') %></h2>
+      <p><%= t('site.speak_to_experts.work.content') %></p>
+    </div>
+    <div class="row live">
+      <p><%= image_tag '/experts/live_icon.png'%></p>
+      <h2><%= t('site.speak_to_experts.live.title') %></h2>
+      <p><%= t('site.speak_to_experts.live.content') %></p>
+    </div>
+    <div class='call_to_action'>
+      <p><%= link_to t('site.more.get_started'), '/help', class: 'primary-btn' %></p>
+    </div>
   </div>
 </div>

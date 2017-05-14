@@ -51,6 +51,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0;
 
   h1 {
     font-size: 35px;
@@ -202,41 +203,38 @@
 
 .cities {
     .row {
-        .col-sm-4 {
-            position: relative;
-            padding: 5px;
-            text-align: center;
-            max-width: 400px;
-            margin: 0 auto;
-            a {
-                font-size: 18px;
-                border-radius: 4px;
-                color: white;
-                text-decoration: none;
-                padding: 10px 0;
-            }
-            span {
-                display: block;
-                position: absolute;
-                left: 5px;
-                right: 5px;
-                bottom: 5px;
-                background: rgba(60,60,60,0.4);
-                border-radius: 4px;
-                padding: 6px;
-            }
-            img {
-                display: block;
-                width: 100%;
-                height: 200px;
-                max-height: 100%;
-                border-radius: 4px;
-            }
-        }
-        .col-sm-4:hover {
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
+      .col-sm-12, .col-xs-12, .col-md-6, .col-lg-4 {
+          text-align: center;
+          padding: 5px;
+          margin: 0 15px;
+          a {
+              font-size: 18px;
+              color: white;
+              text-decoration: none;
+              padding: 10px 0;
+          }
+          span {
+              display: block;
+              position: absolute;
+              left: 5px;
+              right: 5px;
+              bottom: 5px;
+              background: rgba(60,60,60,0.4);
+              border-radius: 4px;
+              padding: 6px;
+          }
+          img {
+              display: block;
+              width: 100%;
+              height: 200px;
+              max-height: 100%;
+              border-radius: 4px;
+          }
+      }
+      .col-lg-4:hover {
+          opacity: 0.8;
+          transition: opacity 0.3s ease;
+      }
     }
 }
 
@@ -275,11 +273,11 @@
 
 .listingArticles {
     .row {
-        .col-sm-4 {
+        .col-xs-12, .col-sm-12, .col-md-6, .col-lg-4 {
             position: relative;
             padding: 5px;
             text-align: center;
-            max-width: 400px;
+            max-width: 320px;
             margin: 0 auto;
             a {
                 font-size: 18px;
@@ -307,7 +305,7 @@
                 border-radius: 4px;
             }
         }
-        .col-sm-4:hover {
+        .col-lg-4:hover {
             opacity: 0.8;
             transition: opacity 0.3s ease;
         }
@@ -513,29 +511,25 @@ section.colored {
   background-size: cover;
   text-align: center;
 
-  .container {
+  .content {
+    margin-top: 100px;
+    display: inline-block;
+    position: relative;
 
+    h1 {
+      color: white;
+      font-size: 25px;
+      letter-spacing: 5px;
+      padding: 30px;
+    }
 
-    .content {
-      margin-top: 100px;
-      display: inline-block;
-      position: relative;
-
-      h1 {
-        color: white;
-        font-size: 25px;
-        letter-spacing: 5px;
-        padding: 30px;
-      }
-
-      a {
-        @include button;
-        width: 120px;
-      }
-      a:hover {
-        background: rgba(0,0,0,0);
-        color: $logoColor;
-      }
+    a {
+      @include button;
+      width: 120px;
+    }
+    a:hover {
+      background: rgba(0,0,0,0);
+      color: $logoColor;
     }
   }
 }

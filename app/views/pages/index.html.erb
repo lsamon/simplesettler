@@ -32,61 +32,47 @@
  -->
 
 
- <div class="banner">
-  <div>
+ <div class="row banner">
+  <div class="col-sm-12">
     <h1><%= t('site.header.title') %></h1>
     <h2><%= t('site.header.subtitle') %></h2>
-    <div>
-    <%= form_tag(cities_path, method: "get", id: "search-form") do %>
-      <%= text_field_tag :search, params[:search], placeholder: t('site.header.search.placeholder'), class: 'searchCity', pattern: ".{2,20}", title: 'Enter more than 1 character', data: { autocomplete: autocomplete_city_name_cities_path } %>
-      <%= button_to nil, class: 'searchCitySubmit' do %><i class="fa fa-search" aria-hidden="true"></i><% end %><br />
-    <% end %>
-  </div>
+    <div row>
+      <div class="col-sm-12">
+        <%= form_tag(cities_path, method: "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: t('site.header.search.placeholder'), class: 'searchCity', pattern: ".{2,20}", title: 'Enter more than 1 character', data: { autocomplete: autocomplete_city_name_cities_path } %>
+          <%= button_to nil, class: 'searchCitySubmit' do %><i class="fa fa-search" aria-hidden="true"></i><% end %><br />
+        <% end %>
+      </div>
+    </div>
 
     <div class="ausFlag"></div>
     <div class="flagAvail"><em><p><%= t('site.header.currently_available') %></p></em></div>
   </div>
 </div>
 
-
-<section class="container">
-
-  <div class="explore">
-
-    <div class="header">
-      <h2><%= t('site.cities.title') %></h2>
-      <p><%= t('site.cities.subtitle') %></p>
-    </div>
-
-
-  <div class="cities">
-     <% @cities.in_groups_of(3)  do |cities| %>
-      <div class="row">
-        <% cities.each do |city| %>
-          <div class="col-sm-4">
-              <%= link_to city_path(city) do %>
-                <span><%= city.name.upcase %></span>
-                <%= image_tag "#{city.name.downcase}.jpg" %>
-              <% end %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
+<div class="row explore">
+  <div class="col-sm-12 header">
+    <h2><%= t('site.cities.title') %></h2>
+    <p><%= t('site.cities.subtitle') %></p>
   </div>
-</section>
+</div>
 
-<section class="experts colored">
-  <%= render 'speak_to_experts' %>
-</section>
+<div class="row cities">
+  <div class="col-sm-12">
+    <div class="row">
+     <% @cities.each  do |city| %>
+        <div class="col-xs-12 col-sm-12 col-lg-4">
+            <%= link_to city_path(city) do %>
+              <span><%= city.name.upcase %></span>
+              <%= image_tag "#{city.name.downcase}.jpg" %>
+            <% end %>
+        </div>
+    <% end %>
+    </div>
+  </div>
+</div>
 
-<section id="howItWorks" class="howItWorks">
-  <%= render 'how_it_works' %>
-</section>
-
-<section class="recommendedBy colored">
-  <%= render 'media' %>
-</section>
-
-<section class="pageEnd">
-  <%= render 'page_end' %>
-</section>
+<%= render 'speak_to_experts' %>
+<%= render 'how_it_works' %>
+<%= render 'media' %>
+<%= render 'page_end' %>
