@@ -10,4 +10,14 @@ module ApplicationHelper
   def yield_meta_tag(tag, default_text='')
     content_for?(:"meta_#{tag}") ? content_for(:"meta_#{tag}") : default_text
   end
+
+  def get_country_list
+    %w(Australia Nepal Japan China)
+  end
+
+  def language_list
+    %w(English Nepali Chinese Japanese)
+  end
+
+
 end
