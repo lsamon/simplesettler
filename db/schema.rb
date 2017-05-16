@@ -20,15 +20,17 @@ ActiveRecord::Schema.define(version: 20170503151457) do
     t.integer  "user_id"
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "image"
     t.string   "slug"
     t.string   "meta_title"
     t.text     "meta_description"
     t.text     "meta_keywords"
     t.integer  "category_id"
-    t.integer  "status"
+    t.integer  "status",           default: 0
+    t.string   "external_url"
+    t.boolean  "featured",         default: false
   end
 
   create_table "articles_categories", force: :cascade do |t|
