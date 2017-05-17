@@ -52,11 +52,13 @@ nav {
   .navLeft {
     float: left;
     height: 42px !important;
-    width: 160px;
-    background: image-url('logo.png') no-repeat;
-    text-indent: -9999px;
+    width: 180px;
     margin-top: 5px;
     height: 100%;
+  }
+
+  .navLeft img {
+    width: 100%;
   }
 
   .navRight {
@@ -123,10 +125,17 @@ nav li {
 
 // RESPONSIVE NAV
 
-@media screen and (max-width: 800px) {
+@media only screen
+  and (min-width: 320px)
+  and (max-width: 1280px)
+  and (-webkit-min-device-pixel-ratio: 2) {
   .nav .hamburger {
     display: inline !important;
+    font-size: 70px !important;
   }
+  .banner h1 { font-size: 80px; }
+  .banner h2 { font-size: 40px; }
+  .banner .searchCity { width: 350px; }
   .navRight ul {
     visibility: hidden;
     opacity: 0;
@@ -140,6 +149,7 @@ nav li {
     box-sizing: border-box;
     display: block;
     padding: 8px;
+    font-size: 30px;
     text-align: center;
     background: rgba(0,0,0,0.8);
   }
@@ -150,6 +160,9 @@ nav li {
         -webkit-transition: opacity 0.5s;
         transition: opacity 0.5s;
     }
+
+  footer .footer ul li h3 { font-size: 1.25em; }
+  footer .footer ul li a { font-size: 0.95em; }
 }
 
 
@@ -163,7 +176,6 @@ footer {
   color: lightgray;
 
   .footer {
-      text-align: center;
       .enterEmail {
         border: 1px solid white;
         border-top-left-radius: 20px;

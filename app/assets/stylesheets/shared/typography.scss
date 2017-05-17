@@ -64,6 +64,12 @@ ol, ul {
 .top-buffer { margin-top: 10px; }
 .bottom-buffer { margin-bottom: 10px; }
 
+.colored {
+  background: #f9ffff;
+  border-top: 1px solid #c0dddb;
+  border-bottom: 1px solid #c0dddb;
+}
+
 a:hover i.fa-facebook-square  { color: #3B5998; }
 a:hover i.fa-pinterest        { color: #C92228; }
 a:hover i.fa-twitter          { color: #4099FF; }
