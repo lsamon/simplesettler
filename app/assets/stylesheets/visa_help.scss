@@ -4,7 +4,6 @@
 
 .form-group {
   padding-bottom: 24px;
-  border-bottom: 1px solid rgb(240,240,240);
 }
 
 .form-group:last-child {
@@ -14,13 +13,14 @@
 
 /* form select boxes */
 
-select.form-control {
+/*Niroj removed */
+/*select.form-control {
   background: #f8f8f8;
   border: 0;
   box-shadow: none;
   font-size: 16px;
   height: 50px;
-}
+}*/
 
 /* form fieldset */
 
@@ -348,6 +348,70 @@ div.select-radio-styling label:after {
   color: #39ccb9;
 }
 
-.visa-requirements{
+.visa-requirements-list{
   list-style: none;
+  padding: 0;
+  font-size: 18px;
+  line-height: 2em;
+}
+
+.visa-requirements-list li{
+    padding-left: 1.3em;
+}
+
+.visa-requirements-list li:before{
+  content: '\f058';
+  font-family: FontAwesome;
+  display: inline-block;
+  margin-left: -1.3em; /* same as padding-left set on li */
+  width: 1.3em;
+  color: #2FB0A4;
+}
+
+.custom-margin-left{
+  margin-left: 15px;
+}
+
+.ui-datepicker-header{
+ background: #2FB0A4;
+}
+
+.btn-custom{
+    padding: 5px 8px;
+    border: 1px solid #00b6ab;
+    color: #00b6ab;
+    font-size: 16px;
+  background: #fff;
+  font-weight: bold;
+  padding: 8px 60px;
+}
+
+.btn-custom:hover{
+  color: #fff;
+  background: #00b6ab;
+
+}
+
+
+.inner-addon {
+  position: relative;
+}
+
+/* style glyph */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align glyph */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+.pay-row{
+  padding-bottom:5px;
 }

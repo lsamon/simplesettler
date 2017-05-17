@@ -26,6 +26,10 @@ Rails.application.routes.draw do
   get '/tos' => 'pages#tos'
   get '/privacy' => 'pages#privacy'
 
+  get '/applicant_details' => 'helpfuls#get_applicant_details'
+  get '/get_additional_details' => 'helpfuls#get_additional_details'
+  post '/post_application_details' => 'helpfuls#post_application_details'
+
   resources :cities do
     collection do
       get :autocomplete_city_name

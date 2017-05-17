@@ -1,0 +1,62 @@
+<script type="text/javascript">
+$(document).ready(function(){
+$(".date-mask").inputmask("mm/yyyy");  //static mask
+  $(".dob").inputmask("date");
+});
+</script>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1 class="panel-title">Applicant Details</h1>
+      </div>
+      <div class="panel-body">
+
+        <%= form_tag("/post_application_details", id:"application_details", method: "post") do %>
+            <div class="form-group">
+              <input type="text" name="f_name" class="form-control" required placeholder="First Name">
+            </div>
+
+            <div class="form-group">
+              <input type="text" name="l_name" class="form-control" required placeholder="Last Name">
+            </div>
+
+
+            <div class="form-group">
+              <input type="text" name="dob" class="form-control dob" required placeholder="Date of birth">
+            </div>
+
+            <div class="form-group">
+              <select name="currently_in_aus" id="currently_in_australia" required class="form-control" required>
+                <option value="" selected disabled>Are you currently in Australia?</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+            </div>
+
+
+            <div class="form-group">
+              <select name="country_of_passport" id="country_of_passport" required class="form-control" required>
+                <option value="" selected disabled>Which country is your passport?</option>
+
+                <%= get_country_list.each do |c| %>
+                    <option><%= c %></option>
+                <% end %>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <input type="text" name="passport_expiry" class="form-control required passport_expiry date-mask" placeholder="Which month and year does your passport expire?">
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <input type="submit" class="btn btn-md btn-primary btn-custom" name="NEXT" value="NEXT">
+              </div>
+            </div>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+
+        <% end %>
+
+    </div>
+    </div>
+
+

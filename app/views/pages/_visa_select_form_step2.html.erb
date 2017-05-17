@@ -1,29 +1,28 @@
 <h1>Hi, <span class="green-text"><%= current_user.username %> </span>how can we help you?</h1>
-
-<legend>Requirements</legend>
-
-<ul class="requirements-list">
-</ul>
 <form id="select_step_1">
   <fieldset>
-    <div class="form-group">
 
-      <% @visa_type.visa_requirements.each do |req| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1 class="panel-title">Requirements</h1 class="panel-title">
+      </div>
+      <div class="panel-body">
+        <ul class="visa-requirements-list">
+        <% @visa_type.visa_requirements.each do |req| %>
+              <li for="help_<%= req.id %>"><%= req.description %></li>
+        <% end %>
+        </ul>
+        <p>Do you meet the requirement </p>
 
-          <ul class="visa-requirements">
-            <li for="help_<%= req.id %>"><%= req.description %></li>
-          </ul>
+        <div class="row custom-margin-left">
+          <%= link_to "I'm not sure", "#", class: "btn btn-primary btn-lg btn-custom" %>
+          <%= link_to "Yes", "applicant_details", class: "btn btn-primary btn-lg btn-custom" %>
+        </div>
 
-      <% end %>
+      </div>
     </div>
 
-    <p>Do you meet the requiremnt </p>
 
-    <div class="row">
-      <%= link_to "I'm not sure", "google.com", class: "btn btn-success" %>
-      <%= link_to "Yes", "/", class: "btn btn-success" %>
-
-    </div>
   </fieldset>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
 </form>
