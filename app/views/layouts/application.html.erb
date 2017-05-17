@@ -27,10 +27,8 @@
 <body>
 
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="logo"></div>
-    </div>
+  <div class="row header">
+    <div class="logo"></div>
     <!-- <div class="col-sm-8"> -->
       <nav>
         <div class="nav">
@@ -52,8 +50,7 @@
           <%= link_to '☰', 'javascript:void(0);', class: "hamburger", :id => "hamburger", :style => "font-size: 24px;"%>
         </div>
       </nav>
-    <!-- </div> -->
-  </div>
+    </div>
 
 
   <%= yield %>

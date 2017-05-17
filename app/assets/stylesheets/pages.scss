@@ -1,6 +1,8 @@
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
-
+.row {
+  margin: 0;
+}
 
 #countryModal {
     .modal-content {
@@ -37,7 +39,9 @@
     }
 }
 
-
+.row.header {
+  margin: 0;
+}
 
 .banner {
   background: linear-gradient( rgba(0, 0, 0, 0.9),  rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35) ), image-url('slider2.jpg');
@@ -51,7 +55,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0;
 
   h1 {
     font-size: 35px;
@@ -147,7 +150,7 @@
   color: $logoColor;
 }
 
-.recommendedBy { margin: 0 auto; text-align: center; }
+.recommendedBy { text-align: center; }
 .logos {
     height: 120px;
     margin-bottom: 20px;
@@ -202,40 +205,37 @@
 
 
 .cities {
-    .row {
-      .col-sm-12, .col-xs-12, .col-md-6, .col-lg-4 {
-          text-align: center;
-          padding: 5px;
-          margin: 0 15px;
-          a {
-              font-size: 18px;
-              color: white;
-              text-decoration: none;
-              padding: 10px 0;
-          }
-          span {
-              display: block;
-              position: absolute;
-              left: 5px;
-              right: 5px;
-              bottom: 5px;
-              background: rgba(60,60,60,0.4);
-              border-radius: 4px;
-              padding: 6px;
-          }
-          img {
-              display: block;
-              width: 100%;
-              height: 200px;
-              max-height: 100%;
-              border-radius: 4px;
-          }
-      }
-      .col-lg-4:hover {
-          opacity: 0.8;
-          transition: opacity 0.3s ease;
-      }
+  .row {
+    margin: 0;
+    .col-sm-12, .col-xs-12, .col-md-6, .col-lg-4 {
+        text-align: center;
+        a {
+            font-size: 18px;
+            color: white;
+            text-decoration: none;
+            padding: 10px 0;
+        }
+        span {
+            display: block;
+            position: absolute;
+            left: 45%;
+            bottom: 5px;
+            background: rgba(60,60,60,0.4);
+            border-radius: 4px;
+            padding: 6px;
+        }
+        img {
+            display: block;
+            width: 100%;
+            height: 300px;
+            max-height: 100%;
+        }
     }
+    .col-lg-4:hover {
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+    }
+  }
 }
 
 .listings {
@@ -267,9 +267,6 @@
     }
   }
 }
-
-
-
 
 .listingArticles {
     .row {
@@ -350,9 +347,7 @@ section.colored {
 }
 
 .howItWorks {
-  height: 509px;
   text-align: center;
-  margin-bottom: 50px;
 
   h2 {
     color: gray;
@@ -571,7 +566,6 @@ section.colored {
   background: #fff;
   border-bottom: 1px solid #c0dddb;
   border-top: 1px solid #c0dddb;
-  padding: 30px;
   text-align: center;
 
   h2 {
