@@ -1,0 +1,21 @@
+<% #breadcrumb :admin_visa_type, @visa_type, style: :bootstrap %>
+<div class="articles">
+  <%= simple_form_for [:admin, @visa_type, @visa_type_requirement], input_html: { class: 'form-control' } do |f| %>
+      <div class="row admin form-group m-t-2">
+        <div class="col-sm-8 col-sm-offset-2">
+          <h2><%= @visa_type_requirement.new_record? ? 'New visa requirement' : 'Edit Visa requirement' %></h2>
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <%= f.input :name, input_html: { class: 'form-control' } %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <%= f.input :description, input_html: { class: 'form-control' } %>
+            </div>
+          </div>
+          <%= f.submit class: 'btn btn-primary' %>
+        </div>
+      </div>
+  <% end %>
+</div>

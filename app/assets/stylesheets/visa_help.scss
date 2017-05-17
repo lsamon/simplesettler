@@ -4,7 +4,6 @@
 
 .form-group {
   padding-bottom: 24px;
-  border-bottom: 1px solid rgb(240,240,240);
 }
 
 .form-group:last-child {
@@ -14,13 +13,14 @@
 
 /* form select boxes */
 
-select.form-control {
+/*Niroj removed */
+/*select.form-control {
   background: #f8f8f8;
   border: 0;
   box-shadow: none;
   font-size: 16px;
   height: 50px;
-}
+}*/
 
 /* form fieldset */
 
@@ -66,7 +66,7 @@ div.radio-styling {
   position: relative;
 }
 
-div.radio-styling label {
+div.radio-styling label, div.select-radio-styling label {
   display: block;
   float: left;
   font-size: 14px;
@@ -81,6 +81,42 @@ div.radio-styling input {
   position: absolute;
   right: 14px;
   margin-top: 16px;
+}
+
+/*input with select and arrow right*/
+div.select-radio-styling {
+  background: #fff;
+  height: 50px;
+  line-height: 32px;
+  margin: 10px 0;
+  position: relative;
+  border: 2px solid #e6e5e5;
+  border-radius: 8px;
+}
+
+div.select-radio-styling input {
+  position: absolute;
+  right: 14px;
+  margin-top: 16px;
+  visibility: hidden;
+}
+
+div.select-radio-styling label:after {
+  font-family: FontAwesome;
+  content: "\f054";
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  vertical-align: middle;
+  float: right;
+}
+
+.select-radio-styling label.active{
+  background: #39ccb9;
+  color:#fff;
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  border-radius:5px;
 }
 
 /* Preferred date section */
@@ -103,4 +139,279 @@ div.radio-styling input {
 .input-minimal-design:focus {
   box-shadow: none;
   border-color: rgb(57,204,185);
+}
+
+
+
+
+/**Side menu*/
+.nav-side-menu {
+  overflow: auto;
+  font-family: verdana;
+  font-size: 12px;
+  font-weight: 200;
+  background-color: #2FB0A4;
+  //position: fixed;
+  //top: 0px;
+  //width: 300px;
+  height: 100%;
+  color: #e1ffff;
+}
+.nav-side-menu .brand {
+  background-color: #23282e;
+  line-height: 50px;
+  display: block;
+  text-align: center;
+  font-size: 14px;
+}
+.nav-side-menu .toggle-btn {
+  display: none;
+}
+.nav-side-menu ul,
+.nav-side-menu li {
+  list-style: none;
+  margin: 0px;
+  line-height: 35px;
+  cursor: pointer;
+  padding:5px 0;
+  /*
+    .collapsed{
+       .arrow:before{
+                 font-family: FontAwesome;
+                 content: "\f053";
+                 display: inline-block;
+                 padding-left:10px;
+                 padding-right: 10px;
+                 vertical-align: middle;
+                 float:right;
+            }
+     }
+*/
+}
+.nav-side-menu ul :not(collapsed) .arrow:before,
+.nav-side-menu li :not(collapsed) .arrow:before {
+  font-family: FontAwesome;
+  content: "\f078";
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  vertical-align: middle;
+  float: right;
+}
+.nav-side-menu ul .active,
+.nav-side-menu li .active {
+  background-color: #71706E;
+}
+.nav-side-menu ul .sub-menu li.active,
+.nav-side-menu li .sub-menu li.active {
+  color: #d19b3d;
+}
+.nav-side-menu ul .sub-menu li.active a,
+.nav-side-menu li .sub-menu li.active a {
+  color: #d19b3d;
+}
+.nav-side-menu ul .sub-menu li,
+.nav-side-menu li .sub-menu li {
+  background-color: #181c20;
+  border: none;
+  line-height: 28px;
+  border-bottom: 1px solid #2BA397;
+  margin-left: 0px;
+}
+.nav-side-menu ul .sub-menu li:hover,
+.nav-side-menu li .sub-menu li:hover {
+  background-color: #020203;
+}
+.nav-side-menu ul .sub-menu li:before,
+.nav-side-menu li .sub-menu li:before {
+  font-family: FontAwesome;
+  content: "\f105";
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  vertical-align: middle;
+}
+.nav-side-menu li {
+  padding-left: 0px;
+  border-bottom: 1px solid #2BA397;
+}
+.nav-side-menu li a {
+  text-decoration: none;
+  color: #e1ffff;
+}
+.nav-side-menu li a i {
+  padding-top:5px;
+}
+.nav-side-menu li:hover {
+  border-left: 3px solid #d19b3d;
+  background-color: #4f5b69;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+@media (max-width: 767px) {
+  .nav-side-menu {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .nav-side-menu .toggle-btn {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 10 !important;
+    padding: 3px;
+    background-color: #ffffff;
+    color: #000;
+    width: 40px;
+    text-align: center;
+  }
+  .brand {
+    text-align: left !important;
+    font-size: 22px;
+    padding-left: 20px;
+    line-height: 50px !important;
+  }
+}
+@media (min-width: 767px) {
+  .nav-side-menu .menu-list .menu-content {
+    display: block;
+  }
+}
+
+.menu-head-title{
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.fa{
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+.left-sub-menu{
+  background-color: #71706E;
+
+}
+
+.left-sub-menu a{
+  font-size: 15px;
+  cursor: pointer;
+
+}
+
+.left-sub-menu a:hover{
+  text-decoration: none;
+
+}
+
+.left-sub-menu .sub-menu{
+  list-style: none;
+
+}
+
+.left-sub-menu .sub-menu li{
+  padding: 10px 0;
+  color: #bdb9b9;
+}
+
+.left-sub-menu .sub-menu li.active{
+  color: #fff;
+
+}
+
+
+.left-sub-menu .sub-menu li:before{
+    font-family: FontAwesome;
+    content: "\f054";
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    vertical-align: middle;
+    float: right;
+
+}
+
+
+.left-sub-menu li:hover{
+  color: #fff;;
+
+}
+
+.green-text{
+  color: #39ccb9;
+}
+
+.visa-requirements-list{
+  list-style: none;
+  padding: 0;
+  font-size: 18px;
+  line-height: 2em;
+}
+
+.visa-requirements-list li{
+    padding-left: 1.3em;
+}
+
+.visa-requirements-list li:before{
+  content: '\f058';
+  font-family: FontAwesome;
+  display: inline-block;
+  margin-left: -1.3em; /* same as padding-left set on li */
+  width: 1.3em;
+  color: #2FB0A4;
+}
+
+.custom-margin-left{
+  margin-left: 15px;
+}
+
+.ui-datepicker-header{
+ background: #2FB0A4;
+}
+
+.btn-custom{
+    padding: 5px 8px;
+    border: 1px solid #00b6ab;
+    color: #00b6ab;
+    font-size: 16px;
+  background: #fff;
+  font-weight: bold;
+  padding: 8px 60px;
+}
+
+.btn-custom:hover{
+  color: #fff;
+  background: #00b6ab;
+
+}
+
+
+.inner-addon {
+  position: relative;
+}
+
+/* style glyph */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align glyph */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+.pay-row{
+  padding-bottom:5px;
 }

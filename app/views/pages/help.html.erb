@@ -6,6 +6,89 @@
 
 <div class="spacer"></div>
 
-<div class="container">
-  <%= render 'visa_help_form' %>
+
+
+<div class="row">
+  <div class="col-md-2">
+
+    <div class="nav-side-menu">
+      <!--<div class="brand">Brand Logo</div>-->
+      <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+      <div class="menu-list">
+
+        <ul id="menu-content" class="menu-content collapse out">
+          <li class="active">
+            <a href="#">
+              <i class="fa fa-dashboard fa-5x"></i>
+              <div class="menu-head-title"><span class="menu-head-title">Visa Dashboard</span></div>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa fa-users fa-5x" aria-hidden="true"></i>
+              <div class="menu-head-title"><span>Request a Consultatior</span></div>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa fa-question-circle-o fa-5x" aria-hidden="true"></i>
+              <div class="menu-head-title"><span>FAQ</span></div>
+
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa fa-volume-control-phone fa-5x" aria-hidden="true"></i>
+              <div class="menu-head-title"><span>Call AU Hotline</span></div>
+
+            </a>
+          </li>
+
+          <!-- <li data-toggle="collapse" data-target="#service" class="collapsed">
+             <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
+           </li>
+           <ul class="sub-menu collapse" id="service">
+             <li>New Service 1</li>
+             <li>New Service 2</li>
+             <li>New Service 3</li>
+           </ul>
+
+
+
+           <li>
+             <a href="#">
+               <i class="fa fa-user fa-lg"></i> Profile
+             </a>
+           </li>-->
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-md-2 left-sub-menu">
+    <ul class="sub-menu">
+      <a>
+        <li class="active">SELECT VISA</li>
+        <span class="arrow"></span></a>
+      <a>
+        <li>HOW IT WORKS</li>
+        <span class="arrow"></span></a>
+    </ul>
+
+
+  </div>
+  <div class="col-md-8">
+    <% if @step_partial_file %>
+    <%= render "pages/#{@step_partial_file}"%>
+        <% else %>
+
+        <%= render 'pages/visa_select_form' %>
+    <% end %>
+  </div>
 </div>

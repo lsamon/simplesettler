@@ -1,0 +1,22 @@
+<h1>Hi, <span class="green-text"><%= current_user.username %> </span>how can we help you?</h1>
+
+<%= form_tag("/select_visa_type", id: "select_step_1", method: "post") do %>
+  <fieldset>
+    <div class="form-group">
+
+
+      <% @visa_types.each do |visa| %>
+
+          <div class="select-radio-styling">
+            <label for="help_<%= visa.name.downcase.tr(' ','_') %>"><%= visa.name %></label>
+            <input type="radio" value="<%= visa.id %>" name="visa_help_type" id="help_<%= visa.name.downcase.tr(' ','_') %>">
+          </div>
+
+      <% end %>
+    </div>
+
+    <%= hidden_field_tag :step_number, "1" %>
+
+  </fieldset>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+<% end %>
