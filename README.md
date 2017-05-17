@@ -2,7 +2,7 @@
 _"Simple Settler_" is a functional MVP site built in rails by Loui Amon & Ron Tan in November 2016.
 
 ### Technologies used:
-* Ruby on Rails version 4.2.7.1
+* Ruby on Rails
 * Javascript / jQuery
 * AJAX
 
@@ -36,7 +36,7 @@ _"Simple Settler_" is a functional MVP site built in rails by Loui Amon & Ron Ta
 ### run bundle
 
 # Set articles to published
-Article.each do |article|
+Article.all.each do |article|
   article.status = 1
   article.save
 end
