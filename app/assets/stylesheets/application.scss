@@ -132,10 +132,14 @@ nav li {
   .nav .hamburger {
     display: inline !important;
     font-size: 70px !important;
+    margin-top: -25px;
   }
   .banner h1 { font-size: 80px; }
   .banner h2 { font-size: 40px; }
   .banner .searchCity { width: 350px; }
+  .bannerArticle .bannerInfo h1 { font-size: 3em; }
+  .articles { padding: 0; }
+  .articles .content .articleContent { font-size: 2em; }
   .navRight ul {
     visibility: hidden;
     opacity: 0;
