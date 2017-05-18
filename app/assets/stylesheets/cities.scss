@@ -1,43 +1,3 @@
-.bannerCity {
-  // @include bannerHeight;
-  height: $bannerHeight;
-  width: 100%;
-  text-align: center;
-  color: white;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  img {
-    position: absolute;
-    width: 100%;
-    height: $bannerHeight;
-    max-width: 100%;
-    max-height: auto;
-    z-index: -1;
-    top: 0;
-    left:0;
-  }
-
-  .bannerInfo {
-      width: 100%;
-      text-align: center;
-      position: absolute;
-      top: 20%;
-    h1 {
-      font-size: 35px;
-      letter-spacing: 8px;
-      margin-bottom: 15px;
-      z-index: 5;
-    }
-
-    h2 {
-      font-weight: 300;
-      font-size: 22.5px;
-      margin-bottom: 15px;
-      z-index: 5;
-    }
-  }
-}
-
-
 /* Rate City Start */
     .rateCity {
       font-size: 20px;
@@ -102,12 +62,10 @@
 .categorySelectBg{
   height: 120px;
   background: #ddd;
-    margin: 0 auto;
-    text-align: center;
+  margin: 0 auto;
+  text-align: center;
     div {
       height: 120px;
-      max-width: 230px;
-
       .active {
         background: white;
         color: #00b6ab;
@@ -118,13 +76,12 @@
       a {
         width: 100%;
         color: gray;
-        font-size: 20px;
         text-decoration: none;
         display: inline-block;
-          padding: 50px 0;
+        padding: 50px 0;
         text-align: center;
         transition: background .3s, border-bottom .3s, height .5s, color .3s;
-          vertical-align: top;
+        vertical-align: top;
       }
       a:hover {
         background: white;
@@ -133,12 +90,6 @@
         height: 100%;
       }
     }
-}
-
-.categorySelect {
-  display: inline-block;
-  width: 23%;
-  height: 50px;
 }
 
 .articleSelectContainer {
