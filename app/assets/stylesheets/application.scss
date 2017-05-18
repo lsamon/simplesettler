@@ -171,7 +171,6 @@ color: lightgray;
     }
 
     h3 {
-      font-size: 15px;
       color: white;
       font-weight: 400;
     }
@@ -180,7 +179,6 @@ color: lightgray;
 
       li {
         line-height: 2.5;
-        font-size: 12px;
         list-style-type: none;
       }
     }
@@ -247,9 +245,7 @@ color: lightgray;
   // end how it works
 
   // Experts mobile
-  .experts h2 { font-size: 3em; }
   .experts .row { max-width: 90%; }
-  .experts p, a { font-size: 1.75em; }
   // End Experts
   .navRight ul {
     visibility: hidden;
@@ -275,7 +271,4 @@ color: lightgray;
         -webkit-transition: opacity 0.5s;
         transition: opacity 0.5s;
     }
-
-  .footer-section .col-xs-12 ul li h3 { font-size: 1.25em !important; }
-  .footer-section .col-xs-12 ul li a { font-size: 0.95em !important; }
 }

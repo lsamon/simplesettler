@@ -75,14 +75,11 @@
   }
 
   h1 {
-    font-size: 35px;
     letter-spacing: 4px;
     margin-bottom: 15px;
   }
 
   h2 {
-    font-weight: 300;
-    font-size: 22.5px;
     margin-bottom: 15px;
   }
   .ausFlag {
@@ -144,29 +141,6 @@
 }
 
 #search-form { margin-bottom: 20px; }
-
-.primary-btn {
-  border: 1px solid $logoColor;
-  background: $logoColor;
-  line-height: 42px;
-  height: 42px;
-  transition: 0.3s;
-  text-decoration: none;
-  color: white;
-  display: inline-block;
-  text-align: center;
-  font-size: 14px;
-  width: 150px;
-  margin: 20px auto;
-  margin-bottom: 60px;
-}
-
-.primary-btn:hover {
-  border: 1px solid $logoColor;
-  text-decoration: none;
-  background: rgba(255,255,255,0);
-  color: $logoColor;
-}
 
 .recommendedBy {
   text-align: center;
