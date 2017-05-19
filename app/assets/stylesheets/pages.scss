@@ -44,20 +44,9 @@
 }
 
 .banner {
-  // background: linear-gradient( rgba(0, 0, 0, 0.9),  rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35));
-  background-size: cover;
-  background-position: center;
-  width:100%;
-  height: 100%;
-  text-align: center;
-  color: white;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   img {
     width: 100%;
+    height: 100%;
   }
 
   .content {
@@ -202,7 +191,8 @@
 
 .cities {
   .row {
-    margin: 0;
+    margin-left: 0;
+    margin-left: 0;
     .col-md-6, .col-lg-4 {
         text-align: center;
         a {
@@ -543,11 +533,7 @@
 // Experts
 
 .experts {
-  background: #fff;
-  border-bottom: 1px solid #c0dddb;
-  border-top: 1px solid #c0dddb;
   text-align: center;
-
   h2 {
     color: gray;
     margin-bottom: 20px;

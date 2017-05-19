@@ -60,36 +60,29 @@
 /* Chart End */
 
 .categorySelectBg{
-  height: 120px;
-  background: #ddd;
-  margin: 0 auto;
-  text-align: center;
-    div {
-      height: 120px;
-      .active {
-        background: white;
-        color: #00b6ab;
-        border-bottom: 7px solid #00b6ab;
-        height: 100%;
-      }
+  margin-top: 172px;
+  .active {
+    background: white;
+    color: #00b6ab;
+    border-bottom: 7px solid #00b6ab;
+  }
 
-      a {
-        width: 100%;
-        color: gray;
-        text-decoration: none;
-        display: inline-block;
-        padding: 50px 0;
-        text-align: center;
-        transition: background .3s, border-bottom .3s, height .5s, color .3s;
-        vertical-align: top;
-      }
-      a:hover {
-        background: white;
-        color: #00b6ab;
-        border-bottom: 7px solid #00b6ab;
-        height: 100%;
-      }
-    }
+  a {
+    width: 100%;
+    color: gray;
+    text-decoration: none;
+    display: inline-block;
+    padding: 30px 0;
+    text-align: center;
+    transition: background .3s, border-bottom .3s, height .5s, color .3s;
+    vertical-align: top;
+  }
+  a:hover {
+    background: white;
+    color: #00b6ab;
+    border-bottom: 7px solid #00b6ab;
+    height: 100%;
+  }
 }
 
 .articleSelectContainer {
