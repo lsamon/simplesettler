@@ -10,11 +10,18 @@
 
 <div class="row categorySelectBg">
   <div class="col-sm-3 categorySelect">
-    <%= link_to 'All', city_category_path(@city, "All"), remote: true, class: "catAll"  %>
+    <%= link_to(city_category_path(@city, 'All'), remote: true ) do %>
+    <%= image_tag('cat1.png') %>
+      <span class="all">All</span>
+    <% end %>
   </div>
-  <% @categories.each do |category| %>
+  <% @categories.each_with_index do |category, i| %>
+    <% i += 2 %>
     <div class="col-sm-3 categorySelect">
-      <%= link_to category.name, city_category_path(@city, category), remote: true %>
+      <%= link_to(city_category_path(@city, category), remote: true) do %>
+        <%= image_tag("cat#{i}.png") %>
+        <span><%= category.name %></span>
+      <% end %>
     </div>
   <% end %>
 </div>
