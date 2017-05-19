@@ -1,10 +1,12 @@
 <% title @article.meta_title.present? ? @article.meta_title : @article.title %>
 <% meta_tag :description, @article.meta_description %>
 <% meta_tag :keywords, @article.keywords %>
-<div class="bannerArticle">
-  <%= image_tag @article.image.large.url %>
-  <div class="bannerInfo">
-    <h1><%= @article.title %></h1>
+<div class="row bannerArticle banner">
+  <div class="col-sm-12">
+    <%= image_tag @article.image.large.url %>
+    <div class="content">
+      <h1><%= @article.title %></h1>
+    </div>
   </div>
 </div>
 <div class="bg">
@@ -13,10 +15,8 @@
 
       <div class="col-sm-10 col-sm-offset-1 content">
         <div class="row">
-          <div class="col-sm-12">
-            <div class="articleContent">
-              <%= raw(@article.content) %>
-            </div>
+          <div class="col-sm-12 articleContent">
+            <%= raw(@article.content) %>
         </div>
       </div>
         <div class="row">

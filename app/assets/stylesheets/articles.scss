@@ -1,43 +1,8 @@
 .bannerArticle {
-  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-color: rgba(0,0,0,0.5);
-  position: relative;
-  height: $bannerHeight;
-  width:100%;
-  text-align: center;
-  color: white;
-  font-family: "Open Sans",sans-serif;
-
-  img {
-    position: absolute;
-    height: $bannerHeight;
-    width: 100%;
-    z-index: -1;
-    top: 0;
-    left: 0;
-  }
-
-  .bannerInfo {
-    position: absolute;
-    bottom: 80px;
-    left: 10%;
-    right: 10%;
-    h1 {
-      font-size: 24px;
-      letter-spacing: 2px;
-      margin-bottom: 15px;
-      z-index: 5;
-    }
-    h2 {
-      font-weight: 300;
-      font-size: 22px;
-      margin-bottom: 15px;
-      z-index: 5;
-    }
-  }
 }
 
 .bg {
@@ -51,7 +16,6 @@
   .content {
     background: white;
     margin-bottom: 40px;
-    font-size: 1.5rem;
     top: -80px;
 
     #disqus_thread {
@@ -62,7 +26,6 @@
       text-align: center;
 
       a {
-        font-size: 14px;
         text-align: center;
         margin: 1px;
         height: 30px;
@@ -167,7 +130,6 @@
         height: 200px;
         width: 260px;
         position: absolute;
-        font-size: 20px;
         z-index: 5;
         background: rgba(0,0,0,0.4);
         transition: 0.3s;
@@ -222,7 +184,6 @@
         padding-left: 10px;
         border: 1px solid #00b6ab;
         border-radius: 10px;
-        font-size: 16px;
       }
       .articleEditCity {
         margin: 10px 0;
