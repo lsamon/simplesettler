@@ -6,6 +6,7 @@
     height: 100px;
     a {
       width: 100%;
+      height: 100%;
       color: gray;
       text-decoration: none;
       display: inline-block;
@@ -18,7 +19,6 @@
       background: white;
       color: #00b6ab;
       border-bottom: 7px solid #00b6ab;
-      height: 100%;
     }
     span {
       position: absolute;

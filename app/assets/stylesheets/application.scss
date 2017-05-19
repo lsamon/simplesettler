@@ -230,8 +230,8 @@ color: lightgray;
     /* height: 377px; */
     margin: 0 auto;
     position: relative;
-    font-size: 2em;
-    margin-bottom: 25px;
+    font-size: 1.5em;
+    margin-bottom: 20px;
   }
   .howItWorks .content .numbers {
     display: inline-block;
@@ -241,11 +241,8 @@ color: lightgray;
   }
 
   .howItWorks .content .info .spacer {
-    /* height: 310px; */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-size: 2.15em;
+    height: 300px;
+    font-size: 1.5em;
   }
 
   // end how it works
