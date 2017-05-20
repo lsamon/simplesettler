@@ -1,9 +1,14 @@
-$(document).on('click', '.nav-item', function(e){
+$(document).on('click', '.admin .nav-item .nav-link', function(e){
   // e.preventDefault();
-  if(!$(this).hasClass('active')){
-    $(this).siblings().removeClass("active");
-    $(this).addClass("active");
-  }
+  // var url = $(this).attr('href');
+  // $.ajax({
+  //     type: 'POST',
+  //     url: url,
+  //     success: function() {
+  //       $(this).siblings().removeClass("active");
+  //       $(this).addClass("active");
+  //     }
+  //   });
 });
 
 $(document).on('change', '[data-boolean-toggle]', function(){

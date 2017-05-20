@@ -8,7 +8,7 @@ class Admin::CategoriesController < Admin::BaseController
       @categories = Category.page(params[:page]).reorder(sort_order)
       respond_to do |format|
         format.html
-        format.js { render :file => "/shared/admin.js.erb" }
+        format.js { render "/shared/admin" }
       end
     end
 

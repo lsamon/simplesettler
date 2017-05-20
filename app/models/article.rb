@@ -2,7 +2,7 @@ class Article < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders]
 
-  mount_uploader :image, ArticleUploader
+  mount_uploader :image, ImageUploader
 
   belongs_to :user
   has_many :city_articles
