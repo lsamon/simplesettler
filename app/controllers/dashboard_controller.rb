@@ -4,12 +4,16 @@ class DashboardController < ApplicationController
 
   def index
       @visa_types = VisaType.all
-
   end
 
   #Visa Steps methods, we'll move to custom controller later
   def select_visa_type
-    current_user.user_detail.update_attributes({:visa_help_type=>filter_params[:visa_help_type]})
+
+    if current_user.user_detail.nil?
+      current_user.create_user_detail({:visa_help_type=>filter_params[:visa_help_type]})
+    else
+      current_user.user_detail.update_attributes({:visa_help_type=>filter_params[:visa_help_type]})
+    end
     @visa_type= VisaType.find(params[:visa_help_type])
     @current_step=1
     render "dashboard/_visa_select_form_step2"

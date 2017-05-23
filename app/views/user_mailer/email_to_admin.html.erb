@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1>Dear, Admin</h1>
+<p>
+  A request for a consultation has been received.
+</p>
+<p>
+  The details are as below:
+</p>
+
+<p>
+Email: <%= @user.email%>
+  <br>
+Name: <%= @user.user_detail.f_name+ " "+@user.user_detail.l_name %>
+  <br>
+
+  Package: <%= @user.payment.package_id %>
+  <br>
+
+  Amount paid: AUD <%= @user.payment.amount_paid %>
+
+</p>
+</body>
+</html>

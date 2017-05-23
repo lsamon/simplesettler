@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<div class="articles">
+<p>
+  <strong>Email:</strong>
+  <%= @payment.user.email %>
+</p>
+
+
+  <table class="table">
+    <thead>
+    <tr>
+      <%= sort_header :name, 'Name' %>
+      <th>Email</th>
+      <%= sort_header :created_at, 'Created' %>
+    </tr>
+    </thead>
+    <tbody>
+  <%= content_tag_for(:tr, @payment.user) do |user| %>
+      <td><%= user.user_detail.f_name %></td>
+      <td><%= user.email %></td>
+      <td><%= l @payment.created_at %></td>
+  <% end %>
+  </tbody>
+
+
+<%= link_to 'Back', admin_payments_path %>
+</div>

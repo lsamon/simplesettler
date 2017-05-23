@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_many :articles
   has_many :helpfuls
   has_many :feedbacks
-  has_one :user_detail
+  has_one :user_detail, dependent: :destroy
   has_many :appointments
   has_one :payment
   # Include default devise modules. Others available are:
@@ -17,5 +17,9 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
       user.username = auth.info.name   # assuming the user model has a name
     end
+  end
+
+  def self.get_admin
+    where(admin: true).first
   end
 end

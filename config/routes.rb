@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :visa_types do
       resources :visa_requirements
     end
+    resources :payments, only:[:index, :show]
 
     root to: "articles#index"
   end
@@ -47,7 +48,9 @@ Rails.application.routes.draw do
     resources :articles, only: [:show]
   end
 
-  resources :payments
+  resources :payments, only: [:new, :create]
+  get '/payments/success' => 'payments#payment_success'
+  get '/payments/error' => 'payments#payment_error'
 
   resources :visa_types do
     resources :visa_requirements
