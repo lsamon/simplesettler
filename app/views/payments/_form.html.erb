@@ -1,0 +1,107 @@
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+var stripe = Stripe('pk_test_2PhDdYsaRSqRoMEPCWed8Y3S');
+var elements = stripe.elements();
+
+$(function(){
+  var card = elements.create('card', {
+    hidePostalCode: true,
+    style: {
+      base: {
+        iconColor: '#666EE8',
+        color: '#31325F',
+        lineHeight: '40px',
+        fontWeight: 300,
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSize: '15px',
+
+        '::placeholder': {
+          color: '#CFD7E0',
+        },
+      },
+    }
+  });
+  card.mount('#card-element');
+
+  card.addEventListener('change', function(event) {
+    var displayError = document.getElementById('card-errors');
+
+    if (event.error) {
+//      console.log(event.error);
+      displayError.textContent = event.error.message;
+    } else {
+      displayError.textContent = '';
+    }
+  });
+
+
+
+  var form = document.getElementById('payment-form');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    stripe.createToken(card).then(function(result) {
+      if (result.error) {
+        // Inform the user if there was an error
+        var errorElement = document.getElementById('card-errors');
+        errorElement.textContent = result.error.message;
+      } else {
+        // Send the token to your server
+        stripeTokenHandler(result.token);
+      }
+    });
+  });
+
+
+  function stripeTokenHandler(token){
+    $.ajax({
+      url: $("#payment-form").attr("action"),
+      method: "POST",
+      data: {"token": token},
+      success: function (data) {
+        
+      },
+      error: function (data) {
+        
+      }
+    });
+  }
+
+
+
+
+});
+
+</script>
+
+<%= form_tag(payments_path, id: "payment-form", method:"post" ) do %>
+  <fieldset>
+    <h2>Payment Details</h2>
+    <div class="form-group">
+      <span>Name</span>
+      <input name="cardholder-name" class="field form-control"/>
+    </div>
+
+    <div class="form-group">
+      <span>Phone</span>
+      <input class="field form-control" placeholder="(123) 456-7890" type="tel" />
+    </div>
+
+    <div class="form-group">
+      <span>Card Number</span>
+      <div id="card-element" class="form-control"></div>
+    </div>
+
+    <div class="col-md-12 text-center">
+      <input type="submit" class="btn btn-primary btn-custom" value = "PAY $14.99">
+    </div>
+
+  <div class="outcome">
+    <div id="card-errors" role="alert"></div>
+    <div class="success">
+      Success! Your Stripe token is <span class="token"></span>
+    </div>
+  </div>
+    </fieldset>
+
+  <% end %>

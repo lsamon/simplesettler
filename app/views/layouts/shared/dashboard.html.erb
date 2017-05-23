@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    <% if yield(:title).present? %>
+        <%= "#{yield(:title)} | " %> SimpleSettler
+    <% else %>
+        SimpleSettler
+    <% end %>
+  </title>
+  <meta name='description'
+        content='<%= yield_meta_tag(:description, 'SimpleSettler, one stop hub for your people looking to migrate.') %>' />
+  <meta name='keywords'
+        content='<%= yield_meta_tag(:keywords, 'student visas,migrant accomodation,settlement help') %>' />
+  <%= favicon_link_tag 'favicon.png', rel: 'shortcut icon', type: 'image/png' %>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag Ckeditor.cdn_url %>
+  <%= cloudinary_js_config %>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav>
+  <div class="nav">
+    <%= link_to raw("<div class='navLeft'><h1>Simple Settler</h1></div>"), root_path %>
+    <div class="navRight">
+      <ul>
+        <li><%= link_to 'How It Works', "#howItWorks", class: "" %></li>
+        <li><%= link_to 'Help & Advice', '/dashboard', class: " helpMenuItem" %></li>
+
+        <% unless user_signed_in? %>
+            <li><%= link_to 'Sign in', new_user_session_path, class: "signInOutButton " %></li>
+            <li><%= link_to 'Sign up', new_user_registration_path, class: "signInOutButton "  %></li>
+        <% end %>
+        <% if user_signed_in? %>
+            <li><%= link_to "Logout #{ current_user.username }", destroy_user_session_path, :method => 'delete', class: "logoutButton " %></li>
+        <% end %>
+      </ul>
+    </div>
+    <%= link_to '☰', 'javascript:void(0);', class: "hamburger", :id => "hamburger", :style => "font-size: 24px;"%>
+  </div>
+</nav>
+
+<div class="logo"></div>
+
+
+<div class="banner help">
+  <div>
+    <h1>Visa help</h1>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+
+
+<div class="row">
+  <div class="col-md-2">
+
+    <div class="nav-side-menu">
+      <!--<div class="brand">Brand Logo</div>-->
+      <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+      <div class="menu-list">
+
+        <ul id="menu-content" class="menu-content collapse out">
+          <li class="active">
+            <a href="#">
+              <i class="fa fa-dashboard fa-5x"></i>
+              <div class="menu-head-title"><span class="menu-head-title">Visa Dashboard</span></div>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa fa-users fa-5x" aria-hidden="true"></i>
+              <div class="menu-head-title"><span>Request a Consultatior</span></div>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa fa-question-circle-o fa-5x" aria-hidden="true"></i>
+              <div class="menu-head-title"><span>FAQ</span></div>
+
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa fa-volume-control-phone fa-5x" aria-hidden="true"></i>
+              <div class="menu-head-title"><span>Call AU Hotline</span></div>
+
+            </a>
+          </li>
+
+          <!-- <li data-toggle="collapse" data-target="#service" class="collapsed">
+             <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
+           </li>
+           <ul class="sub-menu collapse" id="service">
+             <li>New Service 1</li>
+             <li>New Service 2</li>
+             <li>New Service 3</li>
+           </ul>
+
+
+
+           <li>
+             <a href="#">
+               <i class="fa fa-user fa-lg"></i> Profile
+             </a>
+           </li>-->
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-md-2 left-sub-menu">
+    <ul class="sub-menu">
+      <a>
+        <li class="active">SELECT VISA</li>
+        <span class="arrow"></span></a>
+      <a>
+        <li>HOW IT WORKS</li>
+        <span class="arrow"></span></a>
+    </ul>
+
+
+  </div>
+  <div class="col-md-8">
+    <%  if controller.action_name!="index" %>
+    <ul id="progressbar">
+      <li class="<%= (defined?(@current_step)  && @current_step >=1) ? 'active': '' %>">Requirements</li>
+      <li class="<%= (defined?(@current_step)  && @current_step >=2) ? 'active': '' %>">Applicant Details</li>
+      <li class="<%= (defined?(@current_step)  && @current_step >=3) ? 'active': '' %>">Diy + Agent Review</li>
+      <li class="<%= (defined?(@current_step)  && @current_step >=4) ? 'active': '' %>">Submit</li>
+    </ul>
+    <% end %>
+
+    <%= yield %>
+  </div>
+</div>
+
+
+
+<footer>
+  <div class="container-fluid">
+    <div class="row footer">
+      <div class="col-sm-4">
+        <ul>
+          <li><h3>Company</h3></li>
+          <li><li><%= link_to 'Home', root_path %></li></li>
+          <li>About Us</li>
+          <li>Become A Partner</li>
+        </ul>
+      </div>
+      <div class="col-sm-4">
+        <ul>
+          <li><h3>Support</h3></li>
+          <li><%= link_to 'Terms of services', tos_path %></li>
+          <li><%= link_to 'Privacy policy', privacy_path %></li>
+          <li>hello@simplesettler.com</li>
+        </ul>
+      </div>
+      <div class="col-sm-4">
+        <ul>
+          <li><h3>Subscribe Newsletter</h3></li>
+          <li><%= text_field :search, nil, class: 'enterEmail', :placeholder => 'Enter your email' %>
+            <%= button_tag(type: 'submit', class: "submitEmail") do %>
+                <i class="fa fa-paper-plane"></i>
+            <% end %>
+          </li>
+          <li><h3>Follow us</h3></li>
+          <li>
+            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+            <i class="fa fa-twitter-square" aria-hidden="true"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </div>
+</footer>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function() {
+    $('#hamburger').click(function() {
+      $('.navRight ul').toggleClass('responsiveNavShow');
+    });
+    $('.navRight ul li a').click(function() {
+      $('.navRight ul').toggleClass('responsiveNavShow');
+    });
+  });
+</script>
+</body>
+</html>
