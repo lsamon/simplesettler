@@ -1,6 +1,7 @@
 class DashboardController < ApplicationController
 
   layout 'shared/dashboard'
+  before_action :user_logged_in
 
   def index
       @visa_types = VisaType.all

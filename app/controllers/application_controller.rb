@@ -17,6 +17,10 @@ class ApplicationController < ActionController::Base
     redirect_to root_path unless (current_user.present? && current_user.admin?)
   end
 
+  def user_logged_in
+    redirect_to new_user_session_path unless current_user.present?
+  end
+
   private
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_in) do |user_params|
