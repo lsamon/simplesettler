@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :packages
+  end
   mount Ckeditor::Engine => '/ckeditor'
   namespace :admin do
     resources :users
@@ -39,6 +42,8 @@ Rails.application.routes.draw do
   get '/dashboard/get_additional_details' => 'dashboard#get_additional_details'
   post '/dashboard/post_application_details' => 'dashboard#post_application_details'
   post '/dashboard/post_additional_details' => 'dashboard#post_additional_details'
+  get '/dashboard/request_consultation' => 'dashboard#request_consultation'
+  post '/dashboard/post_consulatation_request' => 'dashboard#post_consulatation_request'
 
   resources :cities do
     collection do

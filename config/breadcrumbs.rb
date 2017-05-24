@@ -51,6 +51,11 @@ crumb :admin_payment do |payment|
   link "Payment lists"
 end
 
+crumb :admin_packages do |package|
+  link package.new_record? ? "New" : "Edit"
+  # link "Payment lists"
+end
+
 
 
 # crumb :project_issues do |project|
