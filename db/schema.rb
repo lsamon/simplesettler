@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170520101133) do
+ActiveRecord::Schema.define(version: 20170523161929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admin_payments", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "appointments", force: :cascade do |t|
+    t.string   "user_id"
+    t.string   "appointment_date"
+    t.boolean  "require_translator"
+    t.string   "language"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
 
   create_table "articles", force: :cascade do |t|
     t.integer  "user_id"
@@ -130,6 +144,15 @@ ActiveRecord::Schema.define(version: 20170520101133) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "payments", force: :cascade do |t|
+    t.string   "stripe_charge_id"
+    t.string   "amount_paid"
+    t.integer  "package_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "user_id"
+  end
+
   create_table "user_details", force: :cascade do |t|
     t.string   "visa_status"
     t.string   "f_name"
@@ -138,10 +161,13 @@ ActiveRecord::Schema.define(version: 20170520101133) do
     t.string   "country_of_passport"
     t.boolean  "currently_in_aus"
     t.string   "passport_expiry"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.integer  "user_id"
     t.string   "visa_help_type"
+    t.boolean  "is_currently_in_desired_country"
+    t.boolean  "done_ielts"
+    t.string   "visa_expiry_date"
   end
 
   create_table "users", force: :cascade do |t|
