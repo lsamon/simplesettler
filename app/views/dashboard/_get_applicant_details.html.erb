@@ -1,0 +1,55 @@
+<script type="text/javascript">
+$(document).ready(function(){
+$(".date-mask").inputmask("mm/yyyy");  //static mask
+  $(".dob").inputmask("date");
+});
+</script>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1 class="panel-title">Applicant Details</h1>
+      </div>
+      <div class="panel-body">
+
+        <%= simple_form_for(current_user.user_detail, url: dashboard_post_application_details_path, method: :post ) do |f| %>
+            <div class="form-group">
+              <%= f.input :f_name, input_html:{placeholder: "First Name", class: "form-control"}, label: "First Name", required: true %>
+            </div>
+
+            <div class="form-group">
+              <%= f.input :l_name, input_html:{placeholder: "Last Name", class: "form-control"}, label: "Last Name", required: true %>
+            </div>
+
+
+            <div class="form-group">
+              <%= f.input :dob, input_html:{placeholder: "Date of birth", class: "form-control dob"}, label: "Date of Birth", required: true %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :currently_in_aus, label: "Are you currently resident in Australia? " %>
+              <%= f.select :currently_in_aus, [['Yes',true],['No',false]],{}, {class: "form-control"}%>
+            </div>
+
+
+            <div class="form-group">
+              <%= f.label :country_of_passport, label: "Which country is your passport? " %>
+              <%= f.country_select :country_of_passport, {priority: %w(US CA), include_blank: 'Which country is your passport?'},:class=>"form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.input :passport_expiry, input_html:{placeholder: "Which month and year does your passport expire?", class:"form-control date-mask"}, required:true %>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <input type="submit" class="btn btn-md btn-primary btn-custom" name="NEXT" value="NEXT">
+              </div>
+            </div>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+
+        <% end %>
+
+    </div>
+    </div>
+
+
