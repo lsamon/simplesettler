@@ -21,6 +21,7 @@ class HelpfulsController < ApplicationController
     # current_step = params[:step_number]
     user_detail = UserDetail.new(filter_params)
     current_user.user_detail = user_detail
+    current_user.save!
     @visa_type= VisaType.find(params[:visa_help_type])
     # render "pages/_visa_select_form_step2", status: 201
     @step_partial_file = "visa_select_form_step2"
@@ -38,6 +39,7 @@ class HelpfulsController < ApplicationController
   def post_application_details
     user_detail = UserDetail.new(filter_params)
     current_user.user_detail = user_detail
+    current_user.save!
     redirect_to "/get_additional_details", status: 301
   end
 
@@ -48,6 +50,18 @@ class HelpfulsController < ApplicationController
     render "pages/help"
   end
 
+
+  def post_additional_details
+    user_detail = UserDetail.new(filter_params.slice(:visa_status,:is_currently_in_desired_country,:done_ielts,:visa_expiry_date))
+    current_user.user_detail = user_detail
+    # redirect_to "/get_additional_details", status: 301
+    appointment = Appointment.new(filter_params.slice(:appointment_date,:require_translator, :language))
+    current_user.appointments << appointment
+    current_user.save!
+
+    redirect_to "/payments"
+    #appointment details in appointment model
+  end
 
 
   def ajax_steps
@@ -60,9 +74,10 @@ class HelpfulsController < ApplicationController
 
   private
   def filter_params
-
     puts params
-    params.except(:controller, :action).permit(:visa_help_type,:visa_status,:f_name,:l_name,:dob,:country_of_passport,:currently_in_aus,:passport_expiry)
+    params.except(:controller, :action).permit(:visa_help_type,:visa_status,:f_name,:l_name,:dob,:country_of_passport,:currently_in_aus,:passport_expiry,
+                                               :is_currently_in_desired_country,:done_ielts,:visa_expiry_date,
+    :appointment_date,:require_translator, :language )
   end
 
 end

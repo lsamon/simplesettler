@@ -33,11 +33,10 @@
           <%= link_to(root_path, class: 'navLeft') do %>
             <%= image_tag('logo.png', title: 'simplesettler', alt: 'simplesettler') %>
           <% end %>
-
           <div class="navRight">
             <ul>
             <li><%= link_to t('site.nav.how_it_works'), "#howItWorks", class: "" %></li>
-            <li><%= link_to t('site.nav.help'), '/help', class: " helpMenuItem" %></li>
+            <li><%= link_to t('site.nav.help'), '/dashboard', class: " helpMenuItem" %></li>
 
             <% unless user_signed_in? %>
               <li><%= link_to t('site.nav.sign_in'), new_user_session_path, class: "signInOutButton " %></li>

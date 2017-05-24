@@ -61,6 +61,10 @@ crumb :admin_visa_type do |visa|
   parent :admin_visa_types
 end
 
+crumb :admin_payment do |payment|
+  link "Payment lists"
+end
+
 
 # crumb :project_issues do |project|
 #   link "Issues", project_issues_path(project)
