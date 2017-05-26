@@ -5,8 +5,9 @@
     <td><%= raw(package.description) %></td>
     <td><%= package.status %></td>
     <td><%= l package.created_at %></td>
-    <td><%= link_to(raw("<i class='fa fa-eye'></i>"), admin_package_path(package)) %></td>
+    <% if package.id!=1 %>
     <td><%= link_to(raw("<i class='fa fa-trash'></i>"), admin_package_path(package),method: :delete, data: { confirm: 'Are you sure?' }) %></td>
+        <% end %>
     <td><%= link_to(raw("<i class='fa fa-pencil-square-o'></i>"), edit_admin_package_path(package)) %></td>
 
 <% end %>

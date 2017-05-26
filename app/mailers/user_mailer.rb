@@ -1,14 +1,16 @@
 class UserMailer < ApplicationMailer
-  #payment for consultation
-  def payment_success_consultation_email(user)
-    @user = user
-    mail(to: @user.email, subject: "Payment for consultati0n success")
+  #email to customer
+  def payment_success_email(user, package_detail)
+      @user = user
+      @package_detail = package_detail
+    mail(to: @user.email, subject: "Payment for #{package_detail.name} success")
+
   end
 
-  def email_to_admin(user)
+  #admin email
+  def email_to_admin(user, package_detail)
     @user = user
-
-    mail(subject: "A Request for consultation")
-
+    @package_detail = package_detail
+    mail(subject: "A Request for #{package_detail.name}")
   end
 end

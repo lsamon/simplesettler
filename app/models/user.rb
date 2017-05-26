@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :helpfuls
   has_many :feedbacks
   has_one :user_detail, dependent: :destroy
-  has_many :appointments
+  has_one :appointment
   has_one :payment
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

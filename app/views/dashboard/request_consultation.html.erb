@@ -46,7 +46,7 @@
       <h2>Appointment Details</h2>
 
 
-      <%= fields_for :appointments, current_user.appointments.last do |appointment| %>
+      <%= fields_for :appointment, current_user.appointment do |appointment| %>
 
 
           <div class="form-group">
@@ -80,7 +80,7 @@
           turn up to your consultation, we will refund your 100% amount. If you do not show up, we will keep this amount.</p>
       </div>
       <div class="col-md-12 text-center">
-        <input type="submit" class="btn btn-primary btn-custom" value = "PAY $14.99">
+        <input type="submit" class="btn btn-primary btn-custom" value = "PAY <%= number_to_currency @package_detail.price %>">
       </div>
 
     </div>
