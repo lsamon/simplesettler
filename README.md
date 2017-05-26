@@ -60,3 +60,6 @@ v1.visa_requirements << r1
 v1.visa_requirements << r2
 v1.visa_requirements << r3
 v1.visa_requirements << r4
+
+## setup packages
+Package.create :name=>"Consultation", :description=>"Default charge for consultation", :price=>14.99, :id=>1

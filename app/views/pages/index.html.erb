@@ -63,7 +63,7 @@
      <% @cities.each  do |city| %>
         <div class="col-xs-12 col-lg-4 bottom-buffer">
             <%= link_to city_path(city) do %>
-              <span><%= city.name.upcase %></span>
+              <h2><%= city.name.upcase %></h2>
               <%= image_tag "#{city.name.downcase}.jpg" %>
             <% end %>
         </div>
