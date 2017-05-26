@@ -52,11 +52,13 @@ nav {
   .navLeft {
     float: left;
     height: 42px !important;
-    width: 160px;
-    background: image-url('logo.png') no-repeat;
-    text-indent: -9999px;
+    width: 180px;
     margin-top: 5px;
     height: 100%;
+  }
+
+  .navLeft img {
+    width: 100%;
   }
 
   .navRight {
@@ -121,12 +123,134 @@ nav li {
     display: block;
 }
 
+/// FOOTER //////////////////////////////////////////////
+/// FOOTER //////////////////////////////////////////////
+
+
+.footer-section {
+padding: 30px 0;
+background: #252525;
+color: lightgray;
+
+.row {
+  .enterEmail {
+      border: 1px solid white;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      height: 30px;
+      width: 80%;
+      max-width: 200px;
+      padding-left: 10px;
+      margin: 10px 0;
+      vertical-align: middle;
+      color: #252525;
+    }
+
+    .submitEmail {
+      border: 0;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      height: 30px;
+      width: 20%;
+      max-width: 40px;
+      margin-left: -4px;
+      vertical-align: middle;
+      box-sizing: border-box;
+      color: #252525;
+      padding: 2px 4px 0 0;
+
+      i {
+        font-size: 16px;
+      }
+    }
+
+    i {
+      font-size: 30px;
+      float: left;
+      width: 40px;
+    }
+
+    h3 {
+      color: white;
+      font-weight: 400;
+    }
+
+    ul {
+
+      li {
+        line-height: 2.5;
+        list-style-type: none;
+      }
+    }
+    a{
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+
+
 // RESPONSIVE NAV
 
-@media screen and (max-width: 800px) {
+@media only screen
+  and (min-width: 320px)
+  and (max-width: 1280px)
+  and (-webkit-min-device-pixel-ratio: 2) {
   .nav .hamburger {
     display: inline !important;
+    font-size: 70px !important;
+    margin-top: -25px;
+    color: #fff;
   }
+
+  .nav .navLeft {
+    margin: 0;
+    width: 200px;
+    height: 100%;
+  }
+
+  .banner img { height: 100%; }
+  .banner .searchCity { width: 350px; }
+  .bannerArticle .bannerInfo h1 { font-size: 3em; }
+  .articles { padding: 0; }
+  .articles .content .articleContent { font-size: 2.5em; }
+  .cities .row .col-xs-12 img{
+    width: 95%;
+    height: 400px;
+    margin: 0 auto;
+  }
+  span.category {
+    font-size: 3rem;
+    // left: 40%;
+  }
+
+  //how it works mobile
+  .howItWorks .content {
+    width: 100%;
+    /* height: 377px; */
+    margin: 0 auto;
+    position: relative;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  .howItWorks .content .numbers {
+    display: inline-block;
+    width: 8%;
+    height: 100%;
+    vertical-align: top;
+    font-size: 3rem;
+  }
+
+  .howItWorks .content .info .spacer {
+    height: 300px;
+    font-size: 3rem;
+  }
+
+  // end how it works
+
+  // Experts mobile
+  .experts .row { max-width: 90%; }
+  // End Experts
   .navRight ul {
     visibility: hidden;
     opacity: 0;
@@ -140,9 +264,11 @@ nav li {
     box-sizing: border-box;
     display: block;
     padding: 8px;
+    font-size: 30px;
     text-align: center;
     background: rgba(0,0,0,0.8);
   }
+  .footer-section .row i { float: none !important; }
 
     .responsiveNavShow {
         visibility: visible !important;
@@ -151,71 +277,3 @@ nav li {
         transition: opacity 0.5s;
     }
 }
-
-
-/// FOOTER //////////////////////////////////////////////
-/// FOOTER //////////////////////////////////////////////
-
-
-footer {
-  padding: 30px 0;
-  background: #252525;
-  color: lightgray;
-
-  .footer {
-      text-align: center;
-      .enterEmail {
-        border: 1px solid white;
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 20px;
-        height: 30px;
-        width: 80%;
-        max-width: 200px;
-        padding-left: 10px;
-        margin: 10px 0;
-        vertical-align: middle;
-        color: #252525;
-      }
-
-      .submitEmail {
-        border: 0;
-        border-top-right-radius: 20px;
-        border-bottom-right-radius: 20px;
-        height: 30px;
-        width: 20%;
-        max-width: 40px;
-        margin-left: -4px;
-        vertical-align: middle;
-        box-sizing: border-box;
-        color: #252525;
-        padding: 2px 4px 0 0;
-
-        i {
-          font-size: 16px;
-        }
-      }
-
-      i {
-        font-size: 30px;
-      }
-
-      h3 {
-        font-size: 15px;
-        color: white;
-        font-weight: 400;
-      }
-
-      ul {
-
-        li {
-          line-height: 2.5;
-          font-size: 12px;
-          list-style-type: none;
-        }
-      }
-      a{
-        text-decoration: none;
-        color: white;
-      }
-    }
-  }

@@ -38,6 +38,20 @@ crumb :admin_user do |user|
   parent :admin_users
 end
 
+# frontend breadcrumbs
+
+crumb :site_root do
+  link "Home", root_path
+end
+
+crumb :site_city do |city|
+  link "City Articles", city_path(city)
+end
+
+crumb :site_article do
+  link "Article"
+end
+
 crumb :admin_visa_types do
   link "Visa Types", admin_visa_types_path
 end
@@ -55,7 +69,6 @@ crumb :admin_packages do |package|
   link package.new_record? ? "New" : "Edit"
   # link "Payment lists"
 end
-
 
 
 # crumb :project_issues do |project|

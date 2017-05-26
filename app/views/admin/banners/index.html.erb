@@ -1,0 +1,23 @@
+<% breadcrumb :admin_root, @banners, style: :bootstrap %>
+<div class="banners">
+  <h2><%= @banners.model_name %></h2>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= link_to "Add Banner", new_admin_banner_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+      <%= sort_header :title, 'Title' %>
+      <th>Media</th>
+      <th></th>
+      <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @banners %>
+    </tbody>
+  </table>
+  <%= paginate @banners %>
+</div>

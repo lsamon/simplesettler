@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_action :authenticate_user!, only: [:help]
   def index
     @cities = City.all
     @articles = Article.all
