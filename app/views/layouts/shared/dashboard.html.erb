@@ -124,6 +124,7 @@
 
   </div>
 
+  <!--
   <div class="col-md-2 left-sub-menu">
     <ul class="sub-menu">
       <a>
@@ -133,20 +134,33 @@
         <li>HOW IT WORKS</li>
         <span class="arrow"></span></a>
     </ul>
+  </div>-->
 
-
-  </div>
   <div class="col-md-8">
     <%  if controller_name=="dashboard" && controller.action_name!="index"  %>
+        <div class="row">
     <ul id="progressbar">
       <li class="<%= (defined?(@current_step)  && @current_step >=1) ? 'active': '' %>">Requirements</li>
       <li class="<%= (defined?(@current_step)  && @current_step >=2) ? 'active': '' %>">Applicant Details</li>
       <li class="<%= (defined?(@current_step)  && @current_step >=3) ? 'active': '' %>">Diy + Agent Review</li>
       <li class="<%= (defined?(@current_step)  && @current_step >=4) ? 'active': '' %>">Submit</li>
     </ul>
+        </div>
     <% end %>
 
+    <div class="row">
+
+      <% flash.each do |name, message| %>
+          <div class="alert alert-<%= name %>" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only"><%= name.to_s.capitalize %>:</span>
+            <%= message %>
+          </div>
+          <% end %>
+    </div>
+    <div class="row">
     <%= yield %>
+    </div>
   </div>
 </div>
 

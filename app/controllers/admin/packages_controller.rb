@@ -5,8 +5,8 @@ class Admin::PackagesController < Admin::BaseController
     @packages = Package.all
   end
 
-  def show
-  end
+  # def show
+  # end
 
   def new
     @package = Package.new
@@ -42,6 +42,10 @@ class Admin::PackagesController < Admin::BaseController
   end
 
   def destroy
+    if @package.id==1
+      return redirect_to admin_packages_url, notice: 'Default package cannot be deleted.'
+    end
+
     @package.destroy
     respond_to do |format|
       format.html { redirect_to admin_packages_url, notice: 'Package was successfully destroyed.' }

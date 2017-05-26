@@ -1,12 +1,9 @@
 class Admin::VisaRequirementsController < Admin::BaseController
 
-  before_action :set_visa_type, only: [:new, :create, :show, :edit, :update, :destroy]
+  before_action :set_visa_type, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     # @visa_types = VisaType.all
-  end
-
-  def show
   end
 
   def new

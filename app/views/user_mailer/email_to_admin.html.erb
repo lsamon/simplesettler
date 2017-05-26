@@ -7,7 +7,7 @@
 <body>
 <h1>Dear, Admin</h1>
 <p>
-  A request for a consultation has been received.
+  A payment for <b><%= @package_detail.name %></b> has been received.
 </p>
 <p>
   The details are as below:
@@ -19,10 +19,10 @@ Email: <%= @user.email%>
 Name: <%= @user.user_detail.f_name+ " "+@user.user_detail.l_name %>
   <br>
 
-  Package: <%= @user.payment.package_id %>
+  Package: <%= @package_detail.name %>
   <br>
 
-  Amount paid: AUD <%= @user.payment.amount_paid %>
+  Amount paid: AUD <%= number_to_currency @user.payment.amount_paid %>
 
 </p>
 </body>

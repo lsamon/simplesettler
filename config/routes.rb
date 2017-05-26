@@ -30,20 +30,14 @@ Rails.application.routes.draw do
   get '/tos' => 'pages#tos'
   get '/privacy' => 'pages#privacy'
 
-  # get '/applicant_details' => 'helpfuls#get_applicant_details'
-  # get '/get_additional_details' => 'helpfuls#get_additional_details'
-  # post '/post_application_details' => 'helpfuls#post_application_details'
-  # post '/post_additional_details' => 'helpfuls#post_additional_details'
-
-
   post '/dashboard/select_visa_type' => 'dashboard#select_visa_type'
   get '/dashboard' => 'dashboard#index'
   get '/dashboard/applicant_details' => 'dashboard#get_applicant_details'
-  get '/dashboard/get_additional_details' => 'dashboard#get_additional_details'
   post '/dashboard/post_application_details' => 'dashboard#post_application_details'
-  post '/dashboard/post_additional_details' => 'dashboard#post_additional_details'
   get '/dashboard/request_consultation' => 'dashboard#request_consultation'
   post '/dashboard/post_consulatation_request' => 'dashboard#post_consulatation_request'
+  get '/dashboard/select_package' => 'dashboard#select_package'
+  post '/dashboard/post_select_package' => 'dashboard#post_select_package'
 
   resources :cities do
     collection do
@@ -58,7 +52,7 @@ Rails.application.routes.draw do
   get '/payments/error' => 'payments#payment_error'
 
   resources :visa_types do
-    resources :visa_requirements
+    resources :visa_requirements, except: [:show]
   end
 
 end

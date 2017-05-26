@@ -1,15 +1,14 @@
-<p id="notice"><%= notice %></p>
-
+<% breadcrumb :admin_visa_details, @visa_type, style: :bootstrap %>
 <div class="articles">
-<p>
-  <strong>Name:</strong>
-  <%= @visa_type.name %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @visa_type.name %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @visa_type.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @visa_type.description %>
+  </p>
 
   <div class="row">
     <div class="col-sm-12">
@@ -28,16 +27,15 @@
     </tr>
     </thead>
     <tbody>
-  <%= content_tag_for(:tr, @visa_type.visa_requirements) do |requirement| %>
-      <td><%= requirement.name %></td>
-      <td><%= requirement.description %></td>
-      <td><%= l requirement.created_at %></td>
-      <td><%= link_to(raw("<i class='fa fa-pencil-square-o'></i>"), edit_admin_visa_type_visa_requirement_path(@visa_type, requirement)) %></td>
-      <td><%= link_to(raw("<i class='fa fa-trash'></i>"), admin_visa_type_visa_requirement_path(@visa_type, requirement), method: 'delete' , remote: true) %></td>
-  <% end %>
-  </tbody>
-
-
-<%= link_to 'Edit', edit_admin_visa_type_path(@visa_type) %> |
-<%= link_to 'Back', admin_visa_types_path %>
+    <%= content_tag_for(:tr, @visa_type.visa_requirements) do |requirement| %>
+        <td><%= requirement.name %></td>
+        <td><%= requirement.description %></td>
+        <td><%= l requirement.created_at %></td>
+        <td><%= link_to(raw("<i class='fa fa-pencil-square-o'></i>"), edit_admin_visa_type_visa_requirement_path(@visa_type, requirement)) %></td>
+        <td><%= link_to(raw("<i class='fa fa-trash'></i>"), admin_visa_type_visa_requirement_path(@visa_type, requirement), method: 'delete', remote: true) %></td>
+    <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'Edit', edit_admin_visa_type_path(@visa_type), class:"btn btn-info" %>
+  <%= link_to 'Back', admin_visa_types_path, class:"btn btn-warning" %>
 </div>

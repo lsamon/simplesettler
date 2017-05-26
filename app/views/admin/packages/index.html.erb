@@ -1,4 +1,4 @@
-<% breadcrumb :admin_payment, @payments, style: :bootstrap %>
+<% breadcrumb :admin_packages, @packages, style: :bootstrap %>
 <div class="articles">
   <h2><%= @packages.model_name %></h2>
   <div class="row">
@@ -9,7 +9,7 @@
   <table class="table">
     <thead>
     <tr>
-      <%= sort_header :name, 'Name' %>
+      <th>Name</th>
       <th>Price</th>
       <th>Description</th>
       <th>Status</th>

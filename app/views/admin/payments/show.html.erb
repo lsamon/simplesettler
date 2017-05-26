@@ -1,28 +1,26 @@
-<p id="notice"><%= notice %></p>
-
+<% breadcrumb :admin_payment_show, style: :bootstrap %>
 <div class="articles">
-<p>
-  <strong>Email:</strong>
-  <%= @payment.user.email %>
-</p>
+  <div class="row">
+    <div class="col-md-12">
+      <p><strong>Customer Name:</strong> <%= @payment.user.user_detail.f_name %></p>
+      <p><strong>Email address: </strong><%= @payment.user.email %></p>
+      <p><strong>Package name: </strong><%= @payment.package.name %></p>
+      <p><strong>Amount Paid: </strong><%= number_to_currency @payment.amount_paid %></p>
+      <p><strong>Payment date: </strong><%= l @payment.created_at %></p>
+    </div>
+    <% if !@payment.user.appointment.nil? %>
+        <% appointment_d = @payment.user.appointment %>
+        <div class="col-md-12">
 
+          <h3>Appointment details</h3>
 
-  <table class="table">
-    <thead>
-    <tr>
-      <%= sort_header :name, 'Name' %>
-      <th>Email</th>
-      <%= sort_header :created_at, 'Created' %>
-    </tr>
-    </thead>
-    <tbody>
-  <%= content_tag_for(:tr, @payment.user) do |user| %>
-      <td><%= user.user_detail.f_name %></td>
-      <td><%= user.email %></td>
-      <td><%= l @payment.created_at %></td>
-  <% end %>
-  </tbody>
-
-
-<%= link_to 'Back', admin_payments_path %>
+          <p><strong>Appointment date:</strong> <%= appointment_d.appointment_date %></p>
+          <p><strong>Require translation:</strong> <%= appointment_d.require_translator ? "Yes" : "No" %></p>
+          <p><strong>Language:</strong> <%= appointment_d.language %></p>
+    <% end %>
+    </div>
+    <div class="col-md-12">
+    <%= link_to 'Back', admin_payments_path, class: "btn btn-warning" %>
+    </div>
+  </div>
 </div>

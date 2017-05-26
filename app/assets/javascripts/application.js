@@ -19,3 +19,4 @@
 //= require content/cities
 //= require jquery.inputmask.bundle.js
 //= require_tree .
+//= stub "payments.js"
