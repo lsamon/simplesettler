@@ -1,0 +1,24 @@
+<% breadcrumb :admin_payment, @payments, style: :bootstrap %>
+<div class="articles">
+  <h2><%= @packages.model_name %></h2>
+  <div class="row">
+    <div class="col-sm-12">
+        <%= link_to "Add Package", new_admin_package_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+    <tr>
+      <%= sort_header :name, 'Name' %>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <%= render @packages %>
+    </tbody>
+  </table>
+</div>

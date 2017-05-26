@@ -71,18 +71,19 @@
 
         <ul id="menu-content" class="menu-content collapse out">
           <li class="active">
-            <a href="#">
+            <%= link_to(dashboard_path) do %>
               <i class="fa fa-dashboard fa-5x"></i>
               <div class="menu-head-title"><span class="menu-head-title">Visa Dashboard</span></div>
-            </a>
+            <% end %>
           </li>
 
-          <li>
-            <a href="#">
+          <li class="<%= controller.action_name=="request_consultation" ? "active": "" %>">
+            <%= link_to(dashboard_request_consultation_path) do %>
               <i class="fa fa-users fa-5x" aria-hidden="true"></i>
-              <div class="menu-head-title"><span>Request a Consultatior</span></div>
-            </a>
+              <div class="menu-head-title"><span>Request a Consultation</span></div>
+            <% end %>
           </li>
+
 
           <li>
             <a href="#">

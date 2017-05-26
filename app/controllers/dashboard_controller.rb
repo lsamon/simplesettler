@@ -44,18 +44,36 @@ class DashboardController < ApplicationController
   end
 
 
+  #not needed
   def post_additional_details
-
     user_params = params.require(:user_detail).permit(:visa_status,:is_currently_in_desired_country,:done_ielts,:visa_expiry_date)
     appointment_params = params.require(:appointments).permit(:appointment_date,:require_translator, :language)
-
     current_user.user_detail.update_attributes(user_params)
-
     user_appointment = current_user.appointments.last
     user_appointment.nil? ? current_user.appointments.create(appointment_params) : current_user.appointments.last.update_attributes(appointment_params)
     current_user.save!
     redirect_to "/payments/new"
     #appointment details in appointment model
+  end
+
+  def request_consultation
+    @visa_types = VisaType.all.sort_by(&:name)
+  end
+
+  def post_consulatation_request
+    user_params = params.require(:user_detail).permit(:visa_status,:visa_help_type, :is_currently_in_desired_country,:done_ielts,:visa_expiry_date)
+    appointment_params = params.require(:appointments).permit(:appointment_date,:require_translator, :language)
+    if current_user.user_detail.nil?
+      current_user.create_user_detail(user_params)
+    else
+      current_user.user_detail.update_attributes(user_params)
+    end
+
+    user_appointment = current_user.appointments.last
+    user_appointment.nil? ? current_user.appointments.create(appointment_params) : current_user.appointments.last.update_attributes(appointment_params)
+    current_user.save!
+    redirect_to "/payments/new"
+
   end
 
 
