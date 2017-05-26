@@ -47,27 +47,14 @@
     }
 
     .signinInputArea {
-      margin: 10px 0;
       width: 300px;
-      height: auto;
+      height: 100%;
       padding-left: 10px;
       border: 1px solid #00b6ab;
-      font-size: 16px;
     }
 
-    .signinButton {
-      width: 200px;
-      height: 32px;
-      border: 1px solid #00b6ab;
-      background: #00b6ab;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-      margin: 10px;
-    }
 
       .links {
-          div { margin: 10px; }
           div.social-login {
             display: inline-block;
             width: 150px;
@@ -76,10 +63,8 @@
             line-height: 30px;
             a {
               color: white;
-              text-decoration: none;
               font-size: 18px;
               text-align: center;
-              transition: .3s;
             }
             i {
                 color: white;
