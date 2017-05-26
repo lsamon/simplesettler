@@ -17,10 +17,6 @@
     background: white;
     margin-bottom: 40px;
     top: -80px;
-
-    #disqus_thread {
-      width: 90%;
-    }
     .share {
       text-align: center;
 
@@ -83,13 +79,11 @@
 
       a {
         display: inline-block;
-        line-height: 30px;
-        height: 30px;
-        width: 50px;
+        padding: 10px 20px;
         color: white;
         text-decoration: none;
         transition: .3s;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
       }
       a.yes:hover {
         color: #00b6ab;
@@ -145,6 +139,13 @@
   }
 }
 
+/// DISQUS //////////////////////////////////////////////
+
+iframe {
+  font-size: 2rem !important;
+  a { font-size: 1.75em; }
+  #no-posts { font-size: 1.75em; }
+}
 
 /// FORMS /////////////////////////////////////////////////
 /// FORMS /////////////////////////////////////////////////
@@ -216,9 +217,14 @@
   and (min-width: 320px)
   and (max-width: 1280px)
   and (-webkit-min-device-pixel-ratio: 2) {
-    .articles .col-sm-10 {
-      margin-left: 0;
-      margin-right: 0;
-      width: 100%;
-    }
+  .articles .col-sm-10 {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
   }
+  .facebook, .pinterest, .twitter, .google-plus {
+    height: 70px !important;
+    line-height: 80px !important;
+    font-size: 4rem !important;
+  }
+}

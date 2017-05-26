@@ -36,8 +36,7 @@ h3 { font-size: 25px; }
 .banner .col-sm-12 { height: 100%; }
 
 p, a, li {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 0.95em;
+  font-size: 1.5rem;
   letter-spacing: 0.0525em;
   margin: 0;
 }
@@ -118,28 +117,41 @@ ol, ul {
   border-bottom: 1px solid #c0dddb;
 }
 
-.categorySelect a { font-size: 1.5em; }
+.categorySelect a { font-size: 2rem; }
 
 a:hover i.fa-facebook-square  { color: #3B5998; }
 a:hover i.fa-pinterest        { color: #C92228; }
 a:hover i.fa-twitter          { color: #4099FF; }
 
+.footer-section {
+  text-align: center;
+  .social-icons {
+    display: inline-block;
+  }
+}
+
 @media only screen
   and (min-width: 320px)
   and (max-width: 1280px)
   and (-webkit-min-device-pixel-ratio: 2) {
-    h1 { font-size: 2.5em; }
-    h2 { font-size: 2.2em; }
-    h3 { font-size: 2em; }
-    p { font-size: 1.5em; }
-    li { font-size: 1.5em; }
+    h1 { font-size: 4.75rem; }
+    h2 { font-size: 4.5rem; }
+    h3 { font-size: 4rem; }
+    p {
+      font-size: 3.5rem;
+      font-weight: 500;
+    }
+    li { font-size: 3rem !important; }
+    a { font-size: 3rem; }
+    a.helpMenuItem { font-size: 3rem !important; }
+    .spacer { font-size: 3rem; }
 
     ol, ul { margin-left: 60px; }
-
+    .img-container span { font-size: 3rem; }
     .call-to-action .primary-btn {
       line-height: 60px;
       width: 350px;
       height: 100%;
-      font-size: 1.5em;
+      font-size: 3rem;
     }
 }

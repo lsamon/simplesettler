@@ -213,15 +213,15 @@ color: lightgray;
   .banner .searchCity { width: 350px; }
   .bannerArticle .bannerInfo h1 { font-size: 3em; }
   .articles { padding: 0; }
-  .articles .content .articleContent { font-size: 1.75em; }
+  .articles .content .articleContent { font-size: 2.5em; }
   .cities .row .col-xs-12 img{
     width: 95%;
     height: 400px;
     margin: 0 auto;
   }
-  .cities .row .col-xs-12 span {
-    font-size: 2.5em;
-    left: 40%;
+  span.category {
+    font-size: 3rem;
+    // left: 40%;
   }
 
   //how it works mobile
@@ -238,11 +238,12 @@ color: lightgray;
     width: 8%;
     height: 100%;
     vertical-align: top;
+    font-size: 3rem;
   }
 
   .howItWorks .content .info .spacer {
     height: 300px;
-    font-size: 1.5em;
+    font-size: 3rem;
   }
 
   // end how it works
@@ -267,6 +268,7 @@ color: lightgray;
     text-align: center;
     background: rgba(0,0,0,0.8);
   }
+  .footer-section .row i { float: none !important; }
 
     .responsiveNavShow {
         visibility: visible !important;
