@@ -40,3 +40,23 @@ Article.all.each do |article|
   article.status = 1
   article.save
 end
+
+## setup visa details and visa types
+v1 = VisaType.create :name=>'Work Visa', :description=>''
+v2 = VisaType.create :name=>'Student Visa', :description=>''
+v3 = VisaType.create :name=>'Extend Visa', :description=>''
+v4 = VisaType.create :name=>'Temporary Residency', :description=>''
+v5 = VisaType.create :name=>'Permanent Residency', :description=>''
+v6 = VisaType.create :name=>'Citizenship', :description=>''
+v7 = VisaType.create :name=>'Other', :description=>''
+
+
+r1 = VisaRequirement.create :description=>'Be atleast 18+ years old'
+r2 = VisaRequirement.create :description=>'Lived in sydney for 2 years'
+r3 = VisaRequirement.create :description=>'Completed tertiary education'
+r4 = VisaRequirement.create :description=>'Occupation in the SOL list'
+
+v1.visa_requirements << r1
+v1.visa_requirements << r2
+v1.visa_requirements << r3
+v1.visa_requirements << r4
