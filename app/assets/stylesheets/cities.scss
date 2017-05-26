@@ -1,182 +1,44 @@
-.bannerCity {
-  // @include bannerHeight;
-  height: $bannerHeight;
-  width: 100%;
-  text-align: center;
-  color: white;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  img {
-    position: absolute;
-    width: 100%;
-    height: $bannerHeight;
-    max-width: 100%;
-    max-height: auto;
-    z-index: -1;
-    top: 0;
-    left:0;
-  }
-
-  .bannerInfo {
-      width: 100%;
-      text-align: center;
-      position: absolute;
-      top: 20%;
-    h1 {
-      font-size: 35px;
-      letter-spacing: 8px;
-      margin-bottom: 15px;
-      z-index: 5;
-    }
-
-    h2 {
-      font-weight: 300;
-      font-size: 22.5px;
-      margin-bottom: 15px;
-      z-index: 5;
-    }
-  }
-}
-
-
-/* Rate City Start */
-    .rateCity {
-      font-size: 20px;
-      height: 40px;
-      color: #ffc107;
-      cursor: pointer;
-        margin-top: 40px;
-    }
-    .fa-star {
-      transition: 1.5s;
-      animation: blink 2s infinite;
-    }
-    @keyframes blink{
-      0% { text-shadow: 0 0 0 white; }
-      25% { text-shadow: 0 0 10px white; }
-      50% { text-shadow: 0 0 20px white; }
-      75% { text-shadow: 0 0 10px white; }
-      100% { text-shadow: 0 0 0 white; }
-    }
-    .fa-star:hover {
-      transform-origin: center;
-      transform: rotate(360deg);
-    }
-    .ratingsYo {
-      color: white;
-      height: 40px;
-      margin: 0 auto;
-      display: none;
-
-      p, div {
-        height: 40px;
-      }
-    }
-/* Rate City End */
-
-
-/* Chart Start*/
-    .chart {
-      filter: opacity(0.7);
-      padding: 0;
-      height: 200px;
-        max-width: 300px;
-      border-radius: 10px;
-        margin: 0 auto;
-
-      .ct-horizontal-bars {
-        height: 50px;
-      }
-      .ct-start {
-        color: white;
-      }
-      .ct-series line {
-        stroke: #00b6ab;
-        stroke-width: 15px;
-      }
-        .ct-label {
-          font-size: 16px;
-        }
-    }
-/* Chart End */
-
 .categorySelectBg{
-  height: 120px;
-  background: #ddd;
-    margin: 0 auto;
-    text-align: center;
-    div {
-      height: 120px;
-      max-width: 230px;
-
-      .active {
-        background: white;
-        color: #00b6ab;
-        border-bottom: 7px solid #00b6ab;
-        height: 100%;
-      }
-
-      a {
-        width: 100%;
-        color: gray;
-        font-size: 20px;
-        text-decoration: none;
-        display: inline-block;
-          padding: 50px 0;
-        text-align: center;
-        transition: background .3s, border-bottom .3s, height .5s, color .3s;
-          vertical-align: top;
-      }
-      a:hover {
-        background: white;
-        color: #00b6ab;
-        border-bottom: 7px solid #00b6ab;
-        height: 100%;
-      }
+  background: #eee;
+  .categorySelect {
+    padding: 0;
+    a {
+      width: 100%;
+      height: 100%;
+      color: gray;
+      text-decoration: none;
+      display: inline-block;
+      padding: 30px 0;
+      text-align: center;
+      transition: background .3s, border-bottom .3s, height .5s, color .3s;
+      vertical-align: top;
     }
-}
+    a:hover {
+      background: white;
+      color: #00b6ab;
+      border-bottom: 7px solid #00b6ab;
+    }
+    .active {
+      background: white;
+      color: #00b6ab;
+      border-bottom: 7px solid #00b6ab;
+    }
+  }
 
-.categorySelect {
-  display: inline-block;
-  width: 23%;
-  height: 50px;
 }
 
 .articleSelectContainer {
   padding: 50px 0;
   min-height: 200px;
-  // border: 1px solid black;
+}
 
-  .rows {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: stretch;
-    max-width: 100%;
-    position: relative;
-    margin-bottom: 40px;
+.img-category {
+  width: 25px;
+  height: 30px;
+  display: block;
+  margin: 0 auto
+}
 
-    .articleSelect {
-      text-decoration: none;
-      color: white;
-      display: inline-block;
-      padding: 10px;
-      height: 200px;
-      width: 310px;
-      position: absolute;
-      border-radius: 5px;
-      font-size: 20px;
-      z-index: 5;
-      background: rgba(0,0,0,0.4);
-      transition: 0.3s;
-    }
-    .articleSelect:hover {
-      background: rgba(0,0,0,0);
-    }
-    img {
-      height: 200px;
-      width: 310px;
-      margin-bottom: 10px;
-      border-radius: 5px;
-    }
-  }
+span.category {
+  display: block;
 }

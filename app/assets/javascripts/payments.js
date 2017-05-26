@@ -1,5 +1,5 @@
 $(function(){
-    var stripe = Stripe('pk_test_2PhDdYsaRSqRoMEPCWed8Y3S');
+    var stripe = Stripe('pk_test_DMYrajCnPJHKlPIWWDlvv5ok');
 
     var elements = stripe.elements();
 

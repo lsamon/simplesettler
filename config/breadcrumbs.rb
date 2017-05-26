@@ -38,6 +38,20 @@ crumb :admin_user do |user|
   parent :admin_users
 end
 
+# frontend breadcrumbs
+
+crumb :site_root do
+  link "Home", root_path
+end
+
+crumb :site_city do |city|
+  link "City Articles", city_path(city)
+end
+
+crumb :site_article do
+  link "Article"
+end
+
 crumb :admin_visa_types do
   link "Visa Types", admin_visa_types_path
 end
@@ -58,11 +72,6 @@ crumb :admin_visa_requirement do |visa_requirement, visa_type|
   parent :admin_visa_details, visa_type
 end
 
-# crumb :admin_visa_type do |visa|
-#   link visa.new_record? ? "New" : "Edit"
-#   parent :admin_visa_types
-# end
-
 crumb :admin_payments do |payment|
   link "Payment lists", admin_payments_path
 end
@@ -80,9 +89,6 @@ crumb :admin_package do |package|
   link package.new_record? ? "New" : "Edit"
   parent :admin_packages
 end
-
-
-
 
 # crumb :project_issues do |project|
 #   link "Issues", project_issues_path(project)

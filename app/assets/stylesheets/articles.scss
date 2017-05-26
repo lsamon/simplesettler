@@ -1,43 +1,8 @@
 .bannerArticle {
-  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-color: rgba(0,0,0,0.5);
-  position: relative;
-  height: $bannerHeight;
-  width:100%;
-  text-align: center;
-  color: white;
-  font-family: "Open Sans",sans-serif;
-
-  img {
-    position: absolute;
-    height: $bannerHeight;
-    width: 100%;
-    z-index: -1;
-    top: 0;
-    left: 0;
-  }
-
-  .bannerInfo {
-    position: absolute;
-    bottom: 80px;
-    left: 10%;
-    right: 10%;
-    h1 {
-      font-size: 24px;
-      letter-spacing: 2px;
-      margin-bottom: 15px;
-      z-index: 5;
-    }
-    h2 {
-      font-weight: 300;
-      font-size: 22px;
-      margin-bottom: 15px;
-      z-index: 5;
-    }
-  }
 }
 
 .bg {
@@ -51,29 +16,18 @@
   .content {
     background: white;
     margin-bottom: 40px;
-    font-size: 1.5rem;
     top: -80px;
-    img {
-      height: 300px;
-      margin-top: 80px;
-    }
-
-    #disqus_thread {
-      width: 90%;
-    }
     .share {
-      margin: 20px;
       text-align: center;
 
       a {
-        font-size: 14px;
         text-align: center;
         margin: 1px;
         height: 30px;
         text-decoration: none;
         color: white;
         overflow: hidden;
-        width: 170px;
+        width: 100%;
         line-height: 30px;
         transition: .3s;
         display: inline-block;
@@ -118,7 +72,6 @@
 
     .helpful {
       text-align: center;
-
       h3 {
         color: gray;
         margin: 40px 0 10px 0;
@@ -126,13 +79,11 @@
 
       a {
         display: inline-block;
-        line-height: 30px;
-        height: 30px;
-        width: 50px;
+        padding: 10px 20px;
         color: white;
         text-decoration: none;
         transition: .3s;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
       }
       a.yes:hover {
         color: #00b6ab;
@@ -171,7 +122,6 @@
         height: 200px;
         width: 260px;
         position: absolute;
-        font-size: 20px;
         z-index: 5;
         background: rgba(0,0,0,0.4);
         transition: 0.3s;
@@ -189,6 +139,13 @@
   }
 }
 
+/// DISQUS //////////////////////////////////////////////
+
+iframe {
+  font-size: 2rem !important;
+  a { font-size: 1.75em; }
+  #no-posts { font-size: 1.75em; }
+}
 
 /// FORMS /////////////////////////////////////////////////
 /// FORMS /////////////////////////////////////////////////
@@ -226,7 +183,6 @@
         padding-left: 10px;
         border: 1px solid #00b6ab;
         border-radius: 10px;
-        font-size: 16px;
       }
       .articleEditCity {
         margin: 10px 0;
@@ -253,5 +209,22 @@
         margin: 10px;
       }
     }
+  }
+}
+
+//Mobile article
+@media only screen
+  and (min-width: 320px)
+  and (max-width: 1280px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .articles .col-sm-10 {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+  .facebook, .pinterest, .twitter, .google-plus {
+    height: 70px !important;
+    line-height: 80px !important;
+    font-size: 4rem !important;
   }
 }

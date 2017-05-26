@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :articles
     resources :categories
     resources :cities
+    resources :banners
     resources :visa_types do
       resources :visa_requirements
     end

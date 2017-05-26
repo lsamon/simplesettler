@@ -1,6 +1,5 @@
 class ArticleUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
-  include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   # storage :file

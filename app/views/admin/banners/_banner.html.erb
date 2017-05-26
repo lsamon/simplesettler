@@ -1,0 +1,6 @@
+<%= content_tag_for(:tr, banner) do %>
+  <td><%= banner.title %></td>
+  <td><%#= image_tag @banner.media.thumb.url %></td>
+  <td><%= link_to(raw("<i class='fa fa-pencil-square-o'></i>"), edit_admin_banner_path(banner)) %></td>
+  <td><%= link_to(raw("<i class='fa fa-trash'></i>"), admin_banner_path(banner), method: 'delete', remote: true) %></td>
+<% end %>
