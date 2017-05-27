@@ -133,9 +133,10 @@ background: #252525;
 color: lightgray;
 
 .row {
+  .subscribe { height: 50px; }
   .enterEmail {
       border: 1px solid white;
-      height: 45px;
+      height: 100%;
       width: 70%;
       padding-left: 10px;
       margin: 10px 0;
@@ -145,22 +146,17 @@ color: lightgray;
 
     .submitEmail {
       border: 0;
-      height: 45px;
-      width: 10%;
+      height: 100%;
+      width: 15%;
       margin-left: -4px;
       vertical-align: middle;
       box-sizing: border-box;
       color: #252525;
       padding: 2px 4px 0 0;
-
-      i {
-        font-size: 16px;
-      }
     }
 
     i {
-      font-size: 30px;
-      float: left;
+      font-size: 25px;
       width: 40px;
     }
 
@@ -213,10 +209,7 @@ color: lightgray;
     height: 400px;
     margin: 0 auto;
   }
-  span.category {
-    font-size: 3rem;
-    // left: 40%;
-  }
+  span.category { font-size: 3rem; }
 
   //how it works mobile
   .howItWorks .content {
@@ -262,7 +255,11 @@ color: lightgray;
     text-align: center;
     background: rgba(0,0,0,0.8);
   }
-  .footer-section .row i { float: none !important; }
+  .footer-section .row .subscribe { height: 90px; }
+  .footer-section .social-icons {
+    a { padding: 5px; }
+    i { font-size: 5.5rem; }
+  }
 
     .responsiveNavShow {
         visibility: visible !important;

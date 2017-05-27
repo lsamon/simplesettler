@@ -191,7 +191,8 @@
       <div class="col-xs-12 col-sm-4">
         <ul>
           <li><h3><%= t('site.footer.subscribe.label') %></h3></li>
-          <li><%= text_field :search, nil, class: 'enterEmail', :placeholder => t('site.footer.subscribe.placeholder') %>
+          <li class="subscribe">
+            <%= text_field :search, nil, class: 'enterEmail', :placeholder => t('site.footer.subscribe.placeholder') %>
             <%= button_tag(type: 'submit', class: "submitEmail") do %>
               <i class="fa fa-paper-plane"></i>
             <% end %>
