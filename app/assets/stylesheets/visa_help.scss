@@ -155,7 +155,7 @@ div.select-radio-styling label:after {
   //top: 0px;
   //width: 300px;
   height: 100%;
-  color: #e1ffff;
+  color: #fff;
 }
 .nav-side-menu .brand {
   background-color: #23282e;
@@ -229,7 +229,7 @@ div.select-radio-styling label:after {
 }
 .nav-side-menu li a {
   text-decoration: none;
-  color: #e1ffff;
+  color: #fff;
 }
 
 .nav-side-menu li.active a {
@@ -239,7 +239,7 @@ div.select-radio-styling label:after {
   padding-top:5px;
 }
 .nav-side-menu li:not(.active):hover {
-  border-left: 3px solid #d19b3d;
+  //border-left: 3px solid #d19b3d;
   background-color: #4f5b69;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;

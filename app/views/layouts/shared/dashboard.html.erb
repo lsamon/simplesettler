@@ -74,7 +74,7 @@
       <div class="menu-list">
 
         <ul id="menu-content" class="menu-content collapse out">
-          <li class="active">
+          <li class='<%= ["select_visa_type", "index", "get_applicant_details","select_package"].include?(controller.action_name) ? "active": "" %>'>
             <%= link_to(dashboard_path) do %>
               <i class="fa fa-dashboard fa-5x"></i>
               <div class="menu-head-title"><span class="menu-head-title">Visa Dashboard</span></div>
@@ -141,7 +141,7 @@
   </div>-->
 
   <div class="col-md-8">
-    <%  if controller_name=="dashboard" && controller.action_name!="index"  %>
+    <%  if controller_name=="dashboard" && (controller.action_name!="index" && controller.action_name!="request_consultation")  %>
         <div class="row">
     <ul id="progressbar">
       <li class="<%= (defined?(@current_step)  && @current_step >=1) ? 'active': '' %>">Requirements</li>

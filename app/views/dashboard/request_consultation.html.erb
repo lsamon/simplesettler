@@ -1,13 +1,14 @@
 <script type="text/javascript">
   $(document).ready(function () {
     $(".datepicker").datepicker({
+      minDate: +1,
       buttonImage: "images/calendar.gif"
     });
   });
 </script>
 <%= simple_form_for(current_user.user_detail, url: dashboard_post_consulatation_request_path, method: :post) do |f| %>
     <fieldset>
-      <h2>Visa Details</h2>
+      <h2>Request a consultation</h2>
     <div class="form-group">
       <%= f.label :visa_status, label: "What visa are you currently on?" %>
       <%= f.select :visa_status, options_from_collection_for_select(@visa_types, "id", "name", f.object.visa_status),{}, {class: "form-control"}%>
