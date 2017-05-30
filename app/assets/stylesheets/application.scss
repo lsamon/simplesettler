@@ -57,10 +57,6 @@ nav {
     height: 100%;
   }
 
-  .navLeft img {
-    width: 100%;
-  }
-
   .navRight {
     float: right;
     text-align: right;
@@ -188,56 +184,18 @@ color: lightgray;
   and (-webkit-min-device-pixel-ratio: 2) {
   .nav .hamburger {
     display: inline !important;
-    font-size: 70px !important;
-    margin-top: -25px;
+    font-size: 30px !important;
+    margin-top: -10px;
     color: #fff;
   }
 
-  .nav .navLeft {
-    margin: 0;
-    width: 200px;
-    height: 100%;
-  }
-
   .banner img { height: 100%; }
-  .banner .searchCity { width: 350px; }
-  .bannerArticle .bannerInfo h1 { font-size: 3em; }
-  .articles { padding: 0; }
-  .articles .content .articleContent { font-size: 2.5em; }
-  .cities .row .col-xs-12 img{
-    width: 95%;
-    height: 400px;
-    margin: 0 auto;
-  }
-  span.category { font-size: 3rem; }
+  .banner .content { top: 20%; }
 
-  //how it works mobile
-  .howItWorks .content {
-    width: 100%;
-    /* height: 377px; */
-    margin: 0 auto;
-    position: relative;
-    font-size: 1.5em;
-    margin-bottom: 20px;
-  }
-  .howItWorks .content .numbers {
-    display: inline-block;
-    width: 8%;
-    height: 100%;
-    vertical-align: top;
-    font-size: 3rem;
+  .articles .col-xs-12 {
+      padding: 0;
   }
 
-  .howItWorks .content .info .spacer {
-    height: 300px;
-    font-size: 3rem;
-  }
-
-  // end how it works
-
-  // Experts mobile
-  .experts .row { max-width: 90%; }
-  // End Experts
   .navRight ul {
     visibility: hidden;
     opacity: 0;
@@ -255,10 +213,9 @@ color: lightgray;
     text-align: center;
     background: rgba(0,0,0,0.8);
   }
-  .footer-section .row .subscribe { height: 90px; }
   .footer-section .social-icons {
     a { padding: 5px; }
-    i { font-size: 5.5rem; }
+    i { font-size: 3.5rem; }
   }
 
     .responsiveNavShow {

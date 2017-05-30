@@ -32,8 +32,8 @@
  -->
 
 
- <div class="row banner">
-  <div class="col-sm-12">
+ <div class="row">
+  <div class="col-sm-12 banner">
     <%= image_tag "slider2.jpg", title: 'homepage banner', alt: 'banner' %>
     <div row>
       <div class="col-sm-12 content">
@@ -44,7 +44,9 @@
           <%= button_to nil, class: 'searchCitySubmit' do %><i class="fa fa-search" aria-hidden="true"></i><% end %><br />
         <% end %>
         <div class="ausFlag"></div>
-        <div class="flagAvail"><em><p><%= t('site.header.currently_available') %></p></em></div>
+        <div class="flagAvail">
+          <em><p><%= t('site.header.currently_available') %></p></em>
+        </div>
       </div>
     </div>
   </div>
