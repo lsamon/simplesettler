@@ -2,6 +2,7 @@ class DashboardController < ApplicationController
 
   layout 'shared/dashboard'
   before_action :user_logged_in
+  before_action :set_visa_help_type, :set_visa_help_type, only: [:get_applicant_details,:select_package]
 
   def index
       @visa_types = VisaType.all
@@ -48,6 +49,7 @@ class DashboardController < ApplicationController
       ap params
     end
     ap 'here'
+    set_visa_help_type
     session[:selected_package]= params[:package_id].to_i
 
     redirect_to "/payments/new"
@@ -92,6 +94,12 @@ class DashboardController < ApplicationController
     params.except(:controller, :action, :NEXT).permit(:utf8, :_method, :authenticity_token, :visa_help_type,:visa_status,:user_detail,
                                                :is_currently_in_desired_country,:done_ielts,:visa_expiry_date,
                                                :appointment_date,:require_translator,:language )
+  end
+
+  def set_visa_help_type
+    if !current_user.user_detail.visa_help_type.nil?
+      @visa_help_type = VisaType.find(current_user.user_detail.visa_help_type)
+    end
   end
 
 end

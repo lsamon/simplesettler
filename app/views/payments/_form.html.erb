@@ -11,7 +11,6 @@
     <p>Payment for: <%= @package_detail.name %></p>
      <%  end %>
 <%= form_tag(payments_path, id: "payment-form", method:"post" ) do %>
-  <fieldset>
 
     <div class="form-group">
       <span>Name</span>
@@ -46,6 +45,5 @@
     <div class="success">
     </div>
   </div>
-    </fieldset>
 
   <% end %>
