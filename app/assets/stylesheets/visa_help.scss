@@ -11,6 +11,10 @@
   border: 0;
 }
 
+.content-section {
+  height: 100vh;
+  overflow-y: scroll;
+}
 /* form select boxes */
 
 /*Niroj removed */
@@ -178,6 +182,7 @@ div.select-radio-styling label:after {
 
 .nav-side-menu ul{
   margin: 0px;
+  height: 100vh;
 }
 
 .nav-side-menu ul :not(collapsed) .arrow:before,
@@ -570,7 +575,7 @@ background: #F7F5F6;
 .navbar-ss{
   background-color: #fff;
   border-color: #e7e7e7;
-  
+
   .menu-head-title{
     color: $logoColor;
   }
