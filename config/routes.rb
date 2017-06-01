@@ -18,6 +18,29 @@ Rails.application.routes.draw do
     root to: "articles#index"
   end
 
+  namespace :dashboard do
+    resources :visas, only:[:index]
+    post '/visas/select_visa_type' => 'visas#select_visa_type'
+    get '/visas' => 'visas#index'
+    get '/visas/applicant_details' => 'visas#get_applicant_details'
+    post '/visas/post_application_details' => 'visas#post_application_details'
+    get '/visas/request_consultation' => 'visas#request_consultation'
+    post '/visas/post_consulatation_request' => 'visas#post_consulatation_request'
+    get '/visas/select_package' => 'visas#select_package'
+    post '/visas/post_select_package' => 'visas#post_select_package'
+
+    root to: "visas#index"
+    resources :payments, only: [:new, :create]
+    get '/payments/success' => 'payments#payment_success'
+    get '/payments/error' => 'payments#payment_error'
+
+    resources :faqs, only: [:index]
+    resources :consultations, only: [:index, :create]
+  end
+
+
+
+
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks", sessions: 'users/sessions' }
   post '/articles/:id/:response' => 'helpfuls#create', as: :article_feedback
 
@@ -28,14 +51,6 @@ Rails.application.routes.draw do
   get '/tos' => 'pages#tos'
   get '/privacy' => 'pages#privacy'
 
-  post '/dashboard/select_visa_type' => 'dashboard#select_visa_type'
-  get '/dashboard' => 'dashboard#index'
-  get '/dashboard/applicant_details' => 'dashboard#get_applicant_details'
-  post '/dashboard/post_application_details' => 'dashboard#post_application_details'
-  get '/dashboard/request_consultation' => 'dashboard#request_consultation'
-  post '/dashboard/post_consulatation_request' => 'dashboard#post_consulatation_request'
-  get '/dashboard/select_package' => 'dashboard#select_package'
-  post '/dashboard/post_select_package' => 'dashboard#post_select_package'
 
   resources :cities do
     collection do
@@ -44,11 +59,6 @@ Rails.application.routes.draw do
     resources :categories, only: [:index, :show]
     resources :articles, only: [:show]
   end
-
-  resources :payments, only: [:new, :create]
-  resources :faqs, only: [:index]
-  get '/payments/success' => 'payments#payment_success'
-  get '/payments/error' => 'payments#payment_error'
 
   resources :visa_types do
     resources :visa_requirements, except: [:show]

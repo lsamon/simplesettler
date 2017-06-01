@@ -1,4 +1,4 @@
-class PaymentsController < ApplicationController
+class Dashboard::PaymentsController < ApplicationController
   # before_action :set_payment, only: [:show, :edit, :update, :destroy]
 
 
@@ -104,7 +104,7 @@ class PaymentsController < ApplicationController
     respond_to do |format|
       if error && !error.nil?
         ap "inside error block"
-        format.html { redirect_to payments_error_path, notice: error, status: 400 }
+        format.html { redirect_to dashboard_payments_error_path, notice: error, status: 400 }
         format.js { render json: {status: "error", message: error} }
         # render json: {status: "error", message: error }  }
         session[:payment_status]="error"
@@ -113,20 +113,20 @@ class PaymentsController < ApplicationController
         session[:payment_status]="success"
         session.delete(:selected_package)
         format.js {
-          render json: {status: "success", window_location:payments_success_path,  message: "Payment was successful."} }
-        format.html { redirect_to payments_success_path, notice: 'Payment was successful.', status: :success }
+          render json: {status: "success", window_location:dashboard_payments_success_path,  message: "Payment was successful."} }
+        format.html { redirect_to dashboard_payments_success_path, notice: 'Payment was successful.', status: :success }
       end
     end
   end
 
   def payment_error
-    render "payment_error", :layout => "shared/dashboard"
+    render "dashboard/payments/payment_error", :layout => "shared/dashboard"
   end
 
   def payment_success
     if session[:payment_status] && !session[:payment_status].nil?
       session.delete(:payment_status)
-      render "payment_success"
+      render "dashboard/payments/payment_success"
     else
       redirect_to root_url
 

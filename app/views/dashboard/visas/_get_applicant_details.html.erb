@@ -11,7 +11,7 @@ $(".date-mask").inputmask("mm/yyyy");  //static mask
       </div>
       <div class="panel-body">
 
-        <%= simple_form_for(current_user.user_detail, url: dashboard_post_application_details_path, method: :post ) do |f| %>
+        <%= simple_form_for(current_user.user_detail, url: dashboard_visas_post_application_details_path, method: :post ) do |f| %>
             <div class="form-group">
               <%= f.input :f_name, input_html:{placeholder: "First Name", class: "form-control"}, label: "First Name", required: true %>
             </div>

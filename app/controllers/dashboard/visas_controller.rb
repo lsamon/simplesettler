@@ -1,4 +1,4 @@
-class DashboardController < ApplicationController
+class Dashboard::VisasController < ApplicationController
 
   layout 'shared/dashboard'
   before_action :user_logged_in
@@ -18,13 +18,13 @@ class DashboardController < ApplicationController
     end
     @visa_type= VisaType.find(params[:visa_help_type])
     @current_step=1
-    render "dashboard/_visa_select_form_step2"
+    render "dashboard/visas/_visa_select_form_step2"
   end
 
 
   def get_applicant_details
     @current_step=2
-    render "dashboard/_get_applicant_details"
+    render "dashboard/visas/_get_applicant_details"
   end
 
 
@@ -33,7 +33,7 @@ class DashboardController < ApplicationController
     # user_detail = UserDetail.update_attributes(user_params)
     # .slice(:f_name,:l_name,:dob,:currently_in_aus,:country_of_passport,:passport_expiry))
     current_user.user_detail.update_attributes(user_params)
-    redirect_to "/dashboard/select_package", status: 301
+    redirect_to "/dashboard/visas/select_package", status: 301
   end
 
   def select_package
@@ -52,7 +52,7 @@ class DashboardController < ApplicationController
     set_visa_help_type
     session[:selected_package]= params[:package_id].to_i
 
-    redirect_to "/payments/new"
+    redirect_to new_dashboard_payment_path
   end
 
   def request_consultation
@@ -76,7 +76,7 @@ class DashboardController < ApplicationController
     user_appointment = current_user.appointment
     user_appointment.nil? ? current_user.create_appointment(appointment_params) : current_user.appointment.update_attributes(appointment_params)
     current_user.save!
-    redirect_to "/payments/new"
+    redirect_to new_dashboard_payment_path
 
   end
 
