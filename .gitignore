@@ -13,4 +13,7 @@
 /tmp
 .idea/workspace.xml
 public/assets/*
+/config/application.yml
 
+# Ignore application configuration
+/config/application.yml

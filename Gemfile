@@ -27,10 +27,13 @@ gem 'underscore-rails'
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'devise'
 gem 'rails_12factor'
+gem 'delayed_job_active_record'
+gem 'mailgun-ruby'
 gem 'font-awesome-sass'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem "figaro"
 
 gem 'carrierwave'
 gem 'cloudinary'

@@ -13,8 +13,11 @@ Rails.application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  config.action_mailer.delivery_method = :sendmail
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+  		api_key: ENV['mailgun_api_key'],
+  		domain: ENV['mailgun_domain']
+  }
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
@@ -38,6 +41,9 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
+
+  # Delayed Job
+  config.active_job.queue_adapter = :delayed_job
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
