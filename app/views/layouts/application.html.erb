@@ -12,6 +12,7 @@
       content='<%= yield_meta_tag(:description, 'SimpleSettler, one stop hub for your people looking to migrate.') %>' />
   <meta name='keywords'
       content='<%= yield_meta_tag(:keywords, 'student visas,migrant accomodation,settlement help') %>' />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= favicon_link_tag 'favicon.png', rel: 'shortcut icon', type: 'image/png' %>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <%= javascript_include_tag 'application' %>
@@ -33,6 +34,10 @@
           <%= link_to(root_path, class: 'navLeft') do %>
             <%= image_tag('logo.png', title: 'simplesettler', alt: 'simplesettler') %>
           <% end %>
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
           <div class="navRight">
             <ul>
             <li><%= link_to t('site.nav.how_it_works'), "#howItWorks", class: "" %></li>
@@ -57,7 +62,7 @@
 
   <div class="footer-section">
       <div class="row">
-        <div class="col-xs-12 col-sm-4">
+        <div class="col-xs-12 col-lg-4">
           <ul>
             <li><h3><%= t('site.footer.company.title') %></h3></li>
             <li><li><%= link_to t('site.footer.company.home'), root_path %></li></li>
@@ -65,7 +70,7 @@
             <li><%= t('site.footer.company.partner') %></li>
           </ul>
         </div>
-        <div class="col-xs-12 col-sm-4">
+        <div class="col-xs-12 col-lg-4">
           <ul>
             <li><h3><%= t('site.footer.support.title') %></h3></li>
             <li><%= link_to t('site.footer.support.tos'), tos_path %></li>
@@ -73,22 +78,25 @@
             <li>hello@simplesettler.com</li>
           </ul>
         </div>
-        <div class="col-xs-12 col-sm-4">
+        <div class="col-xs-12 col-lg-4">
           <ul>
             <li><h3><%= t('site.footer.subscribe.label') %></h3></li>
-            <li><%= text_field :search, nil, class: 'enterEmail', :placeholder => t('site.footer.subscribe.placeholder') %>
+            <li class="subscribe">
+              <%= text_field :search, nil, class: 'enterEmail', :placeholder => t('site.footer.subscribe.placeholder') %>
               <%= button_tag(type: 'submit', class: "submitEmail") do %>
                 <i class="fa fa-paper-plane"></i>
               <% end %>
             </li>
-            <li><h3><%= t('site.footer.subscribe.follow') %></h3></li>
-            <li>
-              <%= link_to("https://www.facebook.com/simplesettler", target: '_blank') do %>
-                <i class="fa fa-facebook-square" aria-hidden="true"></i>
-              <% end %>
-              <%= link_to("https://twitter.com/simplesettler", target: '_blank') do %>
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-              <% end %>
+            <li class="social-footer">
+              <h3><%= t('site.footer.subscribe.follow') %></h3>
+              <div class="social-icons">
+                <%= link_to("https://www.facebook.com/simplesettler", target: '_blank') do %>
+                  <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                <% end %>
+                <%= link_to("https://twitter.com/simplesettler", target: '_blank') do %>
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                <% end %>
+              </div>
             </li>
           </ul>
         </div>

@@ -56,6 +56,10 @@ v1.visa_requirements << r2
 v1.visa_requirements << r3
 v1.visa_requirements << r4
 
+
+Package.destroy_all
+Package.create :name=>"Consultation", :description=>"Default charge for consultation", :price=>14.99, :id=>1
+
 Helpful.destroy_all
 
 h1 = Helpful.create :helped => true

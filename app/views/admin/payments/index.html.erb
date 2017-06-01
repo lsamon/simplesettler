@@ -1,14 +1,11 @@
-<% breadcrumb :admin_payment, @payments, style: :bootstrap %>
+<% breadcrumb :admin_payments, style: :bootstrap %>
 <div class="articles">
   <h2><%= @payments.model_name %></h2>
-  <div class="row">
-    <div class="col-sm-12">
-    </div>
-  </div>
+
   <table class="table">
     <thead>
     <tr>
-      <%= sort_header :name, 'Name' %>
+      <th>Name</th>
       <th>Email</th>
       <th>Amount paid</th>
       <th>Created at</th>

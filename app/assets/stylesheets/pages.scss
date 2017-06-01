@@ -39,14 +39,20 @@
     }
 }
 
-.row.header {
-  margin: 0;
-}
-
 .banner {
+  padding: 0;
+  height:500px;
   img {
     width: 100%;
     height: 100%;
+    filter: brightness(50%);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
 
   .content {
@@ -57,19 +63,13 @@
     text-align: center;
     color: #fff;
     top: 40%;
-  }
-
-  .col-sm-12 {
-    padding: 0;
-  }
-
-  h1 {
-    letter-spacing: 4px;
-    margin-bottom: 15px;
-  }
-
-  h2 {
-    margin-bottom: 15px;
+    h1 {
+      letter-spacing: 4px;
+      margin-bottom: 15px;
+    }
+    h2 {
+      margin-bottom: 15px;
+    }
   }
   .ausFlag {
     display: inline-block;
@@ -132,44 +132,25 @@
 #search-form { margin-bottom: 20px; }
 
 .recommendedBy {
+  img {
+    height: 120px;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 310px;
+    display: inline-block;
+    filter: opacity(0.3) grayscale(100%);
+    transition: 0.3s;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  img:hover {
+      filter: opacity(1) grayscale(0%);
+  }
   text-align: center;
   .col-lg-4:first-child, .col-xs-12:first-child {
     margin-top: 25px;
   }
-}
-.logos {
-    height: 120px;
-    margin-bottom: 20px;
-    width: 300px;
-    max-width: 25%;
-    display: inline-block;
-    filter: opacity(0.3) grayscale(100%);
-    transition: 0.3s;
-}
-
-.logos.one {
-    background: image-url('i-logo1.jpg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.logos.two {
-    background: image-url('i-logo2.jpg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.logos.three {
-    background: image-url('i-logo3.jpg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.logos:hover {
-    filter: opacity(1) grayscale(0%);
 }
 
 .explore {
@@ -190,25 +171,25 @@
 
 .cities {
   margin-bottom: 20px;
+  .col-sm-12 {
+    padding: 5px;
+  }
   .row {
-    margin-left: 0;
     margin-left: 0;
     .col-md-6, .col-lg-4 {
         text-align: center;
+        height: 250px;
         a {
-            font-size: 18px;
             color: white;
             text-decoration: none;
             padding: 10px 0;
         }
-        span {
+        h2 {
             display: block;
             position: absolute;
-            left: 40%;
+            width: 90%;
             bottom: 0;
-            background: rgba(60,60,60,0.4);
-            border-radius: 4px;
-            padding: 6px;
+            padding: 5px;
         }
         img {
             display: block;

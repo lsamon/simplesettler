@@ -32,30 +32,50 @@ class DashboardController < ApplicationController
     # user_detail = UserDetail.update_attributes(user_params)
     # .slice(:f_name,:l_name,:dob,:currently_in_aus,:country_of_passport,:passport_expiry))
     current_user.user_detail.update_attributes(user_params)
-    redirect_to "/dashboard/get_additional_details", status: 301
+    redirect_to "/dashboard/select_package", status: 301
   end
 
-
-  def get_additional_details
-    # @step_partial_file = "get_additional_details"
-    @visa_types = VisaType.all.sort_by(&:name)
+  def select_package
+    @packages = Package.where({status: 1}).where.not(id: 1)
     @current_step=3
-    render "dashboard/_get_additional_details"
   end
 
 
-  def post_additional_details
+  def post_select_package
+    if (params[:package_id].nil?)
+      flash[:warning]="No package selected"
+      return redirect_to request.referer, status:300
+      ap params
+    end
+    ap 'here'
+    session[:selected_package]= params[:package_id].to_i
 
-    user_params = params.require(:user_detail).permit(:visa_status,:is_currently_in_desired_country,:done_ielts,:visa_expiry_date)
-    appointment_params = params.require(:appointments).permit(:appointment_date,:require_translator, :language)
+    redirect_to "/payments/new"
+  end
 
-    current_user.user_detail.update_attributes(user_params)
+  def request_consultation
+    @visa_types = VisaType.all.sort_by(&:name)
+    @package_detail = Package.find(1)
+    session.delete(:selected_package)
+  end
 
-    user_appointment = current_user.appointments.last
-    user_appointment.nil? ? current_user.appointments.create(appointment_params) : current_user.appointments.last.update_attributes(appointment_params)
+  def post_consulatation_request
+    user_params = params.require(:user_detail).permit(:visa_status,:visa_help_type, :is_currently_in_desired_country,:done_ielts,:visa_expiry_date)
+    appointment_params = params.require(:appointment).permit(:appointment_date,:require_translator, :language)
+    if current_user.user_detail.nil?
+      current_user.create_user_detail(user_params)
+    else
+      current_user.user_detail.update_attributes(user_params)
+    end
+
+    #default package is consultation package
+    session[:selected_package]= 1
+
+    user_appointment = current_user.appointment
+    user_appointment.nil? ? current_user.create_appointment(appointment_params) : current_user.appointment.update_attributes(appointment_params)
     current_user.save!
     redirect_to "/payments/new"
-    #appointment details in appointment model
+
   end
 
 

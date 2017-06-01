@@ -61,10 +61,34 @@ crumb :admin_visa_type do |visa|
   parent :admin_visa_types
 end
 
-crumb :admin_payment do |payment|
-  link "Payment lists"
+
+crumb :admin_visa_details do |visa|
+  link "Visa type details", admin_visa_type_path(visa)
+  parent :admin_visa_types
 end
 
+crumb :admin_visa_requirement do |visa_requirement, visa_type|
+  link visa_requirement.new_record? ? "New requirement" : "Edit requirement"
+  parent :admin_visa_details, visa_type
+end
+
+crumb :admin_payments do |payment|
+  link "Payment lists", admin_payments_path
+end
+
+crumb :admin_payment_show do |payment|
+  link "Details"
+  parent :admin_payments
+end
+
+crumb :admin_packages do
+  link "Packages", admin_packages_path
+end
+
+crumb :admin_package do |package|
+  link package.new_record? ? "New" : "Edit"
+  parent :admin_packages
+end
 
 # crumb :project_issues do |project|
 #   link "Issues", project_issues_path(project)

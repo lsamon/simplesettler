@@ -1,16 +1,23 @@
 <script type="text/javascript">
   $(document).ready(function () {
     $(".datepicker").datepicker({
+      minDate: +1,
       buttonImage: "images/calendar.gif"
     });
   });
 </script>
-<%= simple_form_for(current_user.user_detail, url: dashboard_post_additional_details_path, method: :post) do |f| %>
+<%= simple_form_for(current_user.user_detail, url: dashboard_post_consulatation_request_path, method: :post) do |f| %>
     <fieldset>
-      <h2>Visa Details</h2>
+      <h2>Request a consultation</h2>
     <div class="form-group">
       <%= f.label :visa_status, label: "What visa are you currently on?" %>
       <%= f.select :visa_status, options_from_collection_for_select(@visa_types, "id", "name", f.object.visa_status),{}, {class: "form-control"}%>
+
+    </div>
+
+     <div class="form-group">
+      <%= f.label :visa_help_type, label: "What visa are you seeking?" %>
+      <%= f.select :visa_help_type, options_from_collection_for_select(@visa_types, "id", "name", f.object.visa_status),{}, {class: "form-control"}%>
 
     </div>
 
@@ -40,7 +47,7 @@
       <h2>Appointment Details</h2>
 
 
-      <%= fields_for :appointments, current_user.appointments.last do |appointment| %>
+      <%= fields_for :appointment, current_user.appointment do |appointment| %>
 
 
           <div class="form-group">
@@ -74,7 +81,7 @@
           turn up to your consultation, we will refund your 100% amount. If you do not show up, we will keep this amount.</p>
       </div>
       <div class="col-md-12 text-center">
-        <input type="submit" class="btn btn-primary btn-custom" value = "PAY $14.99">
+        <input type="submit" class="btn btn-primary btn-custom" value = "PAY <%= number_to_currency @package_detail.price %>">
       </div>
 
     </div>

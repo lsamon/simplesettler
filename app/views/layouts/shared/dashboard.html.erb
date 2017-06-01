@@ -12,6 +12,7 @@
         content='<%= yield_meta_tag(:description, 'SimpleSettler, one stop hub for your people looking to migrate.') %>' />
   <meta name='keywords'
         content='<%= yield_meta_tag(:keywords, 'student visas,migrant accomodation,settlement help') %>' />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= favicon_link_tag 'favicon.png', rel: 'shortcut icon', type: 'image/png' %>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <%= javascript_include_tag 'application' %>
@@ -74,19 +75,20 @@
       <div class="menu-list">
 
         <ul id="menu-content" class="menu-content collapse out">
-          <li class="active">
-            <a href="#">
+          <li class='<%= ["select_visa_type", "index", "get_applicant_details","select_package"].include?(controller.action_name) ? "active": "" %>'>
+            <%= link_to(dashboard_path) do %>
               <i class="fa fa-dashboard fa-5x"></i>
               <div class="menu-head-title"><span class="menu-head-title">Visa Dashboard</span></div>
-            </a>
+            <% end %>
           </li>
 
-          <li>
-            <a href="#">
+          <li class="<%= controller.action_name=="request_consultation" ? "active": "" %>">
+            <%= link_to(dashboard_request_consultation_path) do %>
               <i class="fa fa-users fa-5x" aria-hidden="true"></i>
-              <div class="menu-head-title"><span>Request a Consultatior</span></div>
-            </a>
+              <div class="menu-head-title"><span>Request a Consultation</span></div>
+            <% end %>
           </li>
+
 
           <li>
             <a href="#">
@@ -127,6 +129,7 @@
 
   </div>
 
+  <!--
   <div class="col-md-2 left-sub-menu">
     <ul class="sub-menu">
       <a>
@@ -136,20 +139,33 @@
         <li>HOW IT WORKS</li>
         <span class="arrow"></span></a>
     </ul>
+  </div>-->
 
-
-  </div>
   <div class="col-md-8">
-    <%  if controller_name=="dashboard" && controller.action_name!="index"  %>
+    <%  if controller_name=="dashboard" && (controller.action_name!="index" && controller.action_name!="request_consultation")  %>
+        <div class="row">
     <ul id="progressbar">
       <li class="<%= (defined?(@current_step)  && @current_step >=1) ? 'active': '' %>">Requirements</li>
       <li class="<%= (defined?(@current_step)  && @current_step >=2) ? 'active': '' %>">Applicant Details</li>
       <li class="<%= (defined?(@current_step)  && @current_step >=3) ? 'active': '' %>">Diy + Agent Review</li>
       <li class="<%= (defined?(@current_step)  && @current_step >=4) ? 'active': '' %>">Submit</li>
     </ul>
+        </div>
     <% end %>
 
+    <div class="row">
+
+      <% flash.each do |name, message| %>
+          <div class="alert alert-<%= name %>" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only"><%= name.to_s.capitalize %>:</span>
+            <%= message %>
+          </div>
+          <% end %>
+    </div>
+    <div class="row">
     <%= yield %>
+    </div>
   </div>
 </div>
 
@@ -176,7 +192,8 @@
       <div class="col-xs-12 col-sm-4">
         <ul>
           <li><h3><%= t('site.footer.subscribe.label') %></h3></li>
-          <li><%= text_field :search, nil, class: 'enterEmail', :placeholder => t('site.footer.subscribe.placeholder') %>
+          <li class="subscribe">
+            <%= text_field :search, nil, class: 'enterEmail', :placeholder => t('site.footer.subscribe.placeholder') %>
             <%= button_tag(type: 'submit', class: "submitEmail") do %>
               <i class="fa fa-paper-plane"></i>
             <% end %>

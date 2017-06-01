@@ -1,0 +1,38 @@
+<script>
+  $(function(){
+    $(".package-btn").click(function(e){
+      e.preventDefault();
+      $("#package_id").attr('value', $(this).attr("id"));
+      setTimeout(function(){
+        $("#select_package_form").submit();
+      }, 100);
+
+
+    })
+  });
+</script>
+
+<%= form_tag(dashboard_post_select_package_path, id: "select_package_form", method: :post) do |f| %>
+    <fieldset>
+      <h2>Select Package</h2>
+      <% @packages.each do |package| %>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h1 class="panel-title package-name"><strong><%= package.name %></strong></h1>
+              <span class="package-price"><%= number_to_currency(package.price) %></span>
+            </div>
+            <div class="panel-body" id="packages-list">
+              <div class="row custom-margin-left">
+              <%= raw(package.description) %>
+              </div>
+
+              <div class="row text-center">
+                <%= link_to "PAY", "javascript:void(0)", :class => "btn btn-primary btn-lg btn-custom package-btn", :id=>package.id %>
+              </div>
+            </div>
+          </div>
+
+      <% end %>
+      <%= hidden_field_tag("package_id","") %>
+    </fieldset>
+<% end %>

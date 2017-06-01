@@ -21,24 +21,4 @@ $(document).ready(function(){
     })
 
 
-    function ajax_visa_process(data){
-        $.ajax({
-            url: "help_steps",
-            type: "POST",
-            data: data,
-            dataType: JSON,
-            success: function(response){
-                next_view(response.step+1);
-
-            },
-            error: function (response) {
-
-            }
-        });
-    }
 });
-
-
-function next_view(step){
-
-}
