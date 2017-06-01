@@ -18,6 +18,6 @@
 //= require content/pages
 //= require content/cities
 //= require jquery.inputmask.bundle.js
-//= require payments
 //= require_tree .
 //= stub "payments.js"
+//= stub "admin/admin.js"

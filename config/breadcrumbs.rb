@@ -90,6 +90,15 @@ crumb :admin_package do |package|
   parent :admin_packages
 end
 
+crumb :admin_faqs do
+  link "Faqs", admin_faqs_path
+end
+
+crumb :admin_faq do |faq|
+  link faq.new_record? ? "New" : "Edit"
+  parent :admin_faqs
+end
+
 # crumb :project_issues do |project|
 #   link "Issues", project_issues_path(project)
 #   parent :project, project

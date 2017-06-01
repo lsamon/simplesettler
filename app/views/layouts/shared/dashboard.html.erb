@@ -12,9 +12,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name='description'
-        content='<%= yield_meta_tag(:description, 'SimpleSettler, one stop hub for your people looking to migrate.') %>' />
+        content='<%= yield_meta_tag(:description, 'SimpleSettler, one stop hub for your people looking to migrate.') %>'/>
   <meta name='keywords'
-        content='<%= yield_meta_tag(:keywords, 'student visas,migrant accomodation,settlement help') %>' />
+        content='<%= yield_meta_tag(:keywords, 'student visas,migrant accomodation,settlement help') %>'/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= favicon_link_tag 'favicon.png', rel: 'shortcut icon', type: 'image/png' %>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -30,19 +30,19 @@
 </head>
 
 
-
 <body class="dashboard">
 <nav class="navbar navbar-ss navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-content" aria-expanded="false" aria-controls="navbar">
+        <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">-->
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#">
-        <%= image_tag('dashboard-logo.jpeg', class:'dashboard-logo', title: 'simplesettler', alt: 'simplesettler') %>
+        <%= image_tag('dashboard-logo.jpeg', class: 'dashboard-logo', title: 'simplesettler', alt: 'simplesettler') %>
       </a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -52,45 +52,44 @@
       </div>
 
 
-        <ul class="nav navbar-right ">
+      <ul class="nav navbar-right ">
 
-          <li class='visible-xs <%= ["select_visa_type", "index", "get_applicant_details","select_package"].include?(controller.action_name) ? "active": "" %>'>
-            <%= link_to(dashboard_path) do %>
-                <div class="menu-head-title"><span class="menu-head-title">Visa Dashboard</span></div>
-            <% end %>
-          </li>
-          <li class="visible-xs <%= controller.action_name=="request_consultation" ? "active": "" %>">
-            <%= link_to(dashboard_request_consultation_path) do %>
-                <div class="menu-head-title"><span>Request a Consultation</span></div>
-            <% end %>
-            </li>
-          <li class="visible-xs">
-            <%= link_to(dashboard_request_consultation_path) do %>
-                <div class="menu-head-title"><span>FAQ</span></div>
+        <li class='visible-xs <%= ["select_visa_type", "index", "get_applicant_details", "select_package"].include?(controller.action_name) ? "active" : "" %>'>
+          <%= link_to(dashboard_path) do %>
+              <div class="menu-head-title"><span class="menu-head-title">Visa Dashboard</span></div>
+          <% end %>
+        </li>
+        <li class="visible-xs <%= controller.action_name=="request_consultation" ? "active" : "" %>">
+          <%= link_to(dashboard_request_consultation_path) do %>
+              <div class="menu-head-title"><span>Request a Consultation</span></div>
+          <% end %>
+        </li>
+        <li class="visible-xs">
+          <%= link_to(dashboard_request_consultation_path) do %>
+              <div class="menu-head-title"><span>FAQ</span></div>
 
-            <% end %></li>
-          <li class="visible-xs">
-            <%= link_to(dashboard_request_consultation_path) do %>
-                <div class="menu-head-title"><span>Call AU Hotline</span></div>
+          <% end %></li>
+        <li class="visible-xs">
+          <%= link_to(dashboard_request_consultation_path) do %>
+              <div class="menu-head-title"><span>Call AU Hotline</span></div>
 
-            <% end %></li>
+          <% end %></li>
+        </li>
 
         <li class="dropdown">
-
-
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          <a href="#" class="hidden-xs dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
             <div class="profile menu-head-title">
               <span>
-            <%= image_tag('default.png', class: ' hidden-xs img-circle profile-image',title: 'simplesettler', alt: 'simplesettler') %>
+            <%= image_tag('default.png', class: ' hidden-xs img-circle profile-image', title: 'simplesettler', alt: 'simplesettler') %>
               </span>
               <span class="pp-name">
                   <%= current_user.user_detail.full_name %>
                 </span>
-
             </div>
-          <ul class="dropdown-menu">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-left hidden-xs">
 
-            <li><%= link_to "#{t('site.nav.logout')} #{ current_user.username }", destroy_user_session_path, :method => 'delete', class: "logoutButton " %>
+            <li><%= link_to "Logout", destroy_user_session_path, :method => 'delete', class: "logoutButton " %>
             </li>
             <li><a href="#">Profile</a></li>
           </ul>
@@ -100,149 +99,120 @@
   </div>
 </nav>
 
-
-
-
-
-
-
-
 <div class="container-fluid dashboard-content">
-<div class="row">
-  <div class="col-md-1 no-padding">
+  <div class="row">
+    <div class="col-md-1 no-padding">
 
-    <div class="nav-side-menu">
-      <!--<div class="brand">Brand Logo</div>-->
-      <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-
-      <div class="menu-list">
-
-        <ul id="menu-content" class="menu-content collapse out">
-
-          <li class='<%= ["select_visa_type", "index", "get_applicant_details","select_package"].include?(controller.action_name) ? "active": "" %>'>
-            <%= link_to(dashboard_path) do %>
-              <i class="fa fa-dashboard fa-3x"></i>
-              <div class="menu-head-title"><span class="menu-head-title">Visa Dashboard</span></div>
-            <% end %>
-          </li>
-
-          <li class="<%= controller.action_name=="request_consultation" ? "active": "" %>">
-            <%= link_to(dashboard_request_consultation_path) do %>
-              <i class="fa fa-users fa-3x" aria-hidden="true"></i>
-              <div class="menu-head-title"><span>Request a Consultation</span></div>
-            <% end %>
-          </li>
+      <div class="nav-side-menu">
+        <!--<div class="brand">Brand Logo</div>-->
 
 
-          <li>
-            <a href="#">
-              <i class="fa fa-question-circle-o fa-3x" aria-hidden="true"></i>
-              <div class="menu-head-title"><span>FAQ</span></div>
+        <div class="menu-list">
+          <ul id="menu-content" class="menu-content collapse out">
+            <li class='<%= ["select_visa_type", "index", "get_applicant_details", "select_package"].include?(controller.action_name) ? "active" : "" %>'>
+              <%= link_to(dashboard_path) do %>
+                  <i class="fa fa-dashboard fa-3x"></i>
+                  <div class="menu-head-title"><span class="menu-head-title">Visa Dashboard</span></div>
+              <% end %>
+            </li>
 
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              <i class="fa fa-volume-control-phone fa-3x" aria-hidden="true"></i>
-              <div class="menu-head-title"><span>Call AU Hotline</span></div>
-
-            </a>
-          </li>
-
-          <!-- <li data-toggle="collapse" data-target="#service" class="collapsed">
-             <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
-           </li>
-           <ul class="sub-menu collapse" id="service">
-             <li>New Service 1</li>
-             <li>New Service 2</li>
-             <li>New Service 3</li>
-           </ul>
+            <li class="<%= controller.action_name=="request_consultation" ? "active" : "" %>">
+              <%= link_to(dashboard_request_consultation_path) do %>
+                  <i class="fa fa-users fa-3x" aria-hidden="true"></i>
+                  <div class="menu-head-title"><span>Request a Consultation</span></div>
+              <% end %>
+            </li>
+            <li class="<%= controller_name=="fsaqs" ? "active" : "" %>">
+              <a href="#">
+                <%= link_to(faqs_path) do %>
+                    <i class="fa fa-question-circle-o fa-3x" aria-hidden="true"></i>
+                    <div class="menu-head-title"><span>FAQ</span></div>
+                    <% end %>
 
 
+              </a>
+            </li>
 
-           <li>
-             <a href="#">
-               <i class="fa fa-user fa-lg"></i> Profile
-             </a>
-           </li>-->
+            <li>
+              <a href="#">
+                <i class="fa fa-volume-control-phone fa-3x" aria-hidden="true"></i>
+                <div class="menu-head-title"><span>Call AU Hotline</span></div>
 
-        </ul>
+              </a>
+            </li>
+
+            <li class="visible-xs">
+              <%= link_to(destroy_user_session_path, :method => 'delete') do %>
+                  <i class="fa fa-sign-out fa-3x" aria-hidden="true"></i>
+                  <div class="menu-head-title"><span>Logout</span></div>
+              <% end %>
+            </li>
+          </ul>
+        </div>
       </div>
+
     </div>
 
-  </div>
+    <!--
+    <div class="col-md-2 left-sub-menu">
+      <ul class="sub-menu">
+        <a>
+          <li class="active">SELECT VISA</li>
+          <span class="arrow"></span></a>
+        <a>
+          <li>HOW IT WORKS</li>
+          <span class="arrow"></span></a>
+      </ul>
+    </div>-->
 
-  <!--
-  <div class="col-md-2 left-sub-menu">
-    <ul class="sub-menu">
-      <a>
-        <li class="active">SELECT VISA</li>
-        <span class="arrow"></span></a>
-      <a>
-        <li>HOW IT WORKS</li>
-        <span class="arrow"></span></a>
-    </ul>
-  </div>-->
-
-  <div class="col-md-11 content-section">
-    <div class="row">
+    <div class="col-md-11 content-section">
+      <div class="row">
 
 
-  <div class="col-md-8 col-md-offset-2">
-    <%  if controller_name=="dashboard" && (controller.action_name!="index" && controller.action_name!="request_consultation")  %>
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <h3><%= defined?(@visa_type) ? @visa_type[:name] : @visa_help_type[:name]%></h3>
+        <div class="col-md-8 col-md-offset-2">
+          <% if controller_name=="dashboard" && (controller.action_name!="index" && controller.action_name!="request_consultation") %>
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <h3><%= defined?(@visa_type) ? @visa_type[:name] : @visa_help_type[:name] %></h3>
+                </div>
+
+                <div class="col-md-12">
+                  <ul id="progressbar">
+                    <li class="<%= (defined?(@current_step) && @current_step >=1) ? 'active' : '' %>">Requirements</li>
+                    <li class="<%= (defined?(@current_step) && @current_step >=2) ? 'active' : '' %>">Applicant
+                      Details
+                    </li>
+                    <li class="<%= (defined?(@current_step) && @current_step >=3) ? 'active' : '' %>">Diy + Agent
+                      Review
+                    </li>
+                    <li class="<%= (defined?(@current_step) && @current_step >=4) ? 'active' : '' %>">Submit</li>
+                  </ul>
+                </div>
+              </div>
+
+          <% end %>
+
+          <div class="row">
+
+            <% flash.each do |name, message| %>
+                <div class="alert alert-<%= name %>" role="alert">
+                  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                  <span class="sr-only"><%= name.to_s.capitalize %>:</span>
+                  <%= message %>
+                </div>
+            <% end %>
           </div>
-
-          <div class="col-md-12">
-            <ul id="progressbar">
-              <li class="<%= (defined?(@current_step)  && @current_step >=1) ? 'active': '' %>">Requirements</li>
-              <li class="<%= (defined?(@current_step)  && @current_step >=2) ? 'active': '' %>">Applicant Details</li>
-              <li class="<%= (defined?(@current_step)  && @current_step >=3) ? 'active': '' %>">Diy + Agent Review</li>
-              <li class="<%= (defined?(@current_step)  && @current_step >=4) ? 'active': '' %>">Submit</li>
-            </ul>
+          <div class="row">
+            <%= yield %>
           </div>
         </div>
 
-    <% end %>
+      </div>
 
-    <div class="row">
-
-      <% flash.each do |name, message| %>
-          <div class="alert alert-<%= name %>" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only"><%= name.to_s.capitalize %>:</span>
-            <%= message %>
-          </div>
-          <% end %>
-    </div>
-    <div class="row">
-    <%= yield %>
     </div>
   </div>
-
-    </div>
-
-  </div>
-</div>
 
 </div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script>
-  $(document).ready(function() {
-
-      $(".dropdown-toggle").dropdown();
-
-    /*
-    $('#hamburger').click(function() {
-      $('.navRight ul').toggleClass('responsiveNavShow');
-    });
-    $('.navRight ul li a').click(function() {
-      $('.navRight ul').toggleClass('responsiveNavShow');
-    });
-  */});
-</script>
 </body>
 </html>

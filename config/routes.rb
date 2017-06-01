@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    resources :packages
-  end
+
   mount Ckeditor::Engine => '/ckeditor'
   namespace :admin do
     resources :users
@@ -10,6 +8,8 @@ Rails.application.routes.draw do
     resources :categories
     resources :cities
     resources :banners
+    resources :packages
+    resources :faqs
     resources :visa_types do
       resources :visa_requirements
     end
@@ -20,9 +20,6 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks", sessions: 'users/sessions' }
   post '/articles/:id/:response' => 'helpfuls#create', as: :article_feedback
-
-  post 'help_steps' => 'helpfuls#ajax_steps'
-
 
   root :to => 'pages#index'
   get '/about' => 'pages#how_it_works'
@@ -49,6 +46,7 @@ Rails.application.routes.draw do
   end
 
   resources :payments, only: [:new, :create]
+  resources :faqs, only: [:index]
   get '/payments/success' => 'payments#payment_success'
   get '/payments/error' => 'payments#payment_error'
 

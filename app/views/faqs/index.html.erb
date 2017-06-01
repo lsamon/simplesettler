@@ -1,0 +1,31 @@
+<script>
+  $(function(){
+
+    $(".ss-panel a").click(function(){
+      $(this).parent().toggleClass('dropup');
+
+    });
+
+  });
+</script>
+<h2 class="ss-color">FAQ</h2>
+    <% @faqs.each do |faq| %>
+        <div class="ss-panel">
+          <h4 class="panel-title">
+            <span class="pull-right caret"></span>
+            <a role="button" data-toggle="collapse" href="#<%= "faq-"+faq.id.to_s %>" aria-expanded="false">
+              <%= faq.title %>
+
+            </a>
+          </h4>
+
+            <div id="<%= "faq-"+faq.id.to_s %>" class="collapse">
+              <div class="faq-content">
+            <%= raw(faq.content) %>
+              </div>
+
+
+          </div>
+        </div>
+
+        <% end %>

@@ -1,0 +1,9 @@
+<%= content_tag_for(:tr, faq) do %>
+
+    <td><%= faq.title %></td>
+    <td><%= raw(faq.content) %></td>
+    <td><%= l faq.created_at %></td>
+    <td><%= link_to(raw("<i class='fa fa-trash'></i>"), admin_faq_path(faq),method: :delete, data: { confirm: 'Are you sure?' }) %></td>
+    <td><%= link_to(raw("<i class='fa fa-pencil-square-o'></i>"), edit_admin_faq_path(faq)) %></td>
+
+<% end %>
