@@ -150,9 +150,10 @@ div.select-radio-styling label:after {
   font-size: 12px;
   font-weight: 200;
   background-color: #2FB0A4;
-  //position: fixed;
-  //top: 0px;
+  position: fixed;
+  top: 84px;
   //width: 300px;
+  z-index: 1;
   height: 100%;
   color: #fff;
 }
@@ -564,4 +565,50 @@ background: #F7F5F6;
 .content-section{
   background: $backgroundColor;
   z-index: 0;
+}
+
+.navbar-ss{
+  //background-color: $logoColor;
+  //border-color: $backgroundColor;
+  box-shadow: 0 2px 6px -2px rgba(0,0,0,.6);
+  border:none;
+}
+
+.profile-image{
+  width:64px;
+  height:64px;
+}
+
+.dashboard{
+  padding-top: 70px;
+}
+
+.pp-name{
+  color: $logoColor;
+}
+
+.ss-color{
+  color: $logoColor;
+}
+
+.dashboard-site-name{
+  font-size: 18px;
+  font-weight: bold;
+  padding: 2%;
+  background: #fff;
+
+}
+
+.dashboard-right{
+  background: $backgroundColor;
+}
+
+.dashboard-header{
+  padding:20px 0;
+  background: $logoColor;
+}
+
+.dashboard-logo{
+  width:64px;
+
 }

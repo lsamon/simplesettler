@@ -6,9 +6,9 @@
     });
   });
 </script>
+<h2 class="ss-color text-center">Request a consultation</h2>
 <%= simple_form_for(current_user.user_detail, url: dashboard_post_consulatation_request_path, method: :post) do |f| %>
-    <fieldset>
-      <h2>Request a consultation</h2>
+      <h2>Visa Details</h2>
     <div class="form-group">
       <%= f.label :visa_status, label: "What visa are you currently on?" %>
       <%= f.select :visa_status, options_from_collection_for_select(@visa_types, "id", "name", f.object.visa_status),{}, {class: "form-control"}%>
@@ -41,9 +41,7 @@
         </div>
       </div>
 
-      </fieldset>
 
-    <fieldset>
       <h2>Appointment Details</h2>
 
 
@@ -70,7 +68,6 @@
       </div>
 
       <% end %>
-    </fieldset>
 
     <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
 

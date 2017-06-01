@@ -8,6 +8,9 @@
         SimpleSettler
     <% end %>
   </title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name='description'
         content='<%= yield_meta_tag(:description, 'SimpleSettler, one stop hub for your people looking to migrate.') %>' />
   <meta name='keywords'
@@ -24,38 +27,64 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="dashboard">
 
 
-<div class="">
-  <div class="row header">
+<nav class="navbar navbar-default navbar-ss navbar-fixed-top">
+  <div class="container-fluid">
 
-            <div class="col-md-1 nav-left">
-              <%= link_to(root_path, id: 'dashboard-nav') do %>
-                  <%= image_tag('logo-1.png', title: 'simplesettler', alt: 'simplesettler') %>
-              <% end %>
 
-            </div>
+    <div class="col-md-1 dashboard-header no-padding">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a rel="nofollow" class="navbar-brand" href="<%= dashboard_path %>">
+          <%= image_tag('dashboard-logo.jpeg', class:'dashboard-logo', title: 'simplesettler', alt: 'simplesettler') %>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-9 dashboard-site-name">
+Simpler Settler
+    </div>
+    <div class="col-md-2 dashboard-right">
+      <div class="navbar-collapse collapse">
 
-            <div class="col-md-9 nav-center">
-              <span class="site-name">
-                Simple Settler
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <div class="profile">
+              <span>
+            <%= image_tag('default.png', class: 'img-circle profile-image',title: 'simplesettler', alt: 'simplesettler') %>
               </span>
+              <span class="pp-name">
+                  John DOe
+                </span>
 
             </div>
-            <div class="col-md-2 float-right nav-right">
-              <% if user_signed_in? %>
-                  <li><%= link_to "#{t('site.nav.logout')} #{ current_user.username }", destroy_user_session_path, :method => 'delete', class: "logoutButton " %></li>
-              <% end %>
-            </div>
-          </div>
-          <!--<%= link_to '☰', 'javascript:void(0);', class: "hamburger", :id => "hamburger", :style => "font-size: 24px;"%>-->
+
+            <ul>
+              <li class="dropdown">
+                <%= link_to "#{t('site.nav.logout')} #{ current_user.username }", destroy_user_session_path, :method => 'delete', class: "logoutButton " %>
+
+              </li>
+            </ul>
+          </li>
+
+        </ul>
 
 
-<div class="spacer"></div>
+      </div>
+    </div>
+    </div>
 
 
 
+</nav>
+
+<div class="container-fluid">
 <div class="row">
   <div class="col-md-1 no-padding">
 
@@ -66,6 +95,7 @@
       <div class="menu-list">
 
         <ul id="menu-content" class="menu-content collapse out">
+
           <li class='<%= ["select_visa_type", "index", "get_applicant_details","select_package"].include?(controller.action_name) ? "active": "" %>'>
             <%= link_to(dashboard_path) do %>
               <i class="fa fa-dashboard fa-3x"></i>
@@ -174,47 +204,6 @@
   </div>
 </div>
 
-
-
-<div class="footer-section">
-    <div class="row">
-      <div class="col-xs-12 col-sm-4">
-        <ul>
-          <li><h3><%= t('site.footer.company.title') %></h3></li>
-          <li><li><%= link_to t('site.footer.company.home'), root_path %></li></li>
-          <li><%= t('site.footer.company.about') %></li>
-          <li><%= t('site.footer.company.partner') %></li>
-        </ul>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <ul>
-          <li><h3><%= t('site.footer.support.title') %></h3></li>
-          <li><%= link_to t('site.footer.support.tos'), tos_path %></li>
-          <li><%= link_to t('site.footer.support.privacy'), privacy_path %></li>
-          <li>hello@simplesettler.com</li>
-        </ul>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <ul>
-          <li><h3><%= t('site.footer.subscribe.label') %></h3></li>
-          <li><%= text_field :search, nil, class: 'enterEmail', :placeholder => t('site.footer.subscribe.placeholder') %>
-            <%= button_tag(type: 'submit', class: "submitEmail") do %>
-              <i class="fa fa-paper-plane"></i>
-            <% end %>
-          </li>
-          <li><h3><%= t('site.footer.subscribe.follow') %></h3></li>
-          <li>
-            <%= link_to("https://www.facebook.com/simplesettler", target: '_blank') do %>
-              <i class="fa fa-facebook-square" aria-hidden="true"></i>
-            <% end %>
-            <%= link_to("https://twitter.com/simplesettler", target: '_blank') do %>
-              <i class="fa fa-twitter" aria-hidden="true"></i>
-            <% end %>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
 </div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
