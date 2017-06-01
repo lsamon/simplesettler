@@ -15,6 +15,7 @@
         content='<%= yield_meta_tag(:description, 'SimpleSettler, one stop hub for your people looking to migrate.') %>' />
   <meta name='keywords'
         content='<%= yield_meta_tag(:keywords, 'student visas,migrant accomodation,settlement help') %>' />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= favicon_link_tag 'favicon.png', rel: 'shortcut icon', type: 'image/png' %>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <%= javascript_include_tag 'application' %>
@@ -27,64 +28,86 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
+
+
+
 <body class="dashboard">
-
-
-<nav class="navbar navbar-default navbar-ss navbar-fixed-top">
+<nav class="navbar navbar-ss navbar-fixed-top">
   <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+        <%= image_tag('dashboard-logo.jpeg', class:'dashboard-logo', title: 'simplesettler', alt: 'simplesettler') %>
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
 
-
-    <div class="col-md-1 dashboard-header no-padding">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a rel="nofollow" class="navbar-brand" href="<%= dashboard_path %>">
-          <%= image_tag('dashboard-logo.jpeg', class:'dashboard-logo', title: 'simplesettler', alt: 'simplesettler') %>
-        </a>
+      <div class="nav navbar-nav navbar-left dashboard-site-name">
+        Simple Settler
       </div>
-    </div>
-    <div class="col-md-9 dashboard-site-name">
-Simpler Settler
-    </div>
-    <div class="col-md-2 dashboard-right">
-      <div class="navbar-collapse collapse">
 
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <div class="profile">
+
+        <ul class="nav navbar-right ">
+
+          <li class='visible-xs <%= ["select_visa_type", "index", "get_applicant_details","select_package"].include?(controller.action_name) ? "active": "" %>'>
+            <%= link_to(dashboard_path) do %>
+                <div class="menu-head-title"><span class="menu-head-title">Visa Dashboard</span></div>
+            <% end %>
+          </li>
+          <li class="visible-xs <%= controller.action_name=="request_consultation" ? "active": "" %>">
+            <%= link_to(dashboard_request_consultation_path) do %>
+                <div class="menu-head-title"><span>Request a Consultation</span></div>
+            <% end %>
+            </li>
+          <li class="visible-xs">
+            <%= link_to(dashboard_request_consultation_path) do %>
+                <div class="menu-head-title"><span>FAQ</span></div>
+
+            <% end %></li>
+          <li class="visible-xs">
+            <%= link_to(dashboard_request_consultation_path) do %>
+                <div class="menu-head-title"><span>Call AU Hotline</span></div>
+
+            <% end %></li>
+
+        <li class="dropdown">
+
+
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <div class="profile menu-head-title">
               <span>
-            <%= image_tag('default.png', class: 'img-circle profile-image',title: 'simplesettler', alt: 'simplesettler') %>
+            <%= image_tag('default.png', class: ' hidden-xs img-circle profile-image',title: 'simplesettler', alt: 'simplesettler') %>
               </span>
               <span class="pp-name">
-                  John DOe
+                  <%= current_user.user_detail.full_name %>
                 </span>
 
             </div>
+          <ul class="dropdown-menu">
 
-            <ul>
-              <li class="dropdown">
-                <%= link_to "#{t('site.nav.logout')} #{ current_user.username }", destroy_user_session_path, :method => 'delete', class: "logoutButton " %>
-
-              </li>
-            </ul>
-          </li>
-
-        </ul>
-
-
-      </div>
-    </div>
-    </div>
-
-
-
+            <li><%= link_to "#{t('site.nav.logout')} #{ current_user.username }", destroy_user_session_path, :method => 'delete', class: "logoutButton " %>
+            </li>
+            <li><a href="#">Profile</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
 </nav>
 
-<div class="container-fluid">
+
+
+
+
+
+
+
+<div class="container-fluid dashboard-content">
 <div class="row">
   <div class="col-md-1 no-padding">
 
@@ -199,6 +222,7 @@ Simpler Settler
     <%= yield %>
     </div>
   </div>
+
     </div>
 
   </div>
@@ -207,7 +231,11 @@ Simpler Settler
 </div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
-  $(document).ready(function() {/*
+  $(document).ready(function() {
+
+      $(".dropdown-toggle").dropdown();
+
+    /*
     $('#hamburger').click(function() {
       $('.navRight ul').toggleClass('responsiveNavShow');
     });

@@ -3,6 +3,12 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-color: rgba(0,0,0,0.5);
+
+  position: relative;
+  .content {
+    position: absolute;
+    top: 350px;
+  }
 }
 
 .bg {
@@ -11,7 +17,7 @@
 }
 
 .articles {
-  padding: 0 40px;
+  padding: 0;
   margin: 0 auto;
   .content {
     background: white;
@@ -212,19 +218,15 @@ iframe {
   }
 }
 
-//Mobile article
 @media only screen
   and (min-width: 320px)
   and (max-width: 1280px)
   and (-webkit-min-device-pixel-ratio: 2) {
-  .articles .col-sm-10 {
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
-  }
-  .facebook, .pinterest, .twitter, .google-plus {
-    height: 70px !important;
-    line-height: 80px !important;
-    font-size: 4rem !important;
+
+  .bannerArticle {
+    height: 45vh;
+    .col-sm-12 > .content {
+      top: 120px;
+    }
   }
 }

@@ -1,5 +1,5 @@
 <% articles.each do | article | %>
-  <%= content_tag(:div, article, class: 'col-sm-8 col-sm-offset-2 col-lg-4') do %>
+  <%= content_tag(:div, article, class: 'col-xs-12 col-lg-4') do %>
     <%= link_to(article.featured? ? article.external_url : city_article_path(current_city, article), title: article.title, target: article.featured? ? '_blank' : '', class: 'articleSelect') do %>
       <div class="img-container">
         <span><%= article.title %></span>

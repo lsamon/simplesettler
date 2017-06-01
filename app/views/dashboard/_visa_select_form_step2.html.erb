@@ -10,9 +10,10 @@
               <li for="help_<%= req.id %>"><%= req.description %></li>
         <% end %>
         </ul>
-        <p>Do you meet the requirement </p>
+
 
         <div class="row custom-margin-left">
+          <p>Do you meet the requirement </p>
           <%= link_to "I'm not sure", "#", class: "btn btn-primary btn-lg btn-custom" %>
           <%= link_to "Yes", "applicant_details", class: "btn btn-primary btn-lg btn-custom" %>
         </div>
