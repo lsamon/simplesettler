@@ -6,8 +6,8 @@
     });
   });
 </script>
-<h2 class="ss-color text-center">Request a consultation</h2>
-<%= simple_form_for(current_user.user_detail, url: dashboard_post_consulatation_request_path, method: :post) do |f| %>
+<h2 class="ss-color">Request a consultation</h2>
+<%= simple_form_for(current_user.user_detail, url: dashboard_consultations_path, method: :post) do |f| %>
       <h2>Visa Details</h2>
     <div class="form-group">
       <%= f.label :visa_status, label: "What visa are you currently on?" %>

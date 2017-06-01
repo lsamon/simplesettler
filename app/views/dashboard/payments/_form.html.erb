@@ -3,14 +3,21 @@
   <%= javascript_include_tag 'payments.js' %>
 
 
-<h2>Payment Details</h2>
+<h2 class="ss-color">Payment Details</h2>
 <% if @package_detail.id!=1 %>
 <p>Package name: <%= @package_detail.name %></p>
     <% else %>
 
-    <p>Payment for: <%= @package_detail.name %></p>
+    <div class="ss-panel">
+
+<div>
+    <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+      Please provide following details to pay for '<%= @package_detail.name %>'
+</div>
+
+    </div>
      <%  end %>
-<%= form_tag(payments_path, id: "payment-form", method:"post" ) do %>
+<%= form_tag(dashboard_payments_path, id: "payment-form", method:"post" ) do %>
 
     <div class="form-group">
       <span>Name</span>
