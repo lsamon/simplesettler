@@ -3,6 +3,14 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+      api_key: ENV['mailgun_api_key'],
+      domain: ENV['mailgun_domain']
+  }
+
+  config.active_job.queue_adapter = :delayed_job
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 

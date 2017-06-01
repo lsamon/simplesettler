@@ -229,4 +229,14 @@ iframe {
       top: 120px;
     }
   }
+  .articles {
+    .content {
+      p {
+        img {
+          width: 320px;
+          height: 100%;
+        }
+      }
+    }
+  }
 }
