@@ -1,7 +1,6 @@
 <form id="select_step_1">
-  <fieldset>
 
-    <div class="panel panel-default">
+    <div class="panel panel-ss">
       <div class="panel-heading">
         <h1 class="panel-title">Requirements</h1>
       </div>
@@ -11,9 +10,10 @@
               <li for="help_<%= req.id %>"><%= req.description %></li>
         <% end %>
         </ul>
-        <p>Do you meet the requirement </p>
+
 
         <div class="row custom-margin-left">
+          <p>Do you meet the requirement </p>
           <%= link_to "I'm not sure", "#", class: "btn btn-primary btn-lg btn-custom" %>
           <%= link_to "Yes", "applicant_details", class: "btn btn-primary btn-lg btn-custom" %>
         </div>
@@ -21,7 +21,5 @@
       </div>
     </div>
 
-
-  </fieldset>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
 </form>

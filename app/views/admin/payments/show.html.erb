@@ -2,7 +2,7 @@
 <div class="articles">
   <div class="row">
     <div class="col-md-12">
-      <p><strong>Customer Name:</strong> <%= @payment.user.user_detail.f_name %></p>
+      <p><strong>Customer Name:</strong> <%= @payment.user.user_detail.full_name %></p>
       <p><strong>Email address: </strong><%= @payment.user.email %></p>
       <p><strong>Package name: </strong><%= @payment.package.name %></p>
       <p><strong>Amount Paid: </strong><%= number_to_currency @payment.amount_paid %></p>

@@ -13,7 +13,6 @@
 </script>
 
 <%= form_tag(dashboard_post_select_package_path, id: "select_package_form", method: :post) do |f| %>
-    <fieldset>
       <h2>Select Package</h2>
       <% @packages.each do |package| %>
           <div class="panel panel-default">
@@ -34,5 +33,4 @@
 
       <% end %>
       <%= hidden_field_tag("package_id","") %>
-    </fieldset>
 <% end %>

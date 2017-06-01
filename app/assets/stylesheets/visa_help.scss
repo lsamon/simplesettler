@@ -90,8 +90,7 @@ div.select-radio-styling {
   line-height: 32px;
   margin: 10px 0;
   position: relative;
-  border: 2px solid #e6e5e5;
-  border-radius: 8px;
+  border: 1px solid #e6e5e5;
 }
 
 div.select-radio-styling input {
@@ -152,8 +151,9 @@ div.select-radio-styling label:after {
   font-weight: 200;
   background-color: #2FB0A4;
   //position: fixed;
-  //top: 0px;
+  //top: 84px;
   //width: 300px;
+  z-index: 1;
   height: 100%;
   color: #fff;
 }
@@ -167,13 +167,19 @@ div.select-radio-styling label:after {
 .nav-side-menu .toggle-btn {
   display: none;
 }
-.nav-side-menu ul,
+
+
 .nav-side-menu li {
   list-style: none;
   margin: 0px;
-  line-height: 35px;
-  padding:5px 0;
+  padding:20px 0;
 }
+
+
+.nav-side-menu ul{
+  margin: 0px;
+}
+
 .nav-side-menu ul :not(collapsed) .arrow:before,
 .nav-side-menu li :not(collapsed) .arrow:before {
   font-family: FontAwesome;
@@ -281,7 +287,7 @@ div.select-radio-styling label:after {
 
 .menu-head-title{
   text-align: center;
-  font-size: 17px;
+  font-size: 12px;
   font-weight: bold;
 }
 
@@ -514,4 +520,145 @@ div.select-radio-styling label:after {
 
 .success-icon{
   font-size:25px;
+}
+
+
+
+/**Dashboard redesigns*/
+
+#dashboard-nav{
+  //background: $logoColor;
+}
+
+.navigation-dashboard{
+  border:1px solid #F7F5F6;
+  box-shadow: 1px 5px 5px #888888;
+}
+
+.nav-right{
+background: #F7F5F6;
+}
+
+.nav-center{
+  background: #fff;
+}
+
+.nav-left{
+  background: $logoColor;
+}
+
+.no-padding{
+  padding-left:0px ;
+  padding-right: 0px;
+}
+
+.site-name{
+  font-size:16px;
+}
+
+.panel-ss{
+  -webkit-box-shadow: 0px 0px 3px #d8cdcd;
+  -moz-box-shadow: 0px 0px 3px #d8cdcd;
+  box-shadow: 0px 0px 3px #d8cdcd;
+}
+
+.content-section{
+  background: $backgroundColor;
+  z-index: 0;
+}
+
+.navbar-ss{
+  background-color: #fff;
+  border-color: #e7e7e7;
+  
+  .menu-head-title{
+    color: $logoColor;
+  }
+
+  .menu-head-title:hover{
+    color: #000;
+  }
+}
+
+.profile-image{
+  width:64px;
+  height:64px;
+}
+
+.dashboard{
+  padding-top: 40px;
+
+  @media (min-width: 768px) {
+    padding-top: 70px;
+  }
+
+
+  .navbar-toggle .icon-bar{
+    background: $backgroundColor;
+  }
+
+  .navbar-toggle{
+    background-color: $logoColor;
+  }
+}
+
+.pp-name{
+  color: $logoColor;
+  padding-right:20px;
+}
+
+.ss-color{
+  color: $logoColor;
+}
+
+.dashboard-site-name{
+  font-size: 18px;
+  font-weight: bold;
+  padding: 25px 25px;
+
+}
+
+.dashboard-right{
+  background: $backgroundColor;
+}
+
+.dashboard-header{
+  padding:20px 0;
+  background: $logoColor;
+}
+
+.dashboard-logo{
+
+  width: 36px;
+  @media (min-width: 768px) {
+    width:64px;
+  }
+
+
+
+}
+
+
+.row.dashboard-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+.dashboard-row > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-content{
+}
+
+.dashboard .nav > li > a {
+  background-color: rgb(238, 238, 238);
+  text-decoration: none;
+}
+
+.dashboard .nav > li > a:focus, .nav > li > a:hover {
+  background-color: rgb(238, 238, 238);
+  text-decoration: none;
 }

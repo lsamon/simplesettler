@@ -1,7 +1,6 @@
 <h1>Hi, <span class="green-text"><%= current_user.username %> </span>how can we help you?</h1>
 
 <%= form_tag("/dashboard/select_visa_type", id: "select_step_1", method: "post") do %>
-  <fieldset>
     <div class="form-group">
 
 
@@ -15,6 +14,5 @@
       <% end %>
     </div>
 
-  </fieldset>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
 <% end %>

@@ -8,6 +8,9 @@
         SimpleSettler
     <% end %>
   </title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name='description'
         content='<%= yield_meta_tag(:description, 'SimpleSettler, one stop hub for your people looking to migrate.') %>' />
   <meta name='keywords'
@@ -25,48 +28,88 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-  <div class="row header">
-      <nav>
-        <div class="nav">
-          <%= link_to(root_path, class: 'navLeft') do %>
-            <%= image_tag('logo.png', title: 'simplesettler', alt: 'simplesettler') %>
-          <% end %>
-          <div class="navRight">
-            <ul>
-            <li><%= link_to t('site.nav.how_it_works'), "#howItWorks", class: "" %></li>
-            <li><%= link_to t('site.nav.help'), '/dashboard', class: " helpMenuItem" %></li>
 
-            <% unless user_signed_in? %>
-              <li><%= link_to t('site.nav.sign_in'), new_user_session_path, class: "signInOutButton " %></li>
-              <li><%= link_to t('site.nav.sign_up'), new_user_registration_path, class: "signInOutButton "  %></li>
-            <% end %>
-            <% if user_signed_in? %>
-                <li><%= link_to "#{t('site.nav.logout')} #{ current_user.username }", destroy_user_session_path, :method => 'delete', class: "logoutButton " %></li>
-            <% end %>
-            </ul>
-          </div>
-          <%= link_to '☰', 'javascript:void(0);', class: "hamburger", :id => "hamburger", :style => "font-size: 24px;"%>
-        </div>
-      </nav>
+
+<body class="dashboard">
+<nav class="navbar navbar-ss navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+        <%= image_tag('dashboard-logo.jpeg', class:'dashboard-logo', title: 'simplesettler', alt: 'simplesettler') %>
+      </a>
     </div>
+    <div id="navbar" class="navbar-collapse collapse">
 
-<div class="logo"></div>
+      <div class="nav navbar-nav navbar-left dashboard-site-name">
+        Simple Settler
+      </div>
 
 
-<div class="banner help">
-  <div>
-    <h1>Visa help</h1>
+        <ul class="nav navbar-right ">
+
+          <li class='visible-xs <%= ["select_visa_type", "index", "get_applicant_details","select_package"].include?(controller.action_name) ? "active": "" %>'>
+            <%= link_to(dashboard_path) do %>
+                <div class="menu-head-title"><span class="menu-head-title">Visa Dashboard</span></div>
+            <% end %>
+          </li>
+          <li class="visible-xs <%= controller.action_name=="request_consultation" ? "active": "" %>">
+            <%= link_to(dashboard_request_consultation_path) do %>
+                <div class="menu-head-title"><span>Request a Consultation</span></div>
+            <% end %>
+            </li>
+          <li class="visible-xs">
+            <%= link_to(dashboard_request_consultation_path) do %>
+                <div class="menu-head-title"><span>FAQ</span></div>
+
+            <% end %></li>
+          <li class="visible-xs">
+            <%= link_to(dashboard_request_consultation_path) do %>
+                <div class="menu-head-title"><span>Call AU Hotline</span></div>
+
+            <% end %></li>
+
+        <li class="dropdown">
+
+
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <div class="profile menu-head-title">
+              <span>
+            <%= image_tag('default.png', class: ' hidden-xs img-circle profile-image',title: 'simplesettler', alt: 'simplesettler') %>
+              </span>
+              <span class="pp-name">
+                  <%= current_user.user_detail.full_name %>
+                </span>
+
+            </div>
+          <ul class="dropdown-menu">
+
+            <li><%= link_to "#{t('site.nav.logout')} #{ current_user.username }", destroy_user_session_path, :method => 'delete', class: "logoutButton " %>
+            </li>
+            <li><a href="#">Profile</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!--/.nav-collapse -->
   </div>
-</div>
-
-<div class="spacer"></div>
+</nav>
 
 
 
+
+
+
+
+
+<div class="container-fluid dashboard-content">
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-md-1 no-padding">
 
     <div class="nav-side-menu">
       <!--<div class="brand">Brand Logo</div>-->
@@ -75,16 +118,17 @@
       <div class="menu-list">
 
         <ul id="menu-content" class="menu-content collapse out">
+
           <li class='<%= ["select_visa_type", "index", "get_applicant_details","select_package"].include?(controller.action_name) ? "active": "" %>'>
             <%= link_to(dashboard_path) do %>
-              <i class="fa fa-dashboard fa-5x"></i>
+              <i class="fa fa-dashboard fa-3x"></i>
               <div class="menu-head-title"><span class="menu-head-title">Visa Dashboard</span></div>
             <% end %>
           </li>
 
           <li class="<%= controller.action_name=="request_consultation" ? "active": "" %>">
             <%= link_to(dashboard_request_consultation_path) do %>
-              <i class="fa fa-users fa-5x" aria-hidden="true"></i>
+              <i class="fa fa-users fa-3x" aria-hidden="true"></i>
               <div class="menu-head-title"><span>Request a Consultation</span></div>
             <% end %>
           </li>
@@ -92,7 +136,7 @@
 
           <li>
             <a href="#">
-              <i class="fa fa-question-circle-o fa-5x" aria-hidden="true"></i>
+              <i class="fa fa-question-circle-o fa-3x" aria-hidden="true"></i>
               <div class="menu-head-title"><span>FAQ</span></div>
 
             </a>
@@ -100,7 +144,7 @@
 
           <li>
             <a href="#">
-              <i class="fa fa-volume-control-phone fa-5x" aria-hidden="true"></i>
+              <i class="fa fa-volume-control-phone fa-3x" aria-hidden="true"></i>
               <div class="menu-head-title"><span>Call AU Hotline</span></div>
 
             </a>
@@ -141,16 +185,27 @@
     </ul>
   </div>-->
 
-  <div class="col-md-8">
+  <div class="col-md-11 content-section">
+    <div class="row">
+
+
+  <div class="col-md-8 col-md-offset-2">
     <%  if controller_name=="dashboard" && (controller.action_name!="index" && controller.action_name!="request_consultation")  %>
         <div class="row">
-    <ul id="progressbar">
-      <li class="<%= (defined?(@current_step)  && @current_step >=1) ? 'active': '' %>">Requirements</li>
-      <li class="<%= (defined?(@current_step)  && @current_step >=2) ? 'active': '' %>">Applicant Details</li>
-      <li class="<%= (defined?(@current_step)  && @current_step >=3) ? 'active': '' %>">Diy + Agent Review</li>
-      <li class="<%= (defined?(@current_step)  && @current_step >=4) ? 'active': '' %>">Submit</li>
-    </ul>
+          <div class="col-md-12 text-center">
+            <h3><%= defined?(@visa_type) ? @visa_type[:name] : @visa_help_type[:name]%></h3>
+          </div>
+
+          <div class="col-md-12">
+            <ul id="progressbar">
+              <li class="<%= (defined?(@current_step)  && @current_step >=1) ? 'active': '' %>">Requirements</li>
+              <li class="<%= (defined?(@current_step)  && @current_step >=2) ? 'active': '' %>">Applicant Details</li>
+              <li class="<%= (defined?(@current_step)  && @current_step >=3) ? 'active': '' %>">Diy + Agent Review</li>
+              <li class="<%= (defined?(@current_step)  && @current_step >=4) ? 'active': '' %>">Submit</li>
+            </ul>
+          </div>
         </div>
+
     <% end %>
 
     <div class="row">
@@ -167,60 +222,27 @@
     <%= yield %>
     </div>
   </div>
+
+    </div>
+
+  </div>
 </div>
 
-
-
-<div class="footer-section">
-    <div class="row">
-      <div class="col-xs-12 col-sm-4">
-        <ul>
-          <li><h3><%= t('site.footer.company.title') %></h3></li>
-          <li><li><%= link_to t('site.footer.company.home'), root_path %></li></li>
-          <li><%= t('site.footer.company.about') %></li>
-          <li><%= t('site.footer.company.partner') %></li>
-        </ul>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <ul>
-          <li><h3><%= t('site.footer.support.title') %></h3></li>
-          <li><%= link_to t('site.footer.support.tos'), tos_path %></li>
-          <li><%= link_to t('site.footer.support.privacy'), privacy_path %></li>
-          <li>hello@simplesettler.com</li>
-        </ul>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <ul>
-          <li><h3><%= t('site.footer.subscribe.label') %></h3></li>
-          <li class="subscribe">
-            <%= text_field :search, nil, class: 'enterEmail', :placeholder => t('site.footer.subscribe.placeholder') %>
-            <%= button_tag(type: 'submit', class: "submitEmail") do %>
-              <i class="fa fa-paper-plane"></i>
-            <% end %>
-          </li>
-          <li><h3><%= t('site.footer.subscribe.follow') %></h3></li>
-          <li>
-            <%= link_to("https://www.facebook.com/simplesettler", target: '_blank') do %>
-              <i class="fa fa-facebook-square" aria-hidden="true"></i>
-            <% end %>
-            <%= link_to("https://twitter.com/simplesettler", target: '_blank') do %>
-              <i class="fa fa-twitter" aria-hidden="true"></i>
-            <% end %>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+</div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
   $(document).ready(function() {
+
+      $(".dropdown-toggle").dropdown();
+
+    /*
     $('#hamburger').click(function() {
       $('.navRight ul').toggleClass('responsiveNavShow');
     });
     $('.navRight ul li a').click(function() {
       $('.navRight ul').toggleClass('responsiveNavShow');
     });
-  });
+  */});
 </script>
 </body>
 </html>

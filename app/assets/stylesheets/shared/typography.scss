@@ -31,9 +31,14 @@ a {
 .admin a { font-size: 1rem; }
 
 
-ol, ul {
-  margin-left: 30px;
+
+
+@media (min-width: 768px) {
+  ol, ul {
+    margin-left: 30px;
+  }
 }
+
 
 .img-container {
   margin-bottom: 10px;
