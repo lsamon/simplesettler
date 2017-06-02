@@ -189,9 +189,6 @@ color: lightgray;
     color: #fff;
   }
 
-  .banner img { height: 100%; }
-  .banner .content { top: 20%; }
-
   .navRight ul {
     visibility: hidden;
     opacity: 0;
@@ -214,10 +211,20 @@ color: lightgray;
     i { font-size: 3.5rem; }
   }
 
-    .responsiveNavShow {
-        visibility: visible !important;
-        opacity: 1 !important;
-        -webkit-transition: opacity 0.5s;
-        transition: opacity 0.5s;
+  .responsiveNavShow {
+    visibility: visible !important;
+    opacity: 1 !important;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+  }
+  .banner img { height: 100%; }
+  .banner .content { top: 20%; }
+
+  .img-effect { height: 250px; }
+  .bannerArticle, .bannerCity {
+    height: 45vh;
+    .col-sm-12 > .content {
+      top: 150px;
     }
+  }
 }
