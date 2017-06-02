@@ -69,7 +69,9 @@
 
             <li><%= link_to "Logout", destroy_user_session_path, :method => 'delete', class: "logoutButton " %>
             </li>
-            <li><a href="#">Profile</a></li>
+
+            <li><%= link_to "Profile", dashboard_profile_path %>
+            </li>
           </ul>
         </li>
       </ul>
@@ -123,6 +125,13 @@
               <%= link_to(destroy_user_session_path, :method => 'delete') do %>
                   <i class="fa fa-sign-out fa-3x" aria-hidden="true"></i>
                   <div class="menu-head-title"><span>Logout</span></div>
+              <% end %>
+            </li>
+
+            <li class="visible-xs">
+              <%= link_to(dashboard_profile_path) do %>
+                  <i class="fa fa-user fa-3x" aria-hidden="true"></i>
+                  <div class="menu-head-title"><span>Profile</span></div>
               <% end %>
             </li>
           </ul>

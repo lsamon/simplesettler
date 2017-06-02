@@ -8,7 +8,6 @@ class Dashboard::VisasController < ApplicationController
       @visa_types = VisaType.all
   end
 
-  #Visa Steps methods, we'll move to custom controller later
   def select_visa_type
 
     if current_user.user_detail.nil?

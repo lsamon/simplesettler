@@ -1,0 +1,88 @@
+<h2 class="ss-color">My Profile</h2>
+
+
+  <div class="panel panel-default">
+    <div class="panel-heading"><h3 class="panel-title">My basic Info</h3></div>
+    <div class="panel-body">
+      <p>
+
+      <label><%= t('email') %>: </label> <%=current_user.email %>
+      </p>
+      <p>
+
+      <label><%= t('username') %>: </label> <%=current_user.username %>
+      </p>
+      <p>
+
+      <label><%= t('full_name') %>: </label> <%=current_user.user_detail.full_name %>
+      </p>
+      <p>
+      <label><%= t('joined_date') %>: </label> <%= l current_user.created_at %>
+      </p>
+
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading"><h3 class="panel-title">My Visa information</h3></div>
+    <div class="panel-body">
+      <p>
+        <label><%= t('profile.country_of_passport') %>: </label> <%=country_name(current_user.user_detail.country_of_passport) %>
+      </p>
+
+      <p>
+        <label><%= t('profile.currently_in_aus') %>: </label> <%=current_user.user_detail.currently_in_aus ? "YES" : "NO" %>
+      </p>
+
+      <p>
+        <label><%= t('profile.passport_expiry') %>: </label> <%=current_user.user_detail.passport_expiry %>
+      </p>
+
+      <p>
+        <label><%= t('profile.visa_status') %>: </label> <%=current_user.user_detail.get_visa_name %>
+      </p>
+      <p>
+        <label><%= t('profile.visa_expiry_date') %>: </label> <%=current_user.user_detail.visa_expiry_date %>
+      </p>
+
+
+    </div>
+  </div>
+
+
+  <% if @package_detail %>
+  <div class="panel panel-default">
+    <div class="panel-heading"><h3 class="panel-title">Payment Information</h3></div>
+    <div class="panel-body">
+      <p>
+        <label><%= t('payment.amount_paid') %>: </label> $ <%=current_user.payment.amount_paid %>
+      </p>
+
+       <p>
+        <label><%= t('payment.package') %>: </label> <%= @package_detail.name %>
+      </p>
+       <p>
+        <label><%= t('payment.payment_date') %>: </label> <%= l current_user.payment.created_at %>
+      </p>
+    </div>
+  </div>
+      <% end %>
+
+
+
+  <% if current_user.appointment %>
+  <div class="panel panel-default">
+    <div class="panel-heading"><h3 class="panel-title">Appointment Information</h3></div>
+    <div class="panel-body">
+      <p>
+        <label><%= t('appointment_date') %>: </label> <%=current_user.appointment.appointment_date %>
+      </p>
+      <p>
+        <label><%= t('require_translator') %>: </label> <%=current_user.appointment.require_translator ? "YES" : "NO" %>
+      </p>
+      <p>
+        <label><%= t('language') %>: </label> <%=current_user.appointment.language %>
+      </p>
+    </div>
+  </div>
+      <% end %>
