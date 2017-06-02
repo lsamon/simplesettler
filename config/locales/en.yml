@@ -60,7 +60,7 @@ en:
       currently_available: Currently available in Australia
     cities:
       title: Explore your community
-      subtitle: See whats happening in your community, or find new citys to explore.
+      subtitle: See whats happening in your community, or find new cities to explore.
     expert:
       title: Not Enough? Speak to our experts.
       content: Tell us about your needs and we’ll introduce you to several experienced
@@ -76,12 +76,8 @@ en:
       live:
         title: Live
         content: Our extensive settlement information and resources can help you get settled anywhere.
-    how_it_works:
-      title: How it works
-      search: Search your city
-      connect: Get connected with services and people to help you settle smoothly
-      ask: Ask us any questions about your city and we will help you
-      share: Share success of your story and unlock rewards!
+    media:
+      featured_in: Featured in
     page_end:
       title: YOUR STRESS ENDS HERE. LET US HELP YOU.
       search: Search Your City

@@ -5,8 +5,8 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
-      api_key: ENV['mailgun_api_key'],
-      domain: ENV['mailgun_domain']
+      api_key: ENV['MAILGUN_API_KEY'],
+      domain: ENV['MAILGUN_DOMAIN']
   }
 
   config.active_job.queue_adapter = :delayed_job
