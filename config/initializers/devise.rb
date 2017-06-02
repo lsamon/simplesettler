@@ -206,6 +206,6 @@ Devise.setup do |config|
 
   config.sign_out_via = :delete
 
-  config.omniauth :facebook, ENV['facebook_app_id'], ENV['facebook_app_secret']
-  config.omniauth :google_oauth2, ENV['google_client_id'], ENV['google_client_secret'], { }
+  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET']
+  config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'], { }
 end
