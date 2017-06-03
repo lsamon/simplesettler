@@ -99,3 +99,29 @@ en:
         follow: Follow us
   more:
     get_started: Get Started
+
+
+
+  profile:
+    country_of_passport: Country of passport
+    currently_in_aus: Currently in Australia
+    passport_expiry: Passport Expiry
+    visa_expiry_date: Visa Expiry
+    country_of_passport: Country of passport
+    visa_help_type: Visa help required for
+    visa_status: Current visa status
+
+
+  email: Email
+  full_name: Full Name
+  username: Username
+  joined_date: Joined date
+  package: Package
+  appointment_date: Appointment date
+  require_translator: Require translator
+  language: Language
+
+  payment:
+    amount_paid: Amount paid
+    payment_date: payment date
+

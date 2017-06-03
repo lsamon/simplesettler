@@ -13,5 +13,13 @@ module Users
        super
      end
    end
+
+
+    def profile
+      if current_user.payment
+        @package_detail = Package.find_by(id: current_user.payment.package_id)
+      end
+      render(:layout=>'shared/dashboard')
+    end
   end
 end
