@@ -95,6 +95,9 @@ GEM
     delayed_job_active_record (4.1.2)
       activerecord (>= 3.0, < 5.2)
       delayed_job (>= 3.0, < 5)
+    delayed_job_heartbeat_plugin (0.2.0)
+      delayed_job (>= 4.1.0)
+      delayed_job_active_record (>= 4.1.0)
     devise (4.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -302,6 +305,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   country_select
   delayed_job_active_record
+  delayed_job_heartbeat_plugin
   devise
   figaro
   font-awesome-sass
