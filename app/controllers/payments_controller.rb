@@ -10,7 +10,6 @@ class PaymentsController < ApplicationController
     @current_step=4
     @package_detail = Package.find_by(id: session[:selected_package])
     if @package_detail.nil?
-      ap @params
       flash[:error]="The selected package doesn't exist"
       return redirect_to request.referer
     end
@@ -23,28 +22,19 @@ class PaymentsController < ApplicationController
       if package_detail
         begin
           stripe_response = Stripe::Charge.create({
-                                                      :amount => (package_detail.price * 100).to_i,
-                                                      :currency => "aud",
-                                                      :source => params[:token][:id], # obtained with Stripe.js
-                                                      :description => "Charge for #{current_user.email} package: #{package_detail.name}"
-                                                  }, {
-                                                      # :idempotency_key => "sFRxUw43R8kvJyjI"
-                                                  })
+            :amount => (package_detail.price * 100).to_i,
+            :currency => "aud",
+            :source => params[:token][:id], # obtained with Stripe.js
+            :description => "Charge for #{current_user.email} package: #{package_detail.name}"
+              }, {
+                    # :idempotency_key => "sFRxUw43R8kvJyjI"
+                  })
 
         rescue Stripe::CardError => e
 
           body = e.json_body
           error = body[:error]
 
-          puts "Status is: #{e.http_status}"
-          puts "Type is: #{error[:type]}"
-          puts "Charge ID is: #{error[:charge]}"
-          # The following fields are optional
-
-          puts "Code is: #{error[:code]}" if error[:code]
-          puts "Decline code is: #{error[:decline_code]}" if error[:decline_code]
-          puts "Param is: #{error[:param]}" if error[:param]
-          puts "Message is: #{error[:message]}" if error[:message]
         rescue Stripe::RateLimitError => e
           error = e.message
             # Too many requests made to the API too quickly
@@ -66,9 +56,6 @@ class PaymentsController < ApplicationController
           error = e.message
           # Something else happened, completely unrelated to Stripe
         end
-
-        ap "after stripe charge"
-
 
         if defined? stripe_response && stripe_response[:id]
           if current_user.payment.nil?
@@ -93,14 +80,6 @@ class PaymentsController < ApplicationController
       error = "Invalid request"
     end
 
-
-    ap "stripe response ---"
-    ap stripe_response
-    ap error
-
-    if error
-      ap "error aayo "
-    end
     respond_to do |format|
       if error && !error.nil?
         ap "inside error block"
