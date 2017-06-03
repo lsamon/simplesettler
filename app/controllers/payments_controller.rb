@@ -63,14 +63,11 @@ class PaymentsController < ApplicationController
           else
             current_user.payment.update_attributes({:stripe_charge_id => stripe_response[:id], :amount_paid => package_detail.price.to_f, :package_id => package_detail.id})
           end
-
           #send email
-          UserMailer.payment_success_email(current_user, package_detail).deliver_later
+          UserMailer.delay.payment_success_email(current_user, package_detail)
           # admin_email = User.get_admin.email
-          UserMailer.email_to_admin(current_user, package_detail).deliver_later
-
+          UserMailer.delay.email_to_admin(current_user, package_detail)
         else
-          puts error
         end
 
       else
