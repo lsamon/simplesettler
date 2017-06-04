@@ -12,7 +12,6 @@
     <div class="form-group">
       <%= f.label :visa_status, label: "What visa are you currently on?" %>
       <%= f.select :visa_status, options_from_collection_for_select(@visa_types, "id", "name", f.object.visa_status),{}, {class: "form-control"}%>
-
     </div>
 
      <div class="form-group">

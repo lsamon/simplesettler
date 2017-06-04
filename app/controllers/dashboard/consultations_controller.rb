@@ -18,15 +18,12 @@ class Dashboard::ConsultationsController < ApplicationController
     else
       current_user.user_detail.update_attributes(user_params)
     end
-
     #default package is consultation package
     session[:selected_package]= 1
-
     user_appointment = current_user.appointment
     user_appointment.nil? ? current_user.create_appointment(appointment_params) : current_user.appointment.update_attributes(appointment_params)
     current_user.save!
     redirect_to new_dashboard_payment_path
-
   end
 
 
