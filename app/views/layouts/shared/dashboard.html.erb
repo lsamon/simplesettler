@@ -58,7 +58,7 @@
             <%= image_tag('default.png', class: ' hidden-xs img-circle profile-image', title: 'simplesettler', alt: 'simplesettler') %>
               </span>
               <span class="pp-name">
-                  <%= current_user.user_detail.full_name %>
+                  <%= current_user.user_detail.present? ? current_user.user_detail.full_name : current_user.username %>
                 </span>
             </div>
           </a>
@@ -105,8 +105,6 @@
                     <i class="fa fa-question-circle-o fa-3x" aria-hidden="true"></i>
                     <div class="menu-head-title"><span>FAQ</span></div>
                     <% end %>
-
-
               </a>
             </li>
 
@@ -114,17 +112,14 @@
               <a href="#">
                 <i class="fa fa-volume-control-phone fa-3x" aria-hidden="true"></i>
                 <div class="menu-head-title"><span>Call AU Hotline</span></div>
-
               </a>
             </li>
-
             <li class="visible-xs">
               <%= link_to(destroy_user_session_path, :method => 'delete') do %>
                   <i class="fa fa-sign-out fa-3x" aria-hidden="true"></i>
                   <div class="menu-head-title"><span>Logout</span></div>
               <% end %>
             </li>
-
             <li class="visible-xs">
               <%= link_to(dashboard_profile_path) do %>
                   <i class="fa fa-user fa-3x" aria-hidden="true"></i>

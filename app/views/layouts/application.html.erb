@@ -36,9 +36,6 @@
           <% end %>
           <div class="navRight">
             <ul>
-            <li><%= link_to t('site.nav.how_it_works'), "#howItWorks", class: "" %></li>
-            <li><%= link_to t('site.nav.help'), '/dashboard', class: " helpMenuItem" %></li>
-
             <% unless user_signed_in? %>
               <li><%= link_to t('site.nav.sign_in'), new_user_session_path, class: "signInOutButton " %></li>
               <li><%= link_to t('site.nav.sign_up'), new_user_registration_path, class: "signInOutButton "  %></li>
@@ -46,6 +43,7 @@
             <% if user_signed_in? %>
                 <li><%= link_to "#{t('site.nav.logout')} #{ current_user.username }", destroy_user_session_path, :method => 'delete', class: "logoutButton " %></li>
             <% end %>
+              <li><%= link_to t('site.nav.help'), '/dashboard', class: " helpMenuItem" %></li>
             </ul>
           </div>
           <%= link_to '☰', 'javascript:void(0);', class: "hamburger", :id => "hamburger", :style => "font-size: 24px;"%>
