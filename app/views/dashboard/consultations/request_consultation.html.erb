@@ -7,7 +7,7 @@
   });
 </script>
 <h2 class="ss-color">Request a consultation</h2>
-<%= simple_form_for(current_user.user_detail, url: dashboard_consultations_path, method: :post) do |f| %>
+<%= simple_form_for(current_user.user_detail.present? ? current_user.user_detail : current_user.create_user_detail, url: dashboard_consultations_path, method: :post) do |f| %>
       <h2>Visa Details</h2>
     <div class="form-group">
       <%= f.label :visa_status, label: "What visa are you currently on?" %>
