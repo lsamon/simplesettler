@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -16,231 +15,231 @@ ActiveRecord::Schema.define(version: 20170603171135) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "appointments", force: :cascade do |t|
-    t.string   "user_id"
-    t.string   "appointment_date"
-    t.boolean  "require_translator"
-    t.string   "language"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-  end
-
-  create_table "articles", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.string   "image"
-    t.string   "slug"
-    t.string   "meta_title"
-    t.text     "meta_description"
-    t.text     "meta_keywords"
-    t.integer  "category_id"
-    t.integer  "status",           default: 0
-    t.string   "external_url"
-    t.boolean  "featured",         default: false
-  end
-
-  create_table "articles_categories", force: :cascade do |t|
-    t.integer  "article_id"
-    t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "banners", force: :cascade do |t|
-    t.string   "title"
-    t.string   "media"
-    t.string   "slug"
+  create_table "admin_payments", id: :serial, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.string   "slug"
-    t.string   "image"
-    t.integer  "articles_count"
-  end
-
-  create_table "cities", force: :cascade do |t|
-    t.string   "name"
-    t.string   "country"
-    t.text     "description"
-    t.string   "population"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.string   "slogan"
-    t.string   "slug"
-    t.string   "meta_title"
-    t.text     "meta_description"
-    t.text     "meta_keywords"
-    t.integer  "articles_count"
-  end
-
-  create_table "city_articles", force: :cascade do |t|
-    t.integer  "article_id"
-    t.integer  "city_id"
+  create_table "appointments", id: :serial, force: :cascade do |t|
+    t.string "user_id"
+    t.string "appointment_date"
+    t.boolean "require_translator"
+    t.string "language"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "city_articles", ["article_id"], name: "index_city_articles_on_article_id", using: :btree
-
-  create_table "ckeditor_assets", force: :cascade do |t|
-    t.string   "data_file_name",               null: false
-    t.string   "data_content_type"
-    t.integer  "data_file_size"
-    t.string   "data_fingerprint"
-    t.integer  "assetable_id"
-    t.string   "assetable_type",    limit: 30
-    t.string   "type",              limit: 30
-    t.integer  "width"
-    t.integer  "height"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+  create_table "articles", id: :serial, force: :cascade do |t|
+    t.integer "user_id"
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image"
+    t.string "slug"
+    t.string "meta_title"
+    t.text "meta_description"
+    t.text "meta_keywords"
+    t.integer "category_id"
+    t.integer "status", default: 0
+    t.string "external_url"
+    t.boolean "featured", default: false
   end
 
-  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
-  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+  create_table "articles_categories", id: :serial, force: :cascade do |t|
+    t.integer "article_id"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
-  create_table "delayed_jobs", force: :cascade do |t|
-    t.integer  "priority",   default: 0, null: false
-    t.integer  "attempts",   default: 0, null: false
-    t.text     "handler",                null: false
-    t.text     "last_error"
+  create_table "banners", id: :serial, force: :cascade do |t|
+    t.string "title"
+    t.string "media"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.string "image"
+    t.integer "articles_count"
+  end
+
+  create_table "cities", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.string "country"
+    t.text "description"
+    t.string "population"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slogan"
+    t.string "slug"
+    t.string "meta_title"
+    t.text "meta_description"
+    t.text "meta_keywords"
+    t.integer "articles_count"
+  end
+
+  create_table "city_articles", id: :serial, force: :cascade do |t|
+    t.integer "article_id"
+    t.integer "city_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_city_articles_on_article_id"
+  end
+
+  create_table "ckeditor_assets", id: :serial, force: :cascade do |t|
+    t.string "data_file_name", null: false
+    t.string "data_content_type"
+    t.integer "data_file_size"
+    t.string "data_fingerprint"
+    t.integer "assetable_id"
+    t.string "assetable_type", limit: 30
+    t.string "type", limit: 30
+    t.integer "width"
+    t.integer "height"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
+    t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+  end
+
+  create_table "delayed_jobs", id: :serial, force: :cascade do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
     t.datetime "run_at"
     t.datetime "locked_at"
     t.datetime "failed_at"
-    t.string   "locked_by"
-    t.string   "queue"
+    t.string "locked_by"
+    t.string "queue"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+    t.index ["run_at", "locked_at", "locked_by", "failed_at"], name: "index_delayed_jobs_for_better_row_locking"
   end
 
-  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
-  add_index "delayed_jobs", ["run_at", "locked_at", "locked_by", "failed_at"], name: "index_delayed_jobs_for_better_row_locking", using: :btree
-
-  create_table "delayed_workers", force: :cascade do |t|
-    t.string   "name"
-    t.string   "version"
+  create_table "delayed_workers", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.string "version"
     t.datetime "last_heartbeat_at"
-    t.string   "host_name"
-    t.string   "label"
+    t.string "host_name"
+    t.string "label"
   end
 
-  create_table "faqs", force: :cascade do |t|
+  create_table "faqs", id: :serial, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "title"
-    t.text     "content"
+    t.string "title"
+    t.text "content"
   end
 
-  create_table "feedbacks", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "city_id"
-    t.integer  "liveability"
-    t.integer  "safety"
-    t.integer  "movability"
-    t.integer  "weather"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+  create_table "feedbacks", id: :serial, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "city_id"
+    t.integer "liveability"
+    t.integer "safety"
+    t.integer "movability"
+    t.integer "weather"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "friendly_id_slugs", force: :cascade do |t|
-    t.string   "slug",                      null: false
-    t.integer  "sluggable_id",              null: false
-    t.string   "sluggable_type", limit: 50
-    t.string   "scope"
+  create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
     t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
-
-  create_table "helpfuls", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "article_id"
-    t.boolean  "helped"
+  create_table "helpfuls", id: :serial, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "article_id"
+    t.boolean "helped"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "packages", force: :cascade do |t|
-    t.string   "name"
-    t.decimal  "price",       precision: 5, scale: 2
-    t.text     "description"
-    t.integer  "status"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+  create_table "packages", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.decimal "price", precision: 5, scale: 2
+    t.text "description"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "payments", force: :cascade do |t|
-    t.string   "stripe_charge_id"
-    t.string   "amount_paid"
-    t.integer  "package_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.string   "user_id"
+  create_table "payments", id: :serial, force: :cascade do |t|
+    t.string "stripe_charge_id"
+    t.string "amount_paid"
+    t.integer "package_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "user_id"
   end
 
-  create_table "user_details", force: :cascade do |t|
-    t.string   "visa_status"
-    t.string   "f_name"
-    t.string   "l_name"
-    t.string   "dob"
-    t.string   "country_of_passport"
-    t.boolean  "currently_in_aus"
-    t.string   "passport_expiry"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.integer  "user_id"
-    t.string   "visa_help_type"
-    t.boolean  "is_currently_in_desired_country"
-    t.boolean  "done_ielts"
-    t.string   "visa_expiry_date"
+  create_table "user_details", id: :serial, force: :cascade do |t|
+    t.string "visa_status"
+    t.string "f_name"
+    t.string "l_name"
+    t.string "dob"
+    t.string "country_of_passport"
+    t.boolean "currently_in_aus"
+    t.string "passport_expiry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.string "visa_help_type"
+    t.boolean "is_currently_in_desired_country"
+    t.boolean "done_ielts"
+    t.string "visa_expiry_date"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
-    t.string   "username",               default: "",    null: false
-    t.boolean  "admin",                  default: false, null: false
-    t.string   "reset_password_token"
+  create_table "users", id: :serial, force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "username", default: "", null: false
+    t.boolean "admin", default: false, null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.string   "provider"
-    t.string   "uid"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "provider"
+    t.string "uid"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "visa_requirements", force: :cascade do |t|
-    t.integer  "visa_type_id"
-    t.string   "name"
-    t.string   "description"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+  create_table "visa_requirements", id: :serial, force: :cascade do |t|
+    t.integer "visa_type_id"
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "visa_types", force: :cascade do |t|
-    t.string   "name"
-    t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+  create_table "visa_types", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
