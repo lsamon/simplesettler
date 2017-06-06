@@ -25,8 +25,11 @@ gem 'underscore-rails'
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'devise'
 gem 'rails_12factor'
+
+gem 'delayed_job'
 gem 'delayed_job_active_record'
-gem 'delayed_job_heartbeat_plugin'
+gem 'daemons'
+
 gem 'mailgun-ruby'
 gem 'font-awesome-sass'
 gem 'omniauth'
