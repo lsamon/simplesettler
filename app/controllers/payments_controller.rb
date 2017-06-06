@@ -1,7 +1,6 @@
 class PaymentsController < ApplicationController
   # before_action :set_payment, only: [:show, :edit, :update, :destroy]
 
-
   layout 'shared/dashboard'
   require "stripe"
   Stripe.api_key = "sk_test_w6KZabp9k6eoXNiJPqGXfo6O"
