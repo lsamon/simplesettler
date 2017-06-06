@@ -1,7 +1,10 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
 
 
   mount Ckeditor::Engine => '/ckeditor'
+  mount Sidekiq::Web => '/sidekiq'
+
   namespace :admin do
     resources :users
     resources :articles

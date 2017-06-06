@@ -26,9 +26,10 @@ gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'devise'
 gem 'rails_12factor'
 
-gem 'delayed_job'
-gem 'delayed_job_active_record'
-gem 'daemons'
+gem 'sidekiq'
+gem 'redis'
+gem 'redis-namespace'
+gem 'sinatra', '>= 1.3.0', :require => nil
 
 gem 'mailgun-ruby'
 gem 'font-awesome-sass'

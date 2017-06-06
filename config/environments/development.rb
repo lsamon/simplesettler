@@ -10,6 +10,11 @@ Rails.application.configure do
   config.eager_load = false
 
   # Show full error reports and disable caching.
+  config.active_job.queue_adapter = :sidekiq
+  config.action_mailer.perform_deliveries = true
+  config.active_job.queue_name_prefix = "simplesettler"
+  config.active_job.queue_name_delimiter = "_"
+
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
@@ -41,9 +46,6 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
-
-  # Delayed Job
-  config.active_job.queue_adapter = :delayed_job
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
