@@ -233,6 +233,8 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (11.3.0)
     rdoc (4.3.0)
+    record_tag_helper (1.0.0)
+      actionview (~> 5.x)
     redis (3.3.3)
     redis-namespace (1.5.3)
       redis (~> 3.0, >= 3.0.4)
@@ -340,6 +342,7 @@ DEPENDENCIES
   rails (= 5.1.1)
   rails-jquery-autocomplete
   rails_12factor
+  record_tag_helper (~> 1.0)
   redis
   redis-namespace
   sass-rails
