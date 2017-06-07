@@ -1,13 +1,16 @@
+function getUrlParams(url){
+  var substringStartPos = url.lastIndexOf('/') + 1;
+  return url.substr(substringStartPos).split('#');
+}
+
 $(document).ready(function(){
-  var hashString = window.location.hash;
-  console.log(hashString);
+  var category = getUrlParams(window.location.href)[1];
+  var city = getUrlParams(window.location.href)[0];
 
-  $('.fa-star').click(function() {
-    $('.ratingsYo').fadeToggle();
-    $('.rateCity').fadeToggle();
-  });
-
-  $('.catAll').addClass('active');
+  $.ajax({
+    type: 'GET',
+    url: '/cities/'+city+'/'+'categories/'+category
+  })
 
   $('.categorySelect a').click(function() {
     $('.categorySelect a').removeClass('active');

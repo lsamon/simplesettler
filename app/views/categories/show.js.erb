@@ -1,1 +1,3 @@
 $(".articles").html("<%= escape_javascript render('show_articles', articles: @articles) %>")
+var url = "<%= current_city.name.parameterize %>#<%= @category.slug %>";
+window.history.pushState("","",url);

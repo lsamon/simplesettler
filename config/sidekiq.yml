@@ -3,6 +3,5 @@
 :queues:
   - default
   - mailers
-
   - simplesettler_default
   - simplesettler_mailers

@@ -45,7 +45,17 @@
     <div id="navbar" class="navbar-collapse collapse">
 
       <div class="nav navbar-nav navbar-left">
-        <%= link_to image_tag('logo.png', title: 'simplesettler', alt: 'simplesettler'), '#' %>
+          <div class="dropdown">
+            <%= image_tag('logo.png', title: 'simplesettler', alt: 'simplesettler', class: 'dropdown', data: {toggle: 'dropdown'}, role: 'button', aria: {haspopop: true}, aria: {expanded: false}) %>
+            <ul class="dropdown-menu dropdown-menu-left hidden-xs">
+
+              <li><%= link_to "Visit Website", root_path %>
+              </li>
+
+              <li><%= link_to "Dashboard", dashboard_root_path %>
+              </li>
+            </ul>
+          </div>
       </div>
 
 

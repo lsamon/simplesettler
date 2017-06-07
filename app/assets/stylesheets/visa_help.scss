@@ -539,6 +539,10 @@ background: #F7F5F6;
   background: $logoColor;
 }
 
+.navbar-left ul.dropdown-menu-left {
+  height: 70px !important;
+}
+
 .no-padding{
   padding-left:0px ;
   padding-right: 0px;
