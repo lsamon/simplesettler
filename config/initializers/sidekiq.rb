@@ -1,26 +1,23 @@
 if Rails.env.production?
 
   Sidekiq.configure_client do |config|
-    config.redis = { url: ENV['REDISCLOUD_URL'], namespace: "simplesettler_sidekiq_#{Rails.env}", size: 10 }
+    config.redis = { url: ENV["REDISCLOUD_URL"], namespace: :resque }
   end
 
+  Sidekiq::Client.reliable_push! unless Rails.env.test?
+
   Sidekiq.configure_server do |config|
-    config.redis = { url: ENV['REDISCLOUD_URL'], namespace: "simplesettler_sidekiq_#{Rails.env}", size: 10 }
+    config.redis = { url: ENV["REDISCLOUD_URL"], namespace: :resque }
+    config.reliable_fetch!
 
-    Rails.application.config.after_initialize do
-      Rails.logger.info("DB Connection Pool size for Sidekiq Server before disconnect is: #{ActiveRecord::Base.connection.pool.instance_variable_get('@size')}")
-      ActiveRecord::Base.connection_pool.disconnect!
-
-      ActiveSupport.on_load(:active_record) do
-        config = Rails.application.config.database_configuration[Rails.env]
-        config['reaping_frequency'] = ENV['DATABASE_REAP_FREQ'] || 10 # seconds
-        # config['pool'] = ENV['WORKER_DB_POOL_SIZE'] || Sidekiq.options[:concurrency]
-        config['pool'] = 16
-        ActiveRecord::Base.establish_connection(config)
-
-        Rails.logger.info("DB Connection Pool size for Sidekiq Server is now: #{ActiveRecord::Base.connection.pool.instance_variable_get('@size')}")
-      end
+    database_url = ENV['DATABASE_URL']
+    if database_url
+      ENV['DATABASE_URL'] = "#{database_url}?pool=250"
+      ActiveRecord::Base.establish_connection
     end
+
+    $elastic = Elasticsearch::Client.new
+    Stretchy.client = $elastic
   end
 else
   Sidekiq.configure_server do |config|
