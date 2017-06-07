@@ -78,7 +78,6 @@ class PaymentsController < ApplicationController
 
     respond_to do |format|
       if error && !error.nil?
-        ap "inside error block"
         format.html { redirect_to payments_error_path, notice: error, status: 400 }
         format.js { render json: {status: "error", message: error} }
         # render json: {status: "error", message: error }  }
