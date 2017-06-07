@@ -84,7 +84,6 @@ class PaymentsController < ApplicationController
         # render json: {status: "error", message: error }  }
         session[:payment_status]="error"
       else
-        ap "inside success block---"
         session[:payment_status]="success"
         session.delete(:selected_package)
         format.js {
