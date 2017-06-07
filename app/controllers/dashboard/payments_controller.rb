@@ -9,7 +9,6 @@ class Dashboard::PaymentsController < ApplicationController
     @current_step=4
     @package_detail = Package.find_by(id: session[:selected_package])
     if @package_detail.nil?
-      ap @params
       flash[:error]="The selected package doesn't exist"
       return redirect_to request.referer
     end
@@ -18,32 +17,21 @@ class Dashboard::PaymentsController < ApplicationController
   def create
     if session[:selected_package]
       package_detail = Package.find(session[:selected_package])
-
       if package_detail
         begin
           stripe_response = Stripe::Charge.create({
-                                                      :amount => (package_detail.price * 100).to_i,
-                                                      :currency => "aud",
-                                                      :source => params[:token][:id], # obtained with Stripe.js
-                                                      :description => "Charge for #{current_user.email} package: #{package_detail.name}"
-                                                  }, {
-                                                      # :idempotency_key => "sFRxUw43R8kvJyjI"
-                                                  })
+                            :amount => (package_detail.price * 100).to_i,
+                            :currency => "aud",
+                            :source => params[:token][:id], # obtained with Stripe.js
+                            :description => "Charge for #{current_user.email} package: #{package_detail.name}"
+                        }, {
+                            # :idempotency_key => "sFRxUw43R8kvJyjI"
+                        })
 
         rescue Stripe::CardError => e
 
           body = e.json_body
           error = body[:error]
-
-          puts "Status is: #{e.http_status}"
-          puts "Type is: #{error[:type]}"
-          puts "Charge ID is: #{error[:charge]}"
-          # The following fields are optional
-
-          puts "Code is: #{error[:code]}" if error[:code]
-          puts "Decline code is: #{error[:decline_code]}" if error[:decline_code]
-          puts "Param is: #{error[:param]}" if error[:param]
-          puts "Message is: #{error[:message]}" if error[:message]
         rescue Stripe::RateLimitError => e
           error = e.message
             # Too many requests made to the API too quickly
@@ -66,8 +54,6 @@ class Dashboard::PaymentsController < ApplicationController
           # Something else happened, completely unrelated to Stripe
         end
 
-        ap "after stripe charge"
-
 
         if defined? stripe_response && stripe_response[:id]
           if current_user.payment.nil?
@@ -75,14 +61,11 @@ class Dashboard::PaymentsController < ApplicationController
           else
             current_user.payment.update_attributes({:stripe_charge_id => stripe_response[:id], :amount_paid => package_detail.price.to_f, :package_id => package_detail.id})
           end
-
           #send email
           UserMailer.payment_success_email(current_user, package_detail).deliver_later
           # admin_email = User.get_admin.email
           UserMailer.email_to_admin(current_user, package_detail).deliver_later
-
         else
-          puts error
         end
 
       else
@@ -92,23 +75,13 @@ class Dashboard::PaymentsController < ApplicationController
       error = "Invalid request"
     end
 
-
-    ap "stripe response ---"
-    ap stripe_response
-    ap error
-
-    if error
-      ap "error aayo "
-    end
     respond_to do |format|
       if error && !error.nil?
-        ap "inside error block"
         format.html { redirect_to dashboard_payments_error_path, notice: error, status: 400 }
         format.js { render json: {status: "error", message: error} }
         # render json: {status: "error", message: error }  }
         session[:payment_status]="error"
       else
-        ap "inside success block---"
         session[:payment_status]="success"
         session.delete(:selected_package)
         format.js {
