@@ -4,8 +4,6 @@ if Rails.env.production?
     config.redis = { url: ENV["REDISCLOUD_URL"], namespace: :resque }
   end
 
-  Sidekiq::Client.reliable_push! unless Rails.env.test?
-
   Sidekiq.configure_server do |config|
     config.redis = { url: ENV["REDISCLOUD_URL"], namespace: :resque }
     config.reliable_fetch!
