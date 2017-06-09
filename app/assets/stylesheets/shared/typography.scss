@@ -7,7 +7,9 @@ body {
 button:focus, input:focus {
   outline: 0;
 }
-
+.centered {
+  margin: 0 auto;
+}
 .btn .btn-primary {
   background: $logoColor !important;
   border-color: $logoColor !important;
