@@ -10,15 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170606223734) do
+ActiveRecord::Schema.define(version: 20170610031011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "admin_payments", id: :serial, force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "appointments", id: :serial, force: :cascade do |t|
     t.string "user_id"
@@ -180,6 +175,7 @@ ActiveRecord::Schema.define(version: 20170606223734) do
     t.boolean "is_currently_in_desired_country"
     t.boolean "done_ielts"
     t.string "visa_expiry_date"
+    t.string "image"
   end
 
   create_table "users", id: :serial, force: :cascade do |t|

@@ -1,5 +1,6 @@
 $(function(){
-    var stripe = Stripe('pk_test_DMYrajCnPJHKlPIWWDlvv5ok');
+    // var stripe = Stripe('pk_test_DMYrajCnPJHKlPIWWDlvv5ok');
+    var stripe = Stripe('pk_live_WqDstXZOmLVRhR84ZsfKnSLC');
 
     var elements = stripe.elements();
 

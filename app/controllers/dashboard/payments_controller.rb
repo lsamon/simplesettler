@@ -3,7 +3,8 @@ class Dashboard::PaymentsController < ApplicationController
 
   layout 'shared/dashboard'
   require "stripe"
-  Stripe.api_key = "sk_test_w6KZabp9k6eoXNiJPqGXfo6O"
+  # Stripe.api_key = "sk_test_w6KZabp9k6eoXNiJPqGXfo6O"
+  Stripe.api_key = "sk_live_tO3lKPs7J4IkU0f9VJhv6Owh"
 
   def new
     @current_step=4

@@ -47,6 +47,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks", sessions: 'users/sessions' }
   as :user do
     get '/dashboard/profile' =>'users/sessions#profile'
+    get '/dashboard/profile/edit' =>'users/sessions#edit'
+    put '/dashboard/profile/edit' =>'users/sessions#update'
   end
   post '/articles/:id/:response' => 'helpfuls#create', as: :article_feedback
 
