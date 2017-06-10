@@ -21,5 +21,25 @@ module Users
       end
       render(:layout=>'shared/dashboard')
     end
+
+    def edit
+      @user = current_user.user_detail
+      puts @user.inspect
+      render(:layout=>'shared/dashboard')
+    end
+
+    def update
+      if current_user.user_detail.nil?
+        current_user.create_user_detail(profile_params)
+      else
+        current_user.user_detail.update_attributes(profile_params)
+      end
+      redirect_to dashboard_profile_path
+    end
+
+   def profile_params
+     params.fetch(:user_detail, {}).permit(:f_name, :l_name, :dob, :image)
+   end
+
   end
 end

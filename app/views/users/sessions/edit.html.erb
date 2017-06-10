@@ -1,0 +1,51 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".date-mask").inputmask("mm/yyyy");  //static mask
+    $(".dob").inputmask("date");
+  });
+</script>
+
+<h2 class="ss-color">Edit your details</h2>
+
+<div class="panel panel-default">
+  <div class="panel-heading"><h3 class="panel-title">My basic Info</h3></div>
+  <div class="panel-body">
+<%= simple_form_for(@user, url: dashboard_profile_edit_path, method:"put" ) do |f| %>
+
+        <div class="form-group">
+          <%= f.input :f_name, input_html:{placeholder: "First Name", class: "form-control"}, label: "First Name", required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.input :l_name, input_html:{placeholder: "Last Name", class: "form-control"}, label: "Last Name", required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.input :dob, input_html:{placeholder: "Date of birth", class: "form-control dob"}, label: "Date of Birth", required: true %>
+        </div>
+
+        <div class="form-group row">
+          <% if @user.image.present? %>
+              <div class="col-sm-1">
+                <%= image_tag @user.image.thumb.url %>
+              </div>
+          <% end %>
+          <div class="col-sm-11">
+            <%= f.hidden_field :image_cache %>
+            <%= f.file_field(:image) %>
+          </div>
+        </div>
+
+
+
+      <%
+        #<UserDetail id: 188, visa_status: "1", f_name: "niroj", l_name: "sapktoa", dob: "23/04/2034", country_of_passport: "AL", currently_in_aus: true, passport_expiry: "02/2034", created_at: "2017-05-23 15:46:34", updated_at: "2017-06-01 15:36:52", user_id: 17, visa_help_type: "1", is_currently_in_desired_country: true, done_ielts: false, visa_expiry_date: "06/14/2017">
+      %>
+
+    <div class="col-md-12 text-center">
+      <button type="submit" class="btn btn-custom">Update</button>
+    </div>
+
+<% end %>
+    </div>
+    </div>

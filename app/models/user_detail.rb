@@ -1,4 +1,5 @@
 class UserDetail < ActiveRecord::Base
+  mount_uploader :image, ImageUploader
   belongs_to :User
 
   def full_name
