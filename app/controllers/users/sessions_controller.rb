@@ -23,12 +23,13 @@ module Users
     end
 
     def edit
-      @user = current_user.user_detail
+      @user = current_user.user_detail ||= UserDetail.new
       puts @user.inspect
       render layout: 'shared/dashboard'
     end
 
     def update
+      current_user.update_attributes({:username=> params[:user][:username]})
       if current_user.user_detail.nil?
         current_user.create_user_detail(profile_params)
       else
