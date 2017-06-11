@@ -14,7 +14,6 @@ module Users
      end
    end
 
-
     def profile
       if current_user.payment
         @package_detail = Package.find_by(id: current_user.payment.package_id)

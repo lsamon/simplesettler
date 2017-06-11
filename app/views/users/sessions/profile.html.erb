@@ -1,96 +1,54 @@
 <h2 class="ss-color">My Profile</h2>
-  <div class="panel panel-default">
-    <div class="panel-heading"><h3 class="panel-title">My basic Info</h3></div>
-    <div class="panel-body">
-      <p>
-        <label><%= t('email') %>: </label> <%= current_user.email %>
-      </p>
-      <p>
-
-      <label><%= t('username') %>: </label> <%= current_user.username %>
-      </p>
-      <p>
-
-        <% if current_user.user_detail.present? %>
-      <label><%= t('full_name') %>: </label> <%= current_user.user_detail.full_name %>
-      </p>
-            <% end %>
-      <p>
-      <label><%= t('joined_date') %>: </label> <%= l current_user.created_at %>
-      </p>
-
-    </div>
+<div class="panel panel-default">
+  <div class="panel-heading"><h3 class="panel-title">My basic Info</h3></div>
+  <div class="panel-body">
+    <p><label><%= t('user.email') %>: </label> <%= current_user.email %></p>
+    <p><label><%= t('user.username') %>: </label> <%= current_user.username %></p>
+    <% if current_user.user_detail.present? %>
+      <p><label><%= t('user.full_name') %>: </label> <%= current_user.user_detail.full_name %></p>
+    <% end %>
+    <p><label><%= t('user.joined_date') %>: </label> <%= l current_user.created_at %></p>
   </div>
+</div>
 
 <% if current_user.user_detail.present? %>
   <div class="panel panel-default">
     <div class="panel-heading"><h3 class="panel-title">My Visa information</h3></div>
     <div class="panel-body">
-      <p>
-        <label><%= t('profile.country_of_passport') %>: </label> <%= country_name(current_user.user_detail.country_of_passport) %>
+      <p><label><%= t('profile.country_of_passport') %>: </label> <%= country_name(current_user.user_detail.country_of_passport) %></p>
+      <p><label><%= t('profile.currently_in_aus') %>: </label>
+        <% if current_user.user_detail.currently_in_aus.nil? %>
+              Not Set
+        <% else %>
+              <%= current_user.user_detail.currently_in_aus ? "Yes" : "No" %>
+        <% end %>
       </p>
-
-      <p>
-        <label><%= t('profile.currently_in_aus') %>: </label>
-        <%= if current_user.user_detail.currently_in_aus.nil?
-              "Not Set"
-            else
-              current_user.user_detail.currently_in_aus ? "Yes" : "No"
-        end %>
-      </p>
-
-      <p>
-        <label><%= t('profile.passport_expiry') %>: </label> <%=current_user.user_detail.passport_expiry %>
-      </p>
-
-      <p>
-        <label><%= t('profile.visa_status') %>: </label> <%=current_user.user_detail.get_visa_name %>
-      </p>
-      <p>
-        <label><%= t('profile.visa_expiry_date') %>: </label> <%=current_user.user_detail.visa_expiry_date %>
-      </p>
-
-
+      <p><label><%= t('profile.passport_expiry') %>: </label> <%=current_user.user_detail.passport_expiry %></p>
+      <p><label><%= t('profile.visa_status') %>: </label> <%=current_user.user_detail.get_visa_name %></p>
+      <p><label><%= t('profile.visa_expiry_date') %>: </label> <%=current_user.user_detail.visa_expiry_date %></p>
     </div>
   </div>
 <% end %>
 
-  <% if @package_detail %>
+<% if @package_detail %>
   <div class="panel panel-default">
     <div class="panel-heading"><h3 class="panel-title">Payment Information</h3></div>
     <div class="panel-body">
-      <p>
-        <label><%= t('payment.amount_paid') %>: </label> $ <%=current_user.payment.amount_paid %>
-      </p>
-
-       <p>
-        <label><%= t('package') %>: </label> <%= @package_detail.name %>
-      </p>
-       <p>
-        <label><%= t('payment.payment_date') %>: </label> <%= l current_user.payment.created_at %>
-      </p>
+      <p><label><%= t('payment.amount_paid') %>: </label> $ <%=current_user.payment.amount_paid %></p>
+      <p><label><%= t('payment.package') %>: </label> <%= @package_detail.name %></p>
+      <p><label><%= t('payment.date') %>: </label> <%= l current_user.payment.created_at %></p>
     </div>
   </div>
-      <% end %>
+<% end %>
 
-
-
-  <% if current_user.appointment %>
-    <div class="panel panel-default">
-      <div class="panel-heading"><h3 class="panel-title">Appointment Information</h3></div>
-      <div class="panel-body">
-        <p>
-          <label><%= t('appointment_date') %>: </label> <%= current_user.appointment.appointment_date %>
-        </p>
-        <p>
-          <label><%= t('require_translator') %>: </label> <%= current_user.appointment.require_translator ? "Yes" : "No" %>
-        </p>
-        <p>
-          <label><%= t('language') %>: </label> <%= current_user.appointment.language %>
-        </p>
-      </div>
+<% if current_user.appointment %>
+  <div class="panel panel-default">
+    <div class="panel-heading"><h3 class="panel-title">Appointment Information</h3></div>
+    <div class="panel-body">
+      <p><label><%= t('appointment_date') %>: </label> <%= current_user.appointment.appointment_date %></p>
+      <p><label><%= t('require_translator') %>: </label> <%= current_user.appointment.require_translator ? "Yes" : "No" %></p>
+      <p><label><%= t('language') %>: </label> <%= current_user.appointment.language %></p>
     </div>
-  <% end %>
-
-
+  </div>
+<% end %>
 <%= link_to "Edit Profile", dashboard_profile_edit_path, class: "btn btn-custom" %>
