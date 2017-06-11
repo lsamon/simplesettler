@@ -15,6 +15,11 @@ ActiveRecord::Schema.define(version: 20170610031011) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "admin_payments", id: :serial, force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "appointments", id: :serial, force: :cascade do |t|
     t.string "user_id"
     t.string "appointment_date"

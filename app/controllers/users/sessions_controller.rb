@@ -19,13 +19,13 @@ module Users
       if current_user.payment
         @package_detail = Package.find_by(id: current_user.payment.package_id)
       end
-      render(:layout=>'shared/dashboard')
+      render layout: 'shared/dashboard'
     end
 
     def edit
       @user = current_user.user_detail
       puts @user.inspect
-      render(:layout=>'shared/dashboard')
+      render layout: 'shared/dashboard'
     end
 
     def update
