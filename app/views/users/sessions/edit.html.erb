@@ -12,6 +12,17 @@
   <div class="panel-body">
 <%= simple_form_for(@user, url: dashboard_profile_edit_path, method:"put" ) do |f| %>
 
+        <%= fields_for :user, current_user do |user| %>
+
+
+            <div class="form-group">
+              <%= user.label :username %>
+                <%= user.text_field :username, class:"form-control" %>
+            </div>
+            <% end %>
+
+
+
         <div class="form-group">
           <%= f.input :f_name, input_html:{placeholder: "First Name", class: "form-control"}, label: "First Name", required: true %>
         </div>
