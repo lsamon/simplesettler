@@ -1,5 +1,7 @@
 module Users
   class SessionsController < Devise::SessionsController
+    before_action :user_logged_in, only: [:profile, :edit]
+
    def new
      self.resource = resource_class.new(sign_in_params)
      store_location_for(resource, params[:redirect_to])
