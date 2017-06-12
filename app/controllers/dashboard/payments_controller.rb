@@ -1,13 +1,9 @@
 class Dashboard::PaymentsController < ApplicationController
   # before_action :set_payment, only: [:show, :edit, :update, :destroy]
-
   layout 'shared/dashboard'
-  require "stripe"
-  # Stripe.api_key = "sk_test_w6KZabp9k6eoXNiJPqGXfo6O"
-  Stripe.api_key = "sk_live_tO3lKPs7J4IkU0f9VJhv6Owh"
 
   def new
-    @current_step=4
+    @current_step = 4
     @package_detail = Package.find_by(id: session[:selected_package])
     if @package_detail.nil?
       flash[:error]="The selected package doesn't exist"
@@ -18,49 +14,14 @@ class Dashboard::PaymentsController < ApplicationController
   def create
     if session[:selected_package]
       package_detail = Package.find(session[:selected_package])
-      if package_detail
-        begin
-          stripe_response = Stripe::Charge.create({
-                            :amount => (package_detail.price * 100).to_i,
-                            :currency => "aud",
-                            :source => params[:token][:id], # obtained with Stripe.js
-                            :description => "Charge for #{current_user.email} package: #{package_detail.name}"
-                        }, {
-                            # :idempotency_key => "sFRxUw43R8kvJyjI"
-                        })
+      stripe = StripeApi.new package_detail.price, 'aud', params[:token][:id], package_detail.name, current_user.email
 
-        rescue Stripe::CardError => e
-
-          body = e.json_body
-          error = body[:error]
-        rescue Stripe::RateLimitError => e
-          error = e.message
-            # Too many requests made to the API too quickly
-        rescue Stripe::InvalidRequestError => e
-          error = e.message
-            # Invalid parameters were supplied to Stripe's API
-        rescue Stripe::AuthenticationError => e
-          error = e.message
-            # Authentication with Stripe's API failed
-            # (maybe you changed API keys recently)
-        rescue Stripe::APIConnectionError => e
-          error = e.message
-            # Network communication with Stripe failed
-        rescue Stripe::StripeError => e
-          error = e.message
-            # Display a very generic error to the user, and maybe send
-            # yourself an email
-        rescue => e
-          error = e.message
-          # Something else happened, completely unrelated to Stripe
-        end
-
-
+      if stripe.error.nil?
         if defined? stripe_response && stripe_response[:id]
           if current_user.payment.nil?
-            current_user.create_payment({:stripe_charge_id => stripe_response[:id], :amount_paid => package_detail.price.to_f, :package_id => package_detail.id})
+            current_user.create_payment({:stripe_charge_id => stripe.response.first[:id], :amount_paid => package_detail.price.to_f, :package_id => package_detail.id})
           else
-            current_user.payment.update_attributes({:stripe_charge_id => stripe_response[:id], :amount_paid => package_detail.price.to_f, :package_id => package_detail.id})
+            current_user.payment.update_attributes({:stripe_charge_id => stripe.response.first[:id], :amount_paid => package_detail.price.to_f, :package_id => package_detail.id})
           end
           #send email
           UserMailer.payment_success_email(current_user, package_detail).deliver_later
@@ -68,19 +29,17 @@ class Dashboard::PaymentsController < ApplicationController
           UserMailer.email_to_admin(current_user, package_detail).deliver_later
         else
         end
-
       else
-        error = "Invalid package selected"
+        error = stripe.error
       end
     else
-      error = "Invalid request"
+      error = "Invalid package selected"
     end
 
     respond_to do |format|
-      if error && !error.nil?
+      if error.present?
         format.html { redirect_to dashboard_payments_error_path, notice: error, status: 400 }
         format.js { render json: {status: "error", message: error} }
-        # render json: {status: "error", message: error }  }
         session[:payment_status]="error"
       else
         session[:payment_status]="success"

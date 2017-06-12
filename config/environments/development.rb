@@ -10,7 +10,7 @@ Rails.application.configure do
   config.eager_load = false
 
   # Show full error reports and disable caching.
-  config.active_job.queue_adapter = :sidekiq
+  config.active_job.queue_adapter = :async
   config.action_mailer.perform_deliveries = true
   config.active_job.queue_name_prefix = "simplesettler"
   config.active_job.queue_name_delimiter = "_"

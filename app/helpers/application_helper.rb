@@ -12,10 +12,8 @@ module ApplicationHelper
   end
 
   def language_list
-    %w(English Nepali Chinese Japanese)
+    %w(English French Spanish Nepali Chinese Japanese)
   end
-
-
 
   def country_name(country_code)
     return "Not set" unless country_code.present?
