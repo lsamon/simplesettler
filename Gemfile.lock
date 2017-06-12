@@ -164,7 +164,6 @@ GEM
     multipart-post (2.0.0)
     mustermann (1.0.0)
     netrc (0.11.0)
-    newrelic_rpm (4.1.0.333)
     nio4r (2.1.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
@@ -332,7 +331,6 @@ DEPENDENCIES
   mailgun-ruby
   meta-tags
   mini_magick
-  newrelic_rpm
   omniauth
   omniauth-facebook
   omniauth-google-oauth2
