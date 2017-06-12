@@ -12,9 +12,6 @@ if Rails.env.production?
       ENV['DATABASE_URL'] = "#{database_url}?pool=250"
       ActiveRecord::Base.establish_connection
     end
-
-    $elastic = Elasticsearch::Client.new
-    Stretchy.client = $elastic
   end
 else
   Sidekiq.configure_server do |config|
