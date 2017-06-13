@@ -40,10 +40,8 @@ VisaType.destroy_all
 v1 = VisaType.create :name=>'Work Visa', :description=>''
 v2 = VisaType.create :name=>'Student Visa', :description=>''
 v3 = VisaType.create :name=>'Extend Visa', :description=>''
-v4 = VisaType.create :name=>'Temporary Residency', :description=>''
-v5 = VisaType.create :name=>'Permanent Residency', :description=>''
-v6 = VisaType.create :name=>'Citizenship', :description=>''
-v7 = VisaType.create :name=>'Other', :description=>''
+v4 = VisaType.create :name=>'Permanent Residency', :description=>''
+v5 = VisaType.create :name=>'Citizenship', :description=>''
 
 VisaRequirement.destroy_all
 r1 = VisaRequirement.create :description=>'Be atleast 18+ years old'

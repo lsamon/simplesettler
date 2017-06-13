@@ -50,8 +50,7 @@ Rails.application.routes.draw do
   post '/articles/:id/:response' => 'helpfuls#create', as: :article_feedback
 
   root :to => 'pages#index'
-  get '/about' => 'pages#how_it_works'
-  get '/inspiration' => 'pages#inspiration'
+  get '/about' => 'pages#about'
   get '/help' => 'pages#help'
   get '/tos' => 'pages#tos'
   get '/privacy' => 'pages#privacy'

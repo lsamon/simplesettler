@@ -31,7 +31,7 @@ class Admin::ArticlesController < Admin::BaseController
     end
 
     def update
-      @article.cities = cities
+      @article.cities = cities if cities.present?
       if @article.update_attributes(article_params)
         redirect_to admin_articles_path
       else
@@ -50,11 +50,12 @@ class Admin::ArticlesController < Admin::BaseController
     end
 
     def article_params
-      params.fetch(:article, {}).permit(:title, :content, :city_ids, :image, :category_id, :status,
+      params.fetch(:article, {}).permit(:title, :content, :content_type, :city_ids, :image, :category_id, :status,
       :meta_title, :meta_description, :meta_keywords, :featured, :external_url)
     end
 
     def cities
+      return unless params[:article][:city_ids].present?
       params[:article][:city_ids].select{|n| n.present?}.map do | city_id |
         City.find(city_id.to_i)
       end

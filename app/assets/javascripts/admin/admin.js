@@ -21,3 +21,19 @@ $(document).on('click', '[data-toggle]', function(){
 
   $icon.toggleClass('fa fa-minus fa fa-plus', 'slow', "easeOutSine");
 });
+
+$(document).on('change', '#article_content_type', function(){
+  if($(this).val() === 'about'){
+    $('.article_featured').hide();
+    $('.article_status').hide();
+    $('.article_cities').hide();
+    $('.article_category').hide();
+    $('#article_image').hide();
+  }else {
+    $('.article_featured').show();
+    $('.article_status').show();
+    $('.article_cities').show();
+    $('.article_category').show();
+    $('#article_image').show();
+  }
+})

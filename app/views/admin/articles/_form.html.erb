@@ -30,14 +30,19 @@
         </div>
 
         <div class="form-group row">
+          <% unless @article.about? %>
+            <div class="col-sm-12">
+              <%= f.input :featured, as: :boolean, label: false, inline_label: "Featured Article?", input_html: { class: 'checkbox article-check', data: { boolean_toggle: '.article-url' } } %>
+            </div>
+          <% end %>
           <div class="col-sm-12">
-            <%= f.input :featured, as: :boolean, label: false, inline_label: "Featured Article?", input_html: { class: 'checkbox article-check', data: { boolean_toggle: '.article-url' } } %>
+            <%= f.input :content_type, collection: Article.content_types.keys, include_blank: false, input_html: { class: 'form-control' } %>
           </div>
         </div>
 
         <div class="form-group row article-url" style="<%= @article.featured? ? 'display:block' : 'display:none' %>">
           <div class="col-sm-12">
-            <%= f.input :external_url, label: false, input_html: { placeholder: "External URL", class: 'form-control' } %>
+            <%= f.input :external_url, label: false, input_html: { placeholder: "External URL", class: 'form-control' } unless @article.about? %>
           </div>
         </div>
 
@@ -69,25 +74,25 @@
           </div>
         </div>
       </div>
-
       <div class="col-sm-4">
         <div class="form-group row">
           <div class="col-sm-12">
             <%= f.input :status, collection: Article.statuses.keys, include_blank: false, input_html: { class: 'form-control' } %>
           </div>
         </div>
-
-        <div class="form-group row">
-          <div class="col-sm-12">
-            <%= f.association :cities, collection: City.all, include_blank: false, input_html: { class: 'form-control' } %>
+      <% unless @article.about? %>
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <%= f.association :cities, collection: City.all, include_blank: false, input_html: { class: 'form-control' } %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <%= f.association :category, collection: Category.all, include_blank: false, input_html: { class: 'form-control' } %><br/>
+            </div>
           </div>
         </div>
-        <div class="form-group row">
-          <div class="col-sm-12">
-            <%= f.association :category, collection: Category.all, include_blank: false, input_html: { class: 'form-control' } %><br/>
-          </div>
-        </div>
-      </div>
+      <% end %>
     </div>
   <% end %>
 </div>
