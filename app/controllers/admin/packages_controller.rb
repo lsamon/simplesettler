@@ -39,7 +39,7 @@ class Admin::PackagesController < Admin::BaseController
   end
 
   def destroy
-    if @package.id == 1
+    if @package.id == Package.first.id
       return redirect_to admin_packages_url, notice: 'Default package cannot be deleted.'
     end
 
