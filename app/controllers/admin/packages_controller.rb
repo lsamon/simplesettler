@@ -1,5 +1,5 @@
 class Admin::PackagesController < Admin::BaseController
-  before_action :set_package, only: [:show, :edit, :update, :destroy]
+  before_action :find_or_initialize_package, only: [:show, :edit, :update, :destroy]
 
   def index
     @packages = Package.all
@@ -9,15 +9,12 @@ class Admin::PackagesController < Admin::BaseController
   # end
 
   def new
-    @package = Package.new
   end
 
   def edit
   end
 
   def create
-    @package = Package.new(package_params)
-
     respond_to do |format|
       if @package.save
         format.html { redirect_to admin_packages_path, notice: 'Package was successfully created.' }
@@ -42,7 +39,7 @@ class Admin::PackagesController < Admin::BaseController
   end
 
   def destroy
-    if @package.id==1
+    if @package.id == 1
       return redirect_to admin_packages_url, notice: 'Default package cannot be deleted.'
     end
 
@@ -54,13 +51,11 @@ class Admin::PackagesController < Admin::BaseController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_package
-      @package = Package.find(params[:id])
+    def find_or_initialize_package
+      @package = params[:id] ? Package.where(id: params[:id]).first : Package.new(package_params)
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def package_params
-      params.require(:package).permit(:name, :price, :description, :status)
+      params.fetch(:package, {}).permit(:name, :price, :description, :status)
     end
 end

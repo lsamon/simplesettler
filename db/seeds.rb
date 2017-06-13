@@ -58,7 +58,7 @@ v1.visa_requirements << r4
 
 
 Package.destroy_all
-Package.create :name=>"Consultation", :description=>"Default charge for consultation", :price=>14.99, :id=>1
+Package.create :name=>"Consultation", :description=>"Default charge for consultation", :price=>14.99
 
 Helpful.destroy_all
 
