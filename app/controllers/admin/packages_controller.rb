@@ -1,5 +1,5 @@
 class Admin::PackagesController < Admin::BaseController
-  before_action :find_or_initialize_package, only: [:show, :edit, :update, :destroy]
+  before_action :find_or_initialize_package, except: [:index]
 
   def index
     @packages = Package.all
