@@ -1,4 +1,4 @@
-<%= record_tag_for(:tr, payment) do %>
+<%= content_tag_for(:tr, payment) do %>
   <td><%= payment.user.user_detail.full_name %></td>
   <td><%= payment.user.email %></td>
   <td><%= payment.amount_paid %></td>

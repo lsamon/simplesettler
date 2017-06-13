@@ -41,9 +41,6 @@ Rails.application.routes.draw do
     resources :consultations, only: [:index, :create]
   end
 
-
-
-
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks", sessions: 'users/sessions' }
   as :user do
     get '/dashboard/profile' =>'users/sessions#profile'
@@ -58,7 +55,6 @@ Rails.application.routes.draw do
   get '/help' => 'pages#help'
   get '/tos' => 'pages#tos'
   get '/privacy' => 'pages#privacy'
-
 
   resources :cities do
     collection do
