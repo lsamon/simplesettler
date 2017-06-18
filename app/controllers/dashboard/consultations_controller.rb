@@ -5,7 +5,7 @@ class Dashboard::ConsultationsController < ApplicationController
 
   def index
     @visa_types = VisaType.all.sort_by(&:name)
-    @package_detail = Package.find(1)
+    @package_detail = Package.first
     session.delete(:selected_package)
     render 'dashboard/consultations/request_consultation'
   end

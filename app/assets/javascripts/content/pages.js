@@ -1,12 +1,12 @@
 $(document).ready(function(){
   $(document).scroll(function(){
     if ($(document).scrollTop() > 150) {
-      $('nav').css({
+      $('nav.front-page').css({
         background: 'rgba(0,0,0,0.8)',
         transition: '.3s'
       });
     } else {
-      $('nav').css('background', 'rgba(0,0,0,0)');
+      // $('nav.front-page').css('background', 'rgba(0,0,0,0)');
     }
   });
   $(".select-radio-styling input").change(function () {

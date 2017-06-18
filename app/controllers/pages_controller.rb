@@ -12,6 +12,7 @@ class PagesController < ApplicationController
 
   def about
     @article = Article.about_us
+    render layout: 'pages'
   end
 
   def privacy
