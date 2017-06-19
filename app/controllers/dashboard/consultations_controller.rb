@@ -4,7 +4,7 @@ class Dashboard::ConsultationsController < ApplicationController
   before_action :user_logged_in
 
   def index
-    @visa_types = VisaType.all.sort_by(&:name)
+    @visa_types = VisaType.order(:name)
     @package_detail = Package.first
     session.delete(:selected_package)
     render 'dashboard/consultations/request_consultation'
