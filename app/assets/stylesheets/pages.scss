@@ -137,8 +137,9 @@
 #search-form { margin-bottom: 20px; }
 
 .recommendedBy {
+  height: 200px;
+  text-align: center;
   img {
-    height: 120px;
     margin-bottom: 10px;
     width: 100%;
     max-width: 310px;
@@ -153,7 +154,12 @@
   img:hover {
       filter: opacity(1) grayscale(0%);
   }
-  text-align: center;
+  img.abc-logo {
+    position: absolute;
+    height: 50px;
+    left: 25%;
+    top: 30px;
+  }
   .col-lg-4:first-child, .col-xs-12:first-child {
     margin-top: 25px;
   }

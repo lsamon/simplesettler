@@ -48,7 +48,7 @@ en:
     nav:
       home: Home
       how_it_works: How it works
-      help: Help & Advice
+      help: Visa Portal
       sign_in: Sign In
       sign_up: Sign Up
       logout: Logout
@@ -81,7 +81,7 @@ en:
     page_end:
       title: YOUR STRESS ENDS HERE. LET US HELP YOU.
       search: Search Your City
-      visa: Visa Help
+      visa: Visa Portal
     footer:
       company:
         title: Company
