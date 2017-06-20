@@ -11,8 +11,8 @@ class Dashboard::ConsultationsController < ApplicationController
   end
 
   def create
-    user_params = params.require(:user_detail).permit(:visa_status,:visa_help_type, :is_currently_in_desired_country,:done_ielts,:visa_expiry_date, :country_id, :resume)
-    appointment_params = params.require(:appointment).permit(:appointment_date,:require_translator, :language, :appointment_type)
+    user_params = params.fetch(:user_detail, {}).permit(:visa_status,:visa_help_type, :is_currently_in_desired_country,:done_ielts,:visa_expiry_date, :country_id, :resume)
+    appointment_params = params.fetch(:appointment, {}).permit(:appointment_date,:require_translator, :language, :appointment_type)
     if current_user.user_detail.nil?
       current_user.create_user_detail(user_params)
     else
