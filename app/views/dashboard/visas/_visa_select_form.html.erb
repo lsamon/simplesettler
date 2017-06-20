@@ -2,7 +2,7 @@
 <%#= form_tag("/dashboard/visas/select_visa_type", id: "select_step_1", method: "post") do %>
     <div class="form-group">
       <% @visa_types.each do |visa| %>
-        <%= link_to(dashboard_consultations_path) do %>
+        <%= link_to(dashboard_consultations_path(visa_type: visa.id)) do %>
           <div class="select-radio-styling">
             <label for="help_<%= visa.name.downcase.tr(' ','_') %>"><%= visa.name %></label>
             <!-- <input type="radio" value="<%#= visa.id %>" name="visa_help_type" id="help_<%#= visa.name.downcase.tr(' ','_') %>"> -->
