@@ -137,10 +137,10 @@
 #search-form { margin-bottom: 20px; }
 
 .recommendedBy {
-  height: 200px;
   text-align: center;
   img {
     margin-bottom: 10px;
+    height: 65px;
     width: 100%;
     max-width: 310px;
     display: inline-block;
@@ -150,15 +150,11 @@
     background-repeat: no-repeat;
     background-position: center;
   }
-  h2 { color: gray; }
-  img:hover {
-      filter: opacity(1) grayscale(0%);
+  h2 {
+    color: gray;
   }
-  img.abc-logo {
-    position: absolute;
-    height: 50px;
-    left: 25%;
-    top: 30px;
+  img:hover {
+    filter: opacity(1) grayscale(0%);
   }
   .col-lg-4:first-child, .col-xs-12:first-child {
     margin-top: 25px;
