@@ -1,16 +1,17 @@
 class UserDetail < ActiveRecord::Base
   mount_uploader :image, ImageUploader
+  mount_uploader :resume, AttachmentUploader
   belongs_to :User
 
+  validates :resume, :country_id, presence: true
+
   def full_name
-    return nil if self.f_name.nil?
-    self.f_name+" "+self.l_name
+    "#{f_name} #{l_name}"
   end
 
   def get_visa_name
-    return "Not Set" if self.visa_status.nil?
     visa = VisaType.find(self.visa_status)
-    !visa.nil? ? visa[:name] : "Not set"
+    visa.present? ? visa[:name] : "Not set"
   end
 
 end

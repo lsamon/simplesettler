@@ -7,48 +7,60 @@
   });
 </script>
 <h2 class="ss-color">Request a consultation</h2>
-<%= simple_form_for(current_user.user_detail.present? ? current_user.user_detail : current_user.create_user_detail, url: dashboard_consultations_path, method: :post) do |f| %>
-      <h2>Visa Details</h2>
+<%= simple_form_for(@user_detail, url: dashboard_consultations_path, method: :post) do |f| %>
+    <h2>Visa Details</h2>
     <div class="form-group">
       <%= f.label :visa_status, label: "What visa are you currently on?" %>
       <%= f.select :visa_status, options_from_collection_for_select(@visa_types, "id", "name", f.object.visa_status),{}, {class: "form-control"}%>
     </div>
 
+    <div class="form-group">
+      <%= f.label :country_id, label: "Name of country as shown on passport" %>
+      <%= f.input :country_id, as: :country, label: false %>
+    </div>
+
      <div class="form-group">
       <%= f.label :visa_help_type, label: "What visa are you seeking?" %>
       <%= f.select :visa_help_type, options_from_collection_for_select(@visa_types, "id", "name", f.object.visa_status),{}, {class: "form-control"}%>
-
+    </div>
+    <div class="form-group">
+      <%= f.label :is_currently_in_desired_country, label: "Are you currently living in the country you wish to settle in?" %>
+      <%= f.select :is_currently_in_desired_country, [['YES', true],["NO",false]],{}, {class: "form-control"}%>
     </div>
 
-      <div class="form-group">
 
-        <%= f.label :is_currently_in_desired_country, label: "Are you currently living in the country you wish to settle in?" %>
-        <%= f.select :is_currently_in_desired_country, [['YES', true],["NO",false]],{}, {class: "form-control"}%>
+    <div class="form-group">
+      <%= f.label :done_ielts, label: "Have you done IELTS in last two years?" %>
+      <%= f.select :done_ielts, [['YES', true],["NO",false]],{}, {class: "form-control"}%>
+    </div>
+
+    <div class="form-group">
+      <label for="visa_expiry">When does your visa expire?</label>
+      <div class="inner-addon right-addon">
+        <i class="glyphicon glyphicon-calendar"></i>
+        <%= f.input :visa_expiry_date, input_html:{placeholder: "", class: "form-control datepicker"}, label: false, required: true %>
       </div>
+    </div>
 
-
-      <div class="form-group">
-        <%= f.label :done_ielts, label: "Have you done IELTS in last two years?" %>
-        <%= f.select :done_ielts, [['YES', true],["NO",false]],{}, {class: "form-control"}%>
-      </div>
-
-      <div class="form-group">
-        <label for="visa_expiry">When does your visa expire?</label>
-        <div class="inner-addon right-addon">
-          <i class="glyphicon glyphicon-calendar"></i>
-          <%= f.input :visa_expiry_date, input_html:{placeholder: "", class: "form-control datepicker"}, label: false, required: true %>
-        </div>
-      </div>
+    <div class="form-group">
+      <%= f.label :resume, label: "Upload resume" %>
+      <%= f.file_field :resume, label: false %>
+      <%= f.hidden_field :resume_cache %>
+    </div>
 
       <h2>Appointment Details</h2>
-      <%= fields_for :appointment, current_user.appointment do |appointment| %>
-          <div class="form-group">
-            <%= appointment.label :appointment_date %>
-            <div class="inner-addon right-addon">
-              <i class="glyphicon glyphicon-calendar"></i>
-              <%= appointment.text_field :appointment_date, class:"form-control datepicker" %>
-            </div>
-          </div>
+    <%= f.simple_fields_for :appointment, @appointment do |a| %>
+      <div class="form-group">
+        <%= a.label :appointment_date %>
+        <div class="inner-addon right-addon">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <%= a.text_field :appointment_date, class:"form-control datepicker" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= a.label :appointment_type, label: "Would you like a face to face or Skype consultation?" %>
+        <%= a.input :appointment_type, label: false, collection: Appointment.appointment_types.keys.map(&:titleize), include_blank: false, input_html: {class: 'form-control'} %>
+      </div>
       <!-- <div class="form-group"> -->
         <%#= appointment.label :require_translator, "Do you require a translator?" %>
         <%#= appointment.select :require_translator, [['YES', true],["NO",false]], {}, class:"form-control datepicker" %>
@@ -57,7 +69,7 @@
         <%#= appointment.label :language, "What language do you speak?" %>
         <%#= appointment.select :language, options_for_select(language_list), {}, class:"form-control datepicker" %>
       <!-- </div> -->
-      <% end %>
+    <% end %>
 
     <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
 

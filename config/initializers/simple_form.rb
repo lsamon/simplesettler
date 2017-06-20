@@ -61,7 +61,7 @@ SimpleForm.setup do |config|
   config.boolean_style = :nested
 
   # Default class for buttons
-  config.button_class = 'btn'
+  config.button_class = 'btn btn-secondary'
 
   # Method used to tidy up errors. Specify any Rails Array method.
   # :first lists the first message for each field.
@@ -72,7 +72,7 @@ SimpleForm.setup do |config|
   config.error_notification_tag = :div
 
   # CSS class to add for error notification helper.
-  config.error_notification_class = 'error_notification'
+  config.error_notification_class = 'alert alert-danger'
 
   # ID to add for error notification helper.
   # config.error_notification_id = nil
@@ -162,4 +162,6 @@ SimpleForm.setup do |config|
 
   # Defines which i18n scope will be used in Simple Form.
   # config.i18n_scope = 'simple_form'
+  config.label_class = 'form-control-label'
+  config.input_class = 'form-control'
 end
