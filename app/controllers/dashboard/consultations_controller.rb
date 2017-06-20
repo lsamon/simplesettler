@@ -36,8 +36,8 @@ class Dashboard::ConsultationsController < ApplicationController
 
   def filter_params
     params.except(:controller, :action, :NEXT).permit(:utf8, :_method, :authenticity_token, :visa_help_type,:visa_status,:user_detail,
-                                               :is_currently_in_desired_country,:done_ielts,:visa_expiry_date,
-                                               :appointment_date,:require_translator,:language )
+                                               :is_currently_in_desired_country,:done_ielts,:visa_expiry_date, :resume, :country_id, 
+                                               :appointment_date,:require_translator,:language, :appointment_type )
   end
 
   def user_params
