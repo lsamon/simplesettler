@@ -16,7 +16,7 @@
 
     <div class="form-group">
       <%= f.label :country_id, label: "Name of country as shown on passport" %>
-      <%= f.input :country_id, as: :country, label: false %>
+      <%= f.input :country_id, as: :country, label: false, required: true %>
     </div>
 
      <div class="form-group">
@@ -44,7 +44,7 @@
 
     <div class="form-group">
       <%= f.label :resume, label: "Upload resume" %>
-      <%= f.file_field :resume, label: false %>
+      <%= f.file_field :resume, label: false, required: true %>
       <%= f.hidden_field :resume_cache %>
     </div>
 
