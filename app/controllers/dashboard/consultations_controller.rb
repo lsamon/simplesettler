@@ -1,26 +1,27 @@
 class Dashboard::ConsultationsController < ApplicationController
   layout 'shared/dashboard'
-  before_action :user_logged_in, :find_or_initialize_appointment, :find_or_initialize_user_detail
+  before_action :user_logged_in, :find_or_initialize_appointment, :find_or_initialize_user_detail, :defaults
 
   def index
-    @visa_types = VisaType.order(:name)
-    @package_detail = Package.first
     session.delete(:selected_package)
-    render 'dashboard/consultations/request_consultation'
   end
 
   def create
     #default package is consultation package
-    session[:selected_package] = Package.first.id
+    session[:selected_package] = @package_detail.id
     current_user.save!
-    redirect_to new_dashboard_payment_path
+    if @user_detail.save && @appointment.save
+      redirect_to new_dashboard_payment_path
+    else
+      render :index
+    end
   end
 
   def update
     if @user_detail.update_attributes(user_params) && @appointment.update_attributes(appointment_params)
       redirect_to new_dashboard_payment_path
     else
-      render 'dashboard/consultations/request_consultation'
+      render :index
     end
   end
 
@@ -36,8 +37,8 @@ class Dashboard::ConsultationsController < ApplicationController
 
   def filter_params
     params.except(:controller, :action, :NEXT).permit(:utf8, :_method, :authenticity_token, :visa_help_type,:visa_status,:user_detail,
-                                               :is_currently_in_desired_country,:done_ielts,:visa_expiry_date,
-                                               :appointment_date,:require_translator,:language )
+                                               :is_currently_in_desired_country,:done_ielts,:visa_expiry_date, :appointment_type, :resume,
+                                               :appointment_date,:require_translator,:language, :country_id )
   end
 
   def user_params
@@ -46,6 +47,11 @@ class Dashboard::ConsultationsController < ApplicationController
 
   def appointment_params
     params.fetch(:appointment, {}).permit(:appointment_date,:require_translator, :language, :appointment_type)
+  end
+
+  def defaults
+    @visa_types = VisaType.order(:name)
+    @package_detail = Package.first
   end
 
 end

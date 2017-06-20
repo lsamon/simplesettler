@@ -10,8 +10,7 @@ class UserDetail < ActiveRecord::Base
   end
 
   def get_visa_name
-    visa = VisaType.find(self.visa_status)
-    visa.present? ? visa[:name] : "Not set"
+    visa = VisaType.find(visa_status)
+    visa.present? ? visa.name : "Not set"
   end
-
 end
