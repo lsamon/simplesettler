@@ -1,11 +1,3 @@
-<script type="text/javascript">
-  $(document).ready(function () {
-    $(".datepicker").datepicker({
-      minDate: +1,
-      buttonImage: "images/calendar.gif"
-    });
-  });
-</script>
 <h2 class="ss-color">Request a consultation</h2>
 <%= simple_form_for(current_user.user_detail.present? ? current_user.user_detail : current_user.create_user_detail, url: dashboard_consultations_path, method: :post) do |f| %>
     <h2>Visa Details</h2>
@@ -15,13 +7,13 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :country_id, label: "Name of country as shown on passport" %>
-      <%= f.input :country_id, as: :country, label: false, required: true %>
+      <%= f.label :country_of_passport, label: "Name of country as shown on passport" %>
+      <%= f.input :country_of_passport, as: :country, label: false, required: true %>
     </div>
 
      <div class="form-group">
       <%= f.label :visa_help_type, label: "What visa are you seeking?" %>
-      <%= f.input :visa_help_type, collection: @visa_types, label: false, selected: @selected_visa_type %>
+      <%= f.input :visa_help_type, collection: @visa_types, label: false, value: :name, selected: @selected_visa_type %>
     </div>
     <div class="form-group">
       <%= f.label :is_currently_in_desired_country, label: "Are you currently living in the country you wish to settle in?" %>
@@ -36,9 +28,11 @@
 
     <div class="form-group">
       <label for="visa_expiry">When does your visa expire?</label>
-      <div class="inner-addon right-addon">
-        <i class="glyphicon glyphicon-calendar"></i>
-        <%= f.input :visa_expiry_date, input_html:{placeholder: "", class: "form-control datepicker"}, label: false, required: true %>
+      <div class="input-group date default-datepicker">
+        <%= f.input :visa_expiry_date, as: :string, input_html:{class: "datetimepicker"}, label: false, required: true %>
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </span>
       </div>
     </div>
 
@@ -50,16 +44,26 @@
 
       <h2>Appointment Details</h2>
     <%= f.simple_fields_for :appointment, current_user.appointment do |a| %>
-      <div class="form-group">
-        <%= a.label :appointment_date %>
-        <div class="inner-addon right-addon">
-          <i class="glyphicon glyphicon-calendar"></i>
-          <%= a.text_field :appointment_date, class:"form-control datepicker" %>
+      <div class="row">
+          <div class='col-sm-6'>
+            <div class="form-group">
+              <%= a.label :appointment_date %>
+              <div class="input-group date default-datetimepicker">
+                <%= a.input :appointment_date, as: :string, label: false, required: true %>
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+              </div>
+            </div>
         </div>
       </div>
-      <div class="form-group">
-        <%= a.label :appointment_type, label: "Would you like a face to face or Skype consultation?" %>
-        <%= a.input :appointment_type, label: false, collection: Appointment.appointment_types.keys.map(&:titleize), include_blank: false, input_html: {class: 'form-control'} %>
+      <div class="row">
+        <div class='col-sm-6'>
+          <div class="form-group">
+            <%= a.label :appointment_type, label: "Would you like a face to face or Skype consultation?" %>
+            <%= a.input :appointment_type, label: false, collection: enum_collection(a, :appointment_types), include_blank: false %>
+          </div>
+        </div>
       </div>
       <!-- <div class="form-group"> -->
         <%#= appointment.label :require_translator, "Do you require a translator?" %>

@@ -41,6 +41,7 @@ gem 'omniauth-google-oauth2'
 gem "figaro"
 
 gem 'carrierwave'
+gem 'carrierwave-aws'
 gem 'cloudinary'
 gem 'mini_magick'
 
@@ -51,6 +52,7 @@ gem 'gretel'
 
 gem 'kaminari'
 gem 'country_select'
+gem 'worldly'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.

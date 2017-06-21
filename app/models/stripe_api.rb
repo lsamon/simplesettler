@@ -5,7 +5,7 @@ class StripeApi
   attr_reader :user_email, :error, :package_name, :source
 
   def initialize(amount, currency, source, package_name, user_email)
-    Stripe.api_key = "sk_live_tO3lKPs7J4IkU0f9VJhv6Owh"
+    Stripe.api_key = 'sk_live_tO3lKPs7J4IkU0f9VJhv6Owh'
     @amount = amount
     @currency = currency
     @source = source

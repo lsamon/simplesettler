@@ -24,7 +24,7 @@
         <% end %>
       </p>
       <p><label><%= t('profile.passport_expiry') %>: </label> <%=current_user.user_detail.passport_expiry %></p>
-      <p><label><%= t('profile.visa_status') %>: </label> <%=current_user.user_detail.get_visa_name %></p>
+      <p><label><%= t('profile.visa_status') %>: </label> <%=current_user.user_detail.current_visa %></p>
       <p><label><%= t('profile.visa_expiry_date') %>: </label> <%=current_user.user_detail.visa_expiry_date %></p>
     </div>
   </div>

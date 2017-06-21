@@ -1,12 +1,2 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-</head>
-<body>
-<h1>Dear, <%= @user.user_detail.full_name %></h1>
-
+<h1>Dear, <%= @user.user_detail.f_name.present? ? @user.user_detail.f_name : @user.username %></h1>
 <p>Thank you for payment. We will be in touch on the next steps.</p>
-</body>
-</html>

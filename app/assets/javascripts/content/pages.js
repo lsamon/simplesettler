@@ -15,4 +15,14 @@ $(document).ready(function(){
       var data=({visa_help_type: $(this).val(), step_number: $("#step_number").val() });
       $("#select_step_1").submit();
   })
+
+  $(".default-datetimepicker").datetimepicker({
+    minDate: moment(),
+    format: 'DD-MM-YYYY HH:mm'
+  });
+
+  $(".default-datepicker").datetimepicker({
+    minDate: moment(),
+    format: 'DD-MM-YYYY'
+  });
 });

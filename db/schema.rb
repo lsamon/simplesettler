@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170620015609) do
+ActiveRecord::Schema.define(version: 20170621091420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,12 +22,12 @@ ActiveRecord::Schema.define(version: 20170620015609) do
 
   create_table "appointments", id: :serial, force: :cascade do |t|
     t.string "user_id"
-    t.string "appointment_date"
     t.boolean "require_translator"
     t.string "language"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "appointment_type", default: 0
+    t.datetime "appointment_date"
   end
 
   create_table "articles", id: :serial, force: :cascade do |t|
@@ -168,7 +168,7 @@ ActiveRecord::Schema.define(version: 20170620015609) do
   end
 
   create_table "user_details", id: :serial, force: :cascade do |t|
-    t.string "visa_status"
+    t.integer "visa_status"
     t.string "f_name"
     t.string "l_name"
     t.string "dob"
@@ -181,7 +181,7 @@ ActiveRecord::Schema.define(version: 20170620015609) do
     t.string "visa_help_type"
     t.boolean "is_currently_in_desired_country"
     t.boolean "done_ielts"
-    t.string "visa_expiry_date"
+    t.date "visa_expiry_date"
     t.string "image"
     t.integer "country_id"
     t.string "resume"
