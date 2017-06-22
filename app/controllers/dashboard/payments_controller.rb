@@ -26,7 +26,7 @@ class Dashboard::PaymentsController < ApplicationController
           #send email
           UserMailer.payment_success_email(current_user, package_detail).deliver_later
           # admin_email = User.get_admin.email
-          UserMailer.email_to_admin(User.admin, package_detail).deliver_later
+          UserMailer.email_to_admin(User.admin, current_user, package_detail).deliver_later
         else
         end
       else
