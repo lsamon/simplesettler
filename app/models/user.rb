@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.get_admin
+  def self.admin
     where(admin: true).first
   end
 end
