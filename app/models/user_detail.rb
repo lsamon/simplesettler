@@ -4,7 +4,7 @@ class UserDetail < ActiveRecord::Base
 
   belongs_to :User
 
-  validates :resume, :country_id, presence: true
+  validates :resume, :country_of_passport, presence: true
 
   def full_name
     "#{f_name} #{l_name}"
