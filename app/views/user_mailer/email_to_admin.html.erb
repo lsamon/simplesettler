@@ -2,15 +2,16 @@
 <p>A payment for <b><%= @package_detail.name %></b> has been received.</p>
 <p>The details are as below:</p>
 <table class="table-default">
-  <tr class="border-top"><th>Email: </th><td><%= @user.email%></td></tr>
-  <tr class="border-top"><th>Name: </th><td><%= @user.user_detail.full_name %></td></tr>
-  <tr class="border-top"><th>Country of origin: </th><td><%= country(@user.user_detail.country_of_passport).name %></td></tr>
-  <tr class="border-top"><th>Currently on: </th><td><%= @user.user_detail.current_visa %></td></tr>
-  <tr class="border-top"><th>Currently visa expires on: </th><td><%= l @user.user_detail.visa_expiry_date %></td></tr>
-  <tr class="border-top"><th>Seeking: </th><td><%= @user.user_detail.requested_visa %></td></tr>
-  <tr class="border-top"><th>Done IELTS within 2 years: </th><td><%= @user.user_detail.done_ielts? ? 'Yes' : 'No' %></td></tr>
-  <tr class="border-top"><th>Appointment date: </th><td><%= l @user.appointment.appointment_date %></td></tr>
-  <tr class="border-top"><th>Appointment type: </th><td><%= @user.appointment.appointment_type.titleize %></td></tr>
-  <tr class="border-top"><th>Package name: </th><td><%= @package_detail.name %></td></tr>
-  <tr class="border-top"><th>Amount paid: </th><td><%= number_to_currency @user.payment.amount_paid %></td></tr>
+  <tr class="border-top"><th>Email </th><td><%= @user.email%></td></tr>
+  <tr class="border-top"><th>Name </th><td><%= @user.user_detail.full_name %></td></tr>
+  <tr class="border-top"><th>Country of origin </th><td><%= country(@user.user_detail.country_of_passport).name %></td></tr>
+  <tr class="border-top"><th>Currently on </th><td><%= @user.user_detail.current_visa %></td></tr>
+  <tr class="border-top"><th>Visa expires on </th><td><%= l @user.user_detail.visa_expiry_date %></td></tr>
+  <tr class="border-top"><th>Seeking </th><td><%= @user.user_detail.requested_visa %></td></tr>
+  <tr class="border-top"><th>*IELTS </th><td><%= @user.user_detail.done_ielts? ? 'Yes' : 'No' %></td></tr>
+  <tr class="border-top"><th>Appointment date </th><td><%= l @user.appointment.appointment_date %></td></tr>
+  <tr class="border-top"><th>Appointment type </th><td><%= @user.appointment.appointment_type.titleize %></td></tr>
+  <tr class="border-top"><th>Package name </th><td><%= @package_detail.name %></td></tr>
+  <tr class="border-top"><th>Amount paid </th><td><%= number_to_currency @user.payment.amount_paid %></td></tr>
 </table>
+<p class="conditions-apply">* IELTS is valid for 2years</p>
