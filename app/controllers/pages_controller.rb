@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!, only: [:help]
-  # layout 'user'
+  layout 'application'
   def index
     @cities = City.all
     @articles = Article.all
@@ -9,6 +9,7 @@ class PagesController < ApplicationController
 
   def help
     @visa_types = VisaType.all
+    render layout: 'pages'
   end
 
   def about

@@ -5,8 +5,11 @@ $(document).ready(function(){
         background: 'rgba(0,0,0,0.8)',
         transition: '.3s'
       });
-    } else {
-      // $('nav.front-page').css('background', 'rgba(0,0,0,0)');
+    // } else if() {
+    //   $('nav').css('background', 'rgba(0,0,0,0)');
+    // }
+  } else {
+      $('nav.front-page').css('background', 'rgba(0,0,0,0)');
     }
   });
   $(".select-radio-styling input").change(function () {
