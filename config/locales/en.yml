@@ -53,8 +53,10 @@ en:
       sign_up: Sign Up
       logout: Logout
     header:
-      title: SETTLE ANYWHERE.
-      subtitle: Discover and connect with services in your city.
+      # title: SETTLE ANYWHERE.
+      title: LIVE ANYWHERE.
+      subtitle: Settling made simple
+      # subtitle: Discover and connect with services in your city.
       search:
         placeholder: Search Cities
       currently_available: Currently available in Australia
@@ -68,14 +70,14 @@ en:
     speak_to_experts:
       title: Speak to our awesome experts
       study:
-        title: Study
-        content: Get a degree from the some of the best educational institutions in the world and open new doors to your future.
+        title: Study anywhere
+        content: Learn at some of the world's top educational institutions and open new doors to your future.
       work:
-        title: Work
-        content: Find out if you need a temporary work permit and how to obtain one.
+        title: Work anywhere
+        content: Every last thing you need to know about temporary work permits and how to get one.
       live:
-        title: Live
-        content: Our extensive settlement information and resources can help you get settled anywhere.
+        title: Live anywhere
+        content: Comprehensive information and resources to help you get settled - and feeling at home from day one.
     media:
       featured_in: Featured in
     page_end:
