@@ -43,7 +43,7 @@
     </div>
 
       <h2>Appointment Details</h2>
-    <%= f.simple_fields_for :appointment, current_user.appointment do |a| %>
+    <%= f.simple_fields_for :appointment, current_user.appointment.present? ? current_user.appointment : current_user.create_appointment do |a| %>
       <div class="row">
           <div class='col-sm-6'>
             <div class="form-group">
