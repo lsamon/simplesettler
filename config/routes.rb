@@ -41,7 +41,7 @@ Rails.application.routes.draw do
     resources :consultations, only: [:index, :create]
   end
 
-  devise_for :users, :controllers => { omniauth_callbacks: "callbacks", sessions: 'users/sessions', confirmations: 'confirmations' }
+  devise_for :users, :controllers => { omniauth_callbacks: "callbacks", sessions: 'users/sessions', confirmations: 'users/confirmations' }
   as :user do
     get '/dashboard/profile' =>'users/sessions#profile'
     get '/dashboard/profile/edit' =>'users/sessions#edit'
