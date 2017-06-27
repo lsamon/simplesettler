@@ -1,13 +1,13 @@
 class User < ActiveRecord::Base
   has_many :articles
-  has_many :helpfuls
+  has_many :helpfuls, dependent: :destroy
   has_many :feedbacks
   has_one :user_detail, dependent: :destroy
-  has_one :appointment
+  has_one :appointment, dependent: :destroy
   has_one :payment
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :confirmable, 
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   validates :email, presence: true
 

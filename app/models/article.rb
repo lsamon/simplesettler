@@ -10,7 +10,7 @@ class Article < ActiveRecord::Base
   has_many :city_articles
   has_many :cities, through: :city_articles
   belongs_to :category, counter_cache: true
-  has_many :helpfuls
+  has_many :helpfuls, dependent: :destroy
 
   enum status: { draft: 0, published: 1, unpublished: 2 }
 
