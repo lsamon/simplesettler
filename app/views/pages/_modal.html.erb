@@ -1,0 +1,34 @@
+<div class="overlay"></div>
+<div class="js-modal position">
+  <div class="close"></div>
+  <%= image_tag "logo", class: 'logo' %>
+  <div class="brand login-text">
+    Sign in with your email or username<br><br>
+    <strong>OR</strong><br><br> Use Facebook secure login for quick access to your account.
+  </div>
+  <button class="brand flat-button facebook">Continue with Facebook</button>
+  <div class="form position">
+    <a href="#"><button class="close">x</button></a>
+    <div class="form-inner">
+      <!-- Tabs-->
+      <div class="tabs">
+        <ul class="tabs">
+          <li class="current" data-tab="member">
+            <a href="#member">I am a member</a>
+          </li>
+          <li data-tab="new">
+            <a href="#register">I am new here</a>
+          </li>
+        </ul>
+        <!--Login Form -->
+        <div class="form-content current" id="member">
+          <%= render 'users/sessions/new' %>
+        </div>
+        <!--Registration form-->
+        <div class="form-content" id="new">
+          <%= render 'users/registrations/new' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

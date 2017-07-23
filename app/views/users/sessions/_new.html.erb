@@ -1,0 +1,8 @@
+<%= simple_form_for(resource, as: resource_name, url: user_session_path, id: 'member', format: :json, remote: true) do |f| %>
+  <%= f.text_field :email, autofocus: true, name: 'login-id', placeholder: 'EMAIL', class: 'field', required: true  %>
+  <%= f.password_field :password, autocomplete: "off", placeholder: 'PASSWORD', name: 'usrpw', class: 'field', required: true %>
+  <div class="clear"></div>
+  <%= f.input :remember_me, as: :boolean, input_html: { class: 'check', id: 'custom-check' }, inline_label: 'Remember me' %>
+  <%= f.submit 'Log in', class: 'flat-button login', name: 'sign-in-button' %>
+<% end %>
+<h2>This is incredible</h2>

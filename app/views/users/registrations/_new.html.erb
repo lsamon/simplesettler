@@ -1,0 +1,11 @@
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), id: 'reg', remote: true) do |f| %>
+  <%= devise_error_messages! %>
+  <%= f.text_field :email, autofocus: true, name: 'login-id', placeholder: 'EMAIL', class: 'field', required: true  %>
+  <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+  <% end %><br />
+  <%= f.password_field :password, autocomplete: "off", placeholder: 'PASSWORD', name: 'usrpw', class: 'field', required: true %>
+  <%= f.input :password_confirmation, label: false, autocomplete: "off", input_html: { placeholder: 'PASSWORD CONFIRMATION', class: 'field' }, required: true %>
+  <div class="clear"></div>
+  <%= f.submit 'Register', class: 'flat-button login', name: 'register-button' %>
+<% end %>
