@@ -1,4 +1,4 @@
-class AddSlugToCities < ActiveRecord::Migration
+class AddSlugToCities < ActiveRecord::Migration[5.1]
   def change
     add_column :cities, :slug, :string
   end

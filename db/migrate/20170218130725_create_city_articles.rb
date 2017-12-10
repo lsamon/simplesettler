@@ -1,4 +1,4 @@
-class CreateCityArticles < ActiveRecord::Migration
+class CreateCityArticles < ActiveRecord::Migration[5.1]
   def change
     create_table :city_articles do |t|
       t.integer :article_id

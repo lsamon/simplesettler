@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-12 banner">
-    <%= image_tag @banner.media.present? ? @banner.media.large.url : "slider2.jpg", title: 'homepage banner', alt: 'banner' %>
+    <%= image_tag @banner.present? ? @banner.media.large.url : "slider2.jpg", title: 'homepage banner', alt: 'banner' %>
     <div row>
       <div class="col-sm-12 content">
         <h1><%= t('site.header.title') %></h1>

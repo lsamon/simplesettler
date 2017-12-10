@@ -1,4 +1,4 @@
-class ArticlesCategories < ActiveRecord::Migration
+class ArticlesCategories < ActiveRecord::Migration[5.1]
   def change
     create_table :articles_categories do |t|
       t.integer :article_id
