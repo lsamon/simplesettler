@@ -1,11 +1,13 @@
 <% title @article.meta_title.present? ? @article.meta_title : @article.title %>
 <% meta_tag :description, @article.meta_description %>
 <% meta_tag :keywords, @article.keywords %>
-<div class="wide">
-  <div class="col-sm-12">
-    <%= image_tag @article.image.large.url %>
-    <div class="content">
-      <h2><%= @article.title %></h2>
+<div class="container-fluid header">
+  <%= image_tag @article.image.large.url %>
+  <div class="ro text-center">
+    <div class="col-md-12">
+      <div class="carousel-caption" id="startchange">
+        <h2><%= @article.title %></h2>
+      </div>
     </div>
   </div>
 </div>
