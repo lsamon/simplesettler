@@ -5,7 +5,7 @@ class PagesController < ApplicationController
     @cities = City.all
     @articles = Article.all
     @banner = Banner.first
-    layout 'application'
+    render layout: 'application'
   end
 
   def help
