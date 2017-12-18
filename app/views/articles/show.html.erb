@@ -1,7 +1,7 @@
 <% title @article.meta_title.present? ? @article.meta_title : @article.title %>
 <% meta_tag :description, @article.meta_description %>
 <% meta_tag :keywords, @article.keywords %>
-<div class="row bannerArticle banner">
+<div class="wide">
   <div class="col-sm-12">
     <%= image_tag @article.image.large.url %>
     <div class="content">
