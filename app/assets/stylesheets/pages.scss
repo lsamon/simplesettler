@@ -24,6 +24,7 @@
 
 .collapse.in{
   background-color:#000 !important;
+  opacity: 0.7;
 }
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus
 .spacer{
@@ -112,7 +113,7 @@
   font-size: 20px;
   color: gray;
   line-height: 54px;
-  width: 60px;
+  width: 35px;
   background: white;
   display: inline-block;
 }
