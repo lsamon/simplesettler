@@ -19,41 +19,45 @@
   <%= javascript_include_tag Ckeditor.cdn_url %>
   <%= cloudinary_js_config %>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/build/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
-<body class="front">
-
-<div class="container-fluid pages">
-  <div class="row header bottom-buffer">
-      <nav>
-        <div class="nav">
-          <%= link_to(root_path, class: 'navLeft') do %>
-            <%= image_tag('logo.png', title: 'simplesettler', alt: 'simplesettler') %>
-          <% end %>
-          <div class="navRight">
-            <ul>
-            <% unless user_signed_in? %>
-              <li><%= link_to t('site.nav.sign_in'), new_user_session_path, class: "signInOutButton " %></li>
-              <li><%= link_to t('site.nav.sign_up'), new_user_registration_path, class: "signInOutButton "  %></li>
-            <% end %>
-            <% if user_signed_in? %>
-                <li><%= link_to "#{t('site.nav.logout')} #{ current_user.username }", destroy_user_session_path, :method => 'delete', class: "logoutButton " %></li>
-            <% end %>
-              <li><%= link_to t('site.nav.help'), '/dashboard', class: " helpMenuItem" %></li>
-            </ul>
-          </div>
-          <%= link_to '☰', 'javascript:void(0);', class: "hamburger", :id => "hamburger", :style => "font-size: 24px;"%>
-        </div>
-      </nav>
+<body>
+<!-- <div class="row header"> -->
+  <!-- Static navbar -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to(root_path) do %>
+          <%= image_tag('logo.png', title: 'simplesettler', alt: 'simplesettler', class: 'logo') %>
+        <% end %>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="ss-nav nav navbar-nav pull-right">
+          <li><%= link_to t('site.nav.help'), dashboard_root_path, class: 'ss-button' %></li>
+          <li><%= link_to t('site.nav.login'), new_user_session_path %></li>
+        </ul>
+      </div><!--/.nav-collapse -->
     </div>
-
-
+  </nav>
+<!-- </div> -->
   <%= yield %>
-
+<div class="container-fluid">
   <div class="footer-section">
       <div class="row">
         <div class="col-xs-12 col-lg-4">
@@ -100,16 +104,22 @@
     </div>
   </div>
 </div>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
-    $(document).ready(function() {
-        $('#hamburger').click(function() {
-            $('.navRight ul').toggleClass('responsiveNavShow');
-        });
-        $('.navRight ul li a').click(function() {
-            $('.navRight ul').toggleClass('responsiveNavShow');
-        });
-    });
+  $(document).ready(function(){
+   var scroll_start = 0;
+   var startchange = $('#startchange');
+   var offset = startchange.offset();
+    if (startchange.length){
+     $(document).scroll(function() {
+        scroll_start = $(this).scrollTop();
+        if(scroll_start > offset.top) {
+            $(".navbar-default").css({backgroundColor: '#000', opacity: 0.7});
+         } else {
+           $(".navbar-default").css({backgroundColor: '#000', opacity: 1});
+         }
+     });
+    }
+  });
 </script>
 </body>
 </html>

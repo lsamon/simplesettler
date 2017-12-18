@@ -1,4 +1,4 @@
-class AddMetaTagsToCities < ActiveRecord::Migration
+class AddMetaTagsToCities < ActiveRecord::Migration[5.1]
   def change
     add_column :cities, :meta_title, :string
     add_column :cities, :meta_description, :text

@@ -13,112 +13,6 @@
 @import "users";
 @import "visa_help";
 
-* {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
-
-.navSpacer {
-  height: 66px;
-  display: block;
-  background: #252525;
-}
-
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-
-/// NAV /////////////////////////////////////////////////
-/// NAV /////////////////////////////////////////////////
-
-
-.front nav {
-  width: 100%;
-  height: 70px;
-  position: fixed;
-  z-index: 50;
-}
-
-.front .nav {
-  box-sizing: border-box;
-  padding: 15px;
-  width: 100%;
-  justify-content: space-between;
-
-
-  .navLeft {
-    float: left;
-    height: 42px !important;
-    width: 180px;
-    margin-top: 5px;
-    height: 100%;
-  }
-
-  .navRight {
-    float: right;
-    text-align: right;
-    margin-top: 10px;
-    a {
-      display: inline-block;
-      color: white;
-      text-decoration: none;
-      font-weight: 100;
-      padding: 6px 10px;
-    }
-
-    .helpMenuItem {
-      @include button;
-      line-height: 30px;
-    }
-
-    .helpMenuItem:hover {
-      background: rgba(0,0,0,0);
-      color: $logoColor;
-    }
-  }
-}
-
-nav li {
-  display: inline-block;
-}
-
-
-
-.navRight a:after {
-  display:block;
-  content: '';
-  padding-bottom: 4px;
-  border-bottom: solid 3px $logoColor;
-  transform: scaleX(0);
-  transition: transform 250ms ease-in-out;
-}
-
-.navRight a:hover:after {
-  transform: scaleX(1);
-}
-
-.navRight .helpMenuItem:after {
-  border-bottom: 0;
-  padding-bottom: 0;
-  transform: none;
-}
-
-.nav .hamburger {
-  margin-top: 6px;
-  color: white;
-  text-decoration: none;
-  float:right;
-  display: none;
-}
-
-
-.navRight ul {
-    display: block;
-}
-
 /// FOOTER //////////////////////////////////////////////
 /// FOOTER //////////////////////////////////////////////
 
@@ -144,7 +38,7 @@ color: lightgray;
       border: 0;
       height: 100%;
       width: 15%;
-      margin-left: -4px;
+      margin-left: -6px;
       vertical-align: middle;
       box-sizing: border-box;
       color: #252525;
@@ -171,60 +65,6 @@ color: lightgray;
     a{
       text-decoration: none;
       color: white;
-    }
-  }
-}
-
-
-// RESPONSIVE NAV
-
-@media only screen
-  and (min-width: 320px)
-  and (max-width: 1280px)
-  and (-webkit-min-device-pixel-ratio: 2) {
-  .nav .hamburger {
-    display: inline !important;
-    font-size: 30px !important;
-    margin-top: -10px;
-    color: #fff;
-  }
-
-  .navRight ul {
-    visibility: hidden;
-    opacity: 0;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 80px;
-    bottom: 0;
-  }
-  .front nav ul li {
-    box-sizing: border-box;
-    display: block;
-    padding: 8px;
-    font-size: 30px;
-    text-align: center;
-    background: rgba(0,0,0,0.8);
-  }
-  .footer-section .social-icons {
-    a { padding: 5px; }
-    i { font-size: 3.5rem; }
-  }
-
-  .responsiveNavShow {
-    visibility: visible !important;
-    opacity: 1 !important;
-    -webkit-transition: opacity 0.5s;
-    transition: opacity 0.5s;
-  }
-  .banner img { height: 100%; }
-  .banner .content { top: 20%; }
-
-  .img-effect { height: 250px; }
-  .bannerArticle, .bannerCity {
-    height: 60vh;
-    .col-sm-12 > .content {
-      top: 150px;
     }
   }
 }

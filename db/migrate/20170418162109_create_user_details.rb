@@ -1,4 +1,4 @@
-class CreateUserDetails < ActiveRecord::Migration
+class CreateUserDetails < ActiveRecord::Migration[5.1]
   def change
     create_table :user_details do |t|
       t.string :visa_status

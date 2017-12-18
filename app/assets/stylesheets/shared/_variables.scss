@@ -8,12 +8,9 @@ $backgroundColor: #F7F5F6;
 @mixin button {
   border: 1px solid $logoColor;
   background: $logoColor;
-  line-height: 42px;
-  height: 42px;
+  padding: 10px;
   transition: 0.3s;
   text-decoration: none;
   color: white;
   display: inline-block;
-  text-align: center;
-  font-size: 14px;
 }
