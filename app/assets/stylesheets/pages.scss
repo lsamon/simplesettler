@@ -91,11 +91,11 @@
     }
 }
 
-.banner-search {
+.ss-input-container {
   height: 60px;
 }
 
-.banner-search .search-city {
+.ss-input-container .ss-input {
   width: 80%;
   height: 100%;
   border: 0 solid white;
@@ -106,7 +106,7 @@
   display: inline-block;
 }
 
-.banner-search button {
+.ss-input-container button {
   background: white;
   height: 100%;
   border-left: 1px solid #ccc;
@@ -115,13 +115,21 @@
   cursor: pointer;
   margin-left: -10px;
 }
-.banner-search button > i {
+.ss-input-container button > i {
   font-size: 20px;
   color: gray;
   line-height: 54px;
   width: 35px;
   background: white;
   display: inline-block;
+}
+
+.ss-input-container.subscribe {
+  height: 45px;
+}
+
+.ss-input-container.subscribe button > i {
+  line-height: 40px;
 }
 
 .media-section img {

@@ -1,125 +1,56 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>
-      <% if yield(:title).present? %>
-        <%= "#{yield(:title)} | " %> SimpleSettler
-      <% else %>
-        SimpleSettler
-      <% end %>
-  </title>
-  <meta name='description'
-      content='<%= yield_meta_tag(:description, 'SimpleSettler, one stop hub for your people looking to migrate.') %>' />
-  <meta name='keywords'
-      content='<%= yield_meta_tag(:keywords, 'student visas,migrant accomodation,settlement help') %>' />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= favicon_link_tag 'favicon.png', rel: 'shortcut icon', type: 'image/png' %>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <%= javascript_include_tag 'application' %>
-  <%= javascript_include_tag Ckeditor.cdn_url %>
-  <%= cloudinary_js_config %>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script src="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/build/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
-
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<!-- <div class="row header"> -->
-  <!-- Static navbar -->
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <%= link_to(root_path) do %>
-          <%= image_tag('logo.png', title: 'simplesettler', alt: 'simplesettler', class: 'logo') %>
+  <head>
+    <title>
+        <% if yield(:title).present? %>
+          <%= "#{yield(:title)} | " %> SimpleSettler
+        <% else %>
+          SimpleSettler
         <% end %>
-      </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="ss-nav nav navbar-nav pull-right">
-          <li><%= link_to t('site.nav.help'), dashboard_root_path, class: 'ss-button' %></li>
-          <li><%= link_to t('site.nav.login'), new_user_session_path %></li>
-        </ul>
-      </div><!--/.nav-collapse -->
-    </div>
-  </nav>
-<!-- </div> -->
-  <%= yield %>
-<div class="container-fluid">
-  <div class="footer-section">
-      <div class="row">
-        <div class="col-xs-12 col-lg-4">
-          <ul>
-            <li><h3><%= t('site.footer.company.title') %></h3></li>
-            <li><%= link_to t('site.footer.company.home'), root_path %></li>
-            <li><%= link_to t('site.footer.company.about'), about_path %></li>
-            <li><%= link_to t('site.nav.help'), '/dashboard', class: " helpMenuItem" %></li>
+    </title>
+    <meta name='description'
+        content='<%= yield_meta_tag(:description, 'SimpleSettler, one stop hub for your people looking to migrate.') %>' />
+    <meta name='keywords'
+        content='<%= yield_meta_tag(:keywords, 'student visas,migrant accomodation,settlement help') %>' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= favicon_link_tag 'favicon.png', rel: 'shortcut icon', type: 'image/png' %>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag Ckeditor.cdn_url %>
+    <%= cloudinary_js_config %>
 
-            <!-- <li><%#= t('site.footer.company.partner') %></li> -->
-          </ul>
-        </div>
-        <div class="col-xs-12 col-lg-4">
-          <ul>
-            <li><h3><%= t('site.footer.support.title') %></h3></li>
-            <li><%= link_to t('site.footer.support.tos'), tos_path %></li>
-            <li><%= link_to t('site.footer.support.privacy'), privacy_path %></li>
-            <li><%= mail_to 'hello@simplesettler.com', 'hello@simplesettler.com' %></li>
-          </ul>
-        </div>
-        <div class="col-xs-12 col-lg-4">
-          <ul>
-            <li><h3><%= t('site.footer.subscribe.label') %></h3></li>
-            <li class="subscribe">
-              <%= text_field :search, nil, class: 'enterEmail', :placeholder => t('site.footer.subscribe.placeholder') %>
-              <%= button_tag(type: 'submit', class: "submitEmail") do %>
-                <i class="fa fa-paper-plane"></i>
-              <% end %>
-            </li>
-            <li class="social-footer">
-              <h3><%= t('site.footer.subscribe.follow') %></h3>
-              <div class="social-icons">
-                <%= link_to("https://www.facebook.com/simplesettler", target: '_blank') do %>
-                  <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                <% end %>
-                <%= link_to("https://twitter.com/simplesettler", target: '_blank') do %>
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                <% end %>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<script>
-  $(document).ready(function(){
-   var scroll_start = 0;
-   var startchange = $('#startchange');
-   var offset = startchange.offset();
-    if (startchange.length){
-     $(document).scroll(function() {
-        scroll_start = $(this).scrollTop();
-        if(scroll_start > offset.top) {
-            $(".navbar-default").css({backgroundColor: '#000', opacity: 0.7});
-         } else {
-           $(".navbar-default").css({backgroundColor: '#000', opacity: 1});
-         }
-     });
-    }
-  });
-</script>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/build/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render 'shared/navigation' %>
+    <%= yield %>
+    <%= render 'shared/footer' %>
+    <script>
+      $(document).ready(function(){
+       var scroll_start = 0;
+       var startchange = $('#startchange');
+       var offset = startchange.offset();
+        if (startchange.length){
+         $(document).scroll(function() {
+            scroll_start = $(this).scrollTop();
+            if(scroll_start > offset.top) {
+                $(".navbar-default").css({backgroundColor: '#000', opacity: 0.7});
+             } else {
+               $(".navbar-default").css({backgroundColor: '#000', opacity: 1});
+             }
+         });
+        }
+      });
+    </script>
+  </body>
 </html>

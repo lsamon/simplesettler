@@ -1,7 +1,7 @@
-<%= content_tag(:div, article, class: 'col-xs-12 col-sm-12 col-md-4 col-lg-4') do %>
+<%= content_tag(:div, article, class: 'col-sm-4 grid-item"') do %>
   <%= link_to(article.featured? ? article.external_url : city_article_path(current_city, article), title: article.title, target: article.featured? ? '_blank' : '', class: 'articleSelect') do %>
-    <div class="img-container">
-      <span><%= article.title %></span>
+    <div class="imagebox">
+      <span class="image-desc"><%= article.title %></span>
       <%= image_tag article.image.detail.url, class: "img-effect" %>
     </div>
   <% end %>

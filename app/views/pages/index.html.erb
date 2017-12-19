@@ -2,11 +2,11 @@
   <%= image_tag @banner.present? ? @banner.media.large.url : "slider2.jpg", title: 'homepage banner', alt: 'banner' %>
   <div class="ro text-center">
     <div class="col-md-12">
-      <div class="carousel-caption" id="startchange">
+      <div class="carousel-caption">
         <h1><%= t('site.header.title') %></h1>
         <h2><%= t('site.header.subtitle') %></h2>
-        <div class="banner-search">
-          <%= text_field_tag :search, params[:search], placeholder: t('site.header.search.placeholder'), class: 'search-city', pattern: ".{2,20}", title: 'Enter more than 1 character', data: { autocomplete: autocomplete_city_name_cities_path } %>
+        <div class="ss-input-container">
+          <%= text_field_tag :search, params[:search], placeholder: t('site.header.search.placeholder'), class: 'ss-input', pattern: ".{2,20}", title: 'Enter more than 1 character', data: { autocomplete: autocomplete_city_name_cities_path } %>
           <button>
             <i class="fa fa-search" aria-hidden="true"></i>
           </button>

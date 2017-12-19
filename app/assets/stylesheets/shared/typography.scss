@@ -16,6 +16,10 @@ button:focus, input:focus {
   outline: 0;
 }
 
+.image-responsive {
+  display: inline-block !important;
+}
+
 .centered {
   margin: 0 auto;
 }
@@ -142,8 +146,36 @@ a:hover i.fa-pinterest        { color: #C92228; }
 a:hover i.fa-twitter          { color: #4099FF; }
 
 .footer-section {
-  text-align: center;
-  .social-icons {
-    display: inline-block;
-  }
+  background: #252525;
+}
+
+.footer-section .social-icons {
+  display: inline-block;
+}
+
+.footer-section a, .footer-section h4 {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-section ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.footer-divider {
+  margin: 20px 50px;
+}
+
+.footer-disclaimer {
+  padding-left: 35px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  color: #fff;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #e0e0de;
 }
