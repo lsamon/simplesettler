@@ -1,0 +1,8 @@
+<div class="btn-group" role="group">
+  <button type="button" id="<%= category.slug %>" class="btn btn-default article-category" href="#<%= set_css_category_id(category.slug) %>" data-toggle="tab">
+    <i class="fa <%= set_icon(category.slug) %>" aria-hidden="true"></i>
+    <div class="hidden-xs">
+      <%= category.name %>
+    </div>
+  </button>
+</div>

@@ -8,6 +8,15 @@ class PagesController < ApplicationController
     render layout: 'application'
   end
 
+  def search
+    if params[:city_id].present?
+      city_id = City.find(params[:city_id].to_i)
+      return redirect_to city_path(city_id)
+    end
+
+    redirect_to root_path
+  end
+
   def help
     @visa_types = VisaType.all
   end

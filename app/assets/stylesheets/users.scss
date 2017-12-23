@@ -1,89 +1,26 @@
-.container-fluid {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+.social-login a {
+  color: white;
+  font-size: 18px;
+  text-align: center;
+}
+.social-login a > i {
+  color: white;
+  margin-right: 8px;
 }
 
-//fix bootstrap checkbox alignment
-.checkbox input[type="checkbox"] {
-  margin-left: 0;
+.fb-login {
+  background: #334d87;
+  height: 30px;
+  margin: 5px 0;
 }
-
-.signin {
-  padding: 10px 0;
-  min-height: 100vh;
-  background: #eee;
-
-  .content {
-    padding: 20px;
-  }
-
-  .signinCont {
-    margin: 0 auto;
-    max-width: 500px;
-    max-height: 500px;
-    background: white;
-    overflow: hidden;
-
-    .header {
-      height: 45px;
-      background: #252525;
-      margin-bottom: 10px;
-
-      h2 {
-        color: #00b6ab;
-          margin: 0;
-        padding: 7px;
-        font-weight: 200;
-      }
-    }
-
-    .signinInput {
-      margin: 10px 0;
-      height: 30px;
-      width: 190px;
-      padding-left: 10px;
-      border: 1px solid #00b6ab;
-      font-size: 16px;
-    }
-
-    .signinInputArea {
-      width: 300px;
-      height: 100%;
-      padding-left: 10px;
-      border: 1px solid #00b6ab;
-    }
-
-
-      .links {
-          div.social-login {
-            display: inline-block;
-            width: 150px;
-            height: 30px;
-            text-align: center;
-            line-height: 30px;
-            a {
-              color: white;
-              font-size: 18px;
-              text-align: center;
-            }
-            i {
-                color: white;
-                margin-right: 8px;
-            }
-          }
-          div.fb-login { background: #334d87; }
-          div.fb-login:hover { background: #365db5; }
-          div.gplus-login { background: #df4a32; }
-          div.gplus-login:hover { background: #ff553a; }
-      }
-  }
+.fb-login:hover {
+  background: #365db5;
 }
-
-.signin {
-  a { font-size: 1rem; }
-  p { font-size: 1rem; }
+.gplus-login {
+  background: #df4a32;
+  height: 30px;
+  margin: 5px 0;
 }
-
-ul > li.devise-error {
-  font-size: 12px;
+.gplus-login:hover {
+  background: #ff553a;
 }

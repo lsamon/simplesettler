@@ -13,9 +13,8 @@ class City < ActiveRecord::Base
     where("name ILIKE ?", "%#{search}%")
   end
 
-  def self.articles_by_category(cid, cat_name)
-    cat_id = Category.where(:name => cat_name).first.id
-    where(:id => cid).first.articles.where(:category_id => cat_id)
+  def articles_by_category(category_id)
+    articles.where(category_id: category_id)
   end
 
 end

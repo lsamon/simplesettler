@@ -11,8 +11,6 @@
 // about supported directives.
 //
 //= require jquery_ujs
-//= require jquery-ui
-//= require autocomplete-rails
 //= require cloudinary
 //= require ckeditor/init
 //= require content/pages

@@ -1,15 +1,18 @@
-<div class="container-fluid header">
+<div class="row header">
   <%= image_tag @banner.present? ? @banner.media.large.url : "slider2.jpg", title: 'homepage banner', alt: 'banner' %>
-  <div class="ro text-center">
+  <div class="row text-center">
     <div class="col-md-12">
       <div class="carousel-caption">
         <h1><%= t('site.header.title') %></h1>
         <h2><%= t('site.header.subtitle') %></h2>
         <div class="ss-input-container">
-          <%= text_field_tag :search, params[:search], placeholder: t('site.header.search.placeholder'), class: 'ss-input', pattern: ".{2,20}", title: 'Enter more than 1 character', data: { autocomplete: autocomplete_city_name_cities_path } %>
-          <button>
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </button>
+          <%= form_tag '/search', method: 'get', :id => 'search-form' do %>
+            <%= text_field_tag :search, params[:term], placeholder: t('site.header.search.placeholder'), class: "ss-input" %>
+            <%= hidden_field_tag 'city_id' %>
+            <%= button_tag(nil) do %>
+              <i class="fa fa-search" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -37,3 +40,36 @@
 </div>
 <%= render 'speak_to_experts' %>
 <%= render 'page_end' %>
+
+<script>
+$(function(){
+  // Below is the name of the textfield that will be autocomplete
+  $('#search').autocomplete({
+    // This shows the min length of charcters that must be typed before the autocomplete looks for a match.
+    minLength: 2,
+    // This is the source of the auocomplete suggestions. In this case a list of names from the people controller, in JSON format.
+    source: '<%= cities_path(:json) %>',
+    // This updates the textfield when you move the updown the suggestions list, with your keyboard. In our case it will reflect the same value that you see in the suggestions which is the person.given_name.
+    focus: function(event, ui) {
+        $('#search').val(ui.item.name);
+        return false;
+    },
+    create: function () {
+            $(this).data('ui-autocomplete')._renderItem = function (ul, item) {
+              return $("<li>")
+                .append( "<a>" + item.name + "</a>" )
+                .appendTo( ul );
+            };
+    },
+    // Once a value in the drop down list is selected, do the following:
+    select: function(event, ui) {
+      event.preventDefault();
+      // place the city name value into the textfield called 'select_origin'...
+      $('#search').val(ui.item.name);
+      // and place the person.id into the hidden textfield called 'link_origin_id'.
+      $('#city_id').val(ui.item.id);
+          return false;
+          }
+    });
+})
+</script>

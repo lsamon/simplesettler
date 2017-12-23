@@ -1,9 +1,9 @@
 <% title @article.meta_title.present? ? @article.meta_title : @article.title %>
 <% meta_tag :description, @article.meta_description %>
 <% meta_tag :keywords, @article.keywords %>
-<div class="container-fluid header">
+<div class="row header">
   <%= image_tag @article.image.large.url %>
-  <div class="ro text-center">
+  <div class="row text-center">
     <div class="col-md-12">
       <div class="carousel-caption" id="startchange">
         <h2><%= @article.title %></h2>
@@ -56,13 +56,13 @@
             <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
           </div>
         </div>
-      <div class="row aside">
+      <div class="row spacer-bottom">
         <% @articles.limit(3).each do |a| %>
-          <div class="col-xs-12 col-sm-6 col-m-4 col-lg-4">
+          <div class="col-xs-12 col-sm-4">
             <%= link_to(city_article_path(current_city, a), class: "articleSelect") do %>
-            <div class="img-container">
+            <div class="imagebox">
               <%= image_tag a.image_url, class: "img-effect" %>
-              <span><%= a.title %></span>
+              <span class="imagebox-desc"><%= a.title %></span>
             </div>
             <% end %>
           </div>

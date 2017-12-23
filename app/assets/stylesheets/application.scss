@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,900');
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
 @import "shared/_variables";
 @import "shared/typography";
 @import "font-awesome-sprockets";
@@ -8,7 +8,10 @@
 @import "pages";
 @import "articles";
 @import "cities";
-@import "jquery-ui";
 @import "rateyo";
 @import "users";
 @import "visa_help";
+@import "login";
+@import "footer";
+@import "autocomplete";
+@import "categories";

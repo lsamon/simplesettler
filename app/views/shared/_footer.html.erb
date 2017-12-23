@@ -1,48 +1,51 @@
-<div class="container-fluid footer-section">
-  <div class="row">
-    <div class="col-xs-6 col-sm-4">
-      <ul>
-        <li><h4 class="spacer"><%= t('site.footer.company.title') %></h4></li>
-        <li><%= link_to t('site.footer.company.home'), root_path %></li>
-        <li><%= link_to t('site.footer.company.about'), about_path %></li>
-        <li><%= link_to t('site.nav.help'), '/dashboard', class: "ss-button" %></li>
-        <li><%= link_to t('site.footer.support.tos'), tos_path %></li>
-      </ul>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-offset-sm-3 col-sm-4">
-      <ul>
-        <li><h4 class="spacer"><%= t('site.footer.subscribe.label') %></h4></li>
-        <li class="ss-input-container subscribe">
-          <%= text_field :search, nil, class: 'ss-input', :placeholder => t('site.footer.subscribe.placeholder') %>
-          <%= button_tag(type: 'submit') do %>
-            <i class="fa fa-paper-plane"></i>
-          <% end %>
-        </li>
-      </ul>
-    </div>
-    <div class="col-xs-6 col-sm-4">
-      <ul>
-        <li class="social-footer">
+<footer>
+  <div class="footer" id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4  col-md-4 col-sm-4 col-xs-6">
+          <h4><%= t('site.footer.company.title') %></h4>
+          <ul>
+            <li><%= link_to t('site.footer.company.home'), root_path %></li>
+            <li><%= link_to t('site.footer.company.about'), about_path %></li>
+            <li><%= link_to t('site.footer.support.tos'), tos_path %></li>
+            <li><%= link_to t('site.nav.help'), '/dashboard', class: "primary-btn ss-button" %></li>
+          </ul>
+        </div>
+        <!-- <div class="col-lg-4  col-md-4 col-sm-4 col-xs-6">
+          <h4 class="spacer"><%#= t('site.footer.subscribe.label') %></h4>
+          <ul>
+            <li class="ss-input-container subscribe">
+              <%#= text_field :search, nil, class: 'ss-input', :placeholder => t('site.footer.subscribe.placeholder') %>
+              <%#= button_tag(type: 'submit') do %>
+                <i class="fa fa-paper-plane"></i>
+              <%# end %>
+            </li>
+          </ul>
+        </div> -->
+        <div class="col-lg-4  col-md-4 col-sm-4 col-xs-12">
           <h4><%= t('site.footer.subscribe.follow') %></h4>
-        </li>
-        <li class="social-icons">
-          <%= link_to("https://www.facebook.com/simplesettler", target: '_blank') do %>
-            <i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
-          <% end %>
-          <%= link_to("https://twitter.com/simplesettler", target: '_blank') do %>
-            <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
-          <% end %>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div class="row">
-    <hr class="footer-divider">
-    <div class="col-sm-12">
-      <div class="footer-disclaimer">
-        <a style="font-size: 13px;" href="/privacy">Privacy Policy</a> | © 2017. SimpleSettler
+          <ul class="social">
+            <li>
+              <%= link_to("https://www.facebook.com/simplesettler", target: '_blank') do %>
+                <i class="fa fa-facebook-square" aria-hidden="true"></i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to("https://twitter.com/simplesettler", target: '_blank') do %>
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <hr class="footer-divider">
+        <div class="col-sm-12">
+          <div class="footer-disclaimer">
+            <a style="font-size: 13px;" href="/privacy">Privacy Policy</a><span> | Copyright © 2017 SimpleSettler</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  </div>
-</div>
+</footer>

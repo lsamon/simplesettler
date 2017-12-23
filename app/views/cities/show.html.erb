@@ -1,4 +1,4 @@
-<div class="container-fluid header">
+<div class="row header">
   <%= image_tag "#{@city.name.downcase}.jpg", class: "imageCity" %>
   <div class="ro text-center">
     <div class="col-md-12">
@@ -10,23 +10,37 @@
   </div>
 </div>
 
-<div class="row is-flex spacer">
-  <% @categories.each_with_index do |category, i| %>
-    <% i += 2 %>
-    <div class="col-sm-4 grid-item article-category <%= category.slug %>">
-      <%= link_to(city_category_path(@city, category), class: 'centered', remote: true) do %>
-        <%= image_tag("cat#{i}.png", class: 'img-responsive') %>
-        <span class="category"><%= category.name %></span>
-      <% end %>
+<!-- <div class="row is-flex spacer">
+  <%# @categories.each_with_index do |category, i| %>
+    <%# i += 2 %>
+    <div class="col-sm-4 grid-item article-category <%#= category.slug %>">
+      <%#= link_to(city_category_path(@city, category), class: 'centered', remote: true) do %>
+        <%#= image_tag("cat#{i}.png", class: 'img-responsive') %>
+        <span class="category"><%#= category.name %></span>
+      <%# end %>
     </div>
-  <% end %>
-</div>
-
-<% breadcrumb :site_root, style: :bootstrap %>
-<div class="row articleSelectContainer">
-  <div class="col-sm-12">
-    <div class="row is-flex spacer">
-      <%= render collection: @articles, partial: 'all_city_articles', as: :article %>
+  <%# end %>
+</div> -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12">
+      <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group">
+        <%= render @categories %>
+      </div>
     </div>
   </div>
+
+  <%= render 'all_city_articles' %>
 </div>
+<script>
+  $(function(){
+    $(".btn-pref .btn").click(function (event) {
+        $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
+        $(this).removeClass("btn-default").addClass("btn-primary");
+    });
+
+    $('.article-category').on('click', function(){
+      history.pushState({extraData: $(this).attr('id')}, '', '#' + $(this).attr('id'));
+    });
+  });
+</script>

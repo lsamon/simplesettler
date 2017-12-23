@@ -22,7 +22,6 @@ gem 'simple_form'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-gem 'rails-jquery-autocomplete'
 gem 'underscore-rails'
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'devise'

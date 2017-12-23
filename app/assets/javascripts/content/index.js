@@ -10,9 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery_ujs
-//= require cloudinary
-//= require ckeditor/init
-//= require content/pages
-//= require content/cities
+//= require ./pages
+//= require ./cities
 //= require_tree .

@@ -1,8 +1,19 @@
-<%= content_tag(:div, article, class: 'col-sm-4 grid-item"') do %>
-  <%= link_to(article.featured? ? article.external_url : city_article_path(current_city, article), title: article.title, target: article.featured? ? '_blank' : '', class: 'articleSelect') do %>
-    <div class="imagebox">
-      <span class="image-desc"><%= article.title %></span>
-      <%= image_tag article.image.detail.url, class: "img-effect" %>
-    </div>
+<div class="row tab-content spacer-bottom">
+  <% @categories.each do |category| %>
+    <%= content_tag(:div, category, class: "tab-pane fade in #{ 'active' if default_category?(category.slug)}", id: set_css_category_id(category.slug)) do %>
+      <% articles = current_city.articles_by_category(category&.id) %>
+      <% if articles.present? %>
+        <% articles.each do |article| %>
+          <div class="col-xs-12 col-sm-4 grid-item">
+            <div class="imagebox">
+              <%= link_to(article.featured? ? article.external_url : city_article_path(current_city, article), title: article.title, target: article.featured? ? '_blank' : '') do %>
+                <span class="imagebox-desc"><%= article.title %></span>
+                <%= image_tag article.image.detail.url%>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
   <% end %>
-<% end %>
+</div>

@@ -1,33 +1,31 @@
 class CitiesController < ApplicationController
-  before_action :find_city, :except => [:index]
-  autocomplete :city, :name
+  before_action :find_city, :setup_categories_articles, :except => [:index]
 
   def index
-    @cities = City.all
-
-    if params[:search]
-      @cities = City.search(params[:search]).order("created_at DESC")
-      @city = City.find_by name: params[:search]
+    if params[:term]
+      @cities = City.where('LOWER(name) LIKE ?', "#{params[:term].downcase}%")
     else
-      @cities = City.all.order('created_at DESC')
+      @cities = City.all
     end
 
-    if @cities.length == 1
-      redirect_to @cities.first
-    else
-      render :index
+    respond_to do |format|
+      format.html
+      format.json { render :json => @cities.to_json }
     end
   end
 
   def show
-    @articles = @city.articles.published
-    @categories = Category.order(created_at: :asc)
   end
 
 
   private
   def find_city
     @city = City.find(params[:id]) if params[:id]
+  end
+
+  def setup_categories_articles
+    @articles = @city.articles.published
+    @categories = Category.order(created_at: :asc)
   end
 
 end

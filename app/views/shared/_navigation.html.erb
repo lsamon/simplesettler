@@ -14,7 +14,9 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="ss-nav nav navbar-nav pull-right">
         <li><%= link_to t('site.nav.help'), dashboard_root_path, class: 'ss-button' %></li>
-        <li><%= link_to t('site.nav.login'), new_user_session_path %></li>
+        <% unless current_user %>
+          <li><%= link_to t('site.nav.login'), new_user_session_path %></li>
+        <% end %>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

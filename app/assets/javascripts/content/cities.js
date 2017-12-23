@@ -5,24 +5,12 @@ function getUrlParams(url){
 
 $(document).ready(function(){
   var category = getUrlParams(window.location.href)[1];
-  var city = getUrlParams(window.location.href)[0];
-  $('.' + category + ' a').addClass('active');
-
-  $('.categorySelect a').click(function() {
-    $('.categorySelect a').removeClass('active');
-    $(this).addClass('active');
-  });
-  
-  if(($('.articleSelectContainer').length > 0) && category != undefined){
-    $.ajax({
-      type: 'GET',
-      url: '/cities/'+city+'/'+'categories/'+category,
-      beforeSend: function(){
-        $('.articles').hide();
-      },
-      success: function(){
-        $('.articles').show();
-      }
-    });
+  if (category) {
+    var tabPaneID = $('#'+category).attr('href');
+    $(tabPaneID).addClass('active');
+    $(tabPaneID).siblings().removeClass('active');
+    $('#'+category).addClass('btn-primary');
+  } else {
+    $('#getting-started').addClass('btn-primary');
   }
-});
+})

@@ -1,0 +1,58 @@
+.ui-autocomplete { width:1px; }
+.ui-corner-all
+{
+    -moz-border-radius: 4px 4px 4px 4px;
+}
+.ui-widget-content
+{
+  border: 5px solid #808080;
+  color: #222222;
+}
+.ui-menu
+{
+  display: block;
+  float: left;
+  list-style: none outside none;
+  margin: 0;
+  padding: 2px;
+}
+.ui-autocomplete
+{
+  cursor: default;
+  position: absolute;
+}
+.ui-menu .ui-menu-item
+{
+  clear: left;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.ui-menu .ui-menu-item a
+{
+  display: block;
+  padding: 3px 3px 3px 3px;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #fff;
+  color: #808080;
+  border: none;
+}
+.ui-menu .ui-menu-item a:hover
+{
+  display: block;
+  padding: 3px 3px 3px 3px;
+  text-decoration: none;
+  color: #808080;
+  cursor: pointer;
+  background: $logoColor;
+}
+.ui-menu .ui-menu-item a.ui-state-hover,
+.ui-menu .ui-menu-item a.ui-state-active {
+  margin: -1px;
+  cursor: pointer;
+  background-color: $logoColor;
+  color: #fff;
+  opacity: 0.6;
+}

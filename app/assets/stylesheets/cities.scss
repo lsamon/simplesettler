@@ -1,5 +1,9 @@
+.article-category {
+  height: 80px;
+}
 .article-category img {
   align-items: center;
+  margin: 0 auto;
 }
 
 .article-category a:hover {
@@ -9,6 +13,15 @@
   border-bottom: 7px solid #00b6ab;
 }
 
+// .btn-primary.article-category,  .btn-primary.article-category:focus {
+//   background: $logoColor;
+//   border-color: $logoColor;
+// }
+
 span.category {
   display: block;
+}
+
+.spacer-bottom {
+  margin-bottom: 15px;
 }

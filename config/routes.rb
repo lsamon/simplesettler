@@ -54,11 +54,12 @@ Rails.application.routes.draw do
   get '/help' => 'pages#help'
   get '/tos' => 'pages#tos'
   get '/privacy' => 'pages#privacy'
+  get '/search' => 'pages#search'
 
   resources :cities do
-    collection do
-      get :autocomplete_city_name
-    end
+    # collection do
+    #   get :autocomplete_city_name
+    # end
     resources :categories, only: [:index, :show]
     resources :articles, only: [:show]
   end
