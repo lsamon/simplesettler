@@ -229,8 +229,6 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
-    rails-jquery-autocomplete (1.0.3)
-      rails (>= 3.2)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
@@ -352,7 +350,6 @@ DEPENDENCIES
   pry-rails
   puma
   rails (= 5.1.1)
-  rails-jquery-autocomplete
   rails_12factor
   record_tag_helper (~> 1.0)
   redis
@@ -373,4 +370,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.15.1
+   1.16.0
