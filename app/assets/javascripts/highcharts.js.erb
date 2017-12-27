@@ -1,6 +1,6 @@
 var chart;
 $(function () {
-  let cityName = $('.city-highchart').attr('data-name');
+  const cityName = $('.city-highchart').attr('data-city-name');
     $.getJSON('/cities/'+cityName+'/chart', function(){
     }).done(function(data){
       chart = $('.city-highchart').highcharts({
