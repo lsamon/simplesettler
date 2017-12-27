@@ -1,8 +1,8 @@
 <div class="login-page">
   <div class="form">
+    <%= image_tag('logo.png', title: 'simplesettler', alt: 'simplesettler', class: 'logo') %>
     <%= render 'users/registrations/new' %>
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'login-form', id: 'user-login' }) do |f| %>
-      <%= image_tag('logo.png', title: 'simplesettler', alt: 'simplesettler', class: 'logo') %>
       <%= f.input :email, autofocus: true, input_html: { placeholder: "Email", id: "login-email", class: "spacer" }, label: false  %>
       <%= f.input :password, autocomplete: "off", input_html: { placeholder: "Password", id: "login-password" }, label: false %>
       <%= f.submit "Log in", class: "ss-button" %>
@@ -10,14 +10,14 @@
         <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
         Not registered? <%= link_to "Create an account", new_registration_path(resource_name) %>
       </p>
-      <p class="message">OR</p>
-      <div class="social-login fb-login">
-        <%= link_to user_facebook_omniauth_authorize_path do %><i class="fa fa-facebook" aria-hidden="true"></i> Facebook<% end %>
-      </div>
-      <div class="social-login gplus-login">
-        <%= link_to user_google_oauth2_omniauth_authorize_path do %><i class="fa fa-google-plus" aria-hidden="true"></i>Google+<% end %>
-      </div>
     <% end %>
+    <p class="message">OR</p>
+    <div class="social-login fb-login">
+      <%= link_to user_facebook_omniauth_authorize_path do %><i class="fa fa-facebook" aria-hidden="true"></i> Facebook<% end %>
+    </div>
+    <div class="social-login gplus-login">
+      <%= link_to user_google_oauth2_omniauth_authorize_path do %><i class="fa fa-google-plus" aria-hidden="true"></i>Google+<% end %>
+    </div>
   </div>
 </div>
 <script type="text/javascript">

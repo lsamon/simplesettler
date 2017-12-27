@@ -1,5 +1,7 @@
 class City < ActiveRecord::Base
   extend FriendlyId
+  include Ratyrate
+  ratyrate_rateable "weather", "cost_of_living", "quality_of_life", "safety"
   friendly_id :name, use: [:slugged, :finders]
 
   has_many :city_articles

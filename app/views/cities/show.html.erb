@@ -1,26 +1,29 @@
+<%= javascript_include_tag 'highcharts.js' %>
 <div class="row header">
   <%= image_tag "#{@city.name.downcase}.jpg", class: "imageCity" %>
-  <div class="ro text-center">
+  <div class="row text-center">
     <div class="col-md-12">
       <div class="carousel-caption" id="startchange">
         <h1><%= @city.name %></h1>
         <h2><em><%= @city.slogan %></em></h2>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="ratings">
+              <p>Weather  : <%= rating_for @city, 'weather', disable_after_rate: false %></p>
+              <p>Cost of living : <%= rating_for @city, 'cost_of_living', disable_after_rate: false %></p>
+              <p>Quality of life  : <%= rating_for @city, 'quality_of_life', disable_after_rate: false %></p>
+              <p>Safety  : <%= rating_for @city, 'safety', disable_after_rate: false %></p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <%= tag :div, class: "city-highchart", data: {city_id: @city.id, name: @city.slug} %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- <div class="row is-flex spacer">
-  <%# @categories.each_with_index do |category, i| %>
-    <%# i += 2 %>
-    <div class="col-sm-4 grid-item article-category <%#= category.slug %>">
-      <%#= link_to(city_category_path(@city, category), class: 'centered', remote: true) do %>
-        <%#= image_tag("cat#{i}.png", class: 'img-responsive') %>
-        <span class="category"><%#= category.name %></span>
-      <%# end %>
-    </div>
-  <%# end %>
-</div> -->
 <div class="container">
   <div class="row">
     <div class="col-lg-12 col-sm-12">

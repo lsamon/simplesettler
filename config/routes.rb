@@ -2,6 +2,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
 
 
+  post '/rate' => 'rater#create', :as => 'rate'
   mount Ckeditor::Engine => '/ckeditor'
   mount Sidekiq::Web => '/sidekiq'
 
@@ -55,11 +56,10 @@ Rails.application.routes.draw do
   get '/tos' => 'pages#tos'
   get '/privacy' => 'pages#privacy'
   get '/search' => 'pages#search'
+  get '/subscribe' => 'pages#subscribe'
 
   resources :cities do
-    # collection do
-    #   get :autocomplete_city_name
-    # end
+    get '/chart' => 'highcharts#chart_data'
     resources :categories, only: [:index, :show]
     resources :articles, only: [:show]
   end

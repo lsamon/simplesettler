@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
-  before_action :store_current_location, :unless => :devise_controller?
-
+  before_action :store_user_location!, if: :storable_location?
   helper_method :current_city, :check_for_admin
 
   layout :layout_by_resource
@@ -25,12 +24,17 @@ class ApplicationController < ActionController::Base
     "user" if devise_controller?
   end
 
-  def store_current_location
-    store_location_for(:user, request.url)
+  def storable_location?
+    request.get? && is_navigational_format? && !devise_controller? && !request.xhr?
   end
 
-  def after_sign_out_path_for(resource)
-    request.referrer || root_path
+  def store_user_location!
+    # :user is the scope we are authenticating
+    store_location_for(:user, request.fullpath)
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+    stored_location_for(resource_or_scope) || super
   end
 
 end

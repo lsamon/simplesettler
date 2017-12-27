@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  include Ratyrate
+  ratyrate_rater
+
   has_many :articles
   has_many :helpfuls, dependent: :destroy
   has_many :feedbacks
@@ -10,6 +13,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   validates :email, presence: true
+
+  after_create :subscribe_user_to_mailing_list
 
 
   def self.from_omniauth(auth)
@@ -24,5 +29,10 @@ class User < ActiveRecord::Base
 
   def self.admin
     where(admin: true).first
+  end
+
+  private
+  def subscribe_user_to_mailing_list
+    SubscribeUserToMailingListJob.perform_later(email)
   end
 end

@@ -1,17 +1,16 @@
 $(document).ready(function(){
+  // controls the top navigation bar as you scroll
   $(document).scroll(function(){
     if ($(document).scrollTop() > 150) {
       $('nav.front-page').css({
         background: 'rgba(0,0,0,0.8)',
         transition: '.3s'
       });
-    // } else if() {
-    //   $('nav').css('background', 'rgba(0,0,0,0)');
-    // }
   } else {
       $('nav.front-page').css('background', 'rgba(0,0,0,0)');
     }
   });
+
   $(".select-radio-styling input").change(function () {
       $(".select-radio-styling").children("label").removeClass("active");
       $(this).prev().addClass("active");
@@ -28,4 +27,4 @@ $(document).ready(function(){
     minDate: moment(),
     format: 'DD-MM-YYYY'
   });
-});
+})

@@ -5,7 +5,7 @@ class StripeApi
   attr_reader :user_email, :error, :package_name, :source
 
   def initialize(amount, currency, source, package_name, user_email)
-    Stripe.api_key = 'sk_live_tO3lKPs7J4IkU0f9VJhv6Owh'
+    Stripe.api_key = ENV['STRIPE_API_KEY']
     @amount = amount
     @currency = currency
     @source = source
@@ -26,21 +26,9 @@ class StripeApi
           :idempotency_key => "vRJV1OCNqCl4lsKr"
         }
 
-    rescue Stripe::CardError => e
-      body = e.json_body
-      @error = body[:error]
-    rescue Stripe::RateLimitError => e
-      @error = e.message
-    rescue Stripe::InvalidRequestError => e
-      @error = e.message
-    rescue Stripe::AuthenticationError => e
-      @error = e.message
-    rescue Stripe::APIConnectionError => e
-      @error = e.message
-    rescue Stripe::StripeError => e
-      @error = e.message
-    rescue => e
-      @error = e.message
+    # rescue Stripe::StripeError => e
+    #   @error = e.message
+    rescue
     end
 
     stripe_response

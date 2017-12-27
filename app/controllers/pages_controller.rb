@@ -17,6 +17,24 @@ class PagesController < ApplicationController
     redirect_to root_path
   end
 
+  def subscribe
+    if params[:email].present?
+      begin
+        SubscribeUserToMailingListJob.perform_now(params[:email])
+        message = "Thank you for subscribing to the SimpleSettler's Guide Newsletter!"
+        respond_to do |format|
+          format.json { render :json => { message: message } }
+        end
+      rescue Gibbon::MailChimpError => e
+        respond_to do |format|
+          format.json { render :json => { error: e.detail }, status: 400 }
+        end
+      end
+    else
+      redirect_to root_path
+    end
+  end
+
   def help
     @visa_types = VisaType.all
   end

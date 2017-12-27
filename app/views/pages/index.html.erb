@@ -31,7 +31,7 @@
         <div class="col-sm-4 grid-item">
           <div class="imagebox">
             <%= link_to city_path(city) do %>
-              <h2 class="imagebox-desc"><%= city.name.upcase %></h2>
+              <span class="imagebox-desc"><%= city.name.upcase %></span>
               <%= image_tag "#{city.name.downcase}.jpg" %>
             <% end %>
           </div>

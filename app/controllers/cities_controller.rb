@@ -1,5 +1,5 @@
 class CitiesController < ApplicationController
-  before_action :find_city, :setup_categories_articles, :except => [:index]
+  before_action :find_city, :setup_categories_articles, except: [:index]
 
   def index
     if params[:term]

@@ -11,11 +11,11 @@
 // about supported directives.
 //
 //= require jquery_ujs
+//= require underscore/underscore
 //= require cloudinary
 //= require ckeditor/init
 //= require content/pages
 //= require content/cities
 //= require jquery.inputmask.bundle.js
-//= require_tree .
 //= stub "payments.js"
 //= stub "admin/admin.js"

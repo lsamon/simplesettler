@@ -22,8 +22,8 @@ gem 'simple_form'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-gem 'underscore-rails'
 gem 'ckeditor', github: 'galetahub/ckeditor'
+
 gem 'devise'
 gem 'rails_12factor'
 
@@ -32,12 +32,14 @@ gem 'redis'
 gem 'redis-namespace'
 gem 'sinatra', '>= 1.3.0', :require => nil
 
+
+gem 'gibbon'
 gem 'mailgun-ruby'
 gem 'font-awesome-sass'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
-gem "figaro"
+gem 'figaro'
 
 gem 'carrierwave'
 gem 'carrierwave-aws'
@@ -81,6 +83,7 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'awesome_print', require:"ap"
   gem 'web-console', '~> 2.0'
+  gem 'letter_opener'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

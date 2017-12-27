@@ -1,0 +1,39 @@
+function initstars(){
+  $(".star").each(function() {
+    var item = $(this);
+    item.rateYo({
+      rating: item.attr('data-rating'),
+      spacing: item.attr('data-rateyo-spacing'),
+      numStars: item.attr('data-rateyo-num-stars'),
+      precision: item.attr('data-rateyo-precision'),
+      halfStar: (item.attr('data-rateyo-half-star') == 'true'),
+      readOnly: (item.attr('data-rateyo-read-only') == 'true'),
+      onSet: function(rating, rateYoInstance){
+        var _this = this;
+        if (rating == null) { rating = 0; }
+        $(this).trigger('rated', rating)
+        $.post('<%= Rails.application.class.routes.url_helpers.rate_path %>',
+        {
+          rating: rating,
+          dimension: $(this).attr('data-dimension'),
+          id: $(this).attr('data-id'),
+          klass: $(this).attr('data-classname')
+        },
+        function(data) {
+          if(data) {
+            // success code goes here ...
+            // console.log(chart);
+            // Later add code here to update charts automatically
+
+            if ($(_this).attr('data-disable-after-rate') == 'true') {
+              $(_this).rateYo({ readOnly: true, rating: rating });
+            }
+          }
+        });
+      }
+    });
+  });
+};
+
+$(document).ready(initstars);
+$(document).on('page:change',initstars);

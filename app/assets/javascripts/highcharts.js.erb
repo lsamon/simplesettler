@@ -1,0 +1,40 @@
+var chart;
+$(function () {
+  let cityName = $('.city-highchart').attr('data-name');
+    $.getJSON('/cities/'+cityName+'/chart', function(){
+    }).done(function(data){
+      chart = $('.city-highchart').highcharts({
+        title: '',
+          chart: {
+              type: 'bar',
+              backgroundColor: 'rgba(0,0,0,0.4)',
+              height: 220
+          },
+          xAxis: {
+              categories: data.categories,
+              labels: {
+                style: {
+                  color: '#ffffff'
+                }
+              }
+          },
+          yAxis: {
+              title: {
+                  text: 'Rating',
+                  style: {
+                    color: '#ffffff'
+                  }
+              },
+              labels: {
+                style: {
+                  color: '#ffffff'
+                }
+              }
+          },
+          series: [{
+            data: data.series
+          }]
+
+      });
+    });
+});
