@@ -47,9 +47,8 @@ $(function(){
   $('#search').autocomplete({
     // This shows the min length of charcters that must be typed before the autocomplete looks for a match.
     minLength: 2,
-    // This is the source of the auocomplete suggestions. In this case a list of names from the people controller, in JSON format.
     source: '<%= cities_path(:json) %>',
-    // This updates the textfield when you move the updown the suggestions list, with your keyboard. In our case it will reflect the same value that you see in the suggestions which is the person.given_name.
+    // This updates the textfield when you move the updown the suggestions list, with your keyboard. In our case it will reflect the same value that you see in the suggestions which is the item.name (city name).
     focus: function(event, ui) {
         $('#search').val(ui.item.name);
         return false;
@@ -65,7 +64,6 @@ $(function(){
     select: function(event, ui) {
       // place the city name value into the textfield called 'select_origin'...
       $('#search').val(ui.item.name);
-      // and place the person.id into the hidden textfield called 'link_origin_id'.
       $('#city_id').val(ui.item.id);
           return false;
     }
