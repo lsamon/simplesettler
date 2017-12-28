@@ -8,6 +8,7 @@ function initstars(){
       precision: item.attr('data-rateyo-precision'),
       halfStar: (item.attr('data-rateyo-half-star') == 'true'),
       readOnly: (item.attr('data-rateyo-read-only') == 'true'),
+      starWidth: item.attr('data-rateyo-star-width'),
       onSet: function(rating, rateYoInstance){
         var _this = this;
         if (rating == null) { rating = 0; }

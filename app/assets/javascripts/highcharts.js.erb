@@ -1,10 +1,24 @@
 var chart;
 $(function () {
-  const cityName = $('.city-highchart').attr('data-city-name');
+  const $chart = $('.city-highchart');
+  const cityName = $chart.attr('data-city-name');
     $.getJSON('/cities/'+cityName+'/chart', function(){
     }).done(function(data){
       chart = $('.city-highchart').highcharts({
         title: '',
+        legend: {
+          enabled: false
+        },
+        plotOptions: {
+          bar: {
+            colorByPoint: true,
+            borderWidth: 0,
+            colors: data.colors
+          }
+        },
+        credits: {
+          enabled: false
+        },
           chart: {
               type: 'bar',
               backgroundColor: 'rgba(0,0,0,0.4)',
@@ -16,16 +30,26 @@ $(function () {
                 style: {
                   color: '#ffffff'
                 }
-              }
+              },
+              lineWidth: 0,
+              minorGridLineWidth: 0,
+              gridLineWidth: 0,
+              tickWidth: 0,
+              lineColor: 'transparent'
           },
           yAxis: {
               title: {
-                  text: 'Rating',
+                  text: '',
                   style: {
                     color: '#ffffff'
                   }
               },
+              lineWidth: 0,
+              minorGridLineWidth: 0,
+              gridLineWidth: 0,
+              lineColor: 'transparent',
               labels: {
+                enabled: false,
                 style: {
                   color: '#ffffff'
                 }

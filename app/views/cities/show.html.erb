@@ -16,7 +16,7 @@
             </div>
           </div>
           <div class="col-sm-6">
-            <%= tag :div, class: "city-highchart", data: {city_id: @city.id, city_name: @city.slug} %>
+            <%= chart_for @city %>
           </div>
         </div>
       </div>

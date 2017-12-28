@@ -8,7 +8,7 @@ module RatyrateHelper
     star_half       = options[:half_show]       || true
     precision       = options[:precision]       || 1
     spacing         = options[:space]           || '0px'
-    star_width      = options[:star_width]      || '18px'
+    star_width      = options[:star_width]      || '26px'
     readOnly        = options[:readonly]        || false
     rated_fill      = options[:ratedFill]       || ''
     rating          = options[:rating]          || ''
