@@ -57,19 +57,18 @@ $(function(){
     create: function () {
             $(this).data('ui-autocomplete')._renderItem = function (ul, item) {
               return $("<li>")
-                .append( "<a>" + item.name + "</a>" )
+                .append('<a>' + item.name + '</a>' )
                 .appendTo( ul );
             };
     },
     // Once a value in the drop down list is selected, do the following:
     select: function(event, ui) {
-      event.preventDefault();
       // place the city name value into the textfield called 'select_origin'...
       $('#search').val(ui.item.name);
       // and place the person.id into the hidden textfield called 'link_origin_id'.
       $('#city_id').val(ui.item.id);
           return false;
-          }
-    });
+    }
+  });
 })
 </script>

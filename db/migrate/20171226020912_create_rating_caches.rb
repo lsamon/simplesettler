@@ -9,7 +9,7 @@ class CreateRatingCaches < ActiveRecord::Migration[5.1]
         t.timestamps
       end
 
-      add_index :rating_caches, [:cacheable_id, :cacheable_type]
+      # add_index :rating_caches, [:cacheable_id, :cacheable_type]
   end
 
   def self.down

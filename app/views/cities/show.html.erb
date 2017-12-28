@@ -6,7 +6,7 @@
       <div class="carousel-caption" id="startchange">
         <h1><%= @city.name %></h1>
         <h2><em><%= @city.slogan %></em></h2>
-        <div class="row">
+        <div class="row rating-highcharts">
           <div class="col-sm-6">
             <div class="ratings">
               <p>Weather  : <%= rating_for @city, 'weather', disable_after_rate: false %></p>
