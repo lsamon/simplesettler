@@ -1,8 +1,11 @@
 <div class="login-page">
+  <div class="logo">
+    <%= image_tag('logo.png', title: 'simplesettler', alt: 'simplesettler', class: 'logo spacer-bottom') %>
+  </div>
   <div class="form">
-    <%= image_tag('logo.png', title: 'simplesettler', alt: 'simplesettler', class: 'logo') %>
     <%= render 'users/registrations/new' %>
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'login-form', id: 'user-login' }) do |f| %>
+      <h3>Login</h3>
       <%= f.input :email, autofocus: true, input_html: { placeholder: "Email", id: "login-email", class: "spacer" }, label: false  %>
       <%= f.input :password, autocomplete: "off", input_html: { placeholder: "Password", id: "login-password" }, label: false %>
       <%= f.submit "Log in", class: "ss-button" %>

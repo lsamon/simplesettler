@@ -1,4 +1,5 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "register-form" }) do |f| %>
+  <h3>Register</h3>
   <%= devise_error_messages! %>
   <%= f.input :first_name, autofocus: true, input_html: { placeholder: "First Name", class: "spacer" }, label: false  %>
   <%= f.input :last_name, autofocus: true, input_html: { placeholder: "Last Name", class: "spacer" }, label: false  %>
