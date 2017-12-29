@@ -51,6 +51,6 @@ class Admin::UsersController < Admin::BaseController
     end
 
     def sort_options
-      {'username' => 'username', 'created_at' => 'created_at'}
+      {'username' => 'username'}
     end
 end

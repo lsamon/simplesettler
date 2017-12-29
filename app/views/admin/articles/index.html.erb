@@ -1,24 +1,26 @@
 <% breadcrumb :admin_root, @articles, style: :bootstrap %>
-<div class="articles">
-  <h2><%= @articles.model_name %></h2>
-  <div class="row">
-    <div class="col-sm-12">
-      <%= link_to "Add Article", new_admin_article_path, class: "btn btn-primary" %>
-    </div>
+<div class="row">
+  <div class="col-sm-12">
+    <h2><%= @articles.model_name %></h2>
+    <!-- <div class="row">
+      <div class="col-sm-12">
+        <%#= link_to "Add Article", new_admin_article_path, class: "btn btn-primary" %>
+      </div>
+    </div> -->
+    <table class="table">
+      <thead>
+        <tr>
+        <%= sort_header :title, 'Title' %>
+        <th>Cities</th>
+        <%= sort_header :status, 'Status', class: 'hidden-sm-down' %>
+        <th></th>
+        <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @articles %>
+      </tbody>
+    </table>
+    <%= paginate @articles %>
   </div>
-  <table class="table">
-    <thead>
-      <tr>
-      <%= sort_header :title, 'Title' %>
-      <th>Cities</th>
-      <%= sort_header :status, 'Status', class: 'hidden-sm-down' %>
-      <th></th>
-      <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render @articles %>
-    </tbody>
-  </table>
-  <%= paginate @articles %>
 </div>

@@ -1,22 +1,24 @@
 <% breadcrumb :admin_cities, @cities, style: :bootstrap %>
-<div class="articles">
-  <h2><%= @cities.model_name %></h2>
-  <div class="row">
-    <div class="col-sm-12">
-      <%= link_to "Add City", new_admin_city_path, class: "btn btn-primary" %>
-    </div>
+<div class="row">
+  <div class="col-sm-12">
+    <h2><%= @cities.model_name %></h2>
+    <!-- <div class="row">
+      <div class="col-sm-12">
+        <%#= link_to "Add City", new_admin_city_path, class: "btn btn-primary" %>
+      </div>
+    </div> -->
+    <table class="table">
+      <thead>
+        <tr>
+        <%= sort_header :name, 'Name' %>
+        <th>Country</th>
+        <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @cities %>
+      </tbody>
+    </table>
+    <%= paginate @cities %>
   </div>
-  <table class="table">
-    <thead>
-      <tr>
-      <%= sort_header :name, 'Name' %>
-      <th>Country</th>
-      <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render @cities %>
-    </tbody>
-  </table>
-  <%= paginate @cities %>
 </div>
