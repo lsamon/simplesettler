@@ -1,24 +1,25 @@
 <% breadcrumb :admin_users, @users, style: :bootstrap %>
-<div class="articles">
-  <h2><%= @users.model_name %></h2>
-  <div class="row">
-    <div class="col-sm-12">
-      <%= link_to "Add User", new_admin_user_path, class: "btn btn-primary" %>
-    </div>
+<div class="row">
+  <div class="col-sm-12">
+    <h2><%= @users.model_name %></h2>
+    <!-- <div class="row">
+      <div class="col-sm-12">
+        <%#= link_to "Add User", new_admin_user_path, class: "btn btn-primary" %>
+      </div>
+    </div> -->
+    <table class="table">
+      <thead>
+        <tr>
+        <%= sort_header :username, 'Username' %>
+        <th>Email</th>
+        <th></th>
+        <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @users %>
+      </tbody>
+    </table>
+    <%= paginate @users %>
   </div>
-  <table class="table">
-    <thead>
-      <tr>
-      <%= sort_header :username, 'Username' %>
-      <th>Email</th>
-      <%= sort_header :created_at, 'Created' %>
-      <th></th>
-      <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render @users %>
-    </tbody>
-  </table>
-  <%= paginate @users %>
 </div>
