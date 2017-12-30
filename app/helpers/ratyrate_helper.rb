@@ -19,8 +19,8 @@ module RatyrateHelper
     unless readOnly
       if disable_after_rate
         readOnly = !(current_user && rateable_obj.can_rate?(current_user, dimension))
-      else
-        readOnly = !current_user || false
+      # else
+        # readOnly = !current_user || false
       end
     end
 

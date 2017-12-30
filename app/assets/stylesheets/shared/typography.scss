@@ -23,6 +23,10 @@ button:focus, input:focus {
 .centered {
   margin: 0 auto;
 }
+.center-category-row {
+  max-width: 700px;
+  margin: 15px auto;
+}
 .ss-button {
   @include button;
 }

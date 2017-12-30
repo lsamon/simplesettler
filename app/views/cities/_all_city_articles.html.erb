@@ -20,24 +20,23 @@
             </div>
           <% end %>
       <% end %>
-    <% end %>
-  <% end %>
-  <%= content_tag(:div, 'Information', class: "tab-pane fade in", id: set_css_category_id('information')) do %>
-    <div class="col-sm-12">
-      <div class="row rating-highcharts">
-        <div class="col-sm-6">
-          <div class="ratings">
-            <p>Weather  : <%= rating_for @city, 'weather', disable_after_rate: false %></p>
-            <p>Cost of living : <%= rating_for @city, 'cost_of_living', disable_after_rate: false %></p>
-            <p>Quality of life  : <%= rating_for @city, 'quality_of_life', disable_after_rate: false %></p>
-            <p>Safety  : <%= rating_for @city, 'safety', disable_after_rate: false %></p>
+      <% if category.slug == 'information' %>
+        <div class="center-category-row">
+          <div class="row rating-highcharts">
+            <div class="col-sm-4">
+              <div class="ratings">
+                <p>Weather  : <%= rating_for @city, 'weather', disable_after_rate: false %></p>
+                <p>Cost of living : <%= rating_for @city, 'cost_of_living', disable_after_rate: false %></p>
+                <p>Quality of life  : <%= rating_for @city, 'quality_of_life', disable_after_rate: false %></p>
+                <p>Safety  : <%= rating_for @city, 'safety', disable_after_rate: false %></p>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <%= chart_for @city %>
+            </div>
           </div>
         </div>
-        <div class="col-sm-6">
-          <%= chart_for @city %>
-        </div>
-      </div>
-    </div>
+      <% end %>
+    <% end %>
   <% end %>
-
 </div>
