@@ -13,6 +13,7 @@ module CitiesHelper
     when 'getting-started' then 'get-started'
     when 'things-to-do' then 'to-dos'
     when 'getting-settled' then 'get-settled'
+    when 'information' then 'info'
     else
     end
   end
