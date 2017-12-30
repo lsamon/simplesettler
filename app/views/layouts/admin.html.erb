@@ -34,60 +34,15 @@
             </div>
               <div class="navi">
                 <ul id="side-menu">
-                  <li class='nav-item <%= controller_name=="articles" ? "active": ""%>'>
-                    <%= link_to(admin_articles_path) do %>
-                    <i class="fa fa-newspaper-o" aria-hidden="true"></i>
-                    <span class="hidden-xs hidden-sm">Articles</span>
-                    <% end %>
-                  </li>
-                  <li class='nav-item <%= controller_name=="cities" ? "active": ""%>'>
-                    <%= link_to(admin_cities_path) do %>
-                    <i class="fa fa-building-o" aria-hidden="true"></i>
-                    <span class="hidden-xs hidden-sm">Cities</span>
-                    <% end %>
-                  </li>
-                  <li class='nav-item <%= controller_name=="categories" ? "active": ""%>'>
-                    <%= link_to(admin_categories_path) do %>
-                    <i class="fa fa-tags" aria-hidden="true"></i>
-                    <span class="hidden-xs hidden-sm">Categories</span>
-                    <% end %>
-                  </li>
-                  <li class='nav-item <%= controller_name=="users" ? "active": ""%>'>
-                    <%= link_to(admin_users_path) do %>
-                    <i class="fa fa-users" aria-hidden="true"></i>
-                    <span class="hidden-xs hidden-sm">Users</span>
-                    <% end %>
-                  </li>
-                  <li class='nav-item <%= controller_name=="visa_types" ? "active": ""%>'>
-                    <%= link_to(admin_visa_types_path) do %>
-                    <i class="fa fa-address-book-o" aria-hidden="true"></i>
-                    <span class="hidden-xs hidden-sm">Visa Types</span>
-                    <% end %>
-                  </li>
-                  <li class='nav-item <%= controller_name=="payments" ? "active": ""%>'>
-                    <%= link_to(admin_payments_path) do %>
-                    <i class="fa fa-money" aria-hidden="true"></i>
-                    <span class="hidden-xs hidden-sm">Payments</span>
-                    <% end %>
-                  </li>
-                  <li class='nav-item <%= controller_name=="packages" ? "active": ""%>'>
-                    <%= link_to(admin_packages_path) do %>
-                    <i class="fa fa-object-group" aria-hidden="true"></i>
-                    <span class="hidden-xs hidden-sm">Packages</span>
-                    <% end %>
-                  </li>
-                  <li class='nav-item <%= controller_name=="banners" ? "active": ""%>'>
-                    <%= link_to(admin_banners_path) do %>
-                    <i class="fa fa-picture-o" aria-hidden="true"></i>
-                    <span class="hidden-xs hidden-sm">Banners</span>
-                    <% end %>
-                  </li>
-                  <li class='nav-item <%= controller_name=="faqs" ? "active": ""%>'>
-                    <%= link_to(admin_faqs_path) do %>
-                    <i class="fa fa-question-circle-o" aria-hidden="true"></i>
-                    <span class="hidden-xs hidden-sm">FAQs</span>
-                    <% end %>
-                  </li>
+                  <%= side_menu 'articles', 'fa-newspaper-o' %>
+                  <%= side_menu 'cities', 'fa-building-o' %>
+                  <%= side_menu 'categories', 'fa-newspaper-o' %>
+                  <%= side_menu 'users', 'fa-users' %>
+                  <%= side_menu 'visa_types', 'fa-address-book-o' %>
+                  <%= side_menu 'payments', 'fa-money' %>
+                  <%= side_menu 'packages', 'fa-object-group' %>
+                  <%= side_menu 'banners', 'fa-picture-o' %>
+                  <%= side_menu 'faqs', 'fa-question-circle-o' %>
                 </ul>
               </div>
           </div>
@@ -113,7 +68,7 @@
               <div class="col-md-5">
                 <div class="header-rightside">
                   <ul class="list-inline header-top pull-right">
-                    <li class="hidden-xs"><a href="<%= add_link_location request.url %>" class="add-item" data-toggle="modal" data-target="#add_project">Add <%= add_button_title(request.url) == 'Admin' ? 'Articles' : add_button_title(request.url) %></a></li>
+                    <li class="hidden-xs"><a href="<%= add_link_location %>" class="add-item" data-toggle="modal" data-target="#add_project">Add <%= add_button_title %></a></li>
                     <!-- <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a></li> -->
                     <!-- <li>
                         <a href="#" class="icon-info">
