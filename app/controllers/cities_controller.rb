@@ -25,7 +25,7 @@ class CitiesController < ApplicationController
 
   def setup_categories_articles
     @articles = @city.articles.published
-    @categories = Category.order(created_at: :asc)
+    @categories = Category.order(name: :desc)
   end
 
 end
