@@ -22,7 +22,7 @@ class JobsController < ApplicationController
     {
       q: options[:query],
       l: options[:location],
-      limit: 25,
+      limit: 20,
       co: 'au',
       useragent: request.user_agent,
       userip: request.remote_ip,
