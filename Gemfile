@@ -23,6 +23,7 @@ gem 'simple_form'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'ckeditor', github: 'galetahub/ckeditor'
+gem 'rest-client'
 
 gem 'devise'
 gem 'rails_12factor'

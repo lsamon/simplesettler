@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="pages" id="startchange">
+    <h1 class="text-center">Job Search</h1>
+    <div class="row">
+      <div class="center-category-row text-center">
+        <%= form_tag search_jobs_path, method: 'get', id: 'search-form-jobs', class: 'form-inline', role: "form", remote: true do %>
+        <div class="form-group">
+          <%= label_tag "Keyword" %>
+          <%= text_field_tag :q, nil, placeholder: 'Java developer', class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= label_tag "Location" %>
+          <%= text_field_tag :l, nil, placeholder: 'Sydney', class: "form-control" %>
+        </div>
+        <%= button_tag('Search', class: 'btn btn-default') %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">
+		  <div class="well" id="jobs-list">
+        <p class="text-center">Currently only shows results for Australia</p>
+        <p class="text-center">Maximum number of results displayed is 25</pz>
+      </div>
+    </div>
+  </div>
+</div>

@@ -365,6 +365,7 @@ DEPENDENCIES
   record_tag_helper (~> 1.0)
   redis
   redis-namespace
+  rest-client
   sass-rails
   sdoc (~> 0.4.0)
   sidekiq

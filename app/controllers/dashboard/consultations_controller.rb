@@ -22,7 +22,11 @@ class Dashboard::ConsultationsController < ApplicationController
     user_appointment = current_user.appointment
     user_appointment.nil? ? current_user.create_appointment(appointment_params) : current_user.appointment.update_attributes(appointment_params)
     current_user.save!
-    redirect_to new_dashboard_payment_path
+    if UserMailer.email_to_admin(User.admin, current_user, Package.first).deliver_later
+      flash[:notice] = "Request sent successfully!"
+    else
+      flash[:alert] = "Failed to send request!"
+    end
   end
 
 

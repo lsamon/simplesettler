@@ -48,4 +48,7 @@ class PagesController < ApplicationController
 
   def tos
   end
+
+  def jobs
+  end
 end

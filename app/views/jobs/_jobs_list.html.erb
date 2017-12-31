@@ -1,0 +1,20 @@
+<div class="list-group">
+  <h2 class="text-center">Search Results</h2>
+  <% if results.present? %>
+    <% results.each do |result| %>
+      <a href="<%= result['url'] %>" class="list-group-item" target="_blank">
+        <div class="col-md-6">
+          <span><%= result['jobtitle'] %></span><br />
+          <span><%= result['company'] %></pspan>
+        </div>
+        <div class="col-md-3">
+          <span><%= result['city'] %></span><br />
+          <span><%= result['state'] %>, <%= result['country'] %></span>
+        </div>
+        <div class="col-md-3 text-center">
+          <p>Posted <%= result['formattedRelativeTime'] %></p>
+        </div>
+      </a>
+    <% end %>
+  <% end %>
+</div>

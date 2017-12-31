@@ -1,0 +1,6 @@
+<% if @results.empty? || @errors.present? %>
+  $("#jobs-list").html('')
+  $('<span>').text('No jobs found').appendTo($("#jobs-list"))
+<% else %>
+  $("#jobs-list").html("<%= escape_javascript(render partial: 'jobs_list', locals: { results: @results } ) %>");
+<% end %>

@@ -57,6 +57,7 @@ Rails.application.routes.draw do
   get '/privacy' => 'pages#privacy'
   get '/search' => 'pages#search'
   get '/subscribe' => 'pages#subscribe'
+  get '/jobs' => 'pages#jobs'
 
   resources :cities do
     get '/chart' => 'highcharts#chart_data'
@@ -66,6 +67,10 @@ Rails.application.routes.draw do
 
   resources :visa_types do
     resources :visa_requirements, except: [:show]
+  end
+
+  resources :jobs, only: [:search] do
+    get '/search' => 'jobs#search', on: :collection
   end
 
 end

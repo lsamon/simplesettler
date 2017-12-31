@@ -3,11 +3,11 @@ $(document).ready(function(){
   $(document).scroll(function(){
     if ($(document).scrollTop() > 150) {
       $('nav.front-page').css({
-        background: 'rgba(0,0,0,0.8)',
+        background: '#c5c1c1c4',
         transition: '.3s'
       });
   } else {
-      $('nav.front-page').css('background', 'rgba(0,0,0,0)');
+      $('nav.front-page').css('background', '#c5c1c1c4');
     }
   });
 
