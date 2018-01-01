@@ -28,10 +28,10 @@
                 <a class="btn btn-success btn-green" href="#" id="open-review-box">Rate this city</a>
               </div>
               <div class="ratings" id="review-box" style="display:none;">
-                <p>Weather  : <%= rating_for @city, 'weather', disable_after_rate: false %></p>
-                <p>Cost of living : <%= rating_for @city, 'cost_of_living', disable_after_rate: false %></p>
-                <p>Quality of life  : <%= rating_for @city, 'quality_of_life', disable_after_rate: false %></p>
-                <p>Safety  : <%= rating_for @city, 'safety', disable_after_rate: false %></p>
+                <p>Weather  : <%= rating_for @city, 'weather' %></p>
+                <p>Cost of living : <%= rating_for @city, 'cost_of_living' %></p>
+                <p>Quality of life  : <%= rating_for @city, 'quality_of_life' %></p>
+                <p>Safety  : <%= rating_for @city, 'safety' %></p>
               </div>
             </div>
             <div class="col-sm-8">

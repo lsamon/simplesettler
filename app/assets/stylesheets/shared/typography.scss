@@ -45,6 +45,10 @@ button:focus, input:focus {
   vertical-align: top;
 }
 
+.shadow-bottom {
+  box-shadow: 0 10px 6px -6px #77777782;
+}
+
 h1, h2, h3, h4 {
   font-family: 'Roboto', sans-serif;
   font-weight: 900;

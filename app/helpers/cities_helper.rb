@@ -1,9 +1,9 @@
 module CitiesHelper
   def set_icon(category)
     case category
-    when 'getting-started' then 'fa-key'
-    when 'things-to-do' then 'fa-list-alt'
-    when 'getting-settled' then 'fa-building-o'
+    when 'getting-started' then 'fa-hourglass-start'
+    when 'information' then 'fa-info'
+    when 'getting-settled' then 'fa-hourglass-end'
     else
     end
   end

@@ -9,7 +9,7 @@ module RatyrateHelper
     precision       = options[:precision]       || 1
     spacing         = options[:space]           || '0px'
     star_width      = options[:star_width]      || '26px'
-    readOnly        = options[:readonly]        || false
+    readOnly        = options[:readonly]        || 'false'
     rated_fill      = options[:ratedFill]       || ''
     rating          = options[:rating]          || ''
 
@@ -20,7 +20,7 @@ module RatyrateHelper
       if disable_after_rate
         readOnly = !(current_user && rateable_obj.can_rate?(current_user, dimension))
       # else
-        # readOnly = !current_user || false
+      #   readOnly = !current_user || false
       end
     end
 
