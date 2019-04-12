@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
   before_action :store_user_location!, if: :storable_location?
+
   helper_method :current_city, :check_for_admin
 
   layout :layout_by_resource

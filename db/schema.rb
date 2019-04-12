@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171226020915) do
+ActiveRecord::Schema.define(version: 20190302101555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "appointments", id: :serial, force: :cascade do |t|
+  create_table "appointments", force: :cascade do |t|
     t.string "user_id"
     t.boolean "require_translator"
     t.string "language"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20171226020915) do
     t.datetime "appointment_date"
   end
 
-  create_table "articles", id: :serial, force: :cascade do |t|
+  create_table "articles", force: :cascade do |t|
     t.integer "user_id"
     t.string "title"
     t.text "content"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20171226020915) do
     t.integer "content_type", default: 0
   end
 
-  create_table "articles_categories", id: :serial, force: :cascade do |t|
+  create_table "articles_categories", force: :cascade do |t|
     t.integer "article_id"
     t.integer "category_id"
     t.datetime "created_at", null: false
@@ -61,15 +61,7 @@ ActiveRecord::Schema.define(version: 20171226020915) do
     t.index ["rater_id"], name: "index_average_caches_on_rater_id"
   end
 
-  create_table "banners", id: :serial, force: :cascade do |t|
-    t.string "title"
-    t.string "media"
-    t.string "slug"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "categories", id: :serial, force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -78,7 +70,7 @@ ActiveRecord::Schema.define(version: 20171226020915) do
     t.integer "articles_count"
   end
 
-  create_table "cities", id: :serial, force: :cascade do |t|
+  create_table "cities", force: :cascade do |t|
     t.string "name"
     t.string "country"
     t.text "description"
@@ -93,7 +85,7 @@ ActiveRecord::Schema.define(version: 20171226020915) do
     t.integer "articles_count"
   end
 
-  create_table "city_articles", id: :serial, force: :cascade do |t|
+  create_table "city_articles", force: :cascade do |t|
     t.integer "article_id"
     t.integer "city_id"
     t.datetime "created_at", null: false
@@ -101,30 +93,14 @@ ActiveRecord::Schema.define(version: 20171226020915) do
     t.index ["article_id"], name: "index_city_articles_on_article_id"
   end
 
-  create_table "ckeditor_assets", id: :serial, force: :cascade do |t|
-    t.string "data_file_name", null: false
-    t.string "data_content_type"
-    t.integer "data_file_size"
-    t.string "data_fingerprint"
-    t.integer "assetable_id"
-    t.string "assetable_type", limit: 30
-    t.string "type", limit: 30
-    t.integer "width"
-    t.integer "height"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
-    t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
-  end
-
-  create_table "faqs", id: :serial, force: :cascade do |t|
+  create_table "faqs", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
     t.text "content"
   end
 
-  create_table "feedbacks", id: :serial, force: :cascade do |t|
+  create_table "feedbacks", force: :cascade do |t|
     t.integer "user_id"
     t.integer "city_id"
     t.integer "liveability"
@@ -135,7 +111,7 @@ ActiveRecord::Schema.define(version: 20171226020915) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
+  create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
     t.string "sluggable_type", limit: 50
@@ -147,7 +123,7 @@ ActiveRecord::Schema.define(version: 20171226020915) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
-  create_table "helpfuls", id: :serial, force: :cascade do |t|
+  create_table "helpfuls", force: :cascade do |t|
     t.integer "user_id"
     t.integer "article_id"
     t.boolean "helped"
@@ -173,7 +149,7 @@ ActiveRecord::Schema.define(version: 20171226020915) do
     t.datetime "updated_at"
   end
 
-  create_table "payments", id: :serial, force: :cascade do |t|
+  create_table "payments", force: :cascade do |t|
     t.string "stripe_charge_id"
     t.string "amount_paid"
     t.integer "package_id"
@@ -202,11 +178,10 @@ ActiveRecord::Schema.define(version: 20171226020915) do
     t.string "dimension"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type"
     t.index ["cacheable_type", "cacheable_id"], name: "index_rating_caches_on_cacheable_type_and_cacheable_id"
   end
 
-  create_table "user_details", id: :serial, force: :cascade do |t|
+  create_table "user_details", force: :cascade do |t|
     t.string "visa_status"
     t.string "f_name"
     t.string "l_name"
@@ -226,7 +201,7 @@ ActiveRecord::Schema.define(version: 20171226020915) do
     t.string "resume"
   end
 
-  create_table "users", id: :serial, force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "username", default: "", null: false
@@ -253,7 +228,7 @@ ActiveRecord::Schema.define(version: 20171226020915) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "visa_requirements", id: :serial, force: :cascade do |t|
+  create_table "visa_requirements", force: :cascade do |t|
     t.integer "visa_type_id"
     t.string "name"
     t.string "description"
@@ -261,7 +236,7 @@ ActiveRecord::Schema.define(version: 20171226020915) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "visa_types", id: :serial, force: :cascade do |t|
+  create_table "visa_types", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.datetime "created_at", null: false

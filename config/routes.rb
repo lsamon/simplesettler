@@ -1,10 +1,9 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
 
+  mount Sidekiq::Web => '/sidekiq'
 
   post '/rate' => 'rater#create', :as => 'rate'
-  mount Ckeditor::Engine => '/ckeditor'
-  mount Sidekiq::Web => '/sidekiq'
 
   namespace :admin do
     resources :users
@@ -42,7 +41,7 @@ Rails.application.routes.draw do
     resources :consultations, only: [:index, :create]
   end
 
-  devise_for :users, :controllers => { omniauth_callbacks: "callbacks", sessions: 'users/sessions', confirmations: 'users/confirmations' }
+  devise_for :users, :controllers => { sessions: 'users/sessions', confirmations: 'users/confirmations' }
   as :user do
     get '/dashboard/profile' =>'users/sessions#profile'
     get '/dashboard/profile/edit' =>'users/sessions#edit'

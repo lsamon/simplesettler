@@ -14,13 +14,6 @@
         Not registered? <%= link_to "Create an account", new_registration_path(resource_name) %>
       </p>
     <% end %>
-    <p class="message">OR</p>
-    <div class="social-login fb-login">
-      <%= link_to user_facebook_omniauth_authorize_path do %><i class="fa fa-facebook" aria-hidden="true"></i> Facebook<% end %>
-    </div>
-    <div class="social-login gplus-login">
-      <%= link_to user_google_oauth2_omniauth_authorize_path do %><i class="fa fa-google-plus" aria-hidden="true"></i>Google+<% end %>
-    </div>
   </div>
 </div>
 <script type="text/javascript">

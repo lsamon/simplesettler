@@ -1,9 +1,14 @@
 User.destroy_all
 
-u1 = User.create :username => 'admin', :email => 'admin@gmail.com', :password => 'chicken', :admin => true
-u2 = User.create :username => 'joel', :email => 'joel@gmail.com', :password => 'chicken'
-u3 = User.create :username => 'luke', :email => 'luke@gmail.com', :password => 'chicken'
-u4 = User.create :username => 'shaila', :email => 'shaila@gmail.com', :password => 'chicken'
+users = [
+  { username: 'admin', email: 'admin@gmail.com', password: 'chicken', admin: true },
+  { username: 'joel', email: 'joel@gmail.com', password: 'chicken' },
+  { username: 'luke', email: 'luke@gmail.com', password: 'chicken' },
+  { username: 'shaila', email: 'shaila@gmail.com', password: 'chicken' }
+]
+users.each do |user_attrs|
+  User.create user_attrs
+end
 
 Category.destroy_all
 

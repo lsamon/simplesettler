@@ -12,7 +12,6 @@
 //
 //= require jquery_ujs
 //= require cloudinary
-//= require ckeditor/init
 //= require content/pages
 //= require content/cities
 //= require_tree .

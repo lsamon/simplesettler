@@ -4,7 +4,6 @@ class PagesController < ApplicationController
   def index
     @cities = City.all
     @articles = Article.all
-    @banner = Banner.first
     render layout: 'application'
   end
 
