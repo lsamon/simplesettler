@@ -74,7 +74,7 @@
             <%= image_tag('default.png', class: ' hidden-xs img-circle profile-image', title: 'simplesettler', alt: 'simplesettler') %>
               </span>
               <span class="pp-name">
-                  <%= current_user.user_detail.present? ? current_user.user_detail.full_name : current_user.username %>
+                  <%= current_user.full_name || current_user.username %>
                 </span>
             </div>
           </a>

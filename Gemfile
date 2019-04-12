@@ -63,10 +63,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'stripe'
 
+# active record helpers
+gem 'email_validator'
+gem 'strip_attributes'
+
 group :development, :test do
   gem 'annotate'
   gem 'better_errors'
   gem 'byebug'
+  gem 'email_verifier'
   gem 'pry-rails'
 end
 

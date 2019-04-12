@@ -3,12 +3,13 @@ class RatingCache < ActiveRecord::Base
 
   def self.rateable_obj_dimensions_avg_list(rateable_obj_id)
     data = where(cacheable_id: rateable_obj_id).pluck(:dimension.to_s.titleize, :avg)
-    categories = data.map{ |c| c[0].titleize }
-    series = data.map{ |s| s[1] }
+    categories = data.map { |c| c[0].titleize }
+    series = data.map { |s| s[1] }
     colors = data.map do |rating|
-      case
-      when rating[1] >= 4 then '#2bde73'
-      when rating[1] >= 2.5 then '#ffc924'
+      if rating[1] >= 4
+        '#2bde73'
+      elsif rating[1] >= 2.5
+        '#ffc924'
       else
         '#ff4742'
       end
