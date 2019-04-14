@@ -64,6 +64,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'stripe'
 
 # active record helpers
+gem 'cancancan'
 gem 'email_validator'
 gem 'strip_attributes'
 

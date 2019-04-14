@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
   before_action :store_user_location!, if: :storable_location?
+  before_action :current_user_id, if: :current_user
 
   helper_method :current_city, :check_for_admin
 
@@ -12,8 +13,12 @@ class ApplicationController < ActionController::Base
     @city = City.where(slug: session[:city_id]).first
   end
 
+  def current_user_id
+    session[:user_id] = current_user.id
+  end
+
   def check_for_admin
-    redirect_to root_path unless (current_user.present? && current_user.admin?)
+    redirect_to root_path unless current_user.present? && current_user.admin?
   end
 
   def user_logged_in
@@ -21,6 +26,7 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
   def layout_by_resource
     "user" if devise_controller?
   end
@@ -36,6 +42,13 @@ class ApplicationController < ActionController::Base
 
   def after_sign_out_path_for(resource_or_scope)
     stored_location_for(resource_or_scope) || super
+  end
+
+  def role_template
+    return 'admin' if current_user.admin?
+    return 'shared/dashboard' if current_user.client?
+
+    redirect_to root_path
   end
 
 end
