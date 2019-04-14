@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}".strip if first_name || last_name
   end
 
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_later
+  end
+
   private
 
   def subscribe_user_to_mailing_list
