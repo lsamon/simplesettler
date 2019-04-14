@@ -18,7 +18,7 @@ class Article < ActiveRecord::Base
   validates :content, presence: true
 
   def keywords
-    meta_keywords.split(/[\s\,]/).select{ |p| p.present? }.join(",") if meta_keywords.present?
+    meta_keywords.split(/[\s\,]/).select(&:present?).join(",") if meta_keywords.present?
   end
 
   def self.about_us
@@ -26,11 +26,12 @@ class Article < ActiveRecord::Base
   end
 
   private
+
   def nullify_unwanted_fields
-    if about?
-      self.category = nil
-      self.cities = []
-    end
+    return unless about?
+
+    self.category = nil
+    self.cities = []
   end
 
 end
