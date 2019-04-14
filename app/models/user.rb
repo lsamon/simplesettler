@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   strip_attributes collapse_spaces: true
 
   has_many :articles
-  has_many :helpfuls, dependent: :destroy
   has_many :feedbacks
   has_one :user_detail, dependent: :destroy
   has_one :appointment, dependent: :destroy

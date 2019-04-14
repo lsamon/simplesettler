@@ -47,7 +47,6 @@ Rails.application.routes.draw do
     get '/dashboard/profile/edit' =>'users/sessions#edit'
     put '/dashboard/profile/edit' =>'users/sessions#update'
   end
-  post '/articles/:id/:response' => 'helpfuls#create', as: :article_feedback
 
   root :to => 'pages#index'
   get '/about' => 'pages#about'

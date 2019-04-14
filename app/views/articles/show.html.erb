@@ -36,13 +36,6 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-12 helpful">
-            <h3>Was this article helpful?</h3>
-            <%= link_to 'Yes', article_feedback_path(@article, 'Yes'), { class: 'yes', :remote => true, method: :post }  %>
-            <%= link_to 'No', article_feedback_path(@article, 'No'), { class: 'no', :remote => true, method: :post } %>
-          </div>
-        </div>
-        <div class="row">
           <div class="col-sm-12 share">
             <div id="disqus_thread"></div>
             <script>
