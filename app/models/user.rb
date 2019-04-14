@@ -19,7 +19,9 @@ class User < ActiveRecord::Base
   before_save :normalize_name
   after_create :subscribe_user_to_mailing_list
 
-  enum kind: %i[admin client]
+  ROLES = %i[admin client].freeze
+
+  enum kind: ROLES
 
   def full_name
     "#{first_name} #{last_name}".strip if first_name || last_name
@@ -32,7 +34,7 @@ class User < ActiveRecord::Base
   end
 
   def normalize_name
-    self.first_name = first_name.titleize
-    self.last_name = last_name.titleize
+    self.first_name = first_name.titleize if first_name
+    self.last_name = last_name.titleize if last_name
   end
 end
