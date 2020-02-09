@@ -1,4 +1,4 @@
-FROM oneflare/elmo-base:0.1.0
+FROM alpine:3.7
 
 #### app directory setup ####
 # - Set location of app
@@ -20,3 +20,5 @@ RUN \
     $APP_HOME/log \
     $APP_HOME/tmp/pids \
     $APP_HOME/tmp/sockets
+
+ENTRYPOINT ["bundle", "exec"]

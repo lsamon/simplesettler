@@ -18,11 +18,11 @@ Rails.application.routes.draw do
     end
     resources :payments, only:[:index, :show]
 
-    root to: "articles#index"
+    root to: 'articles#index'
   end
 
   namespace :dashboard do
-    resources :visas, only:[:index]
+    resources :visas, only: [:index]
     post '/visas/select_visa_type' => 'visas#select_visa_type'
     get '/visas' => 'visas#index'
     get '/visas/applicant_details' => 'visas#get_applicant_details'
@@ -32,23 +32,23 @@ Rails.application.routes.draw do
     get '/visas/select_package' => 'visas#select_package'
     post '/visas/post_select_package' => 'visas#post_select_package'
 
-    root to: "visas#index"
-    resources :payments, only: [:new, :create]
+    root to: 'visas#index'
+    resources :payments, only: %i[new create]
     get '/payments/success' => 'payments#payment_success'
     get '/payments/error' => 'payments#payment_error'
 
     resources :faqs, only: [:index]
-    resources :consultations, only: [:index, :create]
+    resources :consultations, only: %i[index create]
   end
 
-  devise_for :users, :controllers => { sessions: 'users/sessions', confirmations: 'users/confirmations' }
+  devise_for :users, controllers: { sessions: 'users/sessions', confirmations: 'users/confirmations' }
   as :user do
-    get '/dashboard/profile' =>'users/sessions#profile'
-    get '/dashboard/profile/edit' =>'users/sessions#edit'
-    put '/dashboard/profile/edit' =>'users/sessions#update'
+    get '/dashboard/profile',      to: 'users/sessions#profile'
+    get '/dashboard/profile/edit', to: 'users/sessions#edit'
+    put '/dashboard/profile/edit', to: 'users/sessions#update'
   end
 
-  root :to => 'pages#index'
+  root to: 'pages#index'
   get '/about' => 'pages#about'
   get '/help' => 'pages#help'
   get '/tos' => 'pages#tos'
@@ -56,10 +56,16 @@ Rails.application.routes.draw do
   get '/search' => 'pages#search'
   get '/subscribe' => 'pages#subscribe'
   get '/jobs' => 'pages#jobs'
+  get '/webhook' => 'pages#webhook'
+
+  devise_scope :user do
+    get 'auth/facebook/callback',  to: 'users/sessions#create'
+    get 'auth/failure',            to: redirect('/')
+  end
 
   resources :cities do
     get '/chart' => 'highcharts#chart_data'
-    resources :categories, only: [:index, :show]
+    resources :categories, only: %i[index show]
     resources :articles, only: [:show]
   end
 
@@ -71,4 +77,8 @@ Rails.application.routes.draw do
     get '/search' => 'jobs#search', on: :collection
   end
 
+  namespace :facebook do
+    resources :connect, only: [:create]
+    resources :webhook, only: %i[index create]
+  end
 end

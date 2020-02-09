@@ -21,8 +21,9 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
   def layout_by_resource
-    "user" if devise_controller?
+    devise_controller? ? 'user' : 'application'
   end
 
   def storable_location?

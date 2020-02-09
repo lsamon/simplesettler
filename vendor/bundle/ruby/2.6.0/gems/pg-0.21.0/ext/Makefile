@@ -12,12 +12,12 @@ NULLCMD = :
 #### Start of system configuration section. ####
 
 srcdir = .
-topdir = /Users/loui/.rbenv/versions/2.6.1/include/ruby-2.6.0
+topdir = /Users/loui/.asdf/installs/ruby/2.6.2/include/ruby-2.6.0
 hdrdir = $(topdir)
-arch_hdrdir = /Users/loui/.rbenv/versions/2.6.1/include/ruby-2.6.0/x86_64-darwin18
+arch_hdrdir = /Users/loui/.asdf/installs/ruby/2.6.2/include/ruby-2.6.0/x86_64-darwin18
 PATH_SEPARATOR = :
 VPATH = $(srcdir):$(arch_hdrdir)/ruby:$(hdrdir)/ruby
-prefix = $(DESTDIR)/Users/loui/.rbenv/versions/2.6.1
+prefix = $(DESTDIR)/Users/loui/.asdf/installs/ruby/2.6.2
 rubysitearchprefix = $(rubylibprefix)/$(sitearch)
 rubyarchprefix = $(rubylibprefix)/$(arch)
 rubylibprefix = $(libdir)/$(RUBY_BASE_NAME)
@@ -31,8 +31,8 @@ rubyhdrdir = $(includedir)/$(RUBY_VERSION_NAME)
 vendorarchdir = $(vendorlibdir)/$(sitearch)
 vendorlibdir = $(vendordir)/$(ruby_version)
 vendordir = $(rubylibprefix)/vendor_ruby
-sitearchdir = $(DESTDIR)./.gem.20191024-7782-ioyay9
-sitelibdir = $(DESTDIR)./.gem.20191024-7782-ioyay9
+sitearchdir = $(DESTDIR)./.gem.20200209-97893-6i8yps
+sitelibdir = $(DESTDIR)./.gem.20200209-97893-6i8yps
 sitedir = $(rubylibprefix)/site_ruby
 rubyarchdir = $(rubylibdir)/$(arch)
 rubylibdir = $(rubylibprefix)/$(ruby_version)
@@ -66,9 +66,9 @@ archdir = $(rubyarchdir)
 CC_WRAPPER = 
 CC = clang
 CXX = clang++
-LIBRUBY = $(LIBRUBY_A)
+LIBRUBY = $(LIBRUBY_SO)
 LIBRUBY_A = lib$(RUBY_SO_NAME)-static.a
-LIBRUBYARG_SHARED = 
+LIBRUBYARG_SHARED = -l$(RUBY_SO_NAME)
 LIBRUBYARG_STATIC = -l$(RUBY_SO_NAME)-static -framework Security -framework Foundation $(MAINLIBS)
 empty =
 OUTFLAG = -o $(empty)
@@ -83,13 +83,13 @@ debugflags = -ggdb3
 warnflags = -Wall -Wextra -Wdeclaration-after-statement -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens
 cppflags = 
 CCDLFLAGS = -fno-common
-CFLAGS   = $(CCDLFLAGS) $(cflags)  -pipe $(ARCH_FLAG)
+CFLAGS   = $(CCDLFLAGS) $(cflags)  -fno-common -pipe $(ARCH_FLAG)
 INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir)
 DEFS     = 
-CPPFLAGS = -DRUBY_EXTCONF_H=\"$(RUBY_EXTCONF_H)\" -I/usr/local/Cellar/libpq/11.4/include -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT $(DEFS) $(cppflags)
+CPPFLAGS = -DRUBY_EXTCONF_H=\"$(RUBY_EXTCONF_H)\" -I/usr/local/opt/libpq/include -I/Users/loui/.asdf/installs/ruby/2.6.2/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT $(DEFS) $(cppflags)
 CXXFLAGS = $(CCDLFLAGS) $(cxxflags) $(ARCH_FLAG)
-ldflags  = -L. -L/Users/loui/.rbenv/versions/2.6.1/lib  -fstack-protector-strong -L/usr/local/lib -Wl,-rpath,/usr/local/Cellar/libpq/11.4/lib
-dldflags = -L/Users/loui/.rbenv/versions/2.6.1/lib  -Wl,-undefined,dynamic_lookup -Wl,-multiply_defined,suppress 
+ldflags  = -L. -L/Users/loui/.asdf/installs/ruby/2.6.2/lib  -fstack-protector-strong -L/usr/local/lib -Wl,-rpath,/usr/local/opt/libpq/lib
+dldflags = -L/Users/loui/.asdf/installs/ruby/2.6.2/lib  -Wl,-undefined,dynamic_lookup -Wl,-multiply_defined,suppress 
 ARCH_FLAG = 
 DLDFLAGS = $(ldflags) $(dldflags) $(ARCH_FLAG)
 LDSHARED = $(CC) -dynamic -bundle
@@ -124,8 +124,8 @@ TOUCH = exit >
 #### End of system configuration section. ####
 
 preload = 
-libpath = . $(libdir) /usr/local/Cellar/libpq/11.4/lib
-LIBPATH =  -L. -L$(libdir) -L/usr/local/Cellar/libpq/11.4/lib
+libpath = . $(libdir) /usr/local/opt/libpq/lib
+LIBPATH =  -L. -L$(libdir) -L/usr/local/opt/libpq/lib
 DEFFILE = 
 
 CLEANFILES = mkmf.log
@@ -136,7 +136,7 @@ extout =
 extout_prefix = 
 target_prefix = 
 LOCAL_LIBS = 
-LIBS =  -lpq   
+LIBS = $(LIBRUBYARG_SHARED) -lpq   
 ORIG_SRCS = gvl_wrappers.c pg.c pg_binary_decoder.c pg_binary_encoder.c pg_coder.c pg_connection.c pg_copy_coder.c pg_errors.c pg_result.c pg_text_decoder.c pg_text_encoder.c pg_type_map.c pg_type_map_all_strings.c pg_type_map_by_class.c pg_type_map_by_column.c pg_type_map_by_mri_type.c pg_type_map_by_oid.c pg_type_map_in_ruby.c util.c
 SRCS = $(ORIG_SRCS) 
 OBJS = gvl_wrappers.o pg.o pg_binary_decoder.o pg_binary_encoder.o pg_coder.o pg_connection.o pg_copy_coder.o pg_errors.o pg_result.o pg_text_decoder.o pg_text_encoder.o pg_type_map.o pg_type_map_all_strings.o pg_type_map_by_class.o pg_type_map_by_column.o pg_type_map_by_mri_type.o pg_type_map_by_oid.o pg_type_map_in_ruby.o util.o

@@ -30,30 +30,28 @@ Kernel configured for up to 8 processors.
 Processor type: x86_64h (Intel x86-64h Haswell)
 Processors active: 0 1 2 3 4 5 6 7
 Primary memory available: 16.00 gigabytes
-Default processor set: 473 tasks, 2489 threads, 8 processors
-Load average: 5.62, Mach factor: 3.28
+Default processor set: 441 tasks, 2268 threads, 8 processors
+Load average: 6.03, Mach factor: 2.16
 /bin/machine           = unknown
 /usr/bin/oslevel       = unknown
 /bin/universe          = unknown
 
-PATH: /Users/loui/.rbenv/versions/2.6.1/bin
-PATH: /usr/local/Cellar/rbenv/1.1.2/libexec
-PATH: /usr/local/opt/openssl/bin
-PATH: /Users/loui/.goenv/shims
-PATH: /Users/loui/.nodenv/shims
-PATH: /Users/loui/.rbenv/shims
-PATH: /usr/local/opt/imagemagick@6/bin
+PATH: /Users/loui/.asdf/installs/ruby/2.6.2/bin
+PATH: /usr/local/opt/openssl@1.1/bin
+PATH: /User/loui/docker-gc/docker-gc
+PATH: /Users/loui/.rbenv/shims/rubocop
 PATH: /usr/local/opt/v8@3.15/bin
 PATH: /usr/local/opt/openssl/bin
-PATH: /usr/local/opt/mysql-client/bin
+PATH: /usr/local/opt/mysql-client@5.7/bin
 PATH: /usr/local/opt/libpq/bin
-PATH: /usr/local/
-PATH: /usr/local/sbin
+PATH: /Users/loui/.asdf/shims
+PATH: /usr/local/opt/asdf/bin
 PATH: /usr/local/bin
 PATH: /usr/bin
 PATH: /bin
 PATH: /usr/sbin
 PATH: /sbin
+PATH: /usr/local/MacGPG2/bin
 
 
 ## ----------- ##
@@ -111,122 +109,35 @@ clang: error: unknown argument '-qversion', did you mean '--version'?
 clang: error: no input files
 configure:3835: $? = 1
 configure:3855: checking whether the C compiler works
-configure:3877: clang  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -L/usr/local/opt/openssl/lib conftest.c  >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:3877: clang    conftest.c  >&5
 configure:3881: $? = 0
 configure:3929: result: yes
 configure:3932: checking for C compiler default output file name
 configure:3934: result: a.out
 configure:3940: checking for suffix of executables
-configure:3947: clang -o conftest  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -L/usr/local/opt/openssl/lib conftest.c  >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:3947: clang -o conftest    conftest.c  >&5
 configure:3951: $? = 0
 configure:3973: result: 
 configure:3995: checking whether we are cross compiling
-configure:4003: clang -o conftest  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -L/usr/local/opt/openssl/lib conftest.c  >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:4003: clang -o conftest    conftest.c  >&5
 configure:4007: $? = 0
 configure:4014: ./conftest
 configure:4018: $? = 0
 configure:4033: result: no
 configure:4038: checking for suffix of object files
-configure:4060: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:4060: clang -c   conftest.c >&5
 configure:4064: $? = 0
 configure:4085: result: o
 configure:4089: checking whether we are using the GNU C compiler
-configure:4108: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:4108: clang -c   conftest.c >&5
 configure:4108: $? = 0
 configure:4117: result: yes
 configure:4126: checking whether clang accepts -g
-configure:4146: clang -c -g -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:4146: clang -c -g  conftest.c >&5
 configure:4146: $? = 0
-configure: failed program was:
-| /* confdefs.h */
-| #define PACKAGE_NAME "libffi"
-| #define PACKAGE_TARNAME "libffi"
-| #define PACKAGE_VERSION "3.99999"
-| #define PACKAGE_STRING "libffi 3.99999"
-| #define PACKAGE_BUGREPORT "http://github.com/libffi/libffi/issues"
-| #define PACKAGE_URL ""
-| #define PACKAGE "libffi"
-| #define VERSION "3.99999"
-| /* end confdefs.h.  */
-| 
-| int
-| main ()
-| {
-| 
-|   ;
-|   return 0;
-| }
-configure:4161: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
-configure:4161: $? = 0
-configure: failed program was:
-| /* confdefs.h */
-| #define PACKAGE_NAME "libffi"
-| #define PACKAGE_TARNAME "libffi"
-| #define PACKAGE_VERSION "3.99999"
-| #define PACKAGE_STRING "libffi 3.99999"
-| #define PACKAGE_BUGREPORT "http://github.com/libffi/libffi/issues"
-| #define PACKAGE_URL ""
-| #define PACKAGE "libffi"
-| #define VERSION "3.99999"
-| /* end confdefs.h.  */
-| 
-| int
-| main ()
-| {
-| 
-|   ;
-|   return 0;
-| }
-configure:4177: clang -c -g -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
-configure:4177: $? = 0
 configure:4187: result: yes
 configure:4204: checking for clang option to accept ISO C89
-configure:4267: clang  -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:4267: clang  -c   conftest.c >&5
 configure:4267: $? = 0
 configure:4280: result: none needed
 configure:4305: checking whether clang understands -c and -o together
@@ -266,74 +177,12 @@ clang: error: unknown argument '-qversion', did you mean '--version'?
 clang: error: no input files
 configure:4682: $? = 1
 configure:4686: checking whether we are using the GNU C++ compiler
-configure:4705: g++ -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.cpp >&5
-In file included from <built-in>:373:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:4705: g++ -c   conftest.cpp >&5
 configure:4705: $? = 0
 configure:4714: result: yes
 configure:4723: checking whether g++ accepts -g
-configure:4743: g++ -c -g -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.cpp >&5
-In file included from <built-in>:373:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:4743: g++ -c -g  conftest.cpp >&5
 configure:4743: $? = 0
-configure: failed program was:
-| /* confdefs.h */
-| #define PACKAGE_NAME "libffi"
-| #define PACKAGE_TARNAME "libffi"
-| #define PACKAGE_VERSION "3.99999"
-| #define PACKAGE_STRING "libffi 3.99999"
-| #define PACKAGE_BUGREPORT "http://github.com/libffi/libffi/issues"
-| #define PACKAGE_URL ""
-| #define PACKAGE "libffi"
-| #define VERSION "3.99999"
-| /* end confdefs.h.  */
-| 
-| int
-| main ()
-| {
-| 
-|   ;
-|   return 0;
-| }
-configure:4758: g++ -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.cpp >&5
-In file included from <built-in>:373:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
-configure:4758: $? = 0
-configure: failed program was:
-| /* confdefs.h */
-| #define PACKAGE_NAME "libffi"
-| #define PACKAGE_TARNAME "libffi"
-| #define PACKAGE_VERSION "3.99999"
-| #define PACKAGE_STRING "libffi 3.99999"
-| #define PACKAGE_BUGREPORT "http://github.com/libffi/libffi/issues"
-| #define PACKAGE_URL ""
-| #define PACKAGE "libffi"
-| #define VERSION "3.99999"
-| /* end confdefs.h.  */
-| 
-| int
-| main ()
-| {
-| 
-|   ;
-|   return 0;
-| }
-configure:4774: g++ -c -g -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.cpp >&5
-In file included from <built-in>:373:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
-configure:4774: $? = 0
 configure:4784: result: yes
 configure:4809: checking dependency style of g++
 configure:4920: result: none
@@ -356,12 +205,7 @@ configure:5567: result: no
 configure:5579: checking for BSD- or MS-compatible name lister (nm)
 configure:5633: result: /usr/bin/nm -B
 configure:5763: checking the name lister (/usr/bin/nm -B) interface
-configure:5770: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:5770: clang -c   conftest.c >&5
 configure:5773: /usr/bin/nm -B "conftest.o"
 configure:5776: output
 0000000000000000 S _some_variable
@@ -389,12 +233,7 @@ configure:6624: checking for ar
 configure:6640: found /usr/bin/ar
 configure:6651: result: ar
 configure:6688: checking for archiver @FILE support
-configure:6705: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:6705: clang -c   conftest.c >&5
 configure:6705: $? = 0
 configure:6708: ar cru libconftest.a @conftest.lst >&5
 ar: @conftest.lst: No such file or directory
@@ -407,31 +246,16 @@ configure:6888: checking for ranlib
 configure:6904: found /usr/bin/ranlib
 configure:6915: result: ranlib
 configure:7017: checking command to parse /usr/bin/nm -B output from clang object
-configure:7170: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:7170: clang -c   conftest.c >&5
 configure:7173: $? = 0
 configure:7177: /usr/bin/nm -B conftest.o \| sed -n -e 's/^.*[ ]\([BCDEGRST][BCDEGRST]*\)[ ][ ]*\([_A-Za-z][_A-Za-z0-9]*\)$/\1 \2 \2/p' | sed '/ __gnu_lto/d' \> conftest.nm
 configure:7180: $? = 0
 cannot find nm_test_var in conftest.nm
-configure:7170: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:7170: clang -c   conftest.c >&5
 configure:7173: $? = 0
 configure:7177: /usr/bin/nm -B conftest.o \| sed -n -e 's/^.*[ ]\([BCDEGRST][BCDEGRST]*\)[ ][ ]*_\([_A-Za-z][_A-Za-z0-9]*\)$/\1 _\2 \2/p' | sed '/ __gnu_lto/d' \> conftest.nm
 configure:7180: $? = 0
-configure:7246: clang -o conftest  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -L/usr/local/opt/openssl/lib conftest.c conftstm.o >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:7246: clang -o conftest    conftest.c conftstm.o >&5
 configure:7249: $? = 0
 configure:7287: result: ok
 configure:7334: checking for sysroot
@@ -460,40 +284,26 @@ configure:8180: result: otool
 configure:8245: checking for otool64
 configure:8275: result: no
 configure:8320: checking for -single_module linker flag
-clang  -L/usr/local/opt/openssl/lib -o libconftest.dylib -dynamiclib -Wl,-single_module conftest.c
+clang   -o libconftest.dylib -dynamiclib -Wl,-single_module conftest.c
 configure:8353: result: yes
 configure:8356: checking for -exported_symbols_list linker flag
-configure:8376: clang -o conftest  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -L/usr/local/opt/openssl/lib -Wl,-exported_symbols_list,conftest.sym conftest.c  >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:8376: clang -o conftest    -Wl,-exported_symbols_list,conftest.sym conftest.c  >&5
 configure:8376: $? = 0
 configure:8386: result: yes
 configure:8389: checking for -force_load linker flag
 clang  -c -o conftest.o conftest.c
 ar cru libconftest.a conftest.o
 ranlib libconftest.a
-clang  -L/usr/local/opt/openssl/lib -o conftest conftest.c -Wl,-force_load,./libconftest.a
+clang   -o conftest conftest.c -Wl,-force_load,./libconftest.a
 configure:8421: result: yes
 configure:8498: checking how to run the C preprocessor
-configure:8529: clang -E -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:8529: clang -E  conftest.c
 configure:8529: $? = 0
-configure:8543: clang -E -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
+configure:8543: clang -E  conftest.c
 conftest.c:11:10: fatal error: 'ac_nonexistent.h' file not found
 #include <ac_nonexistent.h>
          ^~~~~~~~~~~~~~~~~~
-1 warning and 1 error generated.
+1 error generated.
 configure:8543: $? = 1
 configure: failed program was:
 | /* confdefs.h */
@@ -508,22 +318,13 @@ configure: failed program was:
 | /* end confdefs.h.  */
 | #include <ac_nonexistent.h>
 configure:8568: result: clang -E
-configure:8588: clang -E -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:8588: clang -E  conftest.c
 configure:8588: $? = 0
-configure:8602: clang -E -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
+configure:8602: clang -E  conftest.c
 conftest.c:11:10: fatal error: 'ac_nonexistent.h' file not found
 #include <ac_nonexistent.h>
          ^~~~~~~~~~~~~~~~~~
-1 warning and 1 error generated.
+1 error generated.
 configure:8602: $? = 1
 configure: failed program was:
 | /* confdefs.h */
@@ -538,154 +339,69 @@ configure: failed program was:
 | /* end confdefs.h.  */
 | #include <ac_nonexistent.h>
 configure:8631: checking for ANSI C header files
-configure:8651: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:8651: clang -c   conftest.c >&5
 configure:8651: $? = 0
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
-configure:8724: clang -o conftest  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -L/usr/local/opt/openssl/lib conftest.c  >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:8724: clang -o conftest    conftest.c  >&5
 configure:8724: $? = 0
 configure:8724: ./conftest
 configure:8724: $? = 0
 configure:8735: result: yes
 configure:8748: checking for sys/types.h
-configure:8748: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:8748: clang -c   conftest.c >&5
 configure:8748: $? = 0
 configure:8748: result: yes
 configure:8748: checking for sys/stat.h
-configure:8748: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:8748: clang -c   conftest.c >&5
 configure:8748: $? = 0
 configure:8748: result: yes
 configure:8748: checking for stdlib.h
-configure:8748: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:8748: clang -c   conftest.c >&5
 configure:8748: $? = 0
 configure:8748: result: yes
 configure:8748: checking for string.h
-configure:8748: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:8748: clang -c   conftest.c >&5
 configure:8748: $? = 0
 configure:8748: result: yes
 configure:8748: checking for memory.h
-configure:8748: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:8748: clang -c   conftest.c >&5
 configure:8748: $? = 0
 configure:8748: result: yes
 configure:8748: checking for strings.h
-configure:8748: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:8748: clang -c   conftest.c >&5
 configure:8748: $? = 0
 configure:8748: result: yes
 configure:8748: checking for inttypes.h
-configure:8748: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:8748: clang -c   conftest.c >&5
 configure:8748: $? = 0
 configure:8748: result: yes
 configure:8748: checking for stdint.h
-configure:8748: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:8748: clang -c   conftest.c >&5
 configure:8748: $? = 0
 configure:8748: result: yes
 configure:8748: checking for unistd.h
-configure:8748: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:8748: clang -c   conftest.c >&5
 configure:8748: $? = 0
 configure:8748: result: yes
 configure:8762: checking for dlfcn.h
-configure:8762: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:8762: clang -c   conftest.c >&5
 configure:8762: $? = 0
 configure:8762: result: yes
 configure:9029: checking for objdir
 configure:9044: result: .libs
 configure:9308: checking if clang supports -fno-rtti -fno-exceptions
-configure:9326: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fno-rtti -fno-exceptions conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:9326: clang -c   -fno-rtti -fno-exceptions conftest.c >&5
 configure:9330: $? = 0
 configure:9343: result: yes
 configure:9701: checking for clang option to produce PIC
 configure:9708: result: -fno-common -DPIC
 configure:9716: checking if clang PIC flag -fno-common -DPIC works
-configure:9734: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fno-common -DPIC -DPIC conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:9734: clang -c   -fno-common -DPIC -DPIC conftest.c >&5
 configure:9738: $? = 0
 configure:9751: result: yes
 configure:9780: checking if clang static flag -static works
 configure:9808: result: no
 configure:9823: checking if clang supports -c -o file.o
-configure:9844: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -o out/conftest2.o conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:9844: clang -c   -o out/conftest2.o conftest.c >&5
 configure:9848: $? = 0
 configure:9870: result: yes
 configure:9878: checking if clang supports -c -o file.o
@@ -705,22 +421,13 @@ configure:13056: result: yes
 configure:13059: checking whether to build static libraries
 configure:13063: result: no
 configure:13086: checking how to run the C++ preprocessor
-configure:13113: g++ -E -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.cpp
-In file included from <built-in>:373:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:13113: g++ -E  conftest.cpp
 configure:13113: $? = 0
-configure:13127: g++ -E -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.cpp
-In file included from <built-in>:373:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
+configure:13127: g++ -E  conftest.cpp
 conftest.cpp:23:10: fatal error: 'ac_nonexistent.h' file not found
 #include <ac_nonexistent.h>
          ^~~~~~~~~~~~~~~~~~
-1 warning and 1 error generated.
+1 error generated.
 configure:13127: $? = 1
 configure: failed program was:
 | /* confdefs.h */
@@ -747,22 +454,13 @@ configure: failed program was:
 | /* end confdefs.h.  */
 | #include <ac_nonexistent.h>
 configure:13152: result: g++ -E
-configure:13172: g++ -E -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.cpp
-In file included from <built-in>:373:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:13172: g++ -E  conftest.cpp
 configure:13172: $? = 0
-configure:13186: g++ -E -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.cpp
-In file included from <built-in>:373:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
+configure:13186: g++ -E  conftest.cpp
 conftest.cpp:23:10: fatal error: 'ac_nonexistent.h' file not found
 #include <ac_nonexistent.h>
          ^~~~~~~~~~~~~~~~~~
-1 warning and 1 error generated.
+1 error generated.
 configure:13186: $? = 1
 configure: failed program was:
 | /* confdefs.h */
@@ -794,33 +492,18 @@ configure:13422: checking if the linker (ld) is GNU ld
 configure:13437: result: no
 configure:13492: checking whether the g++ linker (ld) supports shared libraries
 configure:14565: result: yes
-configure:14601: g++ -c -g -O2 -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.cpp >&5
-In file included from <built-in>:373:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:14601: g++ -c -g -O2  conftest.cpp >&5
 configure:14604: $? = 0
 configure:15085: checking for g++ option to produce PIC
 configure:15092: result: -fno-common -DPIC
 configure:15100: checking if g++ PIC flag -fno-common -DPIC works
-configure:15118: g++ -c -g -O2 -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fno-common -DPIC -DPIC conftest.cpp >&5
-In file included from <built-in>:373:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:15118: g++ -c -g -O2  -fno-common -DPIC -DPIC conftest.cpp >&5
 configure:15122: $? = 0
 configure:15135: result: yes
 configure:15158: checking if g++ static flag -static works
 configure:15186: result: no
 configure:15198: checking if g++ supports -c -o file.o
-configure:15219: g++ -c -g -O2 -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -o out/conftest2.o conftest.cpp >&5
-In file included from <built-in>:373:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:15219: g++ -c -g -O2  -o out/conftest2.o conftest.cpp >&5
 configure:15223: $? = 0
 configure:15245: result: yes
 configure:15250: checking if g++ supports -c -o file.o
@@ -832,26 +515,17 @@ configure:16268: result: darwin18.7.0 dyld
 configure:16333: checking how to hardcode library paths into programs
 configure:16358: result: immediate
 configure:16426: checking size of size_t
-configure:16431: clang -o conftest  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -L/usr/local/opt/openssl/lib conftest.c  >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:16431: clang -o conftest    conftest.c  >&5
 configure:16431: $? = 0
 configure:16431: ./conftest
 configure:16431: $? = 0
 configure:16445: result: 8
 configure:16456: checking for C compiler vendor
-configure:16501: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
+configure:16501: clang -c   conftest.c >&5
 conftest.c:30:9: error: use of undeclared identifier 'thisisanerror'
         thisisanerror;
         ^
-1 warning and 1 error generated.
+1 error generated.
 configure:16501: $? = 1
 configure: failed program was:
 | /* confdefs.h */
@@ -889,15 +563,11 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:16501: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
+configure:16501: clang -c   conftest.c >&5
 conftest.c:30:9: error: use of undeclared identifier 'thisisanerror'
         thisisanerror;
         ^
-1 warning and 1 error generated.
+1 error generated.
 configure:16501: $? = 1
 configure: failed program was:
 | /* confdefs.h */
@@ -935,15 +605,11 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:16501: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
+configure:16501: clang -c   conftest.c >&5
 conftest.c:30:9: error: use of undeclared identifier 'thisisanerror'
         thisisanerror;
         ^
-1 warning and 1 error generated.
+1 error generated.
 configure:16501: $? = 1
 configure: failed program was:
 | /* confdefs.h */
@@ -981,18 +647,13 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:16501: clang -c  -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:16501: clang -c   conftest.c >&5
 configure:16501: $? = 0
 configure:16509: result: clang
 configure:17335: : CFLAGS already contains 
 configure:17338: $? = 0
 configure:17360: checking CFLAGS for maximum warnings
-configure:17380: clang -c  -warn all  -warn all -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
+configure:17380: clang -c  -warn all  -warn all  conftest.c >&5
 clang: error: unknown argument: '-warn'
 clang: error: unknown argument: '-warn'
 clang: error: no such file or directory: 'all'
@@ -1030,12 +691,7 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:17380: clang -c  -pedantic  -Wall -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:17380: clang -c  -pedantic  -Wall  conftest.c >&5
 configure:17380: $? = 0
 configure:17388: result: -Wall
 configure:17404: : CFLAGS="$CFLAGS $ac_cv_cflags_warn_all"
@@ -1043,41 +699,21 @@ configure:17407: $? = 0
 configure:17437: checking whether to enable maintainer-specific portions of Makefiles
 configure:17446: result: no
 configure:17462: checking sys/mman.h usability
-configure:17462: clang -c  -Wall -fexceptions -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:362:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:17462: clang -c  -Wall -fexceptions  conftest.c >&5
 configure:17462: $? = 0
 configure:17462: result: yes
 configure:17462: checking sys/mman.h presence
-configure:17462: clang -E -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c
-In file included from <built-in>:361:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:17462: clang -E  conftest.c
 configure:17462: $? = 0
 configure:17462: result: yes
 configure:17462: checking for sys/mman.h
 configure:17462: result: yes
 configure:17475: checking for mmap
-configure:17475: clang -o conftest  -Wall -fexceptions -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -L/usr/local/opt/openssl/lib conftest.c  >&5
-In file included from <built-in>:362:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:17475: clang -o conftest  -Wall -fexceptions   conftest.c  >&5
 configure:17475: $? = 0
 configure:17475: result: yes
 configure:17475: checking for mkostemp
-configure:17475: clang -o conftest  -Wall -fexceptions -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -L/usr/local/opt/openssl/lib conftest.c  >&5
-In file included from <built-in>:362:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:17475: clang -o conftest  -Wall -fexceptions   conftest.c  >&5
 configure:17475: $? = 0
 configure:17475: result: yes
 configure:17485: checking for sys/mman.h
@@ -1089,15 +725,11 @@ configure:17523: result: yes
 configure:17525: checking whether mmap from /dev/zero works
 configure:17547: result: no
 configure:17551: checking for MAP_ANON(YMOUS)
-configure:17574: clang -c  -Wall -fexceptions -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:362:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
+configure:17574: clang -c  -Wall -fexceptions  conftest.c >&5
 conftest.c:38:5: warning: unused variable 'n' [-Wunused-variable]
 int n = MAP_ANONYMOUS;
     ^
-2 warnings generated.
+1 warning generated.
 configure:17574: $? = 0
 configure:17581: result: yes
 configure:17587: checking whether mmap with MAP_ANON(YMOUS) works
@@ -1105,35 +737,22 @@ configure:17604: result: yes
 configure:17647: checking for ANSI C header files
 configure:17751: result: yes
 configure:17761: checking for memcpy
-configure:17761: clang -o conftest  -Wall -fexceptions -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -L/usr/local/opt/openssl/lib conftest.c  >&5
-In file included from <built-in>:362:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
+configure:17761: clang -o conftest  -Wall -fexceptions   conftest.c  >&5
 conftest.c:53:6: warning: incompatible redeclaration of library function 'memcpy' [-Wincompatible-library-redeclaration]
 char memcpy ();
      ^
 conftest.c:53:6: note: 'memcpy' is a builtin with type 'void *(void *, const void *, unsigned long)'
-2 warnings generated.
+1 warning generated.
 configure:17761: $? = 0
 configure:17761: result: yes
 configure:17770: checking for size_t
-configure:17770: clang -c  -Wall -fexceptions -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:362:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:17770: clang -c  -Wall -fexceptions  conftest.c >&5
 configure:17770: $? = 0
-configure:17770: clang -c  -Wall -fexceptions -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:362:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
+configure:17770: clang -c  -Wall -fexceptions  conftest.c >&5
 conftest.c:67:21: error: expected expression
 if (sizeof ((size_t)))
                     ^
-1 warning and 1 error generated.
+1 error generated.
 configure:17770: $? = 1
 configure: failed program was:
 | /* confdefs.h */
@@ -1209,69 +828,35 @@ configure: failed program was:
 | }
 configure:17770: result: yes
 configure:17783: checking for working alloca.h
-configure:17800: clang -o conftest  -Wall -fexceptions -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -L/usr/local/opt/openssl/lib conftest.c  >&5
-In file included from <built-in>:362:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:17800: clang -o conftest  -Wall -fexceptions   conftest.c  >&5
 configure:17800: $? = 0
 configure:17808: result: yes
 configure:17816: checking for alloca
-configure:17853: clang -o conftest  -Wall -fexceptions -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -L/usr/local/opt/openssl/lib conftest.c  >&5
-In file included from <built-in>:362:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:17853: clang -o conftest  -Wall -fexceptions   conftest.c  >&5
 configure:17853: $? = 0
 configure:17861: result: yes
 configure:17972: checking size of double
-configure:17977: clang -o conftest  -Wall -fexceptions -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -L/usr/local/opt/openssl/lib conftest.c  >&5
-In file included from <built-in>:362:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:17977: clang -o conftest  -Wall -fexceptions   conftest.c  >&5
 configure:17977: $? = 0
 configure:17977: ./conftest
 configure:17977: $? = 0
 configure:17991: result: 8
 configure:18005: checking size of long double
-configure:18010: clang -o conftest  -Wall -fexceptions -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -L/usr/local/opt/openssl/lib conftest.c  >&5
-In file included from <built-in>:362:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:18010: clang -o conftest  -Wall -fexceptions   conftest.c  >&5
 configure:18010: $? = 0
 configure:18010: ./conftest
 configure:18010: $? = 0
 configure:18024: result: 16
 configure:18057: checking whether byte ordering is bigendian
-configure:18072: clang -c  -Wall -fexceptions -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:362:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:18072: clang -c  -Wall -fexceptions  conftest.c >&5
 configure:18072: $? = 0
-configure:18117: clang -c  -Wall -fexceptions -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:362:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:18117: clang -c  -Wall -fexceptions  conftest.c >&5
 configure:18117: $? = 0
-configure:18135: clang -c  -Wall -fexceptions -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:362:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
+configure:18135: clang -c  -Wall -fexceptions  conftest.c >&5
 conftest.c:43:4: error: use of undeclared identifier 'not'
                  not big endian
                  ^
-1 warning and 1 error generated.
+1 error generated.
 configure:18135: $? = 1
 configure: failed program was:
 | /* confdefs.h */
@@ -1324,26 +909,17 @@ configure: failed program was:
 | }
 configure:18263: result: no
 configure:18282: checking assembler .cfi pseudo-op support
-configure:18300: clang -c  -Wall -fexceptions -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:362:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
-1 warning generated.
+configure:18300: clang -c  -Wall -fexceptions  conftest.c >&5
 configure:18300: $? = 0
 configure:18308: result: yes
 configure:18395: checking assembler supports pc related relocs
 configure:18408: result: yes
 configure:18454: checking for _ prefix in compiled symbols
-configure:18464: clang -c  -Wall -fexceptions -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   conftest.c >&5
-In file included from <built-in>:362:
-<command line>:1:25: warning: missing terminating '"' character [-Winvalid-pp-token]
-#define RUBY_EXTCONF_H \"extconf.h\"
-                        ^
+configure:18464: clang -c  -Wall -fexceptions  conftest.c >&5
 conftest.c:2:12: warning: expression result unused [-Wunused-value]
 int main(){nm_test_func;return 0;}
            ^~~~~~~~~~~~
-2 warnings generated.
+1 warning generated.
 configure:18467: $? = 0
 configure:18471: /usr/bin/nm -B conftest.o \| sed -n -e 's/^.*[	 ]\([BCDEGRST][BCDEGRST]*\)[	 ][	 ]*_\([_A-Za-z][_A-Za-z0-9]*\)$/\1 _\2 \2/p' | sed '/ __gnu_lto/d' \> conftest.nm
 configure:18474: $? = 0
@@ -1380,21 +956,21 @@ generated by GNU Autoconf 2.69.  Invocation command line was
 
 on Louiss-MBP
 
-config.status:1229: creating include/Makefile
-config.status:1229: creating include/ffi.h
-config.status:1229: creating Makefile
-config.status:1229: creating testsuite/Makefile
-config.status:1229: creating man/Makefile
-config.status:1229: creating doc/Makefile
-config.status:1229: creating libffi.pc
-config.status:1229: creating fficonfig.h
-config.status:1455: linking /Users/loui/projects/simplesettler/vendor/bundle/ruby/2.6.0/gems/ffi-1.9.25/ext/ffi_c/libffi/src/x86/ffitarget.h to include/ffitarget.h
-config.status:1474: executing buildir commands
-config.status:1487: skipping top_srcdir/Makefile - not created
-config.status:1474: executing depfiles commands
-config.status:1474: executing libtool commands
-config.status:1474: executing include commands
-config.status:1474: executing src commands
+config.status:1228: creating include/Makefile
+config.status:1228: creating include/ffi.h
+config.status:1228: creating Makefile
+config.status:1228: creating testsuite/Makefile
+config.status:1228: creating man/Makefile
+config.status:1228: creating doc/Makefile
+config.status:1228: creating libffi.pc
+config.status:1228: creating fficonfig.h
+config.status:1454: linking /Users/loui/projects/simplesettler/vendor/bundle/ruby/2.6.0/gems/ffi-1.9.25/ext/ffi_c/libffi/src/x86/ffitarget.h to include/ffitarget.h
+config.status:1473: executing buildir commands
+config.status:1486: skipping top_srcdir/Makefile - not created
+config.status:1473: executing depfiles commands
+config.status:1473: executing libtool commands
+config.status:1473: executing include commands
+config.status:1473: executing src commands
 
 ## ---------------- ##
 ## Cache variables. ##
@@ -1410,8 +986,8 @@ ac_cv_env_CCASFLAGS_set=
 ac_cv_env_CCASFLAGS_value=
 ac_cv_env_CCAS_set=
 ac_cv_env_CCAS_value=
-ac_cv_env_CPPFLAGS_set=set
-ac_cv_env_CPPFLAGS_value='-DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT  '
+ac_cv_env_CPPFLAGS_set=
+ac_cv_env_CPPFLAGS_value=
 ac_cv_env_CPP_set=
 ac_cv_env_CPP_value=
 ac_cv_env_CXXCPP_set=
@@ -1554,7 +1130,7 @@ CCASFLAGS=''
 CCDEPMODE='depmode=none'
 CFLAGS=' -Wall -fexceptions'
 CPP='clang -E'
-CPPFLAGS='-DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT  '
+CPPFLAGS=''
 CXX='g++'
 CXXCPP='g++ -E'
 CXXDEPMODE='depmode=none'
@@ -1584,7 +1160,7 @@ INSTALL_PROGRAM='${INSTALL}'
 INSTALL_SCRIPT='${INSTALL}'
 INSTALL_STRIP_PROGRAM='$(install_sh) -c -s'
 LD='ld'
-LDFLAGS='-L/usr/local/opt/openssl/lib'
+LDFLAGS=''
 LIBFFI_BUILD_VERSIONED_SHLIB_FALSE=''
 LIBFFI_BUILD_VERSIONED_SHLIB_GNU_FALSE=''
 LIBFFI_BUILD_VERSIONED_SHLIB_GNU_TRUE='#'

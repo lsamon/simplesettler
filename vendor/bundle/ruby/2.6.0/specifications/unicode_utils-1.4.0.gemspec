@@ -15,8 +15,8 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/lang/unicode_utils".freeze
   s.rdoc_options = ["--main=README.rdoc".freeze, "--charset=UTF-8".freeze]
   s.required_ruby_version = Gem::Requirement.new(">= 1.9.1".freeze)
-  s.rubygems_version = "3.0.1".freeze
+  s.rubygems_version = "3.0.3".freeze
   s.summary = "additional Unicode aware functions for Ruby 1.9".freeze
 
-  s.installed_by_version = "3.0.1" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.0.3" if s.respond_to? :installed_by_version
 end

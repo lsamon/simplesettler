@@ -1,35 +1,27 @@
-# before staring the app: `docker-compose up -d postgres redis` (make sure your local postgers and redis is turned off)
-# `sleep 20 && pg_restore --verbose --clean --no-acl --no-owner -h localhost -U tidyme-app -d tidyme-dev <postgres-dump-file>`
+version: '2.4'
 
-# Add the following at the top of `.env.dev`:
-# DATABASE_URL=postgresql://tidyme-app:password@postgres/tidyme-dev
-# RAILS_ENV=development
-
-# `docker-compose up app`
-
-version: '3.4'
 services:
-  app:
-    image: ss:latest
-    build: .
-    volumes:
-      - .:/simplesettler
-    ports:
-      - 3000:3000
-    env_file:
-      - .env
-    depends_on:
-      - postgres
-      - redis
-  postgres:
-    image: postgres:10.5-alpine
-    ports:
-      - 5432:5432
-    environment:
-      POSTGRES_DB: ss_development
-      POSTGRES_USER: ssuser
-      POSTGRES_PASSWORD: password
+
   redis:
-    image: redis:4.0-alpine
+    image: redis:4.0.10
+    cpus: '0.25'
+    mem_limit: '128m'
+    volumes:
+      - redis:/data
     ports:
-      - 6379:6379
+      - "6379:6379"
+
+  postgres:
+    image: postgres:10.6
+    cpus: '1'
+    mem_limit: '1g'
+    volumes:
+      - postgres:/var/lib/simplesettler/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  redis:
+    driver: local
+  postgres:
+    driver: local

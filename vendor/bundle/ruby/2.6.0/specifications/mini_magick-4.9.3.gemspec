@@ -14,10 +14,10 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/minimagick/minimagick".freeze
   s.licenses = ["MIT".freeze]
   s.requirements = ["You must have ImageMagick or GraphicsMagick installed".freeze]
-  s.rubygems_version = "3.0.1".freeze
+  s.rubygems_version = "3.0.3".freeze
   s.summary = "Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick".freeze
 
-  s.installed_by_version = "3.0.1" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.0.3" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 4

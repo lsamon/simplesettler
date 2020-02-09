@@ -18,8 +18,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'record_tag_helper', '~> 1.0'
 gem 'simple_form'
 
-gem 'dotenv'
-
 gem 'devise'
 gem 'rails_12factor'
 
@@ -64,6 +62,12 @@ gem 'stripe'
 # active record helpers
 gem 'email_validator'
 gem 'strip_attributes'
+
+# facebook
+gem 'koala'
+gem 'omniauth-facebook'
+
+gem 'figaro'
 
 group :development, :test do
   gem 'annotate'

@@ -6,7 +6,7 @@ users = [
   { username: 'admin', email: 'admin@gmail.com', password: '12345678', kind: :admin },
   { username: 'joel', email: 'joel@gmail.com', password: '12345678', kind: :client  },
   { username: 'luke', email: 'luke@gmail.com', password: '12345678', kind: :client  },
-  { username: 'shaila', email: 'shaila@gmail.com', password: '12345678', kind: :Client  }
+  { username: 'shaila', email: 'shaila@gmail.com', password: '12345678', kind: :client  }
 ]
 users.each do |user_attrs|
   User.create user_attrs
@@ -36,14 +36,3 @@ cities = %w[Sydney Melbourne Brisbane Adelaide Perth Canberra]
 cities.each do |city|
   City.create name: city, country: 'Australia', description: 'lorem ipsum'
 end
-
-VisaType.destroy_all
-visa_types = %w['Work Visa' 'Student Visa' 'Extend Visa' 'Permanent Residency' Citizenship]
-
-visa_types.each do |visa_type|
-  visa = Visa.create name: visa_type
-  visa.visa_requirements.create description: 'Be atleast 18+ years old'
-end
-
-Package.destroy_all
-Package.create name: 'Consultation', description: 'Default charge for consultation', price: 14.99

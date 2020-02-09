@@ -8,7 +8,7 @@ class Users::SessionsController < Devise::SessionsController
  end
 
  def create
-   if current_user && current_user.admin?
+   if current_user.try(:admin?)
      redirect_to admin_root_path
    else
      super
@@ -39,7 +39,8 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   protected
+
   def profile_params
-   params.fetch(:user_detail, {}).permit(:f_name, :l_name, :dob, :image)
+    params.fetch(:user_detail, {}).permit(:f_name, :l_name, :dob, :image)
   end
 end

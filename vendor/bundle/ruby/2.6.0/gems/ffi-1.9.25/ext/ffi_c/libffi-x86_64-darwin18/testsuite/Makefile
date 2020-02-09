@@ -155,7 +155,7 @@ CCASFLAGS =
 CCDEPMODE = depmode=none
 CFLAGS =  -Wall -fexceptions
 CPP = clang -E
-CPPFLAGS = -DRUBY_EXTCONF_H=\"extconf.h\" -I/Users/loui/.rbenv/versions/2.6.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT  
+CPPFLAGS = 
 CXX = g++
 CXXCPP = g++ -E
 CXXDEPMODE = depmode=none
@@ -182,7 +182,7 @@ INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 LD = ld
-LDFLAGS = -L/usr/local/opt/openssl/lib
+LDFLAGS = 
 LIBOBJS = 
 LIBS = 
 LIBTOOL = $(SHELL) $(top_builddir)/libtool

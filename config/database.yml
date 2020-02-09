@@ -35,3 +35,5 @@ test:
 production:
  <<: *default
  database: ss_production
+ url:  <%= ENV['DATABASE_URL'] %>
+ pool: <%= ENV['DATABASE_POOL'] || 5 %>

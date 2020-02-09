@@ -13,8 +13,8 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/grosser/i18n_data".freeze
   s.licenses = ["MIT".freeze]
   s.required_ruby_version = Gem::Requirement.new(">= 1.9.3".freeze)
-  s.rubygems_version = "3.0.1".freeze
+  s.rubygems_version = "3.0.3".freeze
   s.summary = "country/language names and 2-letter-code pairs, in 85 languages".freeze
 
-  s.installed_by_version = "3.0.1" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.0.3" if s.respond_to? :installed_by_version
 end

@@ -13,10 +13,10 @@ Gem::Specification.new do |s|
   s.email = ["chris@ozmm.org".freeze, "hone02@gmail.com".freeze, "steve@steveklabnik.com".freeze, "me@yaauie.com".freeze]
   s.homepage = "http://github.com/resque/redis-namespace".freeze
   s.licenses = ["MIT".freeze]
-  s.rubygems_version = "3.0.1".freeze
+  s.rubygems_version = "3.0.3".freeze
   s.summary = "Namespaces Redis commands.".freeze
 
-  s.installed_by_version = "3.0.1" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.0.3" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 4

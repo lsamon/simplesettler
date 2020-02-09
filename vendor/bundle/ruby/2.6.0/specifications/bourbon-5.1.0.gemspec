@@ -15,10 +15,10 @@ Gem::Specification.new do |s|
   s.files = ["bin/bourbon".freeze]
   s.homepage = "https://www.bourbon.io/".freeze
   s.licenses = ["MIT".freeze]
-  s.rubygems_version = "3.0.1".freeze
+  s.rubygems_version = "3.0.3".freeze
   s.summary = "A lightweight Sass tool set.".freeze
 
-  s.installed_by_version = "3.0.1" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.0.3" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
