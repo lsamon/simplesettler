@@ -31,7 +31,7 @@ get_settled.articles.create(
 )
 
 City.destroy_all
-cities = %w[Sydney Melbourne Brisbane Adelaide Perth Canberra]
+cities = %w[Sydney Melbourne Brisbane]
 
 cities.each do |city|
   City.create name: city, country: 'Australia', description: 'lorem ipsum'

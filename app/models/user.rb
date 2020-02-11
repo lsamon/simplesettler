@@ -33,6 +33,8 @@ class User < ActiveRecord::Base
   private
 
   def subscribe_user_to_mailing_list
+    return unless Rails.env.production?
+
     SubscribeUserToMailingListJob.perform_later(email)
   end
 

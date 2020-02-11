@@ -67,8 +67,6 @@ gem 'strip_attributes'
 gem 'koala'
 gem 'omniauth-facebook'
 
-gem 'figaro'
-
 group :development, :test do
   gem 'annotate'
   gem 'better_errors'
