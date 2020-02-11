@@ -5,7 +5,8 @@ module Facebook
   class ConnectController < ApplicationController
     def create
       @oauth = Koala::Facebook::OAuth.new
-      url = @oauth.url_for_oauth_code(permissions: 'manage_pages, publish_pages')
+      url =
+        @oauth.url_for_oauth_code(permissions: 'manage_pages, publish_pages')
 
       redirect_to url
     end
