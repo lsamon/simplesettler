@@ -6,7 +6,7 @@
         <h1><%= t('site.header.title') %></h1>
         <h2><%= t('site.header.subtitle') %></h2>
         <div class="ss-input-container">
-          <%= form_tag '/search', method: 'get', :id => 'search-form' do %>
+          <%= form_tag('/search', method: 'get', id: 'search-form') do %>
             <%= text_field_tag :search, params[:term], placeholder: t('site.header.search.placeholder'), class: "ss-input" %>
             <%= hidden_field_tag 'city_id' %>
             <%= button_tag(nil) do %>
@@ -30,22 +30,14 @@
      <% @cities.each  do |city| %>
         <div class="col-sm-4 grid-item">
           <div class="imagebox">
-            <%= link_to city_path(city) do %>
-              <span class="imagebox-desc"><%= city.name.upcase %></span>
-              <%= image_tag "#{city.name.downcase}.jpg" %>
-            <% end %>
+            <span class="imagebox-desc"><%= city.name.upcase %></span>
+            <%= image_tag "#{city.name.downcase}.jpg" %>
           </div>
         </div>
     <% end %>
 </div>
-<%= render 'speak_to_experts' %>
-<%= render 'page_end' %>
-
-<div class="row spacer">
-  <div class="col-sm-12 text-center">
-    <%= link_to "Connect to Facebook Page(s)", facebook_connect_index_path, method: :post %>
-  </div>
-</div>
+<%= render('speak_to_experts') %>
+<%= render('page_end') %>
 
 <script>
 $(function(){

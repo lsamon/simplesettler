@@ -7,17 +7,12 @@ _"Simple Settler_" is a functional MVP site built in rails by Loui Amon & Ron Ta
 * AJAX
 
 ### Additional Gems:
-* ckeditor
 * paperclip
 * devise
 
 ### Functionality:
 * Auto-complete search
-* City star rating
-* Article rating
-* Visualised data into charts
 * Fully functional CRUD system
-* AJAX tab bar for cities category
 
 ### What we would like to do in the future:
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'net/http'
 require 'uri'
 
@@ -6,7 +8,6 @@ class PagesController < ApplicationController
   layout 'pages'
   def index
     @cities = City.all
-    @articles = Article.all
 
     store_page_access_token if params[:code]
   end
@@ -14,19 +15,19 @@ class PagesController < ApplicationController
   def search
     if params[:city_id].present?
       city_id = City.find(params[:city_id].to_i)
-      return redirect_to city_path(city_id)
+      return redirect_to(city_path(city_id))
     end
 
-    redirect_to root_path
+    redirect_to(root_path)
   end
 
   def subscribe
-    return redirect_to root_path unless params[:email].present?
+    return redirect_to(root_path) unless params[:email].present?
 
     begin
       SubscribeUserToMailingListJob.perform_now(params[:email])
       message = "Thank you for subscribing to SimpleSettler's Guide Newsletter!"
-      render json: { message: message }
+      render(json: { message: message })
     rescue Gibbon::MailChimpError => e
       respond_to do |format|
         format.json { render json: { error: e.detail }, status: 400 }
@@ -38,9 +39,7 @@ class PagesController < ApplicationController
     @visa_types = VisaType.all
   end
 
-  def about
-    @article = Article.about_us
-  end
+  def about; end
 
   def privacy; end
 
@@ -50,8 +49,6 @@ class PagesController < ApplicationController
 
   private
 
-  # rubocop:disable AbcSize
-  # rubocop:disable MethodLength
   def store_page_access_token
     # return User.last.facebook_page_token if User.last.facebook_page_token
 
@@ -62,29 +59,24 @@ class PagesController < ApplicationController
     access_token = graph_response['access_token']
     user_graph = Koala::Facebook::API.new(access_token)
     page_info = user_graph.get_connections('me', 'accounts').first
-    User.last
-        .update(
-          facebook_page_token: page_info['access_token'],
-          facebook_page_id: page_info['id']
-        )
+    User.last.update(
+      facebook_page_token: page_info['access_token'],
+      facebook_page_id: page_info['id']
+    )
   rescue Koala::KoalaError => e
     raise e.message
   end
-  # rubocop:enable AbcSize
-  # rubocop:enable MethodLength
 
   def graph_response(url)
     uri = URI.parse(url)
     request = Net::HTTP::Get.new(uri)
 
-    req_options = {
-      use_ssl: uri.scheme == 'https'
-    }
+    req_options = { use_ssl: uri.scheme == 'https' }
 
     response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
       http.request(request)
     end
 
-    JSON.parse response.body
+    JSON.parse(response.body)
   end
 end

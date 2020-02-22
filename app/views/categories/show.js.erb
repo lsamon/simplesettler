@@ -1,7 +1,0 @@
-$(".articles").html("<%= escape_javascript render('show_articles', articles: @articles) %>");
-<% if @category %>
-  var url = "<%= current_city.name.parameterize %>#<%= @category.slug %>";
-  window.history.pushState("","",url);
-<% else %>
-  $(".articles").html("<%= escape_javascript render('category_city_articles', articles: @articles) %>")
-<% end %>

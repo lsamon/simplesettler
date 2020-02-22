@@ -1,6 +1,6 @@
+# frozen_string_literal: true
+
 class User < ActiveRecord::Base
-  include Ratyrate
-  ratyrate_rater
   strip_attributes collapse_spaces: true
 
   has_many :articles

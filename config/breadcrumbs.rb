@@ -1,15 +1,4 @@
-crumb :admin_root do
-  link "Articles"
-end
-
-crumb :admin_articles do
-  link "Articles", admin_articles_path
-end
-
-crumb :admin_article do |article|
-  link article.new_record? ? "New" : "Edit"
-  parent :admin_articles
-end
+# frozen_string_literal: true
 
 crumb :admin_cities do
   link "Cities", admin_cities_path
@@ -18,15 +7,6 @@ end
 crumb :admin_city do |city|
   link city.new_record? ? "New" : "Edit"
   parent :admin_cities
-end
-
-crumb :admin_categories do
-  link "Categories", admin_categories_path
-end
-
-crumb :admin_category do |category|
-  link category.new_record? ? "New" : "Edit"
-  parent :admin_categories
 end
 
 crumb :admin_users do
@@ -44,13 +24,6 @@ crumb :site_root do
   link "Home", root_path
 end
 
-crumb :site_city do |city|
-  link "City Articles", city_path(city)
-end
-
-crumb :site_article do
-  link "Article"
-end
 
 crumb :admin_visa_types do
   link "Visa Types", admin_visa_types_path
@@ -72,11 +45,11 @@ crumb :admin_visa_requirement do |visa_requirement, visa_type|
   parent :admin_visa_details, visa_type
 end
 
-crumb :admin_payments do |payment|
+crumb :admin_payments do |_|
   link "Payment lists", admin_payments_path
 end
 
-crumb :admin_payment_show do |payment|
+crumb :admin_payment_show do |_|
   link "Details"
   parent :admin_payments
 end
@@ -89,28 +62,3 @@ crumb :admin_package do |package|
   link package.new_record? ? "New" : "Edit"
   parent :admin_packages
 end
-
-crumb :admin_faqs do
-  link "Faqs", admin_faqs_path
-end
-
-crumb :admin_faq do |faq|
-  link faq.new_record? ? "New" : "Edit"
-  parent :admin_faqs
-end
-
-# crumb :project_issues do |project|
-#   link "Issues", project_issues_path(project)
-#   parent :project, project
-# end
-
-# crumb :issue do |issue|
-#   link issue.title, issue_path(issue)
-#   parent :project_issues, issue.project
-# end
-
-# If you want to split your breadcrumbs configuration over multiple files, you
-# can create a folder named `config/breadcrumbs` and put your configuration
-# files there. All *.rb files (e.g. `frontend.rb` or `products.rb`) in that
-# folder are loaded and reloaded automatically when you change them, just like
-# this file (`config/breadcrumbs.rb`).
