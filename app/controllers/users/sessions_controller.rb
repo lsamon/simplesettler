@@ -11,8 +11,9 @@ module Users
     end
 
     def create
-      redirect_to(admin_root_path) if current_user.try(:admin?)
-      super
+      allow_params_authentication!
+      self.resource = warden.authenticate(auth_options)
+      redirect_to(admin_root_path) if resource.try(:admin?)
     end
 
     def profile
@@ -36,6 +37,10 @@ module Users
 
     def profile_params
       params.fetch(:user_detail, {}).permit(:f_name, :l_name, :dob, :image)
+    end
+
+    def sign_in_params
+      params.permit(:password, :email)
     end
   end
 end

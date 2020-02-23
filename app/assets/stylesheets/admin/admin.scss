@@ -55,11 +55,6 @@ li,ul{
 .v-align {
   vertical-align: top;
 }
-.logo img {
-  max-width: 300px;
-  padding: 16px 0 17px;
-  width: 100%;
-}
 
 .header-top {
   margin: 0;
@@ -174,16 +169,14 @@ header {
   transition: all 0.5s ease;
 }
 
-.logo {
-  text-align: center;
+.navi {
+  height: 100vh;
 }
 
 .navi a {
   border-bottom: 1px solid #0d172e;
-  border-top: 1px solid #0d172e;
   color: #ffffff;
   display: block;
-  font-size: 17px;
   font-weight: 500;
   padding: 28px 20px;
   text-decoration: none;

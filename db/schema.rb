@@ -25,15 +25,6 @@ ActiveRecord::Schema.define(version: 20200222091451) do
     t.datetime "appointment_date"
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "slug"
-    t.string "image"
-    t.integer "articles_count"
-  end
-
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.string "country"
@@ -46,7 +37,6 @@ ActiveRecord::Schema.define(version: 20200222091451) do
     t.string "meta_title"
     t.text "meta_description"
     t.text "meta_keywords"
-    t.integer "articles_count"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|

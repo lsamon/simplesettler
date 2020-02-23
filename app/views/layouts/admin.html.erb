@@ -26,24 +26,20 @@
     <div class="container-fluid display-table">
       <div class="row display-table-row">
           <div class="col-md-2 col-sm-1 col-xs-1 hidden-xs display-table-cell v-align box" id="navigation">
-            <div class="logo">
-              <%= link_to(root_path) do %>
-                <%= image_tag('logo.png', class: 'visible-xs visible-sm visible-md visible-lg circle-logo', alt: 'ss_logo') %>
-              <% end %>
+            <div class="navi">
+              <ul id="side-menu">
+                <li>
+                  <%= link_to(root_path) do %>
+                    <%= image_tag('logo.png', class: 'visible-xs visible-sm visible-md visible-lg circle-logo', alt: 'ss_logo') %>
+                  <% end %>
+                </li>
+                <%= side_menu 'cities', 'fa-building-o' %>
+                <%= side_menu 'users', 'fa-users' %>
+                <%= side_menu 'visa_types', 'fa-address-book-o' %>
+                <%= side_menu 'payments', 'fa-money' %>
+                <%= side_menu 'packages', 'fa-object-group' %>
+              </ul>
             </div>
-              <div class="navi">
-                <ul id="side-menu">
-                  <%= side_menu 'articles', 'fa-newspaper-o' %>
-                  <%= side_menu 'cities', 'fa-building-o' %>
-                  <%= side_menu 'categories', 'fa-tags' %>
-                  <%= side_menu 'users', 'fa-users' %>
-                  <%= side_menu 'visa_types', 'fa-address-book-o' %>
-                  <%= side_menu 'payments', 'fa-money' %>
-                  <%= side_menu 'packages', 'fa-object-group' %>
-                  <%= side_menu 'banners', 'fa-picture-o' %>
-                  <%= side_menu 'faqs', 'fa-question-circle-o' %>
-                </ul>
-              </div>
           </div>
         <div class="col-md-10 col-sm-11 col-xs-11 display-table-cell v-align">
           <div class="row">
